@@ -1,71 +1,130 @@
-# Configuración del proceso de clasificación y cualificación.
-# Ajusta estos valores a tu mercado y a tu cliente ideal.
+# Reglas de calificación para COI.
+# Fuente: contexto/prospeccion-masiva-contexto.md (secciones 3, 4 y 5). Si cambia el brief, cambiá esto.
 
-# País por defecto para normalizar teléfonos sin prefijo internacional (ISO 3166: ES, MX, AR, CO, CL, PE...)
-pais_por_defecto: ES
+pais_por_defecto: AR
 
-# Cómo se llaman las columnas en tus archivos (se aceptan varios alias por campo).
+# Alias de columnas de las listas de entrada (se ignoran mayúsculas, acentos y espacios)
 columnas:
-  nombre: [nombre, name, contacto, cliente, nombre_contacto]
-  empresa: [empresa, company, razon_social, negocio, compania]
-  telefono: [telefono, teléfono, phone, movil, móvil, celular, tel, whatsapp]
-  email: [email, correo, mail, e-mail, correo_electronico]
-  sector: [sector, industria, rubro, actividad, industry]
-  ciudad: [ciudad, localidad, city, provincia, region]
-  empleados: [empleados, trabajadores, employees, tamano, tamaño, plantilla]
-  facturacion: [facturacion, facturación, ventas, revenue, ingresos]
-  web: [web, website, sitio_web, url, pagina]
-  ultima_compra: [ultima_compra, última_compra, last_purchase, fecha_ultima_compra]
-  notas: [notas, observaciones, comentarios, notes]
+  razon_social: [razon_social, empresa, company, compania, cliente, nombre_empresa]
+  nombre_fantasia: [nombre_fantasia, fantasia, marca, nombre_comercial]
+  cuit: [cuit, cuil, cuit_empresa, tax_id]
+  rubro: [rubro, sector, actividad, industria, industry, categoria]
+  localidad: [localidad, ciudad, city, partido]
+  provincia: [provincia, estado, region]
+  pais: [pais, country]
+  web: [web, website, sitio_web, url, pagina, dominio]
+  empleados: [empleados, empleados_aprox, trabajadores, employees, dotacion, tamano]
+  contacto_nombre: [contacto_nombre, contacto, nombre, nombre_contacto, name]
+  contacto_cargo: [contacto_cargo, cargo, puesto, position, title]
+  email: [email, contacto_email, correo, mail, e_mail]
+  email_estado: [email_estado, estado_email]
+  telefono: [telefono, contacto_telefono, phone, tel, movil, celular, whatsapp]
+  senales: [senales, señales, observaciones, notas, comentarios, descripcion, notes]
+  fuente: [fuente, origen, source]
 
-# Reglas de puntuación (0-100). Cada regla suma puntos si se cumple.
-puntuacion:
-  # Sectores que encajan con el sistema que ofreces (coincidencia parcial, sin mayúsculas)
-  sectores_objetivo:
-    puntos: 25
-    valores: [restaurante, clinica, clínica, inmobiliaria, retail, tienda, taller, gimnasio, academia, hotel]
-  # Tamaño de empresa por número de empleados: [minimo, maximo, puntos]
-  empleados:
-    - [1, 4, 5]
-    - [5, 19, 15]
-    - [20, 99, 20]
-    - [100, 1000000, 10]
-  # Facturación anual: [minimo, maximo, puntos]
-  facturacion:
-    - [0, 99999, 5]
-    - [100000, 999999, 15]
-    - [1000000, 1000000000000, 20]
-  # Datos de contacto disponibles
-  tiene_telefono_valido: 10
-  tiene_email_valido: 10
-  tiene_web: 5
-  # Ciudades/zonas prioritarias (coincidencia parcial)
-  zonas_prioritarias:
-    puntos: 10
-    valores: []
-  # Palabras en notas que indican interés o dolor (coincidencia parcial)
-  palabras_clave_interes:
-    puntos: 10
-    valores: [interesado, presupuesto, necesita, problema, busca, cambiar]
+# Rubros prioritarios (brief, sección 3). Se detectan por palabras en rubro, razón social,
+# nombre de fantasía, web y señales. El primero que coincide gana.
+rubros:
+  - nombre: Montajes industriales y estructuras metálicas
+    palabras: [montaje, montajes, estructuras metalicas, estructura metalica, naves industriales, galpones]
+    dolor: el costo real de cada proyecto suele aparecer recién al cerrarlo
+    solucion: junta presupuestos, gastos por proyecto y cobranzas en pesos y dólares, y te muestra el margen mientras el proyecto avanza
+    plan: Industrial
+  - nombre: Metalúrgicas / metalmecánica a pedido
+    palabras: [metalurgica, metalurgia, metalmecanica, torneria, caldereria, fabricacion a medida, mecanizado, herreria industrial]
+    dolor: cada presupuesto a medida se arma distinto y el margen real por trabajo no se ve
+    solucion: arma los presupuestos por costo más ganancia y te muestra cuánto dejó cada trabajo
+    plan: Emprendedor / Industrial
+  - nombre: Minería y energía (proveedores y contratistas)
+    palabras: [mineria, minera, minero, petrolera, petroleo, oil, gas y petroleo, renovables, energia, electrica, eolico, solar, litio, vaca muerta]
+    dolor: entre el trabajo en campo, la facturación en dólares y las certificaciones se pierde el control del proyecto
+    solucion: lleva la cuenta corriente en pesos y dólares por separado y factura por anticipo y certificación de avance
+    plan: Industrial
+  - nombre: Instalaciones (eléctricas, termomecánicas, gas, incendio)
+    palabras: [instalaciones, instalacion electrica, termomecanica, termomecanicas, gas, incendio, climatizacion, sanitarias]
+    dolor: las oportunidades y los gastos de cada obra quedan repartidos entre planillas y WhatsApp
+    solucion: sigue cada oportunidad hasta el cierre e imputa los gastos a cada obra
+    plan: Industrial
+  - nombre: Servicios técnicos y mantenimiento industrial
+    palabras: [mantenimiento industrial, mantenimiento, service, servicio tecnico, servicios tecnicos, reparacion industrial]
+    dolor: coordinar visitas y saber qué tiene cada técnico o vendedor en su cartera cuesta más de lo que debería
+    solucion: arma las hojas de ruta con mapa y le da a cada uno su cartera y sus tareas, también desde el celular
+    plan: Industrial
+  - nombre: Agroindustria (proveedores de servicios/insumos)
+    palabras: [agroindustria, agroindustrial, empaque, frio, frigorifico, riego, maquinaria agricola, agro, cosecha]
+    dolor: con ventas en el campo y cobranzas con cheques, cuesta saber qué se vendió y qué se cobró
+    solucion: junta ventas, cuentas corrientes y control de cheques en un solo lugar
+    plan: Emprendedor / Industrial
+  - nombre: Pisos y revestimientos industriales
+    palabras: [pisos industriales, piso industrial, revestimientos, recubrimientos, impermeabilizacion, epoxi, hormigon alisado]
+    dolor: cotizar cada proyecto y cobrar anticipo más avance se vuelve un lío de planillas
+    solucion: cotiza por proyecto y factura por anticipo y certificación de avance
+    plan: Industrial
+  - nombre: Distribuidoras de insumos industriales
+    palabras: [distribuidora, distribuidor, representante, representaciones, insumos industriales, suministros industriales, ferreteria industrial]
+    dolor: con un catálogo técnico grande, el seguimiento de cada cotización y la cuenta corriente por moneda se desordenan
+    solucion: une pipeline, catálogo de productos y cuenta corriente en pesos y dólares
+    plan: Emprendedor
 
-# Umbrales de clasificación por puntuación total
-segmentos:
-  A: 60   # Prioridad alta: llamar primero
-  B: 35   # Prioridad media: mensaje + llamada de seguimiento
-  # Por debajo de B -> C: sólo mensaje / nutrir
+# Si no cae en un rubro prioritario pero es industrial B2B
+industrial_generico:
+  palabras: [industrial, industria, fabrica, planta, manufactura, ingenieria, obras, construccion, autopartes, plasticos, quimica, maquinaria]
+  dolor: la información de ventas y administración queda repartida entre planillas, mails y WhatsApp
+  solucion: pone ventas, administración y números de la dirección en un solo sistema
+  plan: Emprendedor
 
-# Canal recomendado por segmento
-canal:
-  A: llamada
-  B: whatsapp
-  C: email
+# Puntaje (brief, sección 5)
+puntaje:
+  rubro_prioritario: 3
+  rubro_industrial_no_listado: 1
+  tamano_en_rango: 2          # 10–100 empleados
+  tamano_min: 10
+  tamano_max: 100
+  vendedores: 2
+  proyectos_campo: 2
+  usd_mineria_energia: 1
+  crecimiento: 1
+  google_workspace: 1
+  contacto_decision: 1
 
-# Datos de tu oferta: se usan en los mensajes y guiones (plantillas/*.j2)
+senales:
+  vendedores: [vendedores, vendedor, comercial, comerciales, area comercial, ejecutivo de cuentas, representantes, fuerza de ventas]
+  proyectos_campo: [proyectos, obras, obra, en campo, montaje, instalacion, servicio en planta, mantenimiento, certificaciones]
+  usd_mineria_energia: [usd, dolares, dolar, u$s, mineria, minera, energia, petrolera, oil, renovables, litio]
+  crecimiento: [busqueda laboral, buscamos, estamos buscando, sucursal nueva, nueva sucursal, nueva planta, expansion, creciendo, contratando]
+  cargos_decision: [dueno, dueña, dueño, socio, propietario, presidente, director, gerente general, gerente comercial, gerente administrativo, gerente de administracion, ceo, gerente]
+
+categorias:
+  A: 10   # >= 10
+  B: 6    # 6–9 ; <= 5 -> C
+
+# Descartes (brief, sección 4)
+descartes:
+  paises_permitidos: [argentina, ar, arg]
+  b2c: [kiosco, indumentaria, gastronomia, restaurante, bar, cafeteria, e-commerce, ecommerce, tienda online, almacen, supermercado, peluqueria, boutique]
+  erp_corporativo: [sap, oracle, dynamics, protheus]
+  empleados_grande: 250
+  competidores: [software de gestion, erp, crm, sistemas de gestion, desarrollo de software]
+  clientes_actuales: [RC Pisos Industriales, Apex Noa Soluciones Integrales]
+  unipersonal: [unipersonal, monotributista, independiente, freelance]
+
+# Proveedores de correo gratuito: sin dominio propio -> requiere_dominio = sí
+correo_gratuito: [gmail.com, hotmail.com, hotmail.com.ar, outlook.com, outlook.com.ar, live.com, live.com.ar, yahoo.com, yahoo.com.ar, icloud.com, fibertel.com.ar, speedy.com.ar, arnet.com.ar]
+emails_genericos: [ventas, info, contacto, administracion, admin, comercial, consultas, hola, compras, gerencia, oficina, recepcion]
+
+# Firma de los borradores
 oferta:
-  remitente: "Tu Nombre"
-  mi_empresa: "Tu Empresa"
-  producto: "un sistema de gestión"
-  beneficio: "automatiza citas, cobros y recordatorios para que no pierdas clientes"
+  remitente: "[tu nombre]"   # (sin definir) completar antes de enviar
+  cta: "¿Te muestro una demo con tus propios datos? Son 20 minutos."
+  baja: "Si no te interesa, respondé BAJA y no te escribimos más."
 
-# Base de datos local donde se guarda el seguimiento
+# Qué dato concreto se menciona en el borrador A según la señal detectada
+hechos:
+  proyectos_campo: hace obras y proyectos para terceros
+  usd_mineria_energia: trabaja para minería o energía
+  crecimiento: está sumando gente
+  vendedores: tiene equipo comercial en la calle
+
+# Bajas permanentes (Ley 25.326): nunca se borra, se agrega
+bajas: datos/bajas.csv
 base_datos: datos/salida/prospeccion.db

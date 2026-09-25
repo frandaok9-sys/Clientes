@@ -1,10 +1,12 @@
-1. APERTURA: "Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %}, soy {{ remitente }} de {{ mi_empresa }}. ¿Te pillo en buen momento? Serán 2 minutos."
-2. MOTIVO: "Trabajamos con {% if sector %}negocios de {{ sector|lower }}{% else %}empresas como {{ empresa or 'la tuya' }}{% endif %}. Tenemos {{ producto }} que {{ beneficio }}."
-3. CUALIFICAR:
-   - ¿Cómo gestionáis hoy esto{% if empresa %} en {{ empresa }}{% endif %}?
-   - ¿Qué es lo que más tiempo o dinero os cuesta?
-   - ¿Quién decide sobre este tipo de herramientas?
-   - ¿Habéis mirado alguna solución antes? ¿Para cuándo lo necesitaríais?
-4. CIERRE: "¿Te parece que agendemos 15 minutos para enseñártelo? ¿Mejor {{ '{' }}día A{{ '}' }} o {{ '{' }}día B{{ '}' }}?"
-5. OBJECIONES: "Ahora no" -> pedir fecha para volver a llamar | "Mándame info" -> confirmar email{% if email %} ({{ email }}){% endif %} y fijar seguimiento.
-Datos: puntuación {{ puntuacion }} ({{ motivos }})
+ANTES DE LLAMAR: chequeá {{ telefono }} en el Registro «No Llame». Si figura, no se llama.
+1. APERTURA: "Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %}, soy {{ remitente }}, de COI. ¿Tenés dos minutos?"
+2. MOTIVO: "Trabajamos con empresas del rubro {{ rubro_texto }}. En empresas así, {{ dolor }}. COI {{ solucion }}."
+3. CALIFICAR:
+   - ¿Cómo manejan hoy los presupuestos y el seguimiento de cada cliente?
+   - ¿Cuántas personas venden y cuántas están en administración?
+   - ¿Facturan en pesos, en dólares o en las dos?
+   - ¿Usan algún sistema? (Tango, Xubio, Colppy... COI se suma, no reemplaza al contador)
+4. CIERRE: "{{ cta }}"
+5. SI PREGUNTA PRECIO: "Depende de la empresa; en la demo lo vemos con tus datos."
+6. SI NO LE INTERESA: registrar baja y no volver a contactar.
+Puntaje {{ puntaje }} ({{ categoria }}): {{ señales }}

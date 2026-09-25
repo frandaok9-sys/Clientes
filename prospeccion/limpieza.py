@@ -1,4 +1,4 @@
-"""Carga, normalización y deduplicación de listas de clientes."""
+"""Carga, normalización y deduplicación de listas de empresas."""
 
 from __future__ import annotations
 
@@ -9,18 +9,30 @@ from pathlib import Path
 import pandas as pd
 import phonenumbers
 from email_validator import EmailNotValidError, validate_email
-from rapidfuzz import fuzz
 
 CAMPOS = [
-    "nombre", "empresa", "telefono", "email", "sector", "ciudad",
-    "empleados", "facturacion", "web", "ultima_compra", "notas",
+    "razon_social", "nombre_fantasia", "cuit", "rubro", "localidad", "provincia", "pais", "web",
+    "empleados", "contacto_nombre", "contacto_cargo", "email", "email_estado", "telefono",
+    "senales", "fuente",
 ]
 
+_SUFIJOS_SOCIETARIOS = r"\b(s\.?\s?a\.?\s?s?|s\.?\s?r\.?\s?l|s\.?\s?a\.?\s?u|s\.?\s?h|s\.?\s?c\.?\s?a|sociedad anonima|ltda?|inc|llc)\b\.?"
 
-def _clave(texto: str) -> str:
-    """Minúsculas, sin acentos ni espacios extra: para comparar nombres de columnas y textos."""
+
+def clave(texto) -> str:
+    """Minúsculas, sin acentos, espacios simples: para comparar textos y nombres de columnas."""
+    if texto is None or (not isinstance(texto, str) and pd.isna(texto)):
+        return ""
     texto = unicodedata.normalize("NFKD", str(texto)).encode("ascii", "ignore").decode()
-    return re.sub(r"[\s\-]+", "_", texto.strip().lower())
+    return re.sub(r"\s+", " ", texto.strip().lower())
+
+
+def _clave_columna(texto: str) -> str:
+    return re.sub(r"[\s\-]+", "_", clave(texto))
+
+
+def vacio(valor) -> bool:
+    return valor is None or (not isinstance(valor, str) and pd.isna(valor)) or not str(valor).strip()
 
 
 def cargar(ruta: str | Path) -> pd.DataFrame:
@@ -32,11 +44,11 @@ def cargar(ruta: str | Path) -> pd.DataFrame:
 
 
 def mapear_columnas(df: pd.DataFrame, alias: dict[str, list[str]]) -> pd.DataFrame:
-    """Renombra columnas del archivo a los campos estándar; conserva las demás tal cual."""
-    lookup = {_clave(a): campo for campo, nombres in alias.items() for a in nombres}
+    """Renombra columnas a los campos estándar; conserva las demás tal cual."""
+    lookup = {_clave_columna(a): campo for campo, nombres in alias.items() for a in nombres}
     renombres = {}
     for col in df.columns:
-        campo = lookup.get(_clave(col))
+        campo = lookup.get(_clave_columna(col))
         if campo and campo not in renombres.values():
             renombres[col] = campo
     df = df.rename(columns=renombres)
@@ -46,9 +58,24 @@ def mapear_columnas(df: pd.DataFrame, alias: dict[str, list[str]]) -> pd.DataFra
     return df
 
 
+def normalizar_cuit(valor) -> str | None:
+    """Devuelve el CUIT como XX-XXXXXXXX-X si el dígito verificador es correcto."""
+    if vacio(valor):
+        return None
+    d = re.sub(r"\D", "", str(valor))
+    if len(d) != 11:
+        return None
+    suma = sum(int(a) * b for a, b in zip(d[:10], [5, 4, 3, 2, 7, 6, 5, 4, 3, 2]))
+    verificador = 11 - suma % 11
+    verificador = {11: 0, 10: 9}.get(verificador, verificador)
+    if verificador != int(d[10]):
+        return None
+    return f"{d[:2]}-{d[2:10]}-{d[10]}"
+
+
 def normalizar_telefono(valor, pais: str) -> str | None:
-    """Devuelve el teléfono en formato E.164 (+34600111222) o None si no es válido."""
-    if valor is None or pd.isna(valor) or not str(valor).strip():
+    """Devuelve el teléfono en formato E.164 o None si no es válido."""
+    if vacio(valor):
         return None
     texto = str(valor).strip()
     if texto.startswith("00"):
@@ -63,7 +90,7 @@ def normalizar_telefono(valor, pais: str) -> str | None:
 
 
 def normalizar_email(valor) -> str | None:
-    if valor is None or pd.isna(valor) or not str(valor).strip():
+    if vacio(valor):
         return None
     try:
         return validate_email(str(valor).strip(), check_deliverability=False).normalized.lower()
@@ -71,22 +98,27 @@ def normalizar_email(valor) -> str | None:
         return None
 
 
+def dominio_web(valor) -> str | None:
+    """'https://www.Empresa.com.ar/obras' -> 'empresa.com.ar'."""
+    if vacio(valor):
+        return None
+    texto = str(valor).strip().lower()
+    texto = re.sub(r"^[a-z]+://", "", texto).split("/")[0].split("?")[0]
+    texto = texto.removeprefix("www.")
+    return texto if "." in texto and " " not in texto else None
+
+
 def a_numero(valor) -> float | None:
-    """Convierte '1.200', '1,5M', '250k', '10-20' a número (en rangos toma el punto medio)."""
-    if valor is None or pd.isna(valor):
+    """Convierte '1.200', '80k', '10-20', '~50' a número (en rangos toma el punto medio)."""
+    if vacio(valor):
         return None
-    texto = str(valor).strip().lower().replace("€", "").replace("$", "").replace(" ", "")
-    if not texto:
-        return None
+    texto = str(valor).strip().lower().replace(" ", "").lstrip("~+><")
     rango = re.fullmatch(r"(\d+)[-a](\d+)", texto)
     if rango:
         return (float(rango.group(1)) + float(rango.group(2))) / 2
     mult = 1
-    if texto.endswith(("m", "mm")):
-        mult, texto = 1_000_000, texto.rstrip("m")
-    elif texto.endswith("k"):
+    if texto.endswith("k"):
         mult, texto = 1_000, texto[:-1]
-    # Separadores: "1.200.000" / "1,200,000" miles; "1,5" / "1.5" decimal
     if re.fullmatch(r"\d{1,3}([.,]\d{3})+", texto):
         texto = re.sub(r"[.,]", "", texto)
     else:
@@ -97,69 +129,70 @@ def a_numero(valor) -> float | None:
         return None
 
 
+def nombre_normalizado(valor) -> str:
+    """Razón social sin sufijo societario ni puntuación, para deduplicar."""
+    texto = re.sub(_SUFIJOS_SOCIETARIOS, " ", clave(valor))
+    return re.sub(r"[^a-z0-9]+", " ", texto).strip()
+
+
 def limpiar(df: pd.DataFrame, pais: str) -> pd.DataFrame:
     df = df.copy()
-    for col in ("nombre", "empresa", "sector", "ciudad", "web", "notas"):
-        df[col] = df[col].apply(
-            lambda v: re.sub(r"\s+", " ", str(v)).strip() if pd.notna(v) and str(v).strip() else pd.NA
-        )
-    df["nombre"] = df["nombre"].apply(lambda v: v.title() if pd.notna(v) else v)
-    df["telefono_original"] = df["telefono"]
+    for col in ("razon_social", "nombre_fantasia", "rubro", "localidad", "provincia", "pais",
+                "contacto_nombre", "contacto_cargo", "senales", "fuente", "email_estado"):
+        df[col] = df[col].apply(lambda v: pd.NA if vacio(v) else re.sub(r"\s+", " ", str(v)).strip())
+    df["contacto_nombre"] = df["contacto_nombre"].apply(lambda v: v.title() if isinstance(v, str) else v)
+    df["cuit"] = df["cuit"].apply(normalizar_cuit)
     df["telefono"] = df["telefono"].apply(lambda v: normalizar_telefono(v, pais))
     df["email"] = df["email"].apply(normalizar_email)
+    df["web"] = df["web"].apply(dominio_web)
     df["empleados"] = df["empleados"].apply(a_numero)
-    df["facturacion"] = df["facturacion"].apply(a_numero)
-    # Descarta filas sin ninguna forma de identificar/contactar
-    vacias = df[["nombre", "empresa", "telefono", "email"]].isna().all(axis=1)
-    return df[~vacias].reset_index(drop=True)
+    sin_identidad = df[["razon_social", "nombre_fantasia", "cuit", "web"]].isna().all(axis=1)
+    return df[~sin_identidad].reset_index(drop=True)
 
 
-def deduplicar(df: pd.DataFrame, umbral_similitud: int = 92) -> tuple[pd.DataFrame, int]:
-    """Elimina duplicados por teléfono, email o nombre+empresa muy similares.
-
-    Se queda con la fila con más datos rellenos. Devuelve (df, n_eliminados).
+def deduplicar(df: pd.DataFrame) -> tuple[pd.DataFrame, int]:
+    """Une filas con el mismo CUIT, el mismo dominio web o el mismo nombre normalizado + localidad
+    (brief, sección 1). Conserva la fila más completa, rellena huecos con las demás y junta las fuentes.
     """
     df = df.copy()
     df["_completitud"] = df[CAMPOS].notna().sum(axis=1)
-    df = df.sort_values("_completitud", ascending=False).reset_index(drop=True)
+    df = df.sort_values("_completitud", ascending=False, kind="stable").reset_index(drop=True)
 
-    grupo = list(range(len(df)))
+    padre = list(range(len(df)))
 
     def raiz(i):
-        while grupo[i] != i:
-            grupo[i] = grupo[grupo[i]]
-            i = grupo[i]
+        while padre[i] != i:
+            padre[i] = padre[padre[i]]
+            i = padre[i]
         return i
 
     def unir(a, b):
         ra, rb = raiz(a), raiz(b)
         if ra != rb:
-            grupo[max(ra, rb)] = min(ra, rb)
+            padre[max(ra, rb)] = min(ra, rb)
 
-    for campo in ("telefono", "email"):
+    nombre_loc = [
+        f"{nombre_normalizado(r.razon_social if not vacio(r.razon_social) else r.nombre_fantasia)}|{clave(r.localidad)}"
+        for r in df.itertuples()
+    ]
+    claves = {
+        "cuit": df["cuit"].tolist(),
+        "web": df["web"].tolist(),
+        "nombre_loc": [k if not k.startswith("|") else None for k in nombre_loc],
+    }
+    for valores in claves.values():
         vistos: dict[str, int] = {}
-        for i, v in df[campo].items():
-            if pd.notna(v):
+        for i, v in enumerate(valores):
+            if not vacio(v):
                 if v in vistos:
                     unir(vistos[v], i)
                 else:
                     vistos[v] = i
 
-    # Coincidencia difusa de nombre+empresa, agrupando por inicial para no comparar todo con todo
-    etiqueta = (df["nombre"].fillna("") + " | " + df["empresa"].fillna("")).map(_clave)
-    bloques: dict[str, list[int]] = {}
-    for i, e in etiqueta.items():
-        if len(e) > 5:
-            bloques.setdefault(e[:2], []).append(i)
-    for indices in bloques.values():
-        for x in range(len(indices)):
-            for y in range(x + 1, len(indices)):
-                a, b = indices[x], indices[y]
-                if fuzz.token_sort_ratio(etiqueta[a], etiqueta[b]) >= umbral_similitud:
-                    unir(a, b)
-
     df["_grupo"] = [raiz(i) for i in range(len(df))]
-    # Completa huecos del registro principal con datos de sus duplicados
-    resultado = df.groupby("_grupo", sort=True).first().reset_index(drop=True)
-    eliminados = len(df) - len(resultado)
-    return resultado.drop(columns=["_completitud"]), eliminados
+    fuentes = df.groupby("_grupo")["fuente"].apply(
+        lambda s: " + ".join(dict.fromkeys(str(x) for x in s if not vacio(x))) or pd.NA)
+    resultado = df.groupby("_grupo", sort=True).first()
+    resultado["fuente"] = fuentes
+    resultado = resultado.reset_index(drop=True).drop(columns=["_completitud"])
+    return resultado, len(df) - len(resultado)

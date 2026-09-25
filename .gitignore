@@ -5,6 +5,7 @@ __pycache__/
 # Datos reales de clientes: no se suben al repositorio
 datos/entrada/*
 datos/salida/*
+datos/bajas.csv
 !datos/entrada/.gitkeep
 !datos/salida/.gitkeep
 *.db

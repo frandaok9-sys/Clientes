@@ -1,84 +1,193 @@
-"""Puntuación (lead scoring) y segmentación A/B/C según config.yaml."""
+"""Calificación de empresas para COI: rubro, puntaje, categoría y descartes (brief, secciones 3–5)."""
 
 from __future__ import annotations
 
+import re
+from datetime import date
+from functools import lru_cache
+
 import pandas as pd
+from rapidfuzz import fuzz
 
-from .limpieza import _clave
-
-
-def _contiene(valor, palabras: list[str]) -> bool:
-    if valor is None or pd.isna(valor) or not palabras:
-        return False
-    texto = _clave(valor)
-    return any(_clave(p) in texto for p in palabras)
+from .limpieza import clave, nombre_normalizado, vacio
 
 
-def _por_rango(valor, rangos) -> int:
-    if valor is None or pd.isna(valor):
-        return 0
-    for minimo, maximo, puntos in rangos:
-        if minimo <= valor <= maximo:
-            return puntos
-    return 0
+@lru_cache(maxsize=None)
+def _patron(palabras: tuple[str, ...]) -> re.Pattern | None:
+    palabras = tuple(p for p in (clave(x) for x in palabras) if p)
+    if not palabras:
+        return None
+    return re.compile(r"\b(" + "|".join(re.escape(p) for p in palabras) + r")\b")
 
 
-def puntuar_fila(fila: pd.Series, reglas: dict) -> tuple[int, list[str]]:
-    puntos, motivos = 0, []
+def coincide(texto: str, palabras) -> str | None:
+    """Devuelve la primera palabra clave encontrada (por palabra completa) o None."""
+    patron = _patron(tuple(palabras or ()))
+    if patron is None or not texto:
+        return None
+    m = patron.search(texto)
+    return m.group(1) if m else None
 
-    def sumar(p, motivo):
+
+def _texto(fila: pd.Series, campos) -> str:
+    return " ".join(clave(fila.get(c)) for c in campos if not vacio(fila.get(c)))
+
+
+# --- Google Workspace -------------------------------------------------------------------------
+
+def dominio_email(fila: pd.Series, gratuitos: set[str]) -> tuple[str | None, bool]:
+    """(dominio, es_propio). Usa el dominio del email; si no hay email, el de la web."""
+    if not vacio(fila.get("email")):
+        dom = str(fila["email"]).split("@")[1]
+        return dom, dom not in gratuitos
+    if not vacio(fila.get("web")):
+        return fila["web"], True
+    return None, False
+
+
+def usa_google_workspace(dominio: str, cache: dict) -> str:
+    """'sí' / 'no' / 'sin verificar' según los registros MX del dominio."""
+    if dominio in cache:
+        return cache[dominio]
+    try:
+        import dns.resolver
+
+        mx = [str(r.exchange).lower() for r in dns.resolver.resolve(dominio, "MX", lifetime=5)]
+        res = "sí" if any(m.rstrip(".").endswith(("google.com", "googlemail.com")) for m in mx) else "no"
+    except Exception as e:  # noqa: BLE001 - cualquier fallo de DNS deja el dato sin verificar
+        res = "no" if type(e).__name__ in {"NXDOMAIN", "NoAnswer"} else "sin verificar"
+    cache[dominio] = res
+    return res
+
+
+# --- Calificación -----------------------------------------------------------------------------
+
+def detectar_rubro(texto: str, config: dict) -> tuple[dict | None, bool]:
+    """(rubro, es_prioritario). Recorre los rubros prioritarios en orden y luego el genérico."""
+    for rubro in config.get("rubros", []):
+        if coincide(texto, rubro["palabras"]):
+            return rubro, True
+    gen = config.get("industrial_generico", {})
+    if coincide(texto, gen.get("palabras")):
+        return {"nombre": "Industrial B2B (otro)", **gen}, False
+    return None, False
+
+
+def motivo_descarte(fila: pd.Series, texto: str, config: dict) -> str | None:
+    d = config.get("descartes", {})
+    rubro_txt = _texto(fila, ["rubro"])
+    if not vacio(fila.get("pais")) and clave(fila["pais"]) not in {clave(p) for p in d.get("paises_permitidos", [])}:
+        return "fuera de Argentina"
+    if not vacio(fila.get("telefono")) and not str(fila["telefono"]).startswith("+54") and vacio(fila.get("provincia")):
+        return "fuera de Argentina"
+    nombres = [nombre_normalizado(fila.get("razon_social")), nombre_normalizado(fila.get("nombre_fantasia"))]
+    for cliente in d.get("clientes_actuales", []):
+        ref = nombre_normalizado(cliente)
+        if any(n and fuzz.token_set_ratio(n, ref) >= 90 for n in nombres):
+            return "cliente actual de COI"
+    if coincide(rubro_txt, d.get("competidores")):
+        return "competidor (software de gestión)"
+    if coincide(rubro_txt, d.get("b2c")):
+        return "consumidor final / B2C"
+    emp = fila.get("empleados")
+    erp = coincide(texto, d.get("erp_corporativo"))
+    if (not vacio(emp) and emp > d.get("empleados_grande", 250)) and erp:
+        return f"gran empresa con ERP corporativo ({erp.upper()})"
+    if not vacio(emp) and emp > d.get("empleados_grande", 250):
+        return "gran empresa (más de 250 empleados)"
+    return None
+
+
+def calificar_fila(fila: pd.Series, config: dict, bajas: set[str], mx_cache: dict | None) -> dict:
+    p = config.get("puntaje", {})
+    s = config.get("senales", {})
+    texto = _texto(fila, ["rubro", "razon_social", "nombre_fantasia", "web", "senales"])
+    senales_txt = _texto(fila, ["senales", "rubro"])
+
+    dominio, propio = dominio_email(fila, set(config.get("correo_gratuito", [])))
+    workspace = "sin verificar"
+    if dominio and propio and mx_cache is not None:
+        workspace = usa_google_workspace(dominio, mx_cache)
+    elif dominio and not propio:
+        workspace = "no"
+
+    rubro, prioritario = detectar_rubro(texto, config)
+    puntos, senales, hechos = 0, [], []
+
+    def sumar(n, etiqueta):
         nonlocal puntos
-        if p:
-            puntos += p
-            motivos.append(f"{motivo} (+{p})")
+        puntos += n
+        senales.append(f"{etiqueta} (+{n})")
 
-    s = reglas.get("sectores_objetivo", {})
-    if _contiene(fila.get("sector"), s.get("valores", [])):
-        sumar(s.get("puntos", 0), "sector objetivo")
-    sumar(_por_rango(fila.get("empleados"), reglas.get("empleados", [])), "tamaño")
-    sumar(_por_rango(fila.get("facturacion"), reglas.get("facturacion", [])), "facturación")
-    if pd.notna(fila.get("telefono")):
-        sumar(reglas.get("tiene_telefono_valido", 0), "teléfono válido")
-    if pd.notna(fila.get("email")):
-        sumar(reglas.get("tiene_email_valido", 0), "email válido")
-    if pd.notna(fila.get("web")):
-        sumar(reglas.get("tiene_web", 0), "tiene web")
-    z = reglas.get("zonas_prioritarias", {})
-    if _contiene(fila.get("ciudad"), z.get("valores", [])):
-        sumar(z.get("puntos", 0), "zona prioritaria")
-    k = reglas.get("palabras_clave_interes", {})
-    if _contiene(fila.get("notas"), k.get("valores", [])):
-        sumar(k.get("puntos", 0), "señal de interés")
-    return min(puntos, 100), motivos
+    if rubro and prioritario:
+        sumar(p.get("rubro_prioritario", 3), "rubro prioritario")
+    elif rubro:
+        sumar(p.get("rubro_industrial_no_listado", 1), "industrial B2B no listado")
+    emp = fila.get("empleados")
+    if not vacio(emp) and p.get("tamano_min", 10) <= emp <= p.get("tamano_max", 100):
+        sumar(p.get("tamano_en_rango", 2), f"{int(emp)} empleados")
+    for criterio, etiqueta in (("vendedores", "área comercial"), ("proyectos_campo", "proyectos/obras"),
+                               ("usd_mineria_energia", "USD/minería/energía"), ("crecimiento", "crecimiento")):
+        hallado = coincide(senales_txt if criterio != "usd_mineria_energia" else texto, s.get(criterio))
+        if hallado:
+            sumar(p.get(criterio, 1), f"{etiqueta}: «{hallado}»")
+            hechos.append(criterio)
+    if workspace == "sí":
+        sumar(p.get("google_workspace", 1), "Google Workspace (MX)")
+    cargo = coincide(_texto(fila, ["contacto_cargo"]), s.get("cargos_decision"))
+    if cargo and not vacio(fila.get("contacto_nombre")):
+        sumar(p.get("contacto_decision", 1), f"decisor: {fila['contacto_cargo']}")
+
+    c = config.get("categorias", {})
+    categoria = "A" if puntos >= c.get("A", 10) else "B" if puntos >= c.get("B", 6) else "C"
+
+    motivo = motivo_descarte(fila, texto, config)
+    identificadores = {clave(x) for x in (fila.get("cuit"), fila.get("email"), fila.get("telefono"), dominio) if not vacio(x)}
+    if identificadores & bajas:
+        motivo = "oposición registrada (baja)"
+    if motivo:
+        categoria = "Descartada"
+    elif (not vacio(emp) and emp <= 1) or coincide(texto, config.get("descartes", {}).get("unipersonal")):
+        categoria, motivo = "C - chico", None
+
+    return {
+        "rubro_coi": rubro["nombre"] if rubro else pd.NA,
+        "plan_sugerido": rubro.get("plan") if rubro and categoria in ("A", "B") else pd.NA,
+        "dominio_email": dominio if propio else pd.NA,
+        "requiere_dominio": "no" if propio else "sí",
+        "usa_google_workspace": workspace,
+        "señales": "; ".join(senales),
+        "puntaje": puntos,
+        "categoria": categoria,
+        "motivo_descarte": motivo or pd.NA,
+        "_dolor": rubro.get("dolor") if rubro else None,
+        "_solucion": rubro.get("solucion") if rubro else None,
+        "_hechos": ",".join(hechos),
+    }
 
 
-def segmento(puntos: int, umbrales: dict) -> str:
-    if puntos >= umbrales.get("A", 60):
-        return "A"
-    if puntos >= umbrales.get("B", 35):
-        return "B"
-    return "C"
+def estado_email(fila: pd.Series, genericos: set[str]) -> str | None:
+    """generico | deducido | verificado | sin_verificar. Respeta el valor de la lista si viene marcado."""
+    if vacio(fila.get("email")):
+        return None
+    if not vacio(fila.get("email_estado")) and clave(fila["email_estado"]) in {"verificado", "deducido", "generico"}:
+        return clave(fila["email_estado"])
+    local = str(fila["email"]).split("@")[0]
+    if local in genericos:
+        return "generico"
+    return "sin_verificar"
 
 
-def canal_para(seg: str, fila: pd.Series, canales: dict) -> str:
-    """Canal recomendado, degradando si falta el dato de contacto necesario."""
-    canal = canales.get(seg, "email")
-    tiene_tel = pd.notna(fila.get("telefono"))
-    tiene_mail = pd.notna(fila.get("email"))
-    if canal in ("llamada", "whatsapp") and not tiene_tel:
-        canal = "email" if tiene_mail else "sin_contacto"
-    elif canal == "email" and not tiene_mail:
-        canal = "whatsapp" if tiene_tel else "sin_contacto"
-    return canal
-
-
-def clasificar(df: pd.DataFrame, config: dict) -> pd.DataFrame:
+def calificar(df: pd.DataFrame, config: dict, bajas: set[str] | None = None,
+              verificar_mx: bool = False) -> pd.DataFrame:
     df = df.copy()
-    resultados = df.apply(lambda f: puntuar_fila(f, config.get("puntuacion", {})), axis=1)
-    df["puntuacion"] = [r[0] for r in resultados]
-    df["motivos"] = ["; ".join(r[1]) for r in resultados]
-    df["segmento"] = df["puntuacion"].apply(lambda p: segmento(p, config.get("segmentos", {})))
-    df["canal"] = df.apply(lambda f: canal_para(f["segmento"], f, config.get("canal", {})), axis=1)
-    if "estado" not in df.columns:
-        df["estado"] = "pendiente"
-    return df.sort_values(["segmento", "puntuacion"], ascending=[True, False]).reset_index(drop=True)
+    cache = {} if verificar_mx else None
+    extra = pd.DataFrame([calificar_fila(f, config, bajas or set(), cache) for _, f in df.iterrows()])
+    df = pd.concat([df.reset_index(drop=True), extra], axis=1)
+    genericos = set(config.get("emails_genericos", []))
+    df["email_estado"] = df.apply(lambda f: estado_email(f, genericos), axis=1)
+    df["verificar_no_llame"] = df["telefono"].apply(lambda t: "sí" if not vacio(t) else pd.NA)
+    df["fecha_revision"] = date.today().isoformat()
+    orden = {"A": 0, "B": 1, "C": 2, "C - chico": 3, "Descartada": 4}
+    df["_orden"] = df["categoria"].map(orden)
+    return df.sort_values(["_orden", "puntaje"], ascending=[True, False]).drop(columns="_orden").reset_index(drop=True)

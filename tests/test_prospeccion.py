@@ -1,55 +1,80 @@
 from pathlib import Path
 
 import pandas as pd
+import pytest
 import yaml
 
-from prospeccion import clasificacion, limpieza, mensajes, seguimiento
+from prospeccion import clasificacion, cli, limpieza, mensajes, seguimiento
 
 RAIZ = Path(__file__).resolve().parent.parent
 CONFIG = yaml.safe_load((RAIZ / "config.yaml").read_text(encoding="utf-8"))
 
 
-def test_telefono_y_email():
-    assert limpieza.normalizar_telefono("612 345 678", "ES") == "+34612345678"
-    assert limpieza.normalizar_telefono("0034 699 111 222", "ES") == "+34699111222"
-    assert limpieza.normalizar_telefono("123", "ES") is None
-    assert limpieza.normalizar_email(" Juan@ElPuerto.es ") == "juan@elpuerto.es"
-    assert limpieza.normalizar_email("pedro@@taller") is None
-
-
-def test_a_numero():
-    assert limpieza.a_numero("450.000") == 450000
-    assert limpieza.a_numero("1,2M") == 1_200_000
-    assert limpieza.a_numero("80k") == 80_000
+def test_normalizacion():
+    assert limpieza.normalizar_cuit("30-71234567-1") == "30-71234567-1"
+    assert limpieza.normalizar_cuit("30712345672") is None  # dígito verificador incorrecto
+    assert limpieza.normalizar_telefono("(0264) 422-1234", "AR") == "+542644221234"
+    assert limpieza.normalizar_telefono("0341 15 555-1234", "AR") == "+5493415551234"
+    assert limpieza.dominio_web("https://www.Empresa.com.ar/obras") == "empresa.com.ar"
+    assert limpieza.nombre_normalizado("Montajes del Sur S.R.L.") == limpieza.nombre_normalizado("Montajes del Sur SRL")
     assert limpieza.a_numero("10-20") == 15
-    assert limpieza.a_numero("abc") is None
 
 
-def _procesar():
+def _procesar(bajas=None):
     df = limpieza.mapear_columnas(limpieza.cargar(RAIZ / "datos/ejemplo_clientes.csv"), CONFIG["columnas"])
-    df, dup = limpieza.deduplicar(limpieza.limpiar(df, "ES"))
-    return clasificacion.clasificar(df, CONFIG), dup
+    df["fuente"] = "ejemplo"
+    df, dup = limpieza.deduplicar(limpieza.limpiar(df, "AR"))
+    df = clasificacion.calificar(df, CONFIG, bajas or set(), verificar_mx=False)
+    return mensajes.generar(df, RAIZ / "plantillas", CONFIG), dup
 
 
-def test_deduplica_y_clasifica():
+def _fila(df, texto):
+    return df[df["razon_social"].str.contains(texto, na=False)].iloc[0]
+
+
+def test_calificacion_y_descartes():
     df, dup = _procesar()
-    assert dup == 1
-    juan = df[df["empresa"] == "Restaurante El Puerto"].iloc[0]
-    assert juan["segmento"] == "A" and juan["canal"] == "llamada"
-    carlos = df[df["nombre"] == "Carlos Ruiz"].iloc[0]
-    assert carlos["canal"] == "email"  # sin teléfono: se degrada a email
-    assert set(df["segmento"]) <= {"A", "B", "C"}
+    assert dup == 1  # Montajes del Sur SRL / S.R.L. en la misma localidad
+    montajes = _fila(df, "Montajes")
+    assert montajes["categoria"] == "A" and montajes["rubro_coi"].startswith("Montajes")
+    assert montajes["verificar_no_llame"] == "sí"
+    assert montajes["email_estado"] == "generico"
+    assert _fila(df, "Kiosco")["motivo_descarte"] == "consumidor final / B2C"
+    assert _fila(df, "Aceros")["motivo_descarte"].startswith("gran empresa con ERP")
+    assert _fila(df, "RC Pisos")["motivo_descarte"] == "cliente actual de COI"
+    assert _fila(df, "Sistemas Gestión")["motivo_descarte"].startswith("competidor")
+    assert _fila(df, "Juan Pérez")["categoria"] == "C - chico"
+    dist = _fila(df, "Distribuidora")
+    assert dist["requiere_dominio"] == "sí" and pd.isna(dist["dominio_email"])
 
 
-def test_mensajes_y_seguimiento(tmp_path):
+def test_bajas_se_respetan():
+    df, _ = _procesar(bajas={"30-71234567-1"})
+    assert _fila(df, "Montajes")["motivo_descarte"] == "oposición registrada (baja)"
+
+
+def test_borradores():
     df, _ = _procesar()
-    df = mensajes.generar(df, RAIZ / "plantillas", CONFIG["oferta"])
-    fila = df[df["empresa"] == "Restaurante El Puerto"].iloc[0]
-    assert fila["enlace_whatsapp"].startswith("https://wa.me/34612345678?text=Hola%20Juan")
-    assert "Restaurante El Puerto" in fila["email_asunto"]
+    for _, fila in df[df["categoria"].isin(["A", "B"])].iterrows():
+        texto = fila["borrador"]
+        assert "COI" in texto and texto.endswith("respondé BAJA y no te escribimos más.")
+        assert len(texto.split()) <= 95, texto
+        assert "$" not in texto
+    assert pd.isna(_fila(df, "Kiosco")["borrador"])
 
+
+def test_entrega_y_seguimiento(tmp_path):
+    df, _ = _procesar()
+    out = cli.entrega(df)
+    assert list(out.columns) == cli.COLUMNAS_ENTREGA
+    bajas = tmp_path / "bajas.csv"
     with seguimiento.conectar(tmp_path / "t.db") as con:
-        seguimiento.guardar_clientes(df, con)
-        assert len(seguimiento.cola(con)) == len(df)
-        assert seguimiento.registrar(con, 1, "llamada", "no_interesado") == "perdido"
-        assert 1 not in seguimiento.cola(con)["id"].tolist()
+        seguimiento.guardar_empresas(out, con)
+        cola = seguimiento.cola(con)
+        assert set(cola["cat"]) <= {"A", "B"}
+        eid = int(cola.iloc[0]["id"])
+        assert seguimiento.registrar(con, eid, "email", "baja", ruta_bajas=bajas) == "baja"
+        assert eid not in seguimiento.cola(con)["id"].tolist()
+        with pytest.raises(ValueError):
+            seguimiento.registrar(con, eid, "email", "inventado")
+    assert "30-71234567-1" in seguimiento.leer_bajas(bajas)

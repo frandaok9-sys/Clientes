@@ -1,9 +1,10 @@
-Nombre;Empresa;Teléfono;Correo;Rubro;Ciudad;Empleados;Facturación;Web;Observaciones
-juan pérez;Restaurante El Puerto;612 345 678;juan@elpuerto.es;Restaurante;Valencia;12;450.000;elpuerto.es;Interesado en reservas online
-Juan Perez;Restaurante El Puerto;+34 612345678;;Restaurante;Valencia;;;;
-María López;Clínica Dental Sonríe;0034 699 111 222;maria@sonrie.com;Clínica dental;Madrid;25;1,2M;sonrie.com;Busca cambiar de software
-Pedro Gómez;Taller Gómez;123;pedro@@taller;Taller mecánico;Sevilla;3;80k;;
-Laura Martín;Inmobiliaria Norte;655 444 333;laura@inmonorte.es;Inmobiliaria;Bilbao;8;300000;inmonorte.es;
-Carlos Ruiz;Consultora CR;;carlos@cr-consulting.com;Consultoría;Barcelona;150;5000000;cr-consulting.com;
-;Gimnasio FitZone;677 888 999;;Gimnasio;Málaga;10-20;;;necesita controlar altas
-Ana Torres;;;;;;;;;
+Razón Social;Nombre Fantasía;CUIT;Rubro;Localidad;Provincia;Web;Empleados;Contacto;Cargo;Email;Teléfono;Observaciones
+Montajes del Sur SRL;Montajes del Sur;30-71234567-1;Montajes industriales;San Juan;San Juan;www.montajesdelsur.com.ar;35;martín gómez;Gerente General;ventas@montajesdelsur.com.ar;(0264) 422-1234;Obras para mineras, cotizamos en USD, 4 vendedores. Estamos buscando administrativo
+Montajes del Sur S.R.L.;;;Montajes;San Juan;San Juan;montajesdelsur.com.ar;;;;;;
+Tornería Precisión SA;Precisión;;Metalúrgica - tornería a pedido;Rosario;Santa Fe;precision.com.ar;18;Laura Paz;Dueña;laura.paz@precision.com.ar;0341 15 555-1234;
+Distribuidora Técnica Norte;;;Distribuidora de insumos industriales;Salta;Salta;;60;;;distecnorte@gmail.com;0387 431-0000;fuerza de ventas en 3 provincias
+Kiosco Don Pepe;;;Kiosco;CABA;CABA;;2;;;;;
+Aceros Gigantes SA;;;Siderúrgica industrial;Campana;Buenos Aires;acerosgigantes.com;1200;;;;;usan SAP
+RC Pisos Industriales;;;Pisos industriales;Mendoza;Mendoza;;;;;;;
+Juan Pérez Instalaciones;;;Instalaciones eléctricas;Córdoba;Córdoba;;1;Juan Pérez;;juanperez@hotmail.com;0351 15 444-5555;unipersonal
+Sistemas Gestión SA;;;Software de gestión;CABA;CABA;sgsa.com.ar;40;;;;;

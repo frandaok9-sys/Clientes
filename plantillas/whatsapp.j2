@@ -1,3 +1,8 @@
-Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %}, soy {{ remitente }} de {{ mi_empresa }}.
-{% if sector %}Trabajamos con negocios de {{ sector|lower }}{% if ciudad %} en {{ ciudad }}{% endif %} y {% else %}{% endif %}hemos creado {{ producto }} que {{ beneficio }}.
-¿Te puedo contar en 10 minutos cómo funcionaría{% if empresa %} para {{ empresa }}{% endif %}?
+Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %}, soy {{ remitente }}, de COI.
+{% if categoria == "A" and dato %}Vi que {{ empresa }}{% if localidad %} ({{ localidad }}){% endif %} {{ dato }}.
+{% else %}Te escribo porque {{ empresa }} es del rubro {{ rubro_texto }}.
+{% endif %}
+En empresas así, {{ dolor }}.
+COI {{ solucion }}.
+{{ cta }}
+— {{ baja }}
