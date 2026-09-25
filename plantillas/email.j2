@@ -1,0 +1,10 @@
+Asunto: {% if empresa %}{{ empresa }}: {% endif %}{{ beneficio|capitalize }}
+Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %},
+
+Soy {{ remitente }}, de {{ mi_empresa }}. {% if sector %}Ayudamos a negocios de {{ sector|lower }} {% else %}Ayudamos a empresas {% endif %}con {{ producto }}, que {{ beneficio }}.
+
+{% if segmento == "A" %}Por el perfil de {{ empresa or "tu empresa" }} creo que encaja especialmente bien. {% endif %}¿Tienes 15 minutos esta semana para enseñártelo?
+
+Un saludo,
+{{ remitente }}
+{{ mi_empresa }}

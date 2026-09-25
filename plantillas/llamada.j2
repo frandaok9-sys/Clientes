@@ -1,0 +1,10 @@
+1. APERTURA: "Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %}, soy {{ remitente }} de {{ mi_empresa }}. ¿Te pillo en buen momento? Serán 2 minutos."
+2. MOTIVO: "Trabajamos con {% if sector %}negocios de {{ sector|lower }}{% else %}empresas como {{ empresa or 'la tuya' }}{% endif %}. Tenemos {{ producto }} que {{ beneficio }}."
+3. CUALIFICAR:
+   - ¿Cómo gestionáis hoy esto{% if empresa %} en {{ empresa }}{% endif %}?
+   - ¿Qué es lo que más tiempo o dinero os cuesta?
+   - ¿Quién decide sobre este tipo de herramientas?
+   - ¿Habéis mirado alguna solución antes? ¿Para cuándo lo necesitaríais?
+4. CIERRE: "¿Te parece que agendemos 15 minutos para enseñártelo? ¿Mejor {{ '{' }}día A{{ '}' }} o {{ '{' }}día B{{ '}' }}?"
+5. OBJECIONES: "Ahora no" -> pedir fecha para volver a llamar | "Mándame info" -> confirmar email{% if email %} ({{ email }}){% endif %} y fijar seguimiento.
+Datos: puntuación {{ puntuacion }} ({{ motivos }})

@@ -1,0 +1,3 @@
+Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %}, soy {{ remitente }} de {{ mi_empresa }}.
+{% if sector %}Trabajamos con negocios de {{ sector|lower }}{% if ciudad %} en {{ ciudad }}{% endif %} y {% else %}{% endif %}hemos creado {{ producto }} que {{ beneficio }}.
+¿Te puedo contar en 10 minutos cómo funcionaría{% if empresa %} para {{ empresa }}{% endif %}?

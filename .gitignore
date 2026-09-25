@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Datos reales de clientes: no se suben al repositorio
+datos/entrada/*
+datos/salida/*
+!datos/entrada/.gitkeep
+!datos/salida/.gitkeep
+*.db

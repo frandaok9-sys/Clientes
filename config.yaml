@@ -1,0 +1,71 @@
+# Configuración del proceso de clasificación y cualificación.
+# Ajusta estos valores a tu mercado y a tu cliente ideal.
+
+# País por defecto para normalizar teléfonos sin prefijo internacional (ISO 3166: ES, MX, AR, CO, CL, PE...)
+pais_por_defecto: ES
+
+# Cómo se llaman las columnas en tus archivos (se aceptan varios alias por campo).
+columnas:
+  nombre: [nombre, name, contacto, cliente, nombre_contacto]
+  empresa: [empresa, company, razon_social, negocio, compania]
+  telefono: [telefono, teléfono, phone, movil, móvil, celular, tel, whatsapp]
+  email: [email, correo, mail, e-mail, correo_electronico]
+  sector: [sector, industria, rubro, actividad, industry]
+  ciudad: [ciudad, localidad, city, provincia, region]
+  empleados: [empleados, trabajadores, employees, tamano, tamaño, plantilla]
+  facturacion: [facturacion, facturación, ventas, revenue, ingresos]
+  web: [web, website, sitio_web, url, pagina]
+  ultima_compra: [ultima_compra, última_compra, last_purchase, fecha_ultima_compra]
+  notas: [notas, observaciones, comentarios, notes]
+
+# Reglas de puntuación (0-100). Cada regla suma puntos si se cumple.
+puntuacion:
+  # Sectores que encajan con el sistema que ofreces (coincidencia parcial, sin mayúsculas)
+  sectores_objetivo:
+    puntos: 25
+    valores: [restaurante, clinica, clínica, inmobiliaria, retail, tienda, taller, gimnasio, academia, hotel]
+  # Tamaño de empresa por número de empleados: [minimo, maximo, puntos]
+  empleados:
+    - [1, 4, 5]
+    - [5, 19, 15]
+    - [20, 99, 20]
+    - [100, 1000000, 10]
+  # Facturación anual: [minimo, maximo, puntos]
+  facturacion:
+    - [0, 99999, 5]
+    - [100000, 999999, 15]
+    - [1000000, 1000000000000, 20]
+  # Datos de contacto disponibles
+  tiene_telefono_valido: 10
+  tiene_email_valido: 10
+  tiene_web: 5
+  # Ciudades/zonas prioritarias (coincidencia parcial)
+  zonas_prioritarias:
+    puntos: 10
+    valores: []
+  # Palabras en notas que indican interés o dolor (coincidencia parcial)
+  palabras_clave_interes:
+    puntos: 10
+    valores: [interesado, presupuesto, necesita, problema, busca, cambiar]
+
+# Umbrales de clasificación por puntuación total
+segmentos:
+  A: 60   # Prioridad alta: llamar primero
+  B: 35   # Prioridad media: mensaje + llamada de seguimiento
+  # Por debajo de B -> C: sólo mensaje / nutrir
+
+# Canal recomendado por segmento
+canal:
+  A: llamada
+  B: whatsapp
+  C: email
+
+# Datos de tu oferta: se usan en los mensajes y guiones (plantillas/*.j2)
+oferta:
+  remitente: "Tu Nombre"
+  mi_empresa: "Tu Empresa"
+  producto: "un sistema de gestión"
+  beneficio: "automatiza citas, cobros y recordatorios para que no pierdas clientes"
+
+# Base de datos local donde se guarda el seguimiento
+base_datos: datos/salida/prospeccion.db

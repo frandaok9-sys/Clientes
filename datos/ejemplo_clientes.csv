@@ -1,0 +1,9 @@
+Nombre;Empresa;Teléfono;Correo;Rubro;Ciudad;Empleados;Facturación;Web;Observaciones
+juan pérez;Restaurante El Puerto;612 345 678;juan@elpuerto.es;Restaurante;Valencia;12;450.000;elpuerto.es;Interesado en reservas online
+Juan Perez;Restaurante El Puerto;+34 612345678;;Restaurante;Valencia;;;;
+María López;Clínica Dental Sonríe;0034 699 111 222;maria@sonrie.com;Clínica dental;Madrid;25;1,2M;sonrie.com;Busca cambiar de software
+Pedro Gómez;Taller Gómez;123;pedro@@taller;Taller mecánico;Sevilla;3;80k;;
+Laura Martín;Inmobiliaria Norte;655 444 333;laura@inmonorte.es;Inmobiliaria;Bilbao;8;300000;inmonorte.es;
+Carlos Ruiz;Consultora CR;;carlos@cr-consulting.com;Consultoría;Barcelona;150;5000000;cr-consulting.com;
+;Gimnasio FitZone;677 888 999;;Gimnasio;Málaga;10-20;;;necesita controlar altas
+Ana Torres;;;;;;;;;
