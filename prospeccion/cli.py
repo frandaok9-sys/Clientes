@@ -10,7 +10,7 @@ import yaml
 from rich.console import Console
 from rich.table import Table
 
-from . import clasificacion, limpieza, mensajes, seguimiento
+from . import clasificacion, importar, limpieza, mensajes, seguimiento
 
 app = typer.Typer(help="Limpia, califica y prepara la prospección de empresas para COI.", no_args_is_help=True)
 consola = Console()
@@ -66,9 +66,11 @@ def texto_resumen(total: int, sin_datos: int, duplicados: int, df: pd.DataFrame)
         f"- A: {cats.get('A', 0)} | B: {cats.get('B', 0)} | C: {cats.get('C', 0)} | "
         f"C - chico: {cats.get('C - chico', 0)} | Descartadas: {cats.get('Descartada', 0)}",
     ]
-    motivos = df.loc[df["categoria"] == "Descartada", "motivo_descarte"].value_counts()
-    for motivo, n in motivos.items():
-        lineas.append(f"  - Descartadas por {motivo}: {n}")
+    descartes = df.loc[df["categoria"] == "Descartada", "motivo_descarte"]
+    for motivo, n in descartes.str.replace(r" \(.*\)$", "", regex=True).value_counts().items():
+        detalle = descartes[descartes.str.startswith(motivo)].str.extract(r"\((.*)\)$")[0].dropna().value_counts()
+        ejemplos = f" (p. ej. {', '.join(detalle.index[:5])})" if len(detalle) else ""
+        lineas.append(f"  - {motivo}: {n}{ejemplos}")
     top = df.loc[df["categoria"] == "A", "rubro_coi"].value_counts().head(3)
     lineas.append("- Rubros con más A: " + (", ".join(f"{r} ({n})" for r, n in top.items()) or "ninguno"))
     return "\n".join(lineas)
@@ -95,14 +97,20 @@ def procesar(
 
     marcos = []
     for ruta in entradas:
-        df = limpieza.mapear_columnas(limpieza.cargar(ruta), config.get("columnas", {}))
+        if importar.es_formato_propio(ruta, config.get("columnas", {})):
+            df = importar.importar(ruta)  # RAI, AG-360, PDF de zonas
+        else:
+            df = limpieza.cargar(ruta)
+        df = limpieza.mapear_columnas(df, config.get("columnas", {}))
         df["fuente"] = df["fuente"].fillna(ruta.name)
+        consola.print(f"{ruta.name}: {len(df)} filas")
         marcos.append(df)
     bruto = pd.concat(marcos, ignore_index=True)
     total = len(bruto)
 
     limpio = limpieza.limpiar(bruto, config.get("pais_por_defecto", "AR"))
     sin_datos = total - len(limpio)
+    limpio, comodines = limpieza.descartar_emails_compartidos(limpio, config.get("email_compartido_max", 3))
     limpio, duplicados = limpieza.deduplicar(limpio)
     bajas = seguimiento.leer_bajas(_ruta(config, "bajas", "datos/bajas.csv"))
     calificado = clasificacion.calificar(limpio, config, bajas, verificar_mx)
@@ -112,6 +120,11 @@ def procesar(
     tabla_entrega = entrega(final)
     tabla_entrega.to_csv(salida / "entrega.csv", sep=";", index=False, encoding="utf-8")
     resumen_md = texto_resumen(total, sin_datos, duplicados, final)
+    resumen_md += f"\n- Emails comodín vaciados (repetidos en {config.get('email_compartido_max', 3)}+ empresas): {comodines}"
+    candidatos = final[final["prioridad_enriquecimiento"] > 0].sort_values("prioridad_enriquecimiento", ascending=False)
+    resumen_md += f"\n- Candidatas a enriquecer en la web (sin datos suficientes para calificar): {len(candidatos)}"
+    candidatos[["razon_social", "localidad", "provincia", "dominio_email", "rubro_coi", "puntaje",
+                "prioridad_enriquecimiento", "fuente"]].to_csv(salida / "candidatos_enriquecer.csv", sep=";", index=False)
     (salida / "resumen.md").write_text(f"# Resumen de la revisión\n\n{resumen_md}\n", encoding="utf-8")
 
     excel = salida / "trabajo.xlsx"

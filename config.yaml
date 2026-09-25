@@ -31,7 +31,7 @@ rubros:
     solucion: junta presupuestos, gastos por proyecto y cobranzas en pesos y dólares, y te muestra el margen mientras el proyecto avanza
     plan: Industrial
   - nombre: Metalúrgicas / metalmecánica a pedido
-    palabras: [metalurgica, metalurgia, metalmecanica, torneria, caldereria, fabricacion a medida, mecanizado, herreria industrial]
+    palabras: [metalurgica, metalurgicas, metalurgia, metalmecanica, torneria, caldereria, fabricacion a medida, mecanizado, mecanizados, herreria industrial, matriceria, matriceria, fundicion, soldadura, talleres industriales, talleres metalurgicos, galvanizado, metal, metales, metalica, metalicas]
     dolor: cada presupuesto a medida se arma distinto y el margen real por trabajo no se ve
     solucion: arma los presupuestos por costo más ganancia y te muestra cuánto dejó cada trabajo
     plan: Emprendedor / Industrial
@@ -46,12 +46,12 @@ rubros:
     solucion: sigue cada oportunidad hasta el cierre e imputa los gastos a cada obra
     plan: Industrial
   - nombre: Servicios técnicos y mantenimiento industrial
-    palabras: [mantenimiento industrial, mantenimiento, service, servicio tecnico, servicios tecnicos, reparacion industrial]
+    palabras: [mantenimiento industrial, mantenimiento, service, servicio tecnico, servicios tecnicos, reparacion industrial, servicios industriales, automatizacion, talleres]
     dolor: coordinar visitas y saber qué tiene cada técnico o vendedor en su cartera cuesta más de lo que debería
     solucion: arma las hojas de ruta con mapa y le da a cada uno su cartera y sus tareas, también desde el celular
     plan: Industrial
   - nombre: Agroindustria (proveedores de servicios/insumos)
-    palabras: [agroindustria, agroindustrial, empaque, frio, frigorifico, riego, maquinaria agricola, agro, cosecha]
+    palabras: [agroindustria, agroindustrial, agroindustriales, empaque, frio, frigorifico, riego, maquinaria agricola, agroinsumos, agro insumos, insumos agropecuarios, agroservicios, agro servicios, silos, acopio, semillas, fertilizantes]
     dolor: con ventas en el campo y cobranzas con cheques, cuesta saber qué se vendió y qué se cobró
     solucion: junta ventas, cuentas corrientes y control de cheques en un solo lugar
     plan: Emprendedor / Industrial
@@ -61,14 +61,14 @@ rubros:
     solucion: cotiza por proyecto y factura por anticipo y certificación de avance
     plan: Industrial
   - nombre: Distribuidoras de insumos industriales
-    palabras: [distribuidora, distribuidor, representante, representaciones, insumos industriales, suministros industriales, ferreteria industrial]
+    palabras: [distribuidora, distribuidor, representante, representaciones, insumos industriales, suministros industriales, ferreteria industrial, rodamientos, transmisiones, bulonera, hidraulica, neumatica, electromecanica, suministros]
     dolor: con un catálogo técnico grande, el seguimiento de cada cotización y la cuenta corriente por moneda se desordenan
     solucion: une pipeline, catálogo de productos y cuenta corriente en pesos y dólares
     plan: Emprendedor
 
 # Si no cae en un rubro prioritario pero es industrial B2B
 industrial_generico:
-  palabras: [industrial, industria, fabrica, planta, manufactura, ingenieria, obras, construccion, autopartes, plasticos, quimica, maquinaria]
+  palabras: [industrial, industriales, industria, industrias, ind, s.a.i.c, saic, s.a.i.c.i, s.a.i.c.f, fabrica, planta, manufactura, ingenieria, ing, obras, construccion, construcciones, constructora, autopartes, plasticos, quimica, maquinaria, maquinas, tecnica, tecno]
   dolor: la información de ventas y administración queda repartida entre planillas, mails y WhatsApp
   solucion: pone ventas, administración y números de la dirección en un solo sistema
   plan: Emprendedor
@@ -107,10 +107,23 @@ descartes:
   competidores: [software de gestion, erp, crm, sistemas de gestion, desarrollo de software]
   clientes_actuales: [RC Pisos Industriales, Apex Noa Soluciones Integrales]
   unipersonal: [unipersonal, monotributista, independiente, freelance]
+  # Grandes empresas conocidas (se detectan en el nombre o en el dominio del email)
+  grandes_conocidas: [cargill, bunge, gerdau, acindar, ternium, techint, tenaris, siderar, ypf, arcor, molino canuelas, molinos rio de la plata, aceitera general deheza, agd, dreyfus, ldc, cofco, vicentin, toyota, general motors, ford, fiat, stellantis, john deere, cnh, agco, renault, volkswagen, unilever, nestle, pepsico, coca cola, danone, mastellone, sancor, profertil, dow, basf, bayer, syngenta, pan american energy, pampa energia, loma negra, holcim, minetti, aluar, swift, paladini, la segunda, molinos agro, glencore, adm, nidera, petrobras, shell, axion, raizen, pluspetrol, tecpetrol, wintershall, total austral, cementos avellaneda, ledesma, quilmes, cervecería quilmes, mercadolibre]
+  # Entidades que no son empresas objetivo
+  no_empresa: [club, municipalidad, municipio, comuna, gobierno, ministerio, secretaria, universidad, escuela, colegio, instituto, iglesia, parroquia, orden de, fundacion, asociacion civil, sindicato, obispado, hospital, policia, ejercito, gendarmeria, consorcio de propietarios, sucesion, sucesion de]
+  dominios_publicos: [gob.ar, gov.ar, edu.ar, mil.ar]
 
 # Proveedores de correo gratuito: sin dominio propio -> requiere_dominio = sí
-correo_gratuito: [gmail.com, hotmail.com, hotmail.com.ar, outlook.com, outlook.com.ar, live.com, live.com.ar, yahoo.com, yahoo.com.ar, icloud.com, fibertel.com.ar, speedy.com.ar, arnet.com.ar]
-emails_genericos: [ventas, info, contacto, administracion, admin, comercial, consultas, hola, compras, gerencia, oficina, recepcion]
+correo_gratuito: [gmail.com, hotmail.com, hotmail.com.ar, hotmail.es, outlook.com, outlook.com.ar, outlook.es, live.com, live.com.ar, msn.com, yahoo.com, yahoo.com.ar, yahoo.es, icloud.com,
+  # errores de tipeo frecuentes
+  gmail.com.ar, gmai.com, gamil.com, gmial.com, hotmai.com, homail.com, hotmial.com, hotmal.com, yaho.com.ar,
+  # proveedores de internet (el correo es de la conexión, no de la empresa)
+  fibertel.com.ar, speedy.com.ar, arnet.com.ar, arnetbiz.com.ar, ciudad.com.ar, sinectis.com.ar, uolsinectis.com.ar, tutopia.com, telecentro.com.ar,
+  nodosud.com.ar, coyspu.com.ar, trcnet.com.ar, dat1.net.ar, coopmail.com.ar, cpenet.com.ar, futurnet.com.ar, infovia.com.ar, cablenet.com.ar,
+  federacionnet.com.ar, coopvgg.com.ar, coopsur.com.ar]
+emails_genericos: [ventas, info, contacto, administracion, admin, comercial, consultas, hola, compras, gerencia, oficina, recepcion, pagos, pago, proveedores, pagoaproveedores, facturas, factura, facturacion, cobranzas, tesoreria, cuentasapagar, rrhh, empleos]
+# Un email que aparece en tantas empresas distintas o más es un comodín de carga: se descarta
+email_compartido_max: 3
 
 # Firma de los borradores
 oferta:

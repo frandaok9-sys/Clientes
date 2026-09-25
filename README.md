@@ -16,6 +16,22 @@ Las reglas para agentes están en `CLAUDE.md`.
 
 No envía mensajes ni hace llamadas: prepara la lista y los borradores para que los mande una persona.
 
+## Formatos de cartera reconocidos
+Además de CSV/Excel con encabezados, `procesar` detecta solo estos formatos:
+- **RAI:** exportación de CRM con "Nombre completo", "Correo electrónico", "Vendedor"...
+- **AG-360:** planilla por zonas sin encabezados (nombre, CUIT, código, localidad, contacto, email, teléfonos).
+- **PDF de zonas:** listados de clientes (Id, Cliente, Región, Ciudad...), aunque el texto venga superpuesto.
+
+Los nombres en formato "Apellido, Nombre" y los CUIT 20/23/24/27 se tratan como personas físicas
+(`C - chico`). Los emails repetidos en 3 o más empresas se descartan porque son comodines de carga.
+Las marcas internas como "Prejudicial" se quitan del nombre.
+
+## Enriquecimiento
+Si la lista no trae tamaño ni señales, casi todo queda en C. `procesar` genera
+`datos/salida/candidatos_enriquecer.csv`, ordenado por potencial. Los lotes se mandan a la sesión
+local (con navegador) por `canal/`, y su CSV de respuesta se vuelve a procesar como una entrada más:
+se une a la empresa por razón social y localidad, y completa los datos que faltan.
+
 ## Uso
 ```bash
 ./instalar.sh && source .venv/bin/activate

@@ -196,3 +196,13 @@ def deduplicar(df: pd.DataFrame) -> tuple[pd.DataFrame, int]:
     resultado["fuente"] = fuentes
     resultado = resultado.reset_index(drop=True).drop(columns=["_completitud"])
     return resultado, len(df) - len(resultado)
+
+
+def descartar_emails_compartidos(df: pd.DataFrame, maximo: int) -> tuple[pd.DataFrame, int]:
+    """Vacía emails que aparecen en `maximo` o más empresas distintas: son comodines de carga, no contactos."""
+    df = df.copy()
+    empresas = df.assign(_n=df["razon_social"].map(nombre_normalizado)).groupby("email")["_n"].nunique()
+    comodines = set(empresas[empresas >= maximo].index)
+    mascara = df["email"].isin(comodines)
+    df.loc[mascara, "email"] = pd.NA
+    return df, int(mascara.sum())

@@ -78,3 +78,21 @@ def test_entrega_y_seguimiento(tmp_path):
         with pytest.raises(ValueError):
             seguimiento.registrar(con, eid, "email", "inventado")
     assert "30-71234567-1" in seguimiento.leer_bajas(bajas)
+
+
+def test_emails_comodin_y_personas():
+    df = pd.DataFrame({"razon_social": ["A SA", "B SA", "C SA", "D SA"],
+                       "email": ["x@gmail.com", "x@gmail.com", "x@gmail.com", "d@d.com.ar"]})
+    df, n = limpieza.descartar_emails_compartidos(df, 3)
+    assert n == 3 and df["email"].notna().sum() == 1
+    fila = pd.Series({"razon_social": "Gomez Juan", "persona_fisica": True, "pais": "Argentina",
+                      "email": None, "telefono": None, "web": None, "empleados": None})
+    r = clasificacion.calificar_fila(fila, CONFIG, set(), None)
+    assert r["categoria"] == "C - chico"
+    grande = clasificacion.calificar_fila(pd.Series({"razon_social": "Cargill SACI", "email": None}), CONFIG, set(), None)
+    assert grande["motivo_descarte"].startswith("gran empresa")
+    club = clasificacion.calificar_fila(pd.Series({"razon_social": "Club Atletico X", "email": None}), CONFIG, set(), None)
+    assert club["categoria"] == "Descartada"
+    otro = clasificacion.calificar_fila(pd.Series({"razon_social": "Tico Pisos Industriales SRL", "email": None}),
+                                        CONFIG, set(), None)
+    assert pd.isna(otro["motivo_descarte"])

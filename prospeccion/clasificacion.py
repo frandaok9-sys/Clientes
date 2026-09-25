@@ -20,6 +20,10 @@ def _patron(palabras: tuple[str, ...]) -> re.Pattern | None:
     return re.compile(r"\b(" + "|".join(re.escape(p) for p in palabras) + r")\b")
 
 
+def _verdadero(valor) -> bool:
+    return not vacio(valor) and bool(valor)
+
+
 def coincide(texto: str, palabras) -> str | None:
     """Devuelve la primera palabra clave encontrada (por palabra completa) o None."""
     patron = _patron(tuple(palabras or ()))
@@ -76,15 +80,23 @@ def detectar_rubro(texto: str, config: dict) -> tuple[dict | None, bool]:
 def motivo_descarte(fila: pd.Series, texto: str, config: dict) -> str | None:
     d = config.get("descartes", {})
     rubro_txt = _texto(fila, ["rubro"])
+    nombre_txt = _texto(fila, ["razon_social", "nombre_fantasia"])
+    dominio_mail = str(fila["email"]).split("@")[1] if not vacio(fila.get("email")) else ""
     if not vacio(fila.get("pais")) and clave(fila["pais"]) not in {clave(p) for p in d.get("paises_permitidos", [])}:
-        return "fuera de Argentina"
-    if not vacio(fila.get("telefono")) and not str(fila["telefono"]).startswith("+54") and vacio(fila.get("provincia")):
         return "fuera de Argentina"
     nombres = [nombre_normalizado(fila.get("razon_social")), nombre_normalizado(fila.get("nombre_fantasia"))]
     for cliente in d.get("clientes_actuales", []):
         ref = nombre_normalizado(cliente)
-        if any(n and fuzz.token_set_ratio(n, ref) >= 90 for n in nombres):
+        if any(n and fuzz.ratio(n, ref) >= 95 for n in nombres):
             return "cliente actual de COI"
+    grande = coincide(nombre_txt, d.get("grandes_conocidas")) or coincide(clave(dominio_mail.split(".")[0]), d.get("grandes_conocidas"))
+    if grande:
+        return f"gran empresa ({grande})"
+    if any(dominio_mail.endswith(x) for x in d.get("dominios_publicos", [])):
+        return "sector público"
+    entidad = coincide(nombre_txt, d.get("no_empresa"))
+    if entidad:
+        return f"no es empresa objetivo ({entidad})"
     if coincide(rubro_txt, d.get("competidores")):
         return "competidor (software de gestión)"
     if coincide(rubro_txt, d.get("b2c")):
@@ -149,6 +161,9 @@ def calificar_fila(fila: pd.Series, config: dict, bajas: set[str], mx_cache: dic
         categoria = "Descartada"
     elif (not vacio(emp) and emp <= 1) or coincide(texto, config.get("descartes", {}).get("unipersonal")):
         categoria, motivo = "C - chico", None
+    elif _verdadero(fila.get("persona_fisica")) and (vacio(emp) or emp < p.get("tamano_min", 10)):
+        categoria = "C - chico"
+        senales.append("persona física, sin datos de equipo")
 
     return {
         "rubro_coi": rubro["nombre"] if rubro else pd.NA,
@@ -173,21 +188,49 @@ def estado_email(fila: pd.Series, genericos: set[str]) -> str | None:
     if not vacio(fila.get("email_estado")) and clave(fila["email_estado"]) in {"verificado", "deducido", "generico"}:
         return clave(fila["email_estado"])
     local = str(fila["email"]).split("@")[0]
-    if local in genericos:
+    if any(local.startswith(g) for g in genericos):
         return "generico"
     return "sin_verificar"
+
+
+_SOCIEDAD = re.compile(r"\b(s\.?\s?a\.?\s?s?|s\.?\s?r\.?\s?l|s\.?\s?a\.?\s?i\.?\s?c|sociedad)\b", re.IGNORECASE)
+
+
+def prioridad_enriquecimiento(fila: pd.Series) -> int:
+    """Qué tan útil es investigar esta empresa en la web (0 = no vale la pena).
+
+    Sirve para elegir qué mandar a enriquecer cuando la lista no trae rubro ni tamaño.
+    """
+    if fila["categoria"] in ("Descartada", "C - chico"):
+        return 0
+    p = 0
+    p += 3 if fila["puntaje"] >= 3 else fila["puntaje"]              # rubro detectado
+    p += 2 if _SOCIEDAD.search(str(fila.get("razon_social") or "")) or str(fila.get("cuit") or "").startswith(("30", "33")) else 0
+    p += 1 if not vacio(fila.get("dominio_email")) else 0
+    p += 1 if not vacio(fila.get("telefono")) else 0
+    p += 1 if not vacio(fila.get("localidad")) else 0
+    return p
 
 
 def calificar(df: pd.DataFrame, config: dict, bajas: set[str] | None = None,
               verificar_mx: bool = False) -> pd.DataFrame:
     df = df.copy()
     cache = {} if verificar_mx else None
+    if verificar_mx:
+        from concurrent.futures import ThreadPoolExecutor
+
+        gratuitos = set(config.get("correo_gratuito", []))
+        dominios = {d for d, propio in (dominio_email(f, gratuitos) for _, f in df.iterrows()) if d and propio}
+        with ThreadPoolExecutor(max_workers=32) as ex:
+            for dom, res in zip(dominios, ex.map(lambda d: usa_google_workspace(d, {}), dominios)):
+                cache[dom] = res
     extra = pd.DataFrame([calificar_fila(f, config, bajas or set(), cache) for _, f in df.iterrows()])
     df = pd.concat([df.reset_index(drop=True), extra], axis=1)
     genericos = set(config.get("emails_genericos", []))
     df["email_estado"] = df.apply(lambda f: estado_email(f, genericos), axis=1)
     df["verificar_no_llame"] = df["telefono"].apply(lambda t: "sí" if not vacio(t) else pd.NA)
     df["fecha_revision"] = date.today().isoformat()
+    df["prioridad_enriquecimiento"] = df.apply(prioridad_enriquecimiento, axis=1)
     orden = {"A": 0, "B": 1, "C": 2, "C - chico": 3, "Descartada": 4}
     df["_orden"] = df["categoria"].map(orden)
     return df.sort_values(["_orden", "puntaje"], ascending=[True, False]).drop(columns="_orden").reset_index(drop=True)
