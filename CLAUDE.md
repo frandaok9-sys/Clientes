@@ -19,6 +19,7 @@ manda el brief.
 
 ## Dónde está cada cosa
 - `config.yaml`: rubros, puntajes, descartes, clientes actuales y competidores (reglas del brief, secciones 3–5).
+- `canal/`: pedidos a la sesión local (con Chrome) y sus respuestas. Protocolo en `canal/PROTOCOLO.md`.
 - `prospeccion/`: limpieza, deduplicación, calificación, borradores y seguimiento.
 - `plantillas/`: borradores en voseo (brief, sección 9).
 - `datos/entrada/`: listas reales (no se suben a git). `datos/salida/`: resultados.
