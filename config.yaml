@@ -112,6 +112,8 @@ descartes:
   # Entidades que no son empresas objetivo
   no_empresa: [club, municipalidad, municipio, comuna, gobierno, ministerio, secretaria, universidad, escuela, colegio, instituto, iglesia, parroquia, orden de, fundacion, asociacion civil, sindicato, obispado, hospital, policia, ejercito, gendarmeria, consorcio de propietarios, sucesion, sucesion de]
   dominios_publicos: [gob.ar, gov.ar, edu.ar, mil.ar]
+  # Señales del enriquecimiento web que descartan la empresa
+  senales_descarte: [multinacional, cerrada, cerro, sin actividad, productor agropecuario, cooperativa de servicios publicos, servicio publico, no es empresa]
 
 # Proveedores de correo gratuito: sin dominio propio -> requiere_dominio = sí
 correo_gratuito: [gmail.com, hotmail.com, hotmail.com.ar, hotmail.es, outlook.com, outlook.com.ar, outlook.es, live.com, live.com.ar, msn.com, yahoo.com, yahoo.com.ar, yahoo.es, icloud.com,

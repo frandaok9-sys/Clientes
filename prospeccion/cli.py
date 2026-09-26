@@ -22,7 +22,7 @@ COLUMNAS_ENTREGA = [
     "usa_google_workspace", "empleados_aprox", "usuarios_probables", "señales", "puntaje", "categoria",
     "motivo_descarte", "plan_sugerido", "contacto_nombre", "contacto_cargo", "contacto_email", "email_estado",
     "contacto_telefono", "verificar_no_llame", "angulo_primer_contacto", "fuente", "fecha_revision",
-    "requiere_dominio",
+    "requiere_dominio", "fuente_enriquecimiento",
 ]
 
 
@@ -51,6 +51,8 @@ def _tabla(df: pd.DataFrame, titulo: str) -> None:
 def entrega(df: pd.DataFrame) -> pd.DataFrame:
     out = df.rename(columns={"email": "contacto_email", "telefono": "contacto_telefono"}).copy()
     out["empleados_aprox"] = out["empleados"].apply(lambda v: pd.NA if limpieza.vacio(v) else int(v))
+    if "fuente_enriquecimiento" not in out.columns:
+        out["fuente_enriquecimiento"] = pd.NA
     if "usuarios_probables" not in out.columns:
         out["usuarios_probables"] = pd.NA  # no se estima: no se inventan datos
     return out[COLUMNAS_ENTREGA]

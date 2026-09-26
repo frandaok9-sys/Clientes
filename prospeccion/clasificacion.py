@@ -94,6 +94,9 @@ def motivo_descarte(fila: pd.Series, texto: str, config: dict) -> str | None:
         return f"gran empresa ({grande})"
     if any(dominio_mail.endswith(x) for x in d.get("dominios_publicos", [])):
         return "sector público"
+    por_senal = coincide(_texto(fila, ["senales"]), d.get("senales_descarte"))
+    if por_senal:
+        return f"según enriquecimiento ({por_senal})"
     entidad = coincide(nombre_txt, d.get("no_empresa"))
     if entidad:
         return f"no es empresa objetivo ({entidad})"
