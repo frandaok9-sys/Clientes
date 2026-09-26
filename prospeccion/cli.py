@@ -128,7 +128,8 @@ def procesar(
     limpio, comodines = limpieza.descartar_emails_compartidos(limpio, config.get("email_compartido_max", 3))
     limpio, duplicados = limpieza.deduplicar(limpio)
     bajas = seguimiento.leer_bajas(_ruta(config, "bajas", "datos/bajas.csv"))
-    calificado = clasificacion.calificar(limpio, config, bajas, verificar_mx)
+    revisiones = clasificacion.leer_revisiones(_ruta(config, "revisiones", "datos/revisiones.csv"))
+    calificado = clasificacion.calificar(limpio, config, bajas, verificar_mx, revisiones)
     final = mensajes.generar(calificado, RAIZ / "plantillas", config)
 
     salida.mkdir(parents=True, exist_ok=True)

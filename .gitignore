@@ -9,3 +9,4 @@ datos/bajas.csv
 !datos/entrada/.gitkeep
 !datos/salida/.gitkeep
 *.db
+datos/revisiones.csv

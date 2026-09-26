@@ -129,3 +129,10 @@ def test_dedupe_prefiere_fuente_mas_confiable():
             df[c] = pd.NA
     out, n = limpieza.deduplicar(df)
     assert n == 1 and out.iloc[0]["email"] == "ventas@metalx.com.ar" and out.iloc[0]["rubro"] == "metalurgica"
+
+
+def test_revision_manual_manda():
+    fila = pd.Series({"razon_social": "Metal Y SRL", "senales": "cerrada", "email": None})
+    assert clasificacion.calificar_fila(fila, CONFIG, set(), None)["categoria"] == "Descartada"
+    rev = {limpieza.nombre_normalizado("Metal Y SRL"): ("mantener", "sigue activa")}
+    assert clasificacion.calificar_fila(fila, CONFIG, set(), None, rev)["categoria"] != "Descartada"

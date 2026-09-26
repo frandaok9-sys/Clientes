@@ -113,7 +113,7 @@ categorias:
 # Descartes (brief, sección 4)
 descartes:
   paises_permitidos: [argentina, ar, arg]
-  b2c: [kiosco, indumentaria, gastronomia, restaurante, bar, cafeteria, e-commerce, ecommerce, tienda online, almacen, supermercado, peluqueria, boutique]
+  b2c: [kiosco, indumentaria, gastronomia, restaurante, bar, cafeteria, e-commerce, ecommerce, tienda online, almacen, supermercado, peluqueria, boutique, estacion de servicio, estaciones de servicio, comercio minorista, muebleria, fiambreria, bicicletas]
   erp_corporativo: [sap, oracle, dynamics, protheus]
   empleados_grande: 250
   competidores: [software de gestion, erp, crm, sistemas de gestion, desarrollo de software]
@@ -125,7 +125,7 @@ descartes:
   no_empresa: [club, municipalidad, municipio, comuna, gobierno, ministerio, secretaria, universidad, escuela, colegio, instituto, iglesia, parroquia, orden de, fundacion, asociacion civil, sindicato, obispado, hospital, policia, ejercito, gendarmeria, consorcio de propietarios, sucesion, sucesion de]
   dominios_publicos: [gob.ar, gov.ar, edu.ar, mil.ar]
   # Señales del enriquecimiento web que descartan la empresa
-  senales_descarte: [multinacional, cerrada, cerro, cierre, concurso preventivo, quiebra, en quiebra, sin actividad, productor agropecuario, cooperativa de servicios publicos, servicio publico, no es empresa]
+  senales_descarte: [multinacional, subsidiaria, joint venture, cerrada, cerro, cierre, concurso preventivo, quiebra, en quiebra, estacion de servicio, comercio minorista, sin actividad, productor agropecuario, cooperativa de servicios publicos, servicio publico, no es empresa]
 
 # Proveedores de correo gratuito: sin dominio propio -> requiere_dominio = sí
 correo_gratuito: [gmail.com, hotmail.com, hotmail.com.ar, hotmail.es, outlook.com, outlook.com.ar, outlook.es, live.com, live.com.ar, msn.com, yahoo.com, yahoo.com.ar, yahoo.es, icloud.com,

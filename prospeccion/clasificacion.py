@@ -89,7 +89,9 @@ def motivo_descarte(fila: pd.Series, texto: str, config: dict) -> str | None:
         ref = nombre_normalizado(cliente)
         if any(n and fuzz.ratio(n, ref) >= 95 for n in nombres):
             return "cliente actual de COI"
-    grande = coincide(nombre_txt, d.get("grandes_conocidas")) or coincide(clave(dominio_mail.split(".")[0]), d.get("grandes_conocidas"))
+    grande = (coincide(nombre_txt, d.get("grandes_conocidas"))
+              or coincide(clave(dominio_mail.split(".")[0]), d.get("grandes_conocidas"))
+              or coincide(_texto(fila, ["senales"]), d.get("grandes_conocidas")))  # "del grupo Bunge"
     if grande:
         return f"gran empresa ({grande})"
     if any(dominio_mail.endswith(x) for x in d.get("dominios_publicos", [])):
@@ -113,7 +115,8 @@ def motivo_descarte(fila: pd.Series, texto: str, config: dict) -> str | None:
     return None
 
 
-def calificar_fila(fila: pd.Series, config: dict, bajas: set[str], mx_cache: dict | None) -> dict:
+def calificar_fila(fila: pd.Series, config: dict, bajas: set[str], mx_cache: dict | None,
+                   revisiones: dict | None = None) -> dict:
     p = config.get("puntaje", {})
     s = config.get("senales", {})
     texto = _texto(fila, ["rubro", "razon_social", "nombre_fantasia", "web", "senales"])
@@ -167,6 +170,14 @@ def calificar_fila(fila: pd.Series, config: dict, bajas: set[str], mx_cache: dic
     categoria = "A" if puntos >= c.get("A", 10) else "B" if puntos >= c.get("B", 6) else "C"
 
     motivo = motivo_descarte(fila, texto, config)
+    revision = (revisiones or {}).get(nombre_normalizado(fila.get("razon_social")))
+    if revision:  # decisión humana: manda sobre las reglas automáticas
+        decision, motivo_rev = revision
+        if decision == "mantener" and motivo and not motivo.startswith("oposición registrada"):
+            motivo = None
+            senales.append(f"revisado: se mantiene ({motivo_rev})")
+        elif decision == "descartar":
+            motivo = f"revisión manual ({motivo_rev})"
     identificadores = {clave(x) for x in (fila.get("cuit"), fila.get("email"), fila.get("telefono"), dominio) if not vacio(x)}
     if identificadores & bajas:
         motivo = "oposición registrada (baja)"
@@ -226,8 +237,17 @@ def prioridad_enriquecimiento(fila: pd.Series) -> int:
     return p
 
 
+def leer_revisiones(ruta) -> dict:
+    """datos/revisiones.csv (razon_social;decision;motivo) -> {nombre normalizado: (decision, motivo)}."""
+    from pathlib import Path
+    if not ruta or not Path(ruta).exists():
+        return {}
+    r = pd.read_csv(ruta, sep=";", dtype=str).fillna("")
+    return {nombre_normalizado(f.razon_social): (clave(f.decision), f.motivo) for f in r.itertuples()}
+
+
 def calificar(df: pd.DataFrame, config: dict, bajas: set[str] | None = None,
-              verificar_mx: bool = False) -> pd.DataFrame:
+              verificar_mx: bool = False, revisiones: dict | None = None) -> pd.DataFrame:
     df = df.copy()
     cache = {} if verificar_mx else None
     if verificar_mx:
@@ -238,7 +258,7 @@ def calificar(df: pd.DataFrame, config: dict, bajas: set[str] | None = None,
         with ThreadPoolExecutor(max_workers=32) as ex:
             for dom, res in zip(dominios, ex.map(lambda d: usa_google_workspace(d, {}), dominios)):
                 cache[dom] = res
-    extra = pd.DataFrame([calificar_fila(f, config, bajas or set(), cache) for _, f in df.iterrows()])
+    extra = pd.DataFrame([calificar_fila(f, config, bajas or set(), cache, revisiones) for _, f in df.iterrows()])
     df = pd.concat([df.reset_index(drop=True), extra], axis=1)
     genericos = set(config.get("emails_genericos", []))
     df["email_estado"] = df.apply(lambda f: estado_email(f, genericos), axis=1)
