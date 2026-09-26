@@ -66,6 +66,7 @@ h1 { font: 700 clamp(26px, 4vw, 36px)/1.1 var(--display); margin: 0; text-wrap: 
 .tag { font: 600 11px/1 var(--display); letter-spacing: .04em; text-transform: uppercase; padding: 4px 6px; border-radius: 4px; white-space: nowrap; }
 .cat-A { background: var(--ink); color: var(--bg); }
 .cat-B { background: var(--accent-soft); color: var(--accent); }
+.cat-C { background: var(--sunk); color: var(--muted); border: 1px solid var(--line); }
 .dig-alta { background: var(--ok-soft); color: var(--ok); }
 .dig-media { background: var(--warn-soft); color: var(--warn); }
 .dig-baja { background: var(--crit-soft); color: var(--crit); }
@@ -113,13 +114,18 @@ summary { cursor: pointer; font: 600 13px var(--display); color: var(--accent); 
 
   <div class="carriles" id="carriles"></div>
 
-  <p class="pie">Todo teléfono se chequea en el Registro Nacional «No Llame» (Ley 26.951) antes de llamar o escribir por WhatsApp. Los borradores identifican a COI y terminan con la línea de baja; quien pida la baja va a <code>datos/bajas.csv</code> para siempre. Datos tomados de fuentes públicas con el buscador; las fuentes de cada fila están en el CSV.</p>
+  <p class="pie"><b>Madurez digital:</b> alta = web propia y email con dominio propio; media = solo una de las dos; baja = ninguna (se prospecta por teléfono). Todo teléfono se chequea en el Registro Nacional «No Llame» (Ley 26.951) antes de llamar o escribir por WhatsApp. Los borradores identifican a COI y terminan con la línea de baja; quien pida la baja va a <code>datos/bajas.csv</code> para siempre. Datos tomados de fuentes públicas con el buscador; las fuentes de cada fila están en el CSV.</p>
 </div>
 
 <script>
 const CARRILES = __CARRILES__;
 const DATOS = __DATOS__;
 const MADUREZ = { alta: "Digital alta", media: "Digital media", baja: "Digital baja" };
+const MADUREZ_AYUDA = {
+  alta: "Tiene web propia y email con su propio dominio. Se le puede escribir por email.",
+  media: "Tiene solo una de las dos: web propia o email con dominio propio. Probá teléfono o WhatsApp.",
+  baja: "No tiene web ni email propio. Seguramente trabaja con papel, planillas y WhatsApp: llamala.",
+};
 const estado = { carril: null, madurez: new Set(), cat: new Set(), q: "" };
 
 const $ = (s) => document.querySelector(s);
@@ -152,7 +158,7 @@ function linea(valor, esTel) {
 function ficha(d) {
   const tags = el("div", { className: "tags" },
     el("span", { className: "tag cat-" + d.categoria, textContent: d.categoria }),
-    el("span", { className: "tag dig-" + d.madurez_digital, textContent: MADUREZ[d.madurez_digital] || d.madurez_digital }));
+    el("span", { className: "tag dig-" + d.madurez_digital, textContent: MADUREZ[d.madurez_digital] || d.madurez_digital, title: MADUREZ_AYUDA[d.madurez_digital] || "" }));
   const cab = el("div", { className: "cab" },
     el("div", {}, el("h3", { textContent: d.nombre_corto || d.razon_social }), el("div", { className: "rs", textContent: d.razon_social })), tags);
   const meta = el("div", { className: "meta", textContent: [d.localidad, d.rubro_coi, d.empleados_aprox && d.empleados_aprox + " empleados"].filter(Boolean).join(" · ") });
@@ -206,7 +212,8 @@ function pintar() {
     cont.append(col);
   }
   const conDecisor = DATOS.filter((d) => d.contacto_nombre).length;
-  $("#sub").textContent = `${DATOS.length} empresas A y B. ${conDecisor} con decisor identificado. Mostrando ${visibles.length}.`;
+  const porCat = ["A", "B", "C"].map((c) => [c, DATOS.filter((d) => d.categoria === c).length]).filter(([, n]) => n).map(([c, n]) => `${n} ${c}`).join(", ");
+  $("#sub").textContent = `${DATOS.length} empresas (${porCat}). ${conDecisor} con decisor identificado. Mostrando ${visibles.length}.`;
 }
 
 function chips(contenedor, valores, set, etiqueta = (v) => v) {
@@ -218,6 +225,7 @@ function chips(contenedor, valores, set, etiqueta = (v) => v) {
   }
 }
 chips($("#f-madurez"), ["alta", "media", "baja"].filter((m) => DATOS.some((d) => d.madurez_digital === m)), estado.madurez, (v) => MADUREZ[v]);
+document.querySelectorAll("#f-madurez .chip").forEach((b, i) => (b.title = MADUREZ_AYUDA[["alta", "media", "baja"].filter((m) => DATOS.some((d) => d.madurez_digital === m))[i]]));
 chips($("#f-cat"), [...new Set(DATOS.map((d) => d.categoria))].sort(), estado.cat);
 $("#buscar").addEventListener("input", (e) => { estado.q = e.target.value.trim().toLowerCase(); pintar(); });
 pintar();

@@ -31,7 +31,11 @@ def datos(df: pd.DataFrame) -> list[dict]:
     campos = ["razon_social", "nombre_corto", "localidad", "categoria", "rubro_coi", "plan_sugerido", "web",
               "madurez_digital", "contacto_nombre", "contacto_cargo", "contacto_email", "contacto_telefono",
               "otros_contactos", "empleados_aprox", "dato", "alerta", "nota", "borrador", "carril"]
-    df = df.sort_values(["categoria", "razon_social"])
+    if "puntaje" in df:
+        df["_p"] = pd.to_numeric(df["puntaje"], errors="coerce").fillna(0)
+    else:
+        df["_p"] = 0
+    df = df.sort_values(["categoria", "_p", "razon_social"], ascending=[True, False, True])
     return [{c: str(f.get(c, "")) for c in campos} for _, f in df.iterrows()]
 
 
