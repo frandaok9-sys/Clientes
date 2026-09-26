@@ -35,6 +35,7 @@ se une a la empresa por razón social y localidad, y completa los datos que falt
 ## Uso
 ```bash
 ./instalar.sh && source .venv/bin/activate
+python -m prospeccion todo          # todas las fuentes: carteras + enriquecimientos + canal/respuestas
 python -m prospeccion procesar datos/entrada/*.csv datos/entrada/*.xlsx --verificar-mx
 #   datos/salida/entrega.csv  -> formato de la sección 8 (UTF-8, separador ;)
 #   datos/salida/resumen.md   -> filas, duplicados, A/B/C, descartes por motivo y top 3 rubros

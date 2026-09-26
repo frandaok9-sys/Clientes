@@ -159,7 +159,11 @@ def deduplicar(df: pd.DataFrame) -> tuple[pd.DataFrame, int]:
     """
     df = df.copy()
     df["_completitud"] = df[CAMPOS].notna().sum(axis=1)
-    df = df.sort_values("_completitud", ascending=False, kind="stable").reset_index(drop=True)
+    if "_confianza" not in df.columns:
+        df["_confianza"] = 0
+    # Primero la fuente más confiable (verificación > enriquecimiento > cartera), después la más completa
+    df["_confianza"] = df["_confianza"].fillna(0)
+    df = df.sort_values(["_confianza", "_completitud"], ascending=False, kind="stable").reset_index(drop=True)
 
     padre = list(range(len(df)))
 
@@ -197,7 +201,7 @@ def deduplicar(df: pd.DataFrame) -> tuple[pd.DataFrame, int]:
         lambda s: " + ".join(dict.fromkeys(str(x) for x in s if not vacio(x))) or pd.NA)
     resultado = df.groupby("_grupo", sort=True).first()
     resultado["fuente"] = fuentes
-    resultado = resultado.reset_index(drop=True).drop(columns=["_completitud"])
+    resultado = resultado.reset_index(drop=True).drop(columns=["_completitud", "_confianza"])
     return resultado, len(df) - len(resultado)
 
 

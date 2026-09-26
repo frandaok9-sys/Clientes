@@ -116,3 +116,16 @@ def test_rubro_informado_manda_sobre_el_nombre():
     assert pd.isna(clasificacion.calificar_fila(fila, CONFIG, set(), None)["rubro_coi"])
     fila = pd.Series({"razon_social": "Distribuidora Dique SRL", "email": None})
     assert clasificacion.calificar_fila(fila, CONFIG, set(), None)["rubro_coi"].startswith("Distribuidoras")
+
+
+def test_dedupe_prefiere_fuente_mas_confiable():
+    df = pd.DataFrame({
+        "razon_social": ["Metal X SRL", "Metal X SRL"], "localidad": ["Rosario", "Rosario"],
+        "email": ["viejo@metalx.com.ar", "ventas@metalx.com.ar"], "rubro": ["metalurgica", None],
+        "_confianza": [1, 3],
+    })
+    for c in limpieza.CAMPOS:
+        if c not in df.columns:
+            df[c] = pd.NA
+    out, n = limpieza.deduplicar(df)
+    assert n == 1 and out.iloc[0]["email"] == "ventas@metalx.com.ar" and out.iloc[0]["rubro"] == "metalurgica"

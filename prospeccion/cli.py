@@ -26,6 +26,18 @@ COLUMNAS_ENTREGA = [
 ]
 
 
+def confianza(ruta: Path) -> int:
+    """Qué dato manda al unir duplicados: verificado en la web > enriquecido > cartera original."""
+    texto = str(ruta).lower()
+    if "verificar" in texto:
+        return 3
+    if "respuestas" in texto:      # enriquecimiento de la sesión local, abriendo las webs
+        return 2
+    if "enriquecimiento" in texto:  # enriquecimiento por búsqueda web
+        return 1
+    return 0
+
+
 def _config(ruta: Path) -> dict:
     with open(ruta, encoding="utf-8") as f:
         return yaml.safe_load(f)
@@ -105,6 +117,7 @@ def procesar(
             df = limpieza.cargar(ruta)
         df = limpieza.mapear_columnas(df, config.get("columnas", {}))
         df["fuente"] = df["fuente"].fillna(ruta.name)
+        df["_confianza"] = confianza(ruta)
         consola.print(f"{ruta.name}: {len(df)} filas")
         marcos.append(df)
     bruto = pd.concat(marcos, ignore_index=True)
@@ -146,6 +159,23 @@ def procesar(
     consola.print(resumen_md)
     consola.print(f"[green]Entrega:[/] {salida / 'entrega.csv'}\n[green]Trabajo:[/] {excel}\n"
                   f"[green]Resumen:[/] {salida / 'resumen.md'}")
+
+
+def fuentes_disponibles() -> list[Path]:
+    """Carteras de datos/entrada, enriquecimientos y respuestas CSV del canal."""
+    entrada = [p for p in sorted((RAIZ / "datos/entrada").rglob("*"))
+               if p.suffix.lower() in {".csv", ".xlsx", ".xls", ".pdf"}]
+    return entrada + sorted((RAIZ / "canal/respuestas").glob("*.csv"))
+
+
+@app.command()
+def todo(
+    verificar_mx: bool = typer.Option(True, "--verificar-mx/--sin-mx"),
+    reiniciar: bool = typer.Option(False, "--reiniciar", help="Sobrescribe el seguimiento existente"),
+    config_path: Path = OpcionConfig,
+):
+    """Procesa todas las fuentes disponibles: carteras, enriquecimientos y respuestas del canal."""
+    procesar(fuentes_disponibles(), RAIZ / "datos/salida", verificar_mx, reiniciar, config_path)
 
 
 @app.command()
