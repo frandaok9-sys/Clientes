@@ -89,7 +89,7 @@ def texto_resumen(total: int, sin_datos: int, duplicados: int, df: pd.DataFrame)
         activas = df[df["categoria"] != "Descartada"]
         md = activas["madurez_digital"].value_counts()
         lineas.append(f"- Madurez digital (sin descartadas): alta {md.get('alta', 0)} | media {md.get('media', 0)} | "
-                      f"baja {md.get('baja', 0)} (sin web ni correo propio: se prospectan por teléfono)")
+                      f"baja {md.get('baja', 0)} (baja = la fuente no trae web ni correo propio; se prospectan por teléfono)")
     top = df.loc[df["categoria"] == "A", "rubro_coi"].value_counts().head(3)
     lineas.append("- Rubros con más A: " + (", ".join(f"{r} ({n})" for r, n in top.items()) or "ninguno"))
     return "\n".join(lineas)
