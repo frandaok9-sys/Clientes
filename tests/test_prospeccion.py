@@ -96,3 +96,16 @@ def test_emails_comodin_y_personas():
     otro = clasificacion.calificar_fila(pd.Series({"razon_social": "Tico Pisos Industriales SRL", "email": None}),
                                         CONFIG, set(), None)
     assert pd.isna(otro["motivo_descarte"])
+
+
+def test_saludo_y_nombre_corto():
+    gen = CONFIG["emails_genericos"]
+    base = {"razon_social": "MINERA SAN PEDRO SRL", "nombre_fantasia": None}
+    assert mensajes.nombre_corto(pd.Series(base)) == "Minera San Pedro"
+    # el "contacto" es la propia empresa
+    assert mensajes.saludo_nombre(pd.Series({**base, "contacto_nombre": "Minera San Pedro Srl", "email": None}), gen) == ""
+    # email personal de otra persona: no se saluda por nombre
+    assert mensajes.saludo_nombre(pd.Series({**base, "contacto_nombre": "Horacio Pinasco", "email": "bmonge@x.com.ar"}), gen) == ""
+    # email de la misma persona o genérico: sí
+    assert mensajes.saludo_nombre(pd.Series({**base, "contacto_nombre": "Horacio Pinasco", "email": "hpinasco@x.com.ar"}), gen) == "Horacio"
+    assert mensajes.saludo_nombre(pd.Series({**base, "contacto_nombre": "Horacio Pinasco", "email": "ventas@x.com.ar"}), gen) == "Horacio"

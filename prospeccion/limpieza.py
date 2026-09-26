@@ -112,7 +112,10 @@ def a_numero(valor) -> float | None:
     """Convierte '1.200', '80k', '10-20', '~50' a número (en rangos toma el punto medio)."""
     if vacio(valor):
         return None
-    texto = str(valor).strip().lower().replace(" ", "").lstrip("~+><")
+    texto = clave(valor)
+    # "más de 20", "40 aprox.", "+500", "hasta 50": se toma el número indicado
+    texto = re.sub(r"\b(mas de|menos de|hasta|aprox\.?|aproximadamente|cerca de|unos|empleados)\b", " ", texto)
+    texto = texto.replace(" ", "").strip(".").lstrip("~+><")
     rango = re.fullmatch(r"(\d+)[-a](\d+)", texto)
     if rango:
         return (float(rango.group(1)) + float(rango.group(2))) / 2

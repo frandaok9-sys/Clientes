@@ -2,13 +2,45 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from urllib.parse import quote
 
 import pandas as pd
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-from .limpieza import vacio
+from .limpieza import clave, nombre_normalizado, vacio
+
+
+def nombre_corto(fila: pd.Series) -> str:
+    """Nombre para el saludo: fantasía o razón social sin sufijo societario, sin MAYÚSCULAS sostenidas."""
+    base = fila.get("nombre_fantasia") if not vacio(fila.get("nombre_fantasia")) else fila.get("razon_social")
+    if vacio(base):
+        return "tu empresa"
+    texto = re.sub(r"[\s,]*\b(s\.?\s?a\.?\s?i\.?\s?c\.?\w*|s\.?\s?r\.?\s?l\.?|s\.?\s?a\.?\s?s\.?|s\.?\s?a\.?|sociedad an[oó]nima|sociedad de responsabilidad limitada)\s*$",
+                   "", str(base).strip(), flags=re.IGNORECASE).strip(" .,")
+    return texto.title() if texto.isupper() else texto
+
+
+def saludo_nombre(fila: pd.Series, genericos) -> str:
+    """Primer nombre del contacto solo si el saludo le llega a esa persona.
+
+    No se saluda por nombre si el "contacto" es la propia empresa, ni si el email es personal
+    de otra persona (el nombre y el email pueden venir de fuentes distintas).
+    """
+    nombre = fila.get("contacto_nombre")
+    if vacio(nombre):
+        return ""
+    if nombre_normalizado(nombre) in (nombre_normalizado(fila.get("razon_social")), nombre_normalizado(fila.get("nombre_fantasia"))):
+        return ""
+    partes = [p for p in clave(nombre).replace(".", " ").split() if len(p) > 2]
+    email = fila.get("email")
+    if not vacio(email):
+        local = clave(str(email).split("@")[0])
+        es_generico = any(local.startswith(g) for g in genericos)
+        if not es_generico and not any(p in local for p in partes):
+            return ""
+    return partes[0].capitalize() if partes else ""
 
 
 def _entorno(dir_plantillas: str | Path) -> Environment:
@@ -18,10 +50,10 @@ def _entorno(dir_plantillas: str | Path) -> Environment:
 
 def _contexto(fila: pd.Series, config: dict) -> dict:
     ctx = {k: ("" if vacio(v) else v) for k, v in fila.items() if isinstance(k, str)}
-    nombre = str(ctx.get("contacto_nombre") or "").strip()
-    ctx["primer_nombre"] = nombre.split(" ")[0] if nombre else ""
-    ctx["empresa"] = ctx.get("nombre_fantasia") or ctx.get("razon_social") or "tu empresa"
-    ctx["rubro_texto"] = (ctx.get("rubro") or ctx.get("rubro_coi") or "la industria").lower()
+    ctx["primer_nombre"] = saludo_nombre(fila, config.get("emails_genericos", []))
+    ctx["empresa"] = nombre_corto(fila)
+    ctx["frase_rubro"] = fila.get("_frase") or config.get("industrial_generico", {}).get("frase", "es una empresa industrial")
+    ctx["rubro_texto"] = (ctx.get("rubro_coi") or ctx.get("rubro") or "la industria").split(" (")[0].lower()
     ctx["dolor"] = fila.get("_dolor") or config.get("industrial_generico", {}).get("dolor", "")
     ctx["solucion"] = fila.get("_solucion") or config.get("industrial_generico", {}).get("solucion", "")
     hechos = [h for h in str(fila.get("_hechos") or "").split(",") if h]
