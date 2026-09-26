@@ -33,7 +33,7 @@ rubros:
     plan: Industrial
   - nombre: Metalúrgicas / metalmecánica a pedido
     frase: trabaja en metalurgia a pedido
-    palabras: [metalurgica, metalurgicas, metalurgia, metalmecanica, torneria, caldereria, fabricacion a medida, mecanizado, mecanizados, herreria industrial, matriceria, matriceria, fundicion, soldadura, talleres industriales, talleres metalurgicos, galvanizado, metal, metales, metalica, metalicas]
+    palabras: [metalurgica, metalurgicas, metalurgia, metalmecanica, torneria, caldereria, fabricacion a medida, mecanizado, mecanizados, herreria industrial, matriceria, matriceria, fundicion, soldadura, talleres industriales, talleres metalurgicos, galvanizado, metal, metales, metalica, metalicas, fabricacion de maquinaria, fabricacion de maquinas, fabricacion y reparacion, maquinas y equipos, equipos industriales, engranajes, acoplados, polipastos, mecanizado semipesado, fundicion de]
     dolor: cada presupuesto a medida se arma distinto y el margen real por trabajo no se ve
     solucion: arma los presupuestos por costo más ganancia y te muestra cuánto dejó cada trabajo
     plan: Emprendedor / Industrial
@@ -73,6 +73,9 @@ rubros:
     dolor: con un catálogo técnico grande, el seguimiento de cada cotización y la cuenta corriente por moneda se desordenan
     solucion: une pipeline, catálogo de productos y cuenta corriente en pesos y dólares
     plan: Emprendedor
+
+# Rubros informados que NO son industriales aunque el nombre lo sugiera (anulan la detección por nombre)
+rubro_no_objetivo: [libreria, papeleria, muebles de oficina, no insumos industriales, no es industria, inmobiliaria, seguros, estudio contable, consultora de recursos humanos]
 
 # Si no cae en un rubro prioritario pero es industrial B2B
 industrial_generico:
@@ -122,7 +125,7 @@ descartes:
   no_empresa: [club, municipalidad, municipio, comuna, gobierno, ministerio, secretaria, universidad, escuela, colegio, instituto, iglesia, parroquia, orden de, fundacion, asociacion civil, sindicato, obispado, hospital, policia, ejercito, gendarmeria, consorcio de propietarios, sucesion, sucesion de]
   dominios_publicos: [gob.ar, gov.ar, edu.ar, mil.ar]
   # Señales del enriquecimiento web que descartan la empresa
-  senales_descarte: [multinacional, cerrada, cerro, sin actividad, productor agropecuario, cooperativa de servicios publicos, servicio publico, no es empresa]
+  senales_descarte: [multinacional, cerrada, cerro, cierre, concurso preventivo, quiebra, en quiebra, sin actividad, productor agropecuario, cooperativa de servicios publicos, servicio publico, no es empresa]
 
 # Proveedores de correo gratuito: sin dominio propio -> requiere_dominio = sí
 correo_gratuito: [gmail.com, hotmail.com, hotmail.com.ar, hotmail.es, outlook.com, outlook.com.ar, outlook.es, live.com, live.com.ar, msn.com, yahoo.com, yahoo.com.ar, yahoo.es, icloud.com,

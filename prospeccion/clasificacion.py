@@ -126,7 +126,17 @@ def calificar_fila(fila: pd.Series, config: dict, bajas: set[str], mx_cache: dic
     elif dominio and not propio:
         workspace = "no"
 
-    rubro, prioritario = detectar_rubro(texto, config)
+    # Si hay un rubro informado (de la lista o del enriquecimiento), manda sobre lo que sugiere el nombre
+    rubro, prioritario, texto_nombre = None, False, texto
+    if not vacio(fila.get("rubro")):
+        informado = _texto(fila, ["rubro", "senales"])
+        if coincide(informado, config.get("rubro_no_objetivo")):
+            informado = texto_nombre = ""  # el rubro verificado contradice al nombre: no se usa el nombre
+        rubro, prioritario = detectar_rubro(informado, config)
+    if not prioritario and texto_nombre:
+        por_nombre, prio_nombre = detectar_rubro(texto_nombre, config)
+        if prio_nombre or rubro is None:
+            rubro, prioritario = por_nombre, prio_nombre
     puntos, senales, hechos = 0, [], []
 
     def sumar(n, etiqueta):

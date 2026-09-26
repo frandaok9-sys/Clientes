@@ -109,3 +109,10 @@ def test_saludo_y_nombre_corto():
     # email de la misma persona o genérico: sí
     assert mensajes.saludo_nombre(pd.Series({**base, "contacto_nombre": "Horacio Pinasco", "email": "hpinasco@x.com.ar"}), gen) == "Horacio"
     assert mensajes.saludo_nombre(pd.Series({**base, "contacto_nombre": "Horacio Pinasco", "email": "ventas@x.com.ar"}), gen) == "Horacio"
+
+
+def test_rubro_informado_manda_sobre_el_nombre():
+    fila = pd.Series({"razon_social": "Distribuidora Dique SRL", "rubro": "librería mayorista", "email": None})
+    assert pd.isna(clasificacion.calificar_fila(fila, CONFIG, set(), None)["rubro_coi"])
+    fila = pd.Series({"razon_social": "Distribuidora Dique SRL", "email": None})
+    assert clasificacion.calificar_fila(fila, CONFIG, set(), None)["rubro_coi"].startswith("Distribuidoras")
