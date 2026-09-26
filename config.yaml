@@ -75,7 +75,7 @@ rubros:
     plan: Emprendedor
 
 # Rubros informados que NO son industriales aunque el nombre lo sugiera (anulan la detección por nombre)
-rubro_no_objetivo: [libreria, papeleria, muebles de oficina, no insumos industriales, no es industria, inmobiliaria, seguros, estudio contable, consultora de recursos humanos]
+rubro_no_objetivo: [mayorista de alimentos, alimentos y bebidas, distribuidora de bebidas, libreria, papeleria, muebles de oficina, no insumos industriales, no es industria, inmobiliaria, seguros, estudio contable, consultora de recursos humanos]
 
 # Si no cae en un rubro prioritario pero es industrial B2B
 industrial_generico:
@@ -120,7 +120,7 @@ descartes:
   clientes_actuales: [RC Pisos Industriales, Apex Noa Soluciones Integrales]
   unipersonal: [unipersonal, monotributista, independiente, freelance]
   # Grandes empresas conocidas (se detectan en el nombre o en el dominio del email)
-  grandes_conocidas: [cargill, bunge, gerdau, acindar, ternium, techint, tenaris, siderar, ypf, arcor, molino canuelas, molinos rio de la plata, aceitera general deheza, agd, dreyfus, ldc, cofco, vicentin, toyota, general motors, ford, fiat, stellantis, john deere, cnh, agco, renault, volkswagen, unilever, nestle, pepsico, coca cola, danone, mastellone, sancor, profertil, dow, basf, bayer, syngenta, pan american energy, pampa energia, loma negra, holcim, minetti, aluar, swift, paladini, la segunda, molinos agro, glencore, adm, nidera, petrobras, shell, axion, raizen, pluspetrol, tecpetrol, wintershall, total austral, cementos avellaneda, ledesma, quilmes, cervecería quilmes, mercadolibre]
+  grandes_conocidas: [viterra, cargill, bunge, gerdau, acindar, ternium, techint, tenaris, siderar, ypf, arcor, molino canuelas, molinos rio de la plata, aceitera general deheza, agd, dreyfus, ldc, cofco, vicentin, toyota, general motors, ford, fiat, stellantis, john deere, cnh, agco, renault, volkswagen, unilever, nestle, pepsico, coca cola, danone, mastellone, sancor, profertil, dow, basf, bayer, syngenta, pan american energy, pampa energia, loma negra, holcim, minetti, aluar, swift, paladini, la segunda, molinos agro, glencore, adm, nidera, petrobras, shell, axion, raizen, pluspetrol, tecpetrol, wintershall, total austral, cementos avellaneda, ledesma, quilmes, cervecería quilmes, mercadolibre]
   # Entidades que no son empresas objetivo
   no_empresa: [club, municipalidad, municipio, comuna, gobierno, ministerio, secretaria, universidad, escuela, colegio, instituto, iglesia, parroquia, orden de, fundacion, asociacion civil, sindicato, obispado, hospital, policia, ejercito, gendarmeria, consorcio de propietarios, sucesion, sucesion de]
   dominios_publicos: [gob.ar, gov.ar, edu.ar, mil.ar]
