@@ -46,6 +46,16 @@ def test_calificacion_y_descartes():
     assert _fila(df, "Juan Pérez")["categoria"] == "C - chico"
     dist = _fila(df, "Distribuidora")
     assert dist["requiere_dominio"] == "sí" and pd.isna(dist["dominio_email"])
+    assert set(df["madurez_digital"]) <= {"alta", "media", "baja"}
+
+
+def test_madurez_digital():
+    from prospeccion.clasificacion import madurez_digital
+    g = {"gmail.com"}
+    assert madurez_digital(pd.Series({"web": "a.com.ar", "email": "ventas@a.com.ar"}), g) == "alta"
+    assert madurez_digital(pd.Series({"web": "a.com.ar", "email": "a@gmail.com"}), g) == "media"
+    assert madurez_digital(pd.Series({"web": None, "email": "a@gmail.com"}), g) == "baja"
+    assert madurez_digital(pd.Series({"web": None, "email": None}), g) == "baja"
 
 
 def test_bajas_se_respetan():
@@ -153,3 +163,18 @@ def test_fichas_a_enriquecimiento_y_ranking(tmp_path):
         "razon_social": "Metal X S.R.L.", "localidad": "ROSARIO", "puntaje": "7", "categoria": "B"}])
     r = fichas.unir_ranking(entrega, f)
     assert len(r) == 1 and r.iloc[0]["encaje_coi"] == 8
+
+
+def test_tablero_carriles(tmp_path):
+    from prospeccion import tablero
+    csv = tmp_path / "p.csv"
+    pd.DataFrame([
+        {"razon_social": "Uno SA", "categoria": "A", "contacto_nombre": "Ana", "contacto_email": "info@uno.com.ar", "madurez_digital": "alta"},
+        {"razon_social": "Dos SRL", "categoria": "B", "contacto_telefono": "0341 4000000", "madurez_digital": "baja"},
+        {"razon_social": "Tres SA", "categoria": "B", "madurez_digital": "media"},
+        {"razon_social": "Cuatro SA", "categoria": "B", "contacto_nombre": "Luis", "contacto_email": "info@cuatro.com", "alerta": "grande"},
+    ]).to_csv(csv, sep=";", index=False)
+    carriles = {d["razon_social"]: d["carril"] for d in tablero.datos(pd.read_csv(csv, sep=";", dtype=str))}
+    assert carriles == {"Uno SA": "listas", "Dos SRL": "generico", "Tres SA": "sin_canal", "Cuatro SA": "revisar"}
+    pagina = tablero.generar(csv, tmp_path / "t.html").read_text(encoding="utf-8")
+    assert "Uno SA" in pagina and "__DATOS__" not in pagina

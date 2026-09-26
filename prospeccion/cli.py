@@ -10,7 +10,7 @@ import yaml
 from rich.console import Console
 from rich.table import Table
 
-from . import clasificacion, fichas, importar, limpieza, mensajes, seguimiento
+from . import clasificacion, fichas, importar, limpieza, mensajes, seguimiento, tablero as tablero_mod
 
 app = typer.Typer(help="Limpia, califica y prepara la prospección de empresas para COI.", no_args_is_help=True)
 consola = Console()
@@ -22,7 +22,7 @@ COLUMNAS_ENTREGA = [
     "usa_google_workspace", "empleados_aprox", "usuarios_probables", "señales", "puntaje", "categoria",
     "motivo_descarte", "plan_sugerido", "contacto_nombre", "contacto_cargo", "contacto_email", "email_estado",
     "contacto_telefono", "verificar_no_llame", "angulo_primer_contacto", "fuente", "fecha_revision",
-    "requiere_dominio", "fuente_enriquecimiento",
+    "requiere_dominio", "madurez_digital", "fuente_enriquecimiento",
 ]
 
 
@@ -85,6 +85,11 @@ def texto_resumen(total: int, sin_datos: int, duplicados: int, df: pd.DataFrame)
         detalle = descartes[descartes.str.startswith(motivo)].str.extract(r"\((.*)\)$")[0].dropna().value_counts()
         ejemplos = f" (p. ej. {', '.join(detalle.index[:5])})" if len(detalle) else ""
         lineas.append(f"  - {motivo}: {n}{ejemplos}")
+    if "madurez_digital" in df:
+        activas = df[df["categoria"] != "Descartada"]
+        md = activas["madurez_digital"].value_counts()
+        lineas.append(f"- Madurez digital (sin descartadas): alta {md.get('alta', 0)} | media {md.get('media', 0)} | "
+                      f"baja {md.get('baja', 0)} (sin web ni correo propio: se prospectan por teléfono)")
     top = df.loc[df["categoria"] == "A", "rubro_coi"].value_counts().head(3)
     lineas.append("- Rubros con más A: " + (", ".join(f"{r} ({n})" for r, n in top.items()) or "ninguno"))
     return "\n".join(lineas)
@@ -182,6 +187,13 @@ def procesar(
         proximas[~proximas["razon_social"].isin(investigadas)][
             ["razon_social", "localidad", "provincia", "dominio_email", "rubro_coi", "triaje", "puntaje", "fuente"]
         ].to_excel(xw, sheet_name="Próximas a investigar", index=False)
+        # Poco digitalizadas: sin web o sin correo propio. No se descartan: el ángulo es dejar papel y planillas
+        poco = final[(final["categoria"] != "Descartada") & (final["madurez_digital"] != "alta")
+                     & (final["rubro_coi"].notna() | final["categoria"].isin(["A", "B"]))]
+        poco.sort_values(["madurez_digital", "puntaje"], ascending=[True, False])[
+            ["madurez_digital", "categoria", "puntaje", "razon_social", "rubro_coi", "localidad", "provincia", "web",
+             "email", "telefono", "verificar_no_llame", "contacto_nombre", "fuente"]
+        ].to_excel(xw, sheet_name="Poco digitalizadas", index=False)
         borradores[borradores["contacto_telefono"].notna()][
             ["categoria", "razon_social", "contacto_nombre", "contacto_telefono", "verificar_no_llame",
              "enlace_whatsapp", "guion_llamada"]].to_excel(xw, sheet_name="Telefono (chequear No Llame)", index=False)
@@ -263,6 +275,15 @@ def exportar(
         empresas.to_excel(xw, sheet_name="Empresas", index=False)
         historial.to_excel(xw, sheet_name="Contactos", index=False)
     consola.print(f"[green]Exportado:[/] {archivo}")
+
+
+@app.command()
+def tablero(
+    archivo: Path = typer.Argument(RAIZ / "canal/respuestas/20260926-prospectos-AB.csv", help="CSV de prospectos"),
+    salida: Path = typer.Option(RAIZ / "datos/salida/tablero.html", "--salida", "-o"),
+):
+    """Arma un tablero HTML que divide los prospectos: decisor y canal, solo canal, sin canal y a revisar."""
+    consola.print(f"[green]Tablero:[/] {tablero_mod.generar(archivo, salida)}")
 
 
 if __name__ == "__main__":

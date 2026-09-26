@@ -9,10 +9,13 @@ Las reglas para agentes están en `CLAUDE.md`.
 2. **Limpia:** valida el CUIT (dígito verificador), pasa los teléfonos argentinos a E.164, valida emails y normaliza el dominio web.
 3. **Deduplica** por CUIT, por dominio web o por razón social normalizada (sin SRL/SA) más localidad.
 4. **Califica** con el puntaje del brief (rubro, tamaño, área comercial, obras en campo, USD/minería, crecimiento, Google Workspace, decisor) y asigna **A ≥ 10**, **B 6–9**, **C ≤ 5**.
-5. **Descarta con motivo:** fuera de Argentina, B2C, grandes empresas con ERP, competidores, clientes actuales y bajas. Las unipersonales quedan como `C - chico`; sin dominio propio, `requiere_dominio = sí`.
-6. **Google Workspace:** con `--verificar-mx`, consulta los registros MX del dominio.
-7. **Borradores** para A y B en voseo, de 90 palabras como máximo, con la línea de baja, y un guion de llamada con el aviso del Registro «No Llame».
-8. **Seguimiento:** cola de contacto y registro de resultados. Una `baja` se guarda para siempre en `datos/bajas.csv`.
+5. **Madurez digital:** `alta` (web y correo de dominio propio), `media` (una de las dos) o `baja` (ninguna).
+   Las de madurez baja no se descartan: suelen manejarse con papel, planillas y WhatsApp, y se prospectan
+   por teléfono. Van en la hoja «Poco digitalizadas» del Excel.
+6. **Descarta con motivo:** fuera de Argentina, B2C, grandes empresas con ERP, competidores, clientes actuales y bajas. Las unipersonales quedan como `C - chico`; sin dominio propio, `requiere_dominio = sí`.
+7. **Google Workspace:** con `--verificar-mx`, consulta los registros MX del dominio.
+8. **Borradores** para A y B en voseo, de 90 palabras como máximo, con la línea de baja, y un guion de llamada con el aviso del Registro «No Llame».
+9. **Seguimiento:** cola de contacto y registro de resultados. Una `baja` se guarda para siempre en `datos/bajas.csv`.
 
 No envía mensajes ni hace llamadas: prepara la lista y los borradores para que los mande una persona.
 
@@ -40,6 +43,7 @@ python -m prospeccion procesar datos/entrada/*.csv datos/entrada/*.xlsx --verifi
 #   datos/salida/entrega.csv  -> formato de la sección 8 (UTF-8, separador ;)
 #   datos/salida/resumen.md   -> filas, duplicados, A/B/C, descartes por motivo y top 3 rubros
 #   datos/salida/trabajo.xlsx -> Entrega | Borradores | Teléfono (chequear No Llame)
+python -m prospeccion tablero      # datos/salida/tablero.html: prospectos por carril (decisor y canal, solo canal, sin canal, revisar)
 python -m prospeccion cola
 python -m prospeccion registrar 3 demo_agendada --nota "jueves 10h"
 python -m prospeccion registrar 5 baja          # queda en datos/bajas.csv para siempre

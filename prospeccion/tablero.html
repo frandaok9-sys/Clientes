@@ -1,0 +1,224 @@
+<title>__TITULO__</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #eef0ec; --surface: #ffffff; --sunk: #f5f6f3; --ink: #1b2220; --muted: #5b6763; --line: #d5dad5;
+  --accent: #1f5f8b; --accent-soft: #e3edf5;
+  --ok: #2f7a4b; --ok-soft: #e2f1e7; --warn: #9a620f; --warn-soft: #fbf0dc; --crit: #a63a32; --crit-soft: #f8e4e2;
+  --lane-listas: #2f7a4b; --lane-generico: #1f5f8b; --lane-sin_canal: #7a8581; --lane-revisar: #a63a32;
+  --display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111513; --surface: #1a201d; --sunk: #151a18; --ink: #e4e9e5; --muted: #9aa6a1; --line: #2c3531;
+    --accent: #7ab0da; --accent-soft: #1b2a36;
+    --ok: #6cc08b; --ok-soft: #17291e; --warn: #e0a54a; --warn-soft: #2d2415; --crit: #e57f76; --crit-soft: #321b19;
+    --lane-listas: #6cc08b; --lane-generico: #7ab0da; --lane-sin_canal: #8d9994; --lane-revisar: #e57f76;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111513; --surface: #1a201d; --sunk: #151a18; --ink: #e4e9e5; --muted: #9aa6a1; --line: #2c3531;
+  --accent: #7ab0da; --accent-soft: #1b2a36;
+  --ok: #6cc08b; --ok-soft: #17291e; --warn: #e0a54a; --warn-soft: #2d2415; --crit: #e57f76; --crit-soft: #321b19;
+  --lane-listas: #6cc08b; --lane-generico: #7ab0da; --lane-sin_canal: #8d9994; --lane-revisar: #e57f76;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 var(--body); padding: 24px 16px 48px; }
+.wrap { max-width: 1440px; margin: 0 auto; display: grid; gap: 20px; }
+header { display: grid; gap: 6px; }
+.eyebrow { font: 600 12px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 700 clamp(26px, 4vw, 36px)/1.1 var(--display); margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); max-width: 70ch; margin: 0; }
+
+.resumen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.resumen button { all: unset; cursor: pointer; background: var(--surface); padding: 12px 14px; display: grid; gap: 2px; border-top: 4px solid var(--c); }
+.resumen button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.resumen button[aria-pressed="true"] { background: var(--sunk); }
+.resumen .n { font: 700 28px/1 var(--display); font-variant-numeric: tabular-nums; }
+.resumen .t { font: 600 13px/1.2 var(--display); }
+.resumen .d { color: var(--muted); font-size: 12px; line-height: 1.35; }
+
+.filtros { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.grupo { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.grupo > span { font: 600 12px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+.chip { font: 500 13px/1 var(--body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip:focus-visible, .copiar:focus-visible, summary:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#buscar { font: 14px var(--body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px; min-width: 0; width: 220px; max-width: 100%; }
+
+.carriles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.carril { display: grid; gap: 10px; }
+.carril > h2 { font: 700 15px/1.2 var(--display); margin: 0; padding-bottom: 8px; border-bottom: 2px solid var(--c); display: flex; justify-content: space-between; gap: 8px; }
+.carril > h2 small { font: 500 13px var(--mono); color: var(--muted); }
+.vacio { color: var(--muted); font-size: 13px; padding: 8px 0; }
+
+.ficha { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: grid; gap: 10px; }
+.cab { display: flex; justify-content: space-between; gap: 8px; align-items: start; }
+.cab h3 { font: 700 17px/1.2 var(--display); margin: 0; }
+.cab .rs { color: var(--muted); font-size: 12px; }
+.tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+.tag { font: 600 11px/1 var(--display); letter-spacing: .04em; text-transform: uppercase; padding: 4px 6px; border-radius: 4px; white-space: nowrap; }
+.cat-A { background: var(--ink); color: var(--bg); }
+.cat-B { background: var(--accent-soft); color: var(--accent); }
+.dig-alta { background: var(--ok-soft); color: var(--ok); }
+.dig-media { background: var(--warn-soft); color: var(--warn); }
+.dig-baja { background: var(--crit-soft); color: var(--crit); }
+.meta { color: var(--muted); font-size: 13px; }
+.decisor { display: grid; gap: 1px; }
+.decisor b { font-weight: 600; }
+.decisor span { color: var(--muted); font-size: 12.5px; }
+.otros { font-size: 12.5px; color: var(--muted); }
+.canal { display: grid; gap: 4px; }
+.linea { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.linea code { font: 13px var(--mono); overflow-wrap: anywhere; user-select: all; }
+.linea .nl { font: 600 10px/1 var(--display); letter-spacing: .04em; text-transform: uppercase; color: var(--warn); border: 1px solid currentColor; border-radius: 3px; padding: 2px 4px; white-space: nowrap; }
+.copiar { font: 500 12px var(--body); color: var(--accent); background: none; border: 1px solid var(--line); border-radius: 4px; padding: 2px 7px; cursor: pointer; flex: none; }
+.dato { font-size: 13.5px; }
+.aviso { font-size: 13px; padding: 8px 10px; border-radius: 6px; }
+.alerta { background: var(--crit-soft); color: var(--crit); }
+.nota { background: var(--sunk); color: var(--muted); }
+details { border-top: 1px solid var(--line); padding-top: 8px; }
+summary { cursor: pointer; font: 600 13px var(--display); color: var(--accent); }
+.borrador { white-space: pre-wrap; font-size: 13.5px; background: var(--sunk); padding: 10px; border-radius: 6px; margin: 8px 0 6px; }
+.pie { color: var(--muted); font-size: 12.5px; max-width: 80ch; }
+
+@media (max-width: 1180px) { .carriles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .carriles, .resumen { grid-template-columns: 1fr; }
+  #buscar { width: 100%; }
+}
+@media (prefers-reduced-motion: no-preference) { .ficha { transition: border-color .15s; } .ficha:hover { border-color: var(--muted); } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">COI · Prospección industrial</div>
+    <h1>__TITULO__</h1>
+    <p class="sub" id="sub"></p>
+  </header>
+
+  <div class="resumen" id="resumen" role="group" aria-label="Filtrar por carril"></div>
+
+  <div class="filtros">
+    <div class="grupo" id="f-madurez"><span>Madurez digital</span></div>
+    <div class="grupo" id="f-cat"><span>Categoría</span></div>
+    <input id="buscar" type="search" placeholder="Buscar empresa, localidad o rubro" aria-label="Buscar">
+  </div>
+
+  <div class="carriles" id="carriles"></div>
+
+  <p class="pie">Todo teléfono se chequea en el Registro Nacional «No Llame» (Ley 26.951) antes de llamar o escribir por WhatsApp. Los borradores identifican a COI y terminan con la línea de baja; quien pida la baja va a <code>datos/bajas.csv</code> para siempre. Datos tomados de fuentes públicas con el buscador; las fuentes de cada fila están en el CSV.</p>
+</div>
+
+<script>
+const CARRILES = __CARRILES__;
+const DATOS = __DATOS__;
+const MADUREZ = { alta: "Digital alta", media: "Digital media", baja: "Digital baja" };
+const estado = { carril: null, madurez: new Set(), cat: new Set(), q: "" };
+
+const $ = (s) => document.querySelector(s);
+const el = (tag, props = {}, ...hijos) => {
+  const n = Object.assign(document.createElement(tag), props);
+  for (const h of hijos) if (h != null && h !== "") n.append(h);
+  return n;
+};
+
+function copiar(texto, boton) {
+  const listo = () => { const t = boton.textContent; boton.textContent = "Copiado"; setTimeout(() => (boton.textContent = t), 1200); };
+  try {
+    navigator.clipboard.writeText(texto).then(listo, () => seleccionar(boton));
+  } catch { seleccionar(boton); }
+}
+function seleccionar(boton) {
+  const objetivo = boton.parentElement.querySelector("code, .borrador");
+  if (!objetivo) return;
+  const r = document.createRange(); r.selectNodeContents(objetivo);
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+}
+
+function linea(valor, esTel) {
+  const b = el("button", { className: "copiar", type: "button", textContent: "Copiar" });
+  b.addEventListener("click", () => copiar(valor, b));
+  return el("div", { className: "linea" }, el("code", { textContent: valor }),
+    esTel ? el("span", { className: "nl", textContent: "No Llame", title: "Verificar en el Registro No Llame antes de llamar" }) : null, b);
+}
+
+function ficha(d) {
+  const tags = el("div", { className: "tags" },
+    el("span", { className: "tag cat-" + d.categoria, textContent: d.categoria }),
+    el("span", { className: "tag dig-" + d.madurez_digital, textContent: MADUREZ[d.madurez_digital] || d.madurez_digital }));
+  const cab = el("div", { className: "cab" },
+    el("div", {}, el("h3", { textContent: d.nombre_corto || d.razon_social }), el("div", { className: "rs", textContent: d.razon_social })), tags);
+  const meta = el("div", { className: "meta", textContent: [d.localidad, d.rubro_coi, d.empleados_aprox && d.empleados_aprox + " empleados"].filter(Boolean).join(" · ") });
+  const decisor = d.contacto_nombre
+    ? el("div", { className: "decisor" }, el("b", { textContent: d.contacto_nombre }), el("span", { textContent: d.contacto_cargo }))
+    : el("div", { className: "decisor" }, el("span", { textContent: "Sin decisor confirmado" }));
+  const canal = el("div", { className: "canal" },
+    d.contacto_email ? linea(d.contacto_email, false) : null,
+    d.contacto_telefono ? linea(d.contacto_telefono, true) : null);
+  const web = d.web ? el("a", { href: "https://" + d.web, target: "_blank", rel: "noopener", className: "meta", textContent: d.web }) : el("span", { className: "meta", textContent: "Sin web propia" });
+  const bCopiar = el("button", { className: "copiar", type: "button", textContent: "Copiar borrador" });
+  bCopiar.addEventListener("click", () => copiar(d.borrador, bCopiar));
+  const borr = d.borrador ? el("details", {}, el("summary", { textContent: "Borrador de primer contacto" }), el("div", { className: "borrador", textContent: d.borrador }), bCopiar) : null;
+  return el("article", { className: "ficha" }, cab, meta, decisor,
+    d.otros_contactos ? el("div", { className: "otros", textContent: "Otros: " + d.otros_contactos }) : null,
+    canal.childElementCount ? canal : null, web,
+    d.dato ? el("div", { className: "dato", textContent: "Gancho: " + d.dato + "." }) : null,
+    d.alerta ? el("div", { className: "aviso alerta", textContent: d.alerta }) : null,
+    d.nota ? el("div", { className: "aviso nota", textContent: d.nota }) : null, borr);
+}
+
+function pasa(d) {
+  if (estado.madurez.size && !estado.madurez.has(d.madurez_digital)) return false;
+  if (estado.cat.size && !estado.cat.has(d.categoria)) return false;
+  if (estado.q) {
+    const t = [d.razon_social, d.nombre_corto, d.localidad, d.rubro_coi, d.contacto_nombre].join(" ").toLowerCase();
+    if (!t.includes(estado.q)) return false;
+  }
+  return true;
+}
+
+function pintar() {
+  const visibles = DATOS.filter(pasa);
+  const resumen = $("#resumen"); resumen.replaceChildren();
+  for (const [id, titulo, desc] of CARRILES) {
+    const n = visibles.filter((d) => d.carril === id).length;
+    const b = el("button", { type: "button" }, el("span", { className: "n", textContent: n }), el("span", { className: "t", textContent: titulo }), el("span", { className: "d", textContent: desc }));
+    b.style.setProperty("--c", `var(--lane-${id})`);
+    b.setAttribute("aria-pressed", String(estado.carril === id));
+    b.addEventListener("click", () => { estado.carril = estado.carril === id ? null : id; pintar(); });
+    resumen.append(b);
+  }
+  const cont = $("#carriles"); cont.replaceChildren();
+  const mostrar = CARRILES.filter(([id]) => !estado.carril || estado.carril === id);
+  cont.style.gridTemplateColumns = estado.carril ? "minmax(0, 560px)" : "";
+  for (const [id, titulo] of mostrar) {
+    const fichas = visibles.filter((d) => d.carril === id);
+    const h = el("h2", {}, titulo, el("small", { textContent: fichas.length }));
+    const col = el("section", { className: "carril" }, h, ...(fichas.length ? fichas.map(ficha) : [el("div", { className: "vacio", textContent: "Ninguna con estos filtros." })]));
+    col.style.setProperty("--c", `var(--lane-${id})`);
+    cont.append(col);
+  }
+  const conDecisor = DATOS.filter((d) => d.contacto_nombre).length;
+  $("#sub").textContent = `${DATOS.length} empresas A y B. ${conDecisor} con decisor identificado. Mostrando ${visibles.length}.`;
+}
+
+function chips(contenedor, valores, set, etiqueta = (v) => v) {
+  for (const v of valores) {
+    const b = el("button", { className: "chip", type: "button", textContent: etiqueta(v) });
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => { set.has(v) ? set.delete(v) : set.add(v); b.setAttribute("aria-pressed", String(set.has(v))); pintar(); });
+    contenedor.append(b);
+  }
+}
+chips($("#f-madurez"), ["alta", "media", "baja"].filter((m) => DATOS.some((d) => d.madurez_digital === m)), estado.madurez, (v) => MADUREZ[v]);
+chips($("#f-cat"), [...new Set(DATOS.map((d) => d.categoria))].sort(), estado.cat);
+$("#buscar").addEventListener("input", (e) => { estado.q = e.target.value.trim().toLowerCase(); pintar(); });
+pintar();
+</script>

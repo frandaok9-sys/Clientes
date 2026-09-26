@@ -94,4 +94,6 @@ def generar(df: pd.DataFrame, dir_plantillas: str | Path, config: dict) -> pd.Da
             "enlace_whatsapp": enlace_whatsapp(fila["telefono"], texto) if not vacio(fila["telefono"]) else pd.NA,
             "guion_llamada": ll.render(**ctx).strip() if not vacio(fila["telefono"]) else pd.NA,
         })
-    return pd.concat([df.reset_index(drop=True), pd.DataFrame(filas)], axis=1)
+    nuevas = pd.DataFrame(filas)
+    df = df.drop(columns=[c for c in nuevas.columns if c in df.columns])
+    return pd.concat([df.reset_index(drop=True), nuevas], axis=1)
