@@ -5,7 +5,7 @@ Estado al 2026-09-26. Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-c
 ## Dónde está todo
 - **Listas originales:** `datos/entrada/` (carteras RAI y AG-360 de F. Dabbene y 3 PDF de zonas).
   El usuario pidió subirlas a git, aunque el repo es público.
-- **Prospectos investigados:** `canal/respuestas/20260926-prospectos-AB.csv`. Tiene 192 empresas o
+- **Prospectos investigados:** `canal/respuestas/20260926-prospectos-AB.csv`. Tiene 249 empresas o
   más, con decisor, canal, gancho (`dato`), `alerta`, `nota` y borrador. Es la fuente del tablero.
 - **Historial de rondas y descartes:** `canal/respuestas/20260926-1200-verificar-AB.md`.
 - **Tandas ya investigadas:** `investigacion/tandas/` (`tN_i.csv` = entrada, `tN_out*.csv` = salida
@@ -45,5 +45,5 @@ PYTHONPATH=. python investigacion/herramientas/elegir_tanda.py t5 96 8
   `oferta.remitente`.
 
 ## Qué queda
-Quedan unas 520 candidatas con rubro detectado en `candidatos_enriquecer.csv`. Después vienen unas
+Quedan unas 525 candidatas con rubro detectado en `candidatos_enriquecer.csv`. Después vienen unas
 6.700 sin rubro detectado, que conviene triar por nombre antes de gastar búsquedas.
