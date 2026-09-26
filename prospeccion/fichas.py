@@ -36,6 +36,11 @@ def leer_fichas(carpeta: str | Path) -> pd.DataFrame:
     df = pd.DataFrame(filas)
     if df.empty:
         return df
+    # Las que un agente no llegó a investigar (tope de búsquedas) no cuentan como fichas: vuelven a la cola
+    razon = df.get("encaje_razon", pd.Series("", index=df.index)).fillna("").str.lower()
+    sin = (df.get("encontrada", pd.Series("", index=df.index)).fillna("").str.lower() == "no") & \
+        razon.str.contains(r"(?:sin|no) investigad|investigar(?:la|las)? de nuevo|reprocesar|no se investig|sin investigar")
+    df = df[~sin]
     df["encaje_coi"] = pd.to_numeric(df.get("encaje_coi"), errors="coerce")
     return df
 

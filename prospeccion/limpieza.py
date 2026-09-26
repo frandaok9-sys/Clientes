@@ -129,7 +129,18 @@ def a_numero(valor) -> float | None:
     try:
         return float(texto) * mult
     except ValueError:
+        return _numero_en_texto(valor)
+
+
+def _numero_en_texto(valor) -> float | None:
+    """Texto libre ("51-200 (LinkedIn)", "404 (EMIS, 2024); 501-1000", "entre 83 y 96"):
+    primer número o rango, sin mirar lo que va entre paréntesis (fuentes, años)."""
+    texto = re.sub(r"\([^)]*\)", " ", clave(valor))
+    m = re.search(r"(\d+)(?:\s*(?:-|a|y)\s*(\d+))?", texto)
+    if not m:
         return None
+    a = float(m.group(1))
+    return (a + float(m.group(2))) / 2 if m.group(2) else a
 
 
 def nombre_normalizado(valor) -> str:

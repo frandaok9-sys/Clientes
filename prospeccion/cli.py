@@ -144,9 +144,24 @@ def procesar(
     tabla_entrega.to_csv(salida / "entrega.csv", sep=";", index=False, encoding="utf-8")
     resumen_md = texto_resumen(total, sin_datos, duplicados, final)
     resumen_md += f"\n- Emails comodín vaciados (repetidos en {config.get('email_compartido_max', 3)}+ empresas): {comodines}"
-    candidatos = final[final["prioridad_enriquecimiento"] > 0].sort_values("prioridad_enriquecimiento", ascending=False)
+    # Triaje por nombre (datos/entrada/triaje.csv): solo ordena qué investigar primero, no descarta
+    ruta_triaje = RAIZ / "datos/entrada/triaje.csv"
+    final["triaje"] = pd.NA
+    if ruta_triaje.exists():
+        t = pd.read_csv(ruta_triaje, sep=";", dtype=str)
+        t["_k"] = t["razon_social"].map(limpieza.nombre_normalizado) + "|" + t["localidad"].map(limpieza.clave)
+        mapa = t.drop_duplicates("_k").set_index("_k")["triaje"]
+        k = final["razon_social"].map(limpieza.nombre_normalizado) + "|" + final["localidad"].map(limpieza.clave)
+        final["triaje"] = k.map(mapa)
+        resumen_md += "\n- Triaje por nombre de las C: " + ", ".join(
+            f"{n} {v}" for v, n in final["triaje"].value_counts().items())
+    orden_triaje = final["triaje"].map({"industrial_objetivo": 3, "industrial_otro": 1, "indeterminado": 0,
+                                        "no_objetivo": -5}).fillna(0)
+    final["_prioridad"] = final["prioridad_enriquecimiento"] + orden_triaje
+    candidatos = final[(final["prioridad_enriquecimiento"] > 0) & (final["triaje"] != "no_objetivo")] \
+        .sort_values("_prioridad", ascending=False)
     resumen_md += f"\n- Candidatas a enriquecer en la web (sin datos suficientes para calificar): {len(candidatos)}"
-    candidatos[["razon_social", "localidad", "provincia", "dominio_email", "rubro_coi", "puntaje",
+    candidatos[["razon_social", "localidad", "provincia", "dominio_email", "rubro_coi", "triaje", "puntaje",
                 "prioridad_enriquecimiento", "fuente"]].to_csv(salida / "candidatos_enriquecer.csv", sep=";", index=False)
     (salida / "resumen.md").write_text(f"# Resumen de la revisión\n\n{resumen_md}\n", encoding="utf-8")
 
@@ -162,6 +177,11 @@ def procesar(
         tabla_entrega.to_excel(xw, sheet_name="Entrega", index=False)
         borradores[["categoria", "puntaje", "razon_social", "nombre_fantasia", "contacto_nombre", "contacto_email",
                     "email_estado", "email_asunto", "borrador"]].to_excel(xw, sheet_name="Borradores", index=False)
+        investigadas = set(ranking["razon_social"]) if not ranking.empty else set()
+        proximas = candidatos[(candidatos["triaje"] == "industrial_objetivo") | candidatos["rubro_coi"].notna()]
+        proximas[~proximas["razon_social"].isin(investigadas)][
+            ["razon_social", "localidad", "provincia", "dominio_email", "rubro_coi", "triaje", "puntaje", "fuente"]
+        ].to_excel(xw, sheet_name="Próximas a investigar", index=False)
         borradores[borradores["contacto_telefono"].notna()][
             ["categoria", "razon_social", "contacto_nombre", "contacto_telefono", "verificar_no_llame",
              "enlace_whatsapp", "guion_llamada"]].to_excel(xw, sheet_name="Telefono (chequear No Llame)", index=False)
