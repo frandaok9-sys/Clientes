@@ -136,3 +136,20 @@ def test_revision_manual_manda():
     assert clasificacion.calificar_fila(fila, CONFIG, set(), None)["categoria"] == "Descartada"
     rev = {limpieza.nombre_normalizado("Metal Y SRL"): ("mantener", "sigue activa")}
     assert clasificacion.calificar_fila(fila, CONFIG, set(), None, rev)["categoria"] != "Descartada"
+
+
+def test_fichas_a_enriquecimiento_y_ranking(tmp_path):
+    import json
+    from prospeccion import fichas
+    (tmp_path / "a.jsonl").write_text(json.dumps({
+        "razon_social": "Metal X SRL", "localidad": "Rosario", "encaje_coi": 8, "senales": ["obras", "3 vendedores"],
+        "decisor_nombre": "Ana Paz", "decisor_cargo": "gerente general", "email_empresa": "ventas@metalx.com.ar",
+        "fuentes": ["https://a", "https://b"]}) + "\nno-json\n", encoding="utf-8")
+    f = fichas.leer_fichas(tmp_path)
+    assert len(f) == 1 and f.iloc[0]["senales"] == "obras | 3 vendedores"
+    e = fichas.a_enriquecimiento(f)
+    assert e.iloc[0]["email"] == "ventas@metalx.com.ar" and e.iloc[0]["contacto_cargo"] == "gerente general"
+    entrega = pd.DataFrame([{c: pd.NA for c in cli.COLUMNAS_ENTREGA} | {
+        "razon_social": "Metal X S.R.L.", "localidad": "ROSARIO", "puntaje": "7", "categoria": "B"}])
+    r = fichas.unir_ranking(entrega, f)
+    assert len(r) == 1 and r.iloc[0]["encaje_coi"] == 8

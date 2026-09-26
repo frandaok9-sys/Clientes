@@ -10,7 +10,7 @@ import yaml
 from rich.console import Console
 from rich.table import Table
 
-from . import clasificacion, importar, limpieza, mensajes, seguimiento
+from . import clasificacion, fichas, importar, limpieza, mensajes, seguimiento
 
 app = typer.Typer(help="Limpia, califica y prepara la prospección de empresas para COI.", no_args_is_help=True)
 consola = Console()
@@ -120,6 +120,13 @@ def procesar(
         df["_confianza"] = confianza(ruta)
         consola.print(f"{ruta.name}: {len(df)} filas")
         marcos.append(df)
+    fichas_df = fichas.leer_fichas(RAIZ / "datos/entrada/investigacion")
+    if not fichas_df.empty:  # investigación profunda: más confiable que la búsqueda rápida
+        enr = fichas.a_enriquecimiento(fichas_df)
+        enr["fuente"] = "investigación profunda"
+        enr["_confianza"] = 2
+        consola.print(f"investigación profunda: {len(enr)} fichas")
+        marcos.append(enr)
     bruto = pd.concat(marcos, ignore_index=True)
     total = len(bruto)
 
@@ -146,7 +153,12 @@ def procesar(
     excel = salida / "trabajo.xlsx"
     borradores = final[final["categoria"].isin(["A", "B"])].rename(
         columns={"email": "contacto_email", "telefono": "contacto_telefono"})
+    ranking = fichas.unir_ranking(tabla_entrega, fichas_df)
+    if not ranking.empty:
+        ranking.to_csv(salida / "ranking.csv", sep=";", index=False)
     with pd.ExcelWriter(excel, engine="openpyxl") as xw:
+        if not ranking.empty:
+            ranking.to_excel(xw, sheet_name="Ranking investigadas", index=False)
         tabla_entrega.to_excel(xw, sheet_name="Entrega", index=False)
         borradores[["categoria", "puntaje", "razon_social", "nombre_fantasia", "contacto_nombre", "contacto_email",
                     "email_estado", "email_asunto", "borrador"]].to_excel(xw, sheet_name="Borradores", index=False)
