@@ -7,14 +7,14 @@ Vescap S.R.L;Barrio Yofre;indeterminado;no se puede determinar
 Vetvel Sa;Rosario Norte;indeterminado;no se puede determinar
 Via Del Sur S.R.L.;Rosario Sud;indeterminado;no se puede determinar
 Via Sero S R L;Serodino;indeterminado;no se puede determinar
-AGROFY SA;ROSARIO;industrial_otro;agro b2b
+AGROFY SA;ROSARIO;indeterminado;no se puede determinar
 AGROGANADERA LOS TEROS S.R.L.;WENCESLAO ESCALANTE;no_objetivo;ganadería sin industria
-AGROPECUARIA DON LUIS S.R.L;MARCOS JUAREZ;industrial_otro;agro b2b
-AGROPECUARIA GRECAR S.R.L.;SAN EDUARDO;industrial_otro;agro b2b
-AGROPECUARIA MONTELARGO S.A;COLONIA LA TORDILLA;industrial_otro;agro b2b
-AGROPECUARIA SIN FRONTERAS S.A.S.;POZO DEL MOLLE -D;industrial_otro;agro b2b
+AGROPECUARIA DON LUIS S.R.L;MARCOS JUAREZ;no_objetivo;agropecuaria sin industria
+AGROPECUARIA GRECAR S.R.L.;SAN EDUARDO;no_objetivo;agropecuaria sin industria
+AGROPECUARIA MONTELARGO S.A;COLONIA LA TORDILLA;no_objetivo;agropecuaria sin industria
+AGROPECUARIA SIN FRONTERAS S.A.S.;POZO DEL MOLLE -D;no_objetivo;agropecuaria sin industria
 Verion I C S A;San Martin;indeterminado;no se puede determinar
-AGRO TRICEYJA S.A.;MAR DEL PLATA;industrial_otro;agro b2b
+AGRO TRICEYJA S.A.;MAR DEL PLATA;industrial_otro;ice b2b
 DOS57 SRL EN FORMACION;CORDOBA;indeterminado;no se puede determinar
 DREI;Rosario Norte;indeterminado;no se puede determinar
 DON PANCHO S R L;SAN ANTONIO DE LITIN;no_objetivo;nombre de persona
@@ -36,20 +36,20 @@ Corbo Hnos S De H De Corbo Ricardo Raul Y Corbo Manuel Osvaldo;Santo Tome;indete
 Corporacion Economica Pampeana S A;General Pico;indeterminado;no se puede determinar
 Correa Juan Carlos;Neuquén;no_objetivo;nombre de persona
 DON DOMINGO S.R.L.;MARCOS JUAREZ;no_objetivo;nombre de persona
-Coragro Srl;Santa Rosa;industrial_otro;agro b2b
+Coragro Srl;Santa Rosa;indeterminado;no se puede determinar
 DODARO SERGIO OSCAR;LAS FLORES;indeterminado;no se puede determinar
 DODDI Gaston;BELL VILLE;indeterminado;no se puede determinar
 DOFFO FABIAN;JUSTINIANO POSSE;no_objetivo;nombre de persona
 Veronica S A C I A F E I;Boulogne;indeterminado;no se puede determinar
 DMT TECHNOLOGIES;BELL VILLE;indeterminado;no se puede determinar
-DN SOLUCIONES AGROPECUARIAS S.A.S;LAS VARILLAS;industrial_otro;agro b2b
+DN SOLUCIONES AGROPECUARIAS S.A.S;LAS VARILLAS;no_objetivo;agropecuaria sin industria
 Vientos del Camino SA Pampa del Infierno;Pampa del Infierno;indeterminado;no se puede determinar
 AGOSTINI GABRIEL ALEJANDRO Y AGOSTINI DAVID DANIEL C;EL ARAÑADO;indeterminado;no se puede determinar
 AGRICOLA EL RINCON SRL;ACEBAL;indeterminado;no se puede determinar
 AGRICOLA TRUCKS S.A;LAS VARILLAS;indeterminado;no se puede determinar
-AGRO DELVIC SA;VILLA DEL ROSARIO;industrial_otro;agro b2b
-AGRO GPV S.R.L;LUQUE;industrial_otro;agro b2b
-Vial Agro S A;Tres Arroyos;industrial_otro;agro b2b
+AGRO DELVIC SA;VILLA DEL ROSARIO;indeterminado;no se puede determinar
+AGRO GPV S.R.L;LUQUE;indeterminado;no se puede determinar
+Vial Agro S A;Tres Arroyos;indeterminado;no se puede determinar
 Vicente Murillo E Hijos Y Cia S C;Santa Fe;industrial_otro;ice b2b
 Victom S.A.;Rosario Norte;indeterminado;no se puede determinar
 Victor Eduardo Esteva;Nueva Francia;no_objetivo;nombre de persona
@@ -131,7 +131,7 @@ DEMARO ALEJANDRO;CHACABUCO;indeterminado;no se puede determinar
 DEMETER ANDREA;VILLA CARLOS PAZ;indeterminado;no se puede determinar
 DEALBERA HNOS;LAS VARILLAS;no_objetivo;nombre de persona
 A.L. Servicios Integrales Sociedad Anonima;Granadero Baigorria;industrial_otro;servicios b2b
-A.N. Agro Srl;Casilda;industrial_otro;agro b2b
+A.N. Agro Srl;Casilda;indeterminado;no se puede determinar
 ABUD DAVID;MARCOS JUAREZ;indeterminado;no se puede determinar
 ACCASTELLO RAUL ANGEL Y ROBERTO MIGUEL Y GASTALDI DE ACCASTE;NOETINGER;indeterminado;no se puede determinar
 ACEROS VCA S.A.S.;POTRERO DE GARAY;industrial_objetivo;aceros en nombre
@@ -201,12 +201,12 @@ Di Pietro, Sebastian Daniel Y Di Pietro, Jorge Eduardo -Sociedad De Hecho-;Las H
 Di Tondo Jose E Hijos De Di Tondo Gustavo Di Tondo Mauricio Y Pavicich Catalina Sociedad Simple;San Jorge;indeterminado;no se puede determinar
 Dia De Cafe S.R.L;Pergamino;no_objetivo;café minorista
 Diagonal Materiales S.R.L.;Rosario Sud;industrial_otro;materiales en nombre
-Cooperativa Agropecuaria De Pujato Limitada;Pujato;no_objetivo;cooperativa en nombre
-Cooperativa Agropecuaria Federada De Alvarez Y Piñero Limitada;Alvarez;no_objetivo;cooperativa en nombre
-Cooperativa Agropecuaria La Paz Ltda;La Paz;no_objetivo;cooperativa en nombre
-Cooperativa Agropecuaria Ltda De Carabelas;Carabelas;no_objetivo;cooperativa en nombre
-Cooperativa Agropecuaria Ltda De Maximo Paz;Maximo Paz;no_objetivo;cooperativa en nombre
-Cooperativa Agropecuaria Mixta De Irigoyen Limitada;Irigoyen;no_objetivo;cooperativa en nombre
+Cooperativa Agropecuaria De Pujato Limitada;Pujato;no_objetivo;agropecuaria sin industria
+Cooperativa Agropecuaria Federada De Alvarez Y Piñero Limitada;Alvarez;no_objetivo;agropecuaria sin industria
+Cooperativa Agropecuaria La Paz Ltda;La Paz;no_objetivo;agropecuaria sin industria
+Cooperativa Agropecuaria Ltda De Carabelas;Carabelas;no_objetivo;agropecuaria sin industria
+Cooperativa Agropecuaria Ltda De Maximo Paz;Maximo Paz;no_objetivo;agropecuaria sin industria
+Cooperativa Agropecuaria Mixta De Irigoyen Limitada;Irigoyen;no_objetivo;agropecuaria sin industria
 Diego Orso;San Miguel;indeterminado;no se puede determinar
 Conquer S A;Rosario Norte;indeterminado;no se puede determinar
 Conrado Aguerre;Capital Federal;indeterminado;no se puede determinar
@@ -240,7 +240,7 @@ Diluta Argentina S. A. S.;Salta;indeterminado;no se puede determinar
 Diobras S. R. L.;Roldan;indeterminado;no se puede determinar
 Dismet Sociedad Anonima;Venado Tuerto;indeterminado;no se puede determinar
 Distribuir S. A.;Alvear;industrial_otro;distribuidora
-Division Agropecuaria S.A.;Noetinger;industrial_otro;agro b2b
+Division Agropecuaria S.A.;Noetinger;no_objetivo;agropecuaria sin industria
 VESPASIANI AUTOMOTORES SA;CORDOBA;indeterminado;no se puede determinar
 VIANO GASTON DANIEL;MORTEROS;no_objetivo;nombre de persona
 VICTOR BOCCO E HIJO S.A.S;LA PLAYOSA;indeterminado;no se puede determinar

@@ -9,7 +9,7 @@ Empalmes Cintrans Srl;San Nicolas;industrial_objetivo;empalmes/conexiones
 Emprendimientos Deportivos Alem Srl;Rosario Sud;indeterminado;sin indicadores claros
 Emprendimientos Laborales S A;San Lorenzo;indeterminado;sin indicadores claros
 Cereales Del Litoral S. A.;Pergamino;no_objetivo;cereales
-Elias Yapur S.A;Reconquista;indeterminado;sin indicadores claros
+Elias Yapur S.A;Reconquista;no_objetivo;nombre de persona
 Elisabet Elsa Viera;OLAVARRIA;no_objetivo;nombre de persona
 Elvi S.R.L.;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
 Embalajes Especiales S.R.L.;Rosario Sud;industrial_otro;embalajes/packaging
@@ -41,7 +41,7 @@ El Pulqui S R L;LANUS;indeterminado;sin indicadores claros
 El Reducto Srl;San Fernando Del Valle De Catamarca;industrial_otro;s.a./s.r.l. genérico
 El Reloj S. R. L.;Armstrong;indeterminado;sin indicadores claros
 El Roble Emprendimientos S.A.;Rosario Norte;indeterminado;sin indicadores claros
-El Tato S.A;Rafaela;indeterminado;sin indicadores claros
+El Tato S.A;Rafaela;industrial_otro;s.a./s.r.l. genérico
 El Turco S.R.L.;General Galarza;industrial_otro;s.a./s.r.l. genérico
 Energy Link S.A.;Villa Loma Hermosa;industrial_otro;tinta
 Energy Trailer Srl;Luis Palacios;industrial_otro;energía
@@ -97,7 +97,7 @@ Eriksen Y Cia S.A.C.I.F.I;Eldorado;no_objetivo;nombres de personas
 Catalunya Vins Srl;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
 Colectivo Flecha Bus;Rosario Sud;no_objetivo;transporte
 Colgate Palmolive Argentina S.A.;San Luis;no_objetivo;consumidor
-Tensar S.A;Alvear;indeterminado;sin indicadores claros
+Tensar S.A;Alvear;industrial_otro;s.a./s.r.l. genérico
 Tensolite Sociedad Anonima;Los Pocitos;industrial_otro;tensores/equipos
 Teodoro Oscar Ciampo Sociedad Anonima;Rosario Sud;indeterminado;sin indicadores claros
 Tepe Negocios Sa;Rosario Norte;indeterminado;sin indicadores claros
@@ -237,13 +237,13 @@ ZANELLO CARLOS;LAS VARILLAS;indeterminado;sin indicadores claros
 ZANETTINI ANA MARIA DE LAS M;CORDOBA;indeterminado;sin indicadores claros
 ZACCO NIEVAS JULIAN BERNARDO;VENADO TUERTO;indeterminado;sin indicadores claros
 ZAFRA S.A.;SAN MIGUEL DE TUCUMAN;no_objetivo;zafra/agricultura
-Yelisa S.A;Villa Elisa;indeterminado;sin indicadores claros
+Yelisa S.A;Villa Elisa;industrial_otro;s.a./s.r.l. genérico
 Y C G Srl;Capitan Bermudez;indeterminado;sin indicadores claros
 Yeruva Sa;Esperanza;indeterminado;sin indicadores claros
 Yla Khade Srl;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
 ZABALA ELIO GUSTAVO;CORDOBA;indeterminado;sin indicadores claros
 ZABALA MARIA BELEN;JUSTINIANO POSSE;indeterminado;sin indicadores claros
-YURITI S.AYURITI S.A;RIO SEGUNDO;indeterminado;sin indicadores claros
+YURITI S.AYURITI S.A;RIO SEGUNDO;industrial_otro;s.a./s.r.l. genérico
 Yacomozzi Esteban Y Delbono Luciano S. Cap I Secc Iv;Acebal;no_objetivo;nombres de personas
 Yacopini S.R.L;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
 Yaguarete S.R.L.;La Falda;industrial_otro;s.a./s.r.l. genérico
