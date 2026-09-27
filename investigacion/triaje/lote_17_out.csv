@@ -1,82 +1,82 @@
 razon_social;localidad;triaje;motivo
 Endapla Sa;Granadero Baigorria;indeterminado;sin indicadores claros
 Enditec S A;Campana;indeterminado;sin indicadores claros
-Eme Diseño S.A.;Ramos Mejia;industrial_otro;s.a. o srl genérico
+Eme Diseño S.A.;Ramos Mejia;industrial_otro;s.a./s.r.l. genérico
 Emilia Massarelli S R L;Rosario Norte;indeterminado;sin indicadores claros
 Acceso Sur San Lorenzo Srl;San Lorenzo;indeterminado;sin indicadores claros
-Emmsa S.R.L.;Carcaraña;industrial_otro;s.a. o srl genérico
-Empalmes Cintrans Srl;San Nicolas;industrial_objetivo;empalmes en el nombre
+Emmsa S.R.L.;Carcaraña;industrial_otro;s.a./s.r.l. genérico
+Empalmes Cintrans Srl;San Nicolas;industrial_objetivo;empalmes/conexiones
 Emprendimientos Deportivos Alem Srl;Rosario Sud;indeterminado;sin indicadores claros
 Emprendimientos Laborales S A;San Lorenzo;indeterminado;sin indicadores claros
-Cereales Del Litoral S. A.;Pergamino;no_objetivo;cereales en el nombre
+Cereales Del Litoral S. A.;Pergamino;no_objetivo;cereales
 Elias Yapur S.A;Reconquista;indeterminado;sin indicadores claros
-Elisabet Elsa Viera;OLAVARRIA;indeterminado;sin indicadores claros
-Elvi S.R.L.;Rosario Norte;industrial_otro;s.a. o srl genérico
-Embalajes Especiales S.R.L.;Rosario Sud;industrial_otro;embalajes en el nombre
-Embotelladora Del Atlantico S.A.;Villa Esquiu;industrial_otro;embotelladora en el nombre
-Centro Cientifico Tecnologico Conicet-Rosario (Cct Rosario);Rosario Sud;industrial_otro;tecno en el nombre
-Centro Desarrollo Agricola S.A.;Chabas;indeterminado;sin indicadores claros
-Emilio Perrin S.R.L.;Rosario Norte;industrial_otro;s.a. o srl genérico
-El Central Hotel S.A.S.;Junin;no_objetivo;hotel en el nombre
-El Chala SRL;LA BANDA;industrial_otro;s.a. o srl genérico
-El Charabon S A C E I;Rosario Sud;indeterminado;sin indicadores claros
-El Chingolito Srl;Soldini;industrial_otro;s.a. o srl genérico
-El Cruce La Biela S.A.;Arrecifes;indeterminado;sin indicadores claros
+Elisabet Elsa Viera;OLAVARRIA;no_objetivo;nombre de persona
+Elvi S.R.L.;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
+Embalajes Especiales S.R.L.;Rosario Sud;industrial_otro;embalajes/packaging
+Embotelladora Del Atlantico S.A.;Villa Esquiu;industrial_otro;embotelladora
+Centro Cientifico Tecnologico Conicet-Rosario (Cct Rosario);Rosario Sud;no_objetivo;centro de investigación
+Centro Desarrollo Agricola S.A.;Chabas;no_objetivo;agrícola
+Emilio Perrin S.R.L.;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
+El Central Hotel S.A.S.;Junin;no_objetivo;hotel
+El Chala SRL;LA BANDA;industrial_otro;s.a./s.r.l. genérico
+El Charabon S A C E I;Rosario Sud;no_objetivo;nombres de personas
+El Chingolito Srl;Soldini;industrial_otro;s.a./s.r.l. genérico
+El Cruce La Biela S.A.;Arrecifes;industrial_objetivo;biela/componentes
 El Cruce S A;Resistencia;indeterminado;sin indicadores claros
-Electronica Megatone Sociedad Anonima;Santa Fe;industrial_otro;electronica en el nombre
-Electroservicios S.R.L.;Rosario Sud;industrial_objetivo;electroservicios en el nombre
-Celumac Srl;Rosario Norte;industrial_otro;s.a. o srl genérico
-Cementos Srl;Goya;industrial_objetivo;cementos en el nombre
-Cenatiempo, Daniel Jose - Cenatiempo, Javier Sergio;Lanus;indeterminado;sin indicadores claros
+Electronica Megatone Sociedad Anonima;Santa Fe;industrial_otro;electrónica
+Electroservicios S.R.L.;Rosario Sud;industrial_objetivo;servicios eléctricos
+Celumac Srl;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
+Cementos Srl;Goya;industrial_objetivo;cementos
+Cenatiempo, Daniel Jose - Cenatiempo, Javier Sergio;Lanus;no_objetivo;nombres de personas
 Cencosud S A;Martinez;indeterminado;sin indicadores claros
 Ciarena Sa;San Nicolas;indeterminado;sin indicadores claros
 Elabopi S. A.;Barrio General Paz Sur;indeterminado;sin indicadores claros
-Electrinet Srl;Rosario Sud;industrial_otro;s.a. o srl genérico
-Electro Uno S.A.;Rosario Norte;industrial_otro;electro en el nombre
-Electrobombas Rosario S.R.L.;Rosario Norte;industrial_objetivo;bombas en el nombre
-Electroconst Srl;Villa Gobernador Galvez;industrial_otro;electro en el nombre
+Electrinet Srl;Rosario Sud;industrial_otro;equipos eléctricos
+Electro Uno S.A.;Rosario Norte;industrial_otro;electrónica
+Electrobombas Rosario S.R.L.;Rosario Norte;industrial_objetivo;bombas/equipos
+Electroconst Srl;Villa Gobernador Galvez;industrial_otro;construcción eléctrica
 El Ombu De Arocena S.A.;Rosario Norte;indeterminado;sin indicadores claros
-El Paso Srl;Alvear;industrial_otro;s.a. o srl genérico
+El Paso Srl;Alvear;industrial_otro;s.a./s.r.l. genérico
 El Pulqui S R L;LANUS;indeterminado;sin indicadores claros
-El Reducto Srl;San Fernando Del Valle De Catamarca;industrial_otro;s.a. o srl genérico
+El Reducto Srl;San Fernando Del Valle De Catamarca;industrial_otro;s.a./s.r.l. genérico
 El Reloj S. R. L.;Armstrong;indeterminado;sin indicadores claros
 El Roble Emprendimientos S.A.;Rosario Norte;indeterminado;sin indicadores claros
 El Tato S.A;Rafaela;indeterminado;sin indicadores claros
-El Turco S.R.L.;General Galarza;industrial_otro;s.a. o srl genérico
-Energy Link S.A.;Villa Loma Hermosa;industrial_otro;ink en el nombre
-Energy Trailer Srl;Luis Palacios;industrial_otro;energy en el nombre
+El Turco S.R.L.;General Galarza;industrial_otro;s.a./s.r.l. genérico
+Energy Link S.A.;Villa Loma Hermosa;industrial_otro;tinta
+Energy Trailer Srl;Luis Palacios;industrial_otro;energía
 Enriquez Albano Ute;Posadas;indeterminado;sin indicadores claros
-Ente Administrador Puerto Santa Fe;Santa Fe;no_objetivo;ente en el nombre
+Ente Administrador Puerto Santa Fe;Santa Fe;no_objetivo;ente público
 Ente Intermunicipal Y Comunal Ruta Provincial Seis;Los Surgentes;no_objetivo;nombres de personas
-Ente Turistico Rosario;Rosario Norte;no_objetivo;ente en el nombre
-Entretenimientos Itacuara S.A.;Corrientes;no_objetivo;entretenimiento en el nombre
-Aceros Coco S.A.;Rosario Sud;industrial_objetivo;acero en el nombre
-Aceros Comeco S.A.;Rosario Sud;industrial_objetivo;acero en el nombre
-Aceros Conformados S.R.L.;San Lorenzo;industrial_objetivo;acero en el nombre
-Aceros Especiales S R L;Rosario Sud;industrial_objetivo;acero en el nombre
-Acheral S.A.;Arenilla;industrial_otro;s.a. o srl genérico
-Centro Pampeana Comercial S.R.L.;Rosario Norte;industrial_otro;comercial en el nombre
-Acm Argentina Srl;Alvear;industrial_otro;s.a. o srl genérico
-Acofren Srl;Rosario Sud;industrial_otro;s.a. o srl genérico
+Ente Turistico Rosario;Rosario Norte;no_objetivo;ente turístico
+Entretenimientos Itacuara S.A.;Corrientes;no_objetivo;entretenimiento
+Aceros Coco S.A.;Rosario Sud;industrial_objetivo;aceros/metalurgia
+Aceros Comeco S.A.;Rosario Sud;industrial_objetivo;aceros/metalurgia
+Aceros Conformados S.R.L.;San Lorenzo;industrial_objetivo;aceros/metalurgia
+Aceros Especiales S R L;Rosario Sud;industrial_objetivo;aceros/metalurgia
+Acheral S.A.;Arenilla;industrial_otro;s.a./s.r.l. genérico
+Centro Pampeana Comercial S.R.L.;Rosario Norte;industrial_otro;comercial/distribución
+Acm Argentina Srl;Alvear;industrial_otro;s.a./s.r.l. genérico
+Acofren Srl;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
 Tecce S R L;Rosario Norte;indeterminado;sin indicadores claros
-Techaarg S.R.L.;Rosario Sud;industrial_otro;tech en el nombre
-Tecma Agropecuaria S.R.L.;Arroyo Seco;no_objetivo;agropecuaria en el nombre
-Aceitera Conarco S.R.L.;Galvez;industrial_otro;aceitera en el nombre
-Aceitera Martinez S A;Rosario Norte;industrial_otro;aceitera en el nombre
-Acerias Sauce Viejo Sa;Sauce Viejo;indeterminado;sin indicadores claros
+Techaarg S.R.L.;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
+Tecma Agropecuaria S.R.L.;Arroyo Seco;no_objetivo;agropecuaria
+Aceitera Conarco S.R.L.;Galvez;industrial_otro;aceitera/alimentos
+Aceitera Martinez S A;Rosario Norte;industrial_otro;aceitera/alimentos
+Acerias Sauce Viejo Sa;Sauce Viejo;industrial_objetivo;acería
 Acerma Sociedad Anonima;Rafaela;indeterminado;sin indicadores claros
-Tamberos Unidos De Charlone C T L;Coronel Charlone;no_objetivo;tambero en el nombre
-Tambores San Lorenzo S R L;San Lorenzo;industrial_objetivo;tambores en el nombre
-Tamefir Srl;Firmat;industrial_otro;s.a. o srl genérico
+Tamberos Unidos De Charlone C T L;Coronel Charlone;no_objetivo;productor agrícola
+Tambores San Lorenzo S R L;San Lorenzo;industrial_objetivo;tambores/contenedores
+Tamefir Srl;Firmat;industrial_otro;s.a./s.r.l. genérico
 Acima R Sa;Alvear;indeterminado;sin indicadores claros
 Centro Sociedad Anonima;Rosario Norte;indeterminado;sin indicadores claros
-Ceramica Chaco S R L;Presidencia Roque Saenz Peña;industrial_otro;ceramica en el nombre
-Ceramica Del Norte S A;Salta;industrial_otro;ceramica en el nombre
-Ceramica Fighiera Srl;Fighiera;industrial_otro;ceramica en el nombre
-Ceramica Riojana Sapem;La Rioja;industrial_otro;ceramica en el nombre
-Casciani Hermanos S.A.;Coronel Bogado;industrial_otro;s.a. o srl genérico
-Casino De Rosario S.A.;Rosario Sud;no_objetivo;casino en el nombre
-Cassini Y Cesaratto S.A.;San Carlos Sud;indeterminado;sin indicadores claros
+Ceramica Chaco S R L;Presidencia Roque Saenz Peña;industrial_otro;cerámica
+Ceramica Del Norte S A;Salta;industrial_otro;cerámica
+Ceramica Fighiera Srl;Fighiera;industrial_otro;cerámica
+Ceramica Riojana Sapem;La Rioja;industrial_otro;cerámica
+Casciani Hermanos S.A.;Coronel Bogado;industrial_otro;s.a./s.r.l. genérico
+Casino De Rosario S.A.;Rosario Sud;no_objetivo;casino
+Cassini Y Cesaratto S.A.;San Carlos Sud;no_objetivo;nombres de personas
 Castagnani Sergio Y De Soto Alicia;Arequito;no_objetivo;nombres de personas
 Castellarin Juan M. Y Anvaria Gustavo J. S. Cap I Secc Iv;Fighiera;no_objetivo;nombres de personas
 Castle S. A.;Rosario Norte;indeterminado;sin indicadores claros
@@ -84,147 +84,147 @@ Castro Victor;Rosario;indeterminado;sin indicadores claros
 Ermiale SA;ARIAS;indeterminado;sin indicadores claros
 Eros Bragado S A;Bragado;indeterminado;sin indicadores claros
 Esac Monte Buey Sa;Monte Buey;indeterminado;sin indicadores claros
-"Escude, Jorge Armando; Escude, Leandro; Escude, Jose Maria;";Totoras;indeterminado;sin indicadores claros
+"Escude, Jorge Armando; Escude, Leandro; Escude, Jose Maria;";Totoras;no_objetivo;nombres de personas
 Esmacol Sa;Santa Clara De Buena Vista;indeterminado;sin indicadores claros
-Esperanza Combustibles S.A;Esperanza;no_objetivo;bus en el nombre
+Esperanza Combustibles S.A;Esperanza;industrial_otro;combustibles
 Casas Casiano Y Casas Maria A Rincon Verde Soc Cap I Sec Iv;Rosario Norte;no_objetivo;nombres de personas
-Cascia Gases S. A. S.;Lules;industrial_objetivo;gases en el nombre
-Enzo Bruno Gerardi;Rufino;indeterminado;sin indicadores claros
-Epta Argentina S.A.;Rosario Sud;industrial_otro;s.a. o srl genérico
-Equipment Sa;Martinez;industrial_otro;equipment en el nombre
-Ercoli Hermanos S.R.L.;Arroyo Seco;industrial_otro;s.a. o srl genérico
-Eriksen Y Cia S.A.C.I.F.I;Eldorado;indeterminado;sin indicadores claros
-Catalunya Vins Srl;Rosario Norte;industrial_otro;s.a. o srl genérico
-Colectivo Flecha Bus;Rosario Sud;no_objetivo;bus en el nombre
-Colgate Palmolive Argentina S.A.;San Luis;indeterminado;sin indicadores claros
+Cascia Gases S. A. S.;Lules;industrial_objetivo;gases industriales
+Enzo Bruno Gerardi;Rufino;no_objetivo;nombre de persona
+Epta Argentina S.A.;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
+Equipment Sa;Martinez;industrial_otro;equipos
+Ercoli Hermanos S.R.L.;Arroyo Seco;industrial_otro;s.a./s.r.l. genérico
+Eriksen Y Cia S.A.C.I.F.I;Eldorado;no_objetivo;nombres de personas
+Catalunya Vins Srl;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
+Colectivo Flecha Bus;Rosario Sud;no_objetivo;transporte
+Colgate Palmolive Argentina S.A.;San Luis;no_objetivo;consumidor
 Tensar S.A;Alvear;indeterminado;sin indicadores claros
-Tensolite Sociedad Anonima;Los Pocitos;indeterminado;sin indicadores claros
+Tensolite Sociedad Anonima;Los Pocitos;industrial_otro;tensores/equipos
 Teodoro Oscar Ciampo Sociedad Anonima;Rosario Sud;indeterminado;sin indicadores claros
 Tepe Negocios Sa;Rosario Norte;indeterminado;sin indicadores claros
-Terminal Del Tucuman S A;San Miguel De Tucuman;industrial_otro;terminal en el nombre
-Terrapampa S.A.;Los Molinos;industrial_otro;s.a. o srl genérico
-Terraza Grill Srl;Salta;no_objetivo;grill en el nombre
-Tecnus S.R.L.;Bouwer;industrial_otro;s.a. o srl genérico
-Tecsa Srl;Neuquen;industrial_otro;s.a. o srl genérico
+Terminal Del Tucuman S A;San Miguel De Tucuman;industrial_otro;terminal de transporte
+Terrapampa S.A.;Los Molinos;industrial_otro;s.a./s.r.l. genérico
+Terraza Grill Srl;Salta;no_objetivo;grill/restaurante
+Tecnus S.R.L.;Bouwer;industrial_otro;s.a./s.r.l. genérico
+Tecsa Srl;Neuquen;industrial_otro;s.a./s.r.l. genérico
 Teledifusora SA;Rosario Norte;indeterminado;sin indicadores claros
 El Caminante S A;Arroyo Seco;indeterminado;sin indicadores claros
 Telian S A;Rio Cuarto;indeterminado;sin indicadores claros
-Tecnac Srl;Rio Cuarto;industrial_otro;s.a. o srl genérico
-Tecnirep Sociedad Anonima;General Alvear;industrial_objetivo;tecnirep en el nombre
-Tecniship Srl;Rosario Norte;industrial_otro;s.a. o srl genérico
-Tecnobombas S.R.L.;Andino;industrial_objetivo;bombas en el nombre
-Tecnometal Argentina Sa;Platanos;industrial_objetivo;metal en el nombre
-Tecnomills Sociedad De Responsabilidad Limitada;Arias;industrial_objetivo;tecnomills en el nombre
-Tecnotronic S.R.L.;Rosario Norte;industrial_otro;tecno en el nombre
-Tecnuar Srl;Rosario Sud;industrial_otro;s.a. o srl genérico
+Tecnac Srl;Rio Cuarto;industrial_otro;s.a./s.r.l. genérico
+Tecnirep Sociedad Anonima;General Alvear;industrial_objetivo;servicios técnicos
+Tecniship Srl;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
+Tecnobombas S.R.L.;Andino;industrial_objetivo;bombas/equipos
+Tecnometal Argentina Sa;Platanos;industrial_objetivo;metal tecnológico
+Tecnomills Sociedad De Responsabilidad Limitada;Arias;industrial_objetivo;maquinaria
+Tecnotronic S.R.L.;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
+Tecnuar Srl;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
 Acopas Sociedad Anonima;Isla Verde;indeterminado;sin indicadores claros
-Acopios Del Sur Sa;San Lorenzo;industrial_otro;acopio en el nombre
+Acopios Del Sur Sa;San Lorenzo;industrial_otro;acopio
 Acotec Sa;Villa Adelina;indeterminado;sin indicadores claros
-Telefonica Moviles Argentina Sociedad Anonima;Buenos Aires;indeterminado;sin indicadores claros
-ASTORI ESTRUCTURAS SA;CORDOBA;industrial_objetivo;estructuras en el nombre
+Telefonica Moviles Argentina Sociedad Anonima;Buenos Aires;no_objetivo;telecomunicaciones
+ASTORI ESTRUCTURAS SA;CORDOBA;industrial_objetivo;estructuras metálicas
 AUDAGNA MARIO JAVIER ANTONIO;EL ARAÑADO;indeterminado;sin indicadores claros
 AUGUSTO MAURICIO JOSE;BELL VILLE;indeterminado;sin indicadores claros
-AUTOCOR S.R.L;CORDOBA;industrial_otro;s.a. o srl genérico
+AUTOCOR S.R.L;CORDOBA;industrial_otro;s.a./s.r.l. genérico
 AYUB DANIEL;MARCOS JUAREZ;indeterminado;sin indicadores claros
 Abad, Diego Gabriel Y Durante, Leonardo Carlos S.H.;Carcaraña;no_objetivo;nombres de personas
 Ticar S R L;Rosario Sud;indeterminado;sin indicadores claros
-Timbo Cabos S R L;Casilda;industrial_objetivo;cabos en el nombre
-Tinta S.A.S.;Rosario Norte;industrial_otro;tinta en el nombre
+Timbo Cabos S R L;Casilda;industrial_objetivo;cables/cabos
+Tinta S.A.S.;Rosario Norte;industrial_otro;tinta/insumos
 ASOCIACION MUTUAL DE CINTRA;SAN PEDRO -CINTRA;indeterminado;sin indicadores claros
-Teskilati S.R.L.;Santiago Del Estero;industrial_otro;s.a. o srl genérico
-Tesum S.R.L.;Alvear;industrial_otro;s.a. o srl genérico
+Teskilati S.R.L.;Santiago Del Estero;industrial_otro;s.a./s.r.l. genérico
+Tesum S.R.L.;Alvear;industrial_otro;s.a./s.r.l. genérico
 Colangelo Sa;Empalme Villa Constitucion;indeterminado;sin indicadores claros
-Tgcg S.A.;Muñiz;industrial_otro;s.a. o srl genérico
+Tgcg S.A.;Muñiz;industrial_otro;s.a./s.r.l. genérico
 The Emotion Factory S.R.L.;Rosario Sud;indeterminado;sin indicadores claros
 Thomart Gnc S A;Hurlingham;indeterminado;sin indicadores claros
 Tiburcio Sanz Sociedad Anonima;Banda Del Rio Sali;indeterminado;sin indicadores claros
 EXPRESO FRONTERA;Rosario;indeterminado;sin indicadores claros
 EXSEI SA;CORDOBA;indeterminado;sin indicadores claros
 Echaniz Hermanos Sociedad Anonima;Camilo Aldao;indeterminado;sin indicadores claros
-EVICOM S.R.L.;Villa Gobernador Galvez;industrial_otro;s.a. o srl genérico
+EVICOM S.R.L.;Villa Gobernador Galvez;industrial_otro;s.a./s.r.l. genérico
 Cocomazzi Miguel Cocomazzi Claudio Fabian;Rosario Sud;indeterminado;sin indicadores claros
-Codar S.A.;Pergamino;industrial_otro;s.a. o srl genérico
-Coex-Si S.R.L.;Ricardone;industrial_otro;s.a. o srl genérico
-Cograco S.R.L;San Miguel De Tucuman;industrial_otro;s.a. o srl genérico
+Codar S.A.;Pergamino;industrial_otro;s.a./s.r.l. genérico
+Coex-Si S.R.L.;Ricardone;industrial_otro;s.a./s.r.l. genérico
+Cograco S.R.L;San Miguel De Tucuman;industrial_otro;s.a./s.r.l. genérico
 Tex Care Argentina Sa;Villa Maipu;indeterminado;sin indicadores claros
 Eco Parana S R L;San Nicolas;indeterminado;sin indicadores claros
-Eco Servicios Alciati Sociedad Anonima;Junin;industrial_otro;servicios en el nombre
-Eco-Lav S.A.S.;Bell Ville;industrial_otro;s.a. o srl genérico
-Ecoflow Srl;Rosario Norte;industrial_otro;s.a. o srl genérico
+Eco Servicios Alciati Sociedad Anonima;Junin;industrial_otro;servicios b2b
+Eco-Lav S.A.S.;Bell Ville;industrial_otro;s.a./s.r.l. genérico
+Ecoflow Srl;Rosario Norte;industrial_otro;servicios ambientales
 Ecoibera Sociedad De Responsabilidad Limitada;Corrientes;indeterminado;sin indicadores claros
-Chimex Food S.A.;San Pedro;industrial_otro;food en el nombre
-Chiri S.R.L.;Rio Cuarto;industrial_otro;s.a. o srl genérico
+Chimex Food S.A.;San Pedro;industrial_otro;alimentos
+Chiri S.R.L.;Rio Cuarto;industrial_otro;s.a./s.r.l. genérico
 Chitarroni S A;Rosario Norte;indeterminado;sin indicadores claros
 Chiura Silvia Inés;JUSTINIANO POSSE;indeterminado;sin indicadores claros
-Christian Fernando Prada;San Martin de los Andes;indeterminado;sin indicadores claros
-Christian Newton;Belgrano;indeterminado;sin indicadores claros
+Christian Fernando Prada;San Martin de los Andes;no_objetivo;nombre de persona
+Christian Newton;Belgrano;no_objetivo;nombre de persona
 Christian Uriel Lauricella;CORDOBA;indeterminado;sin indicadores claros
-Acrilok Sa;Fontana;indeterminado;sin indicadores claros
-Ceyma Combustibles S.R.L.;Eduardo Castex;no_objetivo;bus en el nombre
+Acrilok Sa;Fontana;industrial_otro;plásticos/acrílicos
+Ceyma Combustibles S.R.L.;Eduardo Castex;industrial_otro;combustibles
 Chaney S A;Belen De Escobar;indeterminado;sin indicadores claros
-Charata Combustibles S.A.C.I.;Charata;no_objetivo;bus en el nombre
-Chiapero Srl;Rosario Norte;industrial_otro;s.a. o srl genérico
-Chiappella Fidel Montivero Gabriel S H;Granadero Baigorria;indeterminado;sin indicadores claros
-El Cruce S.R.L.;Presidencia Roque Saenz Peña;industrial_otro;s.a. o srl genérico
-El Euskal S.R.L.;Ucacha;industrial_otro;s.a. o srl genérico
+Charata Combustibles S.A.C.I.;Charata;industrial_otro;combustibles
+Chiapero Srl;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
+Chiappella Fidel Montivero Gabriel S H;Granadero Baigorria;no_objetivo;nombres de personas
+El Cruce S.R.L.;Presidencia Roque Saenz Peña;industrial_otro;s.a./s.r.l. genérico
+El Euskal S.R.L.;Ucacha;industrial_otro;s.a./s.r.l. genérico
 El Jaguel S A;General Güemes;indeterminado;sin indicadores claros
-El Mendocino S.R.L.;Godoy Cruz;industrial_otro;s.a. o srl genérico
+El Mendocino S.R.L.;Godoy Cruz;industrial_otro;s.a./s.r.l. genérico
 El Mirador S R L;Gualeguay;indeterminado;sin indicadores claros
-El Molino Gastronomia S.R.L.;San Miguel De Tucuman;no_objetivo;gastronomia en el nombre
-El Cacique Limpieza Srl;Castelar;no_objetivo;limpieza en el nombre
+El Molino Gastronomia S.R.L.;San Miguel De Tucuman;no_objetivo;gastronomía
+El Cacique Limpieza Srl;Castelar;no_objetivo;servicio de limpieza
 Cetrogar Sa;Resistencia;indeterminado;sin indicadores claros
-Acuarela Pack S.R.L.;Rosario Norte;industrial_otro;pack en el nombre
-Acuifero Guarani S.R.L.;Agua Blanca;industrial_otro;s.a. o srl genérico
+Acuarela Pack S.R.L.;Rosario Norte;industrial_otro;packaging
+Acuifero Guarani S.R.L.;Agua Blanca;industrial_otro;s.a./s.r.l. genérico
 El Aion Sociedad De Responsabilidad Limitada;Fighiera;indeterminado;sin indicadores claros
-El Altillo S.R.L.;Rosario Sud;industrial_otro;s.a. o srl genérico
-El Anchico Srl;San Vicente;industrial_otro;s.a. o srl genérico
+El Altillo S.R.L.;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
+El Anchico Srl;San Vicente;industrial_otro;s.a./s.r.l. genérico
 El Arca De Acacia S.R.L.;Profesor Salvador Mazza;indeterminado;sin indicadores claros
-El Arraigo S.A.S.;CANALS;industrial_otro;s.a. o srl genérico
+El Arraigo S.A.S.;CANALS;industrial_otro;s.a./s.r.l. genérico
 El Arroyense S R L;Villa Gobernador Galvez;indeterminado;sin indicadores claros
-El Arte Del Sello S.R.L;Rosario Sud;industrial_otro;sello en el nombre
+El Arte Del Sello S.R.L;Rosario Sud;industrial_otro;impresión/sellos
 El Arteaguense Segundo Sociedad De Responsabilidad Limitada;Arteaga;indeterminado;sin indicadores claros
-Eduardo Antonio Bueno;Las Heras;indeterminado;sin indicadores claros
+Eduardo Antonio Bueno;Las Heras;no_objetivo;nombre de persona
 Eduardo M Macagno Y Cia. Sociedad Colectiva;Santa Fe;no_objetivo;nombres de personas
 Eco Bsm S.A. En Formacion.;Rosario Sud;indeterminado;sin indicadores claros
 Edyca S A;Rosario Sud;indeterminado;sin indicadores claros
-Eem Autodromo Ciudad De Rosario;Rosario Norte;no_objetivo;autodromo en el nombre
-Ejbe S.A.;Diamante;industrial_otro;s.a. o srl genérico
-El Aguila Cereales S.A.;Laborde;no_objetivo;cereales en el nombre
-Ecopallets Argentina Srl.;San Nicolas;industrial_objetivo;pallets en el nombre
+Eem Autodromo Ciudad De Rosario;Rosario Norte;no_objetivo;autodromo
+Ejbe S.A.;Diamante;industrial_otro;s.a./s.r.l. genérico
+El Aguila Cereales S.A.;Laborde;no_objetivo;cereales
+Ecopallets Argentina Srl.;San Nicolas;industrial_objetivo;pallets industriales
 Ecopetrol Soc De Hecho De Garcia Nicolas Sergio Y Garcia Sebastian Andres;Ingeniero White;no_objetivo;nombres de personas
-Ecotrat S.R.L.;Neuquen;industrial_otro;s.a. o srl genérico
+Ecotrat S.R.L.;Neuquen;industrial_otro;s.a./s.r.l. genérico
 Ecozono Sas;Rosario Sud;indeterminado;sin indicadores claros
-Edamame Products S.A.;Las Rosas;industrial_otro;s.a. o srl genérico
+Edamame Products S.A.;Las Rosas;industrial_otro;s.a./s.r.l. genérico
 Edgar A Ciribe S A;General Lagos;indeterminado;sin indicadores claros
-Editorial Diario La Capital S A;Rosario Norte;no_objetivo;editorial en el nombre
+Editorial Diario La Capital S A;Rosario Norte;no_objetivo;editorial
 Edosada Sa;Baradero;indeterminado;sin indicadores claros
-Echesortu Ika Srl;Rosario Sud;industrial_otro;s.a. o srl genérico
-Eduardo Mateos Srl;Parana;industrial_otro;s.a. o srl genérico
-Walter Grosso Srl;El Trebol;industrial_otro;s.a. o srl genérico
+Echesortu Ika Srl;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
+Eduardo Mateos Srl;Parana;industrial_otro;s.a./s.r.l. genérico
+Walter Grosso Srl;El Trebol;industrial_otro;s.a./s.r.l. genérico
 Walter Y Fernando Tripoloni Sociedad De Hecho;Coronel Arnold;no_objetivo;nombres de personas
 Walther Martín;MARCOS JUAREZ;indeterminado;sin indicadores claros
-Wecafio Srl;Rosario Norte;industrial_otro;s.a. o srl genérico
+Wecafio Srl;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
 Wembley Sociedad Anonima;Rosario Sud;indeterminado;sin indicadores claros
 DIRIGE S A;GENERAL DEHEZA;indeterminado;sin indicadores claros
-DICON SRL;CORDOBA;industrial_otro;s.a. o srl genérico
+DICON SRL;CORDOBA;industrial_otro;s.a./s.r.l. genérico
 DIAS OSCAR ALFEDRO;SAN ANTONIO DE LITIN;indeterminado;sin indicadores claros
 DIAZ CLAUDIO;JUSTINIANO POSSE;indeterminado;sin indicadores claros
 DIAZ IVAN CRISTIAN;LEONES;indeterminado;sin indicadores claros
 DIAZ JOHNATAN;JUSTINIANO POSSE;indeterminado;sin indicadores claros
 DIAZ LORENA ANDREA;MERLO;indeterminado;sin indicadores claros
-Coop Agropecuaria De Bombal Ltda;Bombal;industrial_objetivo;bomba en el nombre
+Coop Agropecuaria De Bombal Ltda;Bombal;no_objetivo;agropecuaria
 DI MAURO MAURICIO ANDRÉS;BELL VILLE;indeterminado;sin indicadores claros
 DIAS ELVIO;LAS VARILLAS;indeterminado;sin indicadores claros
 WISGIL CRISTIAN;BELL VILLE;indeterminado;sin indicadores claros
 WORTLEY JUAN CARLOS;CORDOBA;indeterminado;sin indicadores claros
-Volonte S.R.L.;Casilda;industrial_otro;s.a. o srl genérico
-Viloni, Cristian, Cristian Viloni;MAR DEL PLATA;indeterminado;sin indicadores claros
-Viper Srl;Rosario Sud;industrial_otro;s.a. o srl genérico
-Vivero Citrus S.R.L.;Lules;no_objetivo;vivero en el nombre
-Vivero Del Sol Y Cyclamen Srl;San Nicolas;no_objetivo;vivero en el nombre
-AGRO JAURE SAS;JUSTINIANO POSSE;no_objetivo;agro en el nombre
-AGRO MAURO S.R.L.;CAÑADA ROSQUIN;no_objetivo;agro en el nombre
-AGRO TRANSPORTES S.A.;Etruria;no_objetivo;agro en el nombre
+Volonte S.R.L.;Casilda;industrial_otro;s.a./s.r.l. genérico
+Viloni, Cristian, Cristian Viloni;MAR DEL PLATA;no_objetivo;nombres de personas
+Viper Srl;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
+Vivero Citrus S.R.L.;Lules;no_objetivo;vivero
+Vivero Del Sol Y Cyclamen Srl;San Nicolas;no_objetivo;nombres de personas
+AGRO JAURE SAS;JUSTINIANO POSSE;no_objetivo;agro
+AGRO MAURO S.R.L.;CAÑADA ROSQUIN;no_objetivo;agro
+AGRO TRANSPORTES S.A.;Etruria;no_objetivo;agro
 DIAZ Mauricio;MORRISON;indeterminado;sin indicadores claros
 Crossetti, Marcelo Daniel Y Crossetti, Ruben Eduardo;Bouquet;no_objetivo;nombres de personas
 Crucci Ovalter Felipe y Crucci Javier Walter;LAS VARAS;no_objetivo;nombres de personas
@@ -236,16 +236,16 @@ ZAMPONI JOSE;MARCOS JUAREZ;indeterminado;sin indicadores claros
 ZANELLO CARLOS;LAS VARILLAS;indeterminado;sin indicadores claros
 ZANETTINI ANA MARIA DE LAS M;CORDOBA;indeterminado;sin indicadores claros
 ZACCO NIEVAS JULIAN BERNARDO;VENADO TUERTO;indeterminado;sin indicadores claros
-ZAFRA S.A.;SAN MIGUEL DE TUCUMAN;no_objetivo;zafra en el nombre
+ZAFRA S.A.;SAN MIGUEL DE TUCUMAN;no_objetivo;zafra/agricultura
 Yelisa S.A;Villa Elisa;indeterminado;sin indicadores claros
 Y C G Srl;Capitan Bermudez;indeterminado;sin indicadores claros
 Yeruva Sa;Esperanza;indeterminado;sin indicadores claros
-Yla Khade Srl;Rosario Norte;industrial_otro;s.a. o srl genérico
+Yla Khade Srl;Rosario Norte;industrial_otro;s.a./s.r.l. genérico
 ZABALA ELIO GUSTAVO;CORDOBA;indeterminado;sin indicadores claros
 ZABALA MARIA BELEN;JUSTINIANO POSSE;indeterminado;sin indicadores claros
 YURITI S.AYURITI S.A;RIO SEGUNDO;indeterminado;sin indicadores claros
 Yacomozzi Esteban Y Delbono Luciano S. Cap I Secc Iv;Acebal;no_objetivo;nombres de personas
-Yacopini S.R.L;Rosario Sud;industrial_otro;s.a. o srl genérico
-Yaguarete S.R.L.;La Falda;industrial_otro;s.a. o srl genérico
+Yacopini S.R.L;Rosario Sud;industrial_otro;s.a./s.r.l. genérico
+Yaguarete S.R.L.;La Falda;industrial_otro;s.a./s.r.l. genérico
 Williams Argentina I C S A;Ciudadela;indeterminado;sin indicadores claros
-World Nutrition Bar Srl;Rosario Sud;no_objetivo;bar en el nombre
+World Nutrition Bar Srl;Rosario Sud;no_objetivo;bar
