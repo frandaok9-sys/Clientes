@@ -10,6 +10,10 @@ Estado al 2026-09-27 (tandas t2 a t5 hechas; la próxima es t6). Leé también `
 - **Historial de rondas y descartes:** `canal/respuestas/20260926-1200-verificar-AB.md`.
 - **Tandas ya investigadas:** `investigacion/tandas/` (`tN_i.csv` = entrada, `tN_out*.csv` = salida
   de los agentes). `elegir_tanda.py` las lee para no repetir empresas.
+- **Cartera unificada:** `datos/salida/cartera_unificada.csv` y `.xlsx` (`python -m prospeccion cartera`).
+  Una fila por empresa de las tres carteras, con el contacto **de origen** (como vino en la cartera, sin
+  verificar) separado del **verificado** (con URL y fecha), y el rubro con su estado: `verificado` (lo
+  describió la investigación), `por nombre (sin verificar)` (palabras del nombre) o `sin dato`. Nada se deduce.
 - **Tablero publicado:** https://claude.ai/artifact/GWHPMBCqFmjVfFoLL8h3u5. Para actualizarlo desde
   otra sesión, publicá pasando esa URL como `url` en la herramienta Artifact.
 
@@ -32,7 +36,17 @@ PYTHONPATH=. python investigacion/herramientas/elegir_tanda.py t6 96 8
    clara de cierre, quiebra o servicio público.
 4. Regenerá y publicá el tablero:
    `python -m prospeccion tablero -o <scratchpad>/tablero.html`, y publicalo con Artifact.
-5. Anotá la ronda en `canal/respuestas/20260926-1200-verificar-AB.md`, hacé commit y push.
+5. Regenerá la entrega y la cartera unificada: `python -m prospeccion todo && python -m prospeccion cartera`.
+6. Anotá la ronda en `canal/respuestas/20260926-1200-verificar-AB.md`, hacé commit y push.
+
+## Rebúsqueda (segunda pasada a las investigadas con datos faltantes)
+```bash
+PYTHONPATH=. python investigacion/herramientas/elegir_rebusca.py r2 96 8
+```
+Lanzá 8 agentes con: «Leé las instrucciones en investigacion/herramientas/instrucciones_rebusca.md y seguilas al
+pie de la letra. Entrada (con encabezado): investigacion/tandas/r2_i.csv. Salida: investigacion/tandas/r2_outi.csv».
+Después: `PYTHONPATH=. python investigacion/herramientas/completar.py "r2_out*.csv"`. Solo rellena vacíos con
+datos que traen URL; nunca pisa lo que ya estaba. Luego `todo`, `cartera`, tablero, commit.
 
 ## Límites y reglas
 - **Red:** WebFetch está bloqueado para las webs de empresas y solo funciona WebSearch.
