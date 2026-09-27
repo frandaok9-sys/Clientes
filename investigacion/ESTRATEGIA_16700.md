@@ -65,8 +65,9 @@ python -m prospeccion cartera && python -m prospeccion tablero -o <scratchpad>/t
 ```
 
 ## Medido en la primera corrida (2026-09-27)
-- Triaje haiku: 5.000 nombres en 20 lotes, ~65k tokens por lote. Distribución: 6 % industrial_objetivo,
-  27 % industrial_otro, 47 % indeterminado, 20 % no_objetivo. Varía bastante entre lotes (haiku es inconsistente
+- Triaje haiku completo: 9.212 nombres en 37 lotes, ~65k tokens por lote (~2,4 M en total). Distribución:
+  381 industrial_objetivo (4 %), 1.675 industrial_otro (18 %), 4.524 indeterminado (49 %), 2.632 no_objetivo (29 %).
+  Quedan **1.807 para la pasada rápida** (nivel 3): unas 8 tandas de 240, ~3.100 búsquedas, 2-3 sesiones. Varía bastante entre lotes (haiku es inconsistente
   con los «indeterminado»), pero para ordenar la cola alcanza.
 - Pasada rápida q1 (48 empresas, sonnet, 12 por agente): 47 con rubro confirmado con URL, 14 con alerta
   (2 descartes por grupo grande), 7 B y 39 C al calificar. Costo ~84k tokens por agente de 12.

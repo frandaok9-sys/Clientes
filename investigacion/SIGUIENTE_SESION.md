@@ -62,6 +62,8 @@ datos que traen URL; nunca pisa lo que ya estaba. Luego `todo`, `cartera`, table
 Leé `investigacion/ESTRATEGIA_16700.md`: embudo de 5 niveles (personas físicas afuera → triaje por nombre con
 haiku → pasada rápida de rubro con 2 búsquedas → investigación completa solo de las que encajan → rebúsqueda).
 Herramientas: `armar_triaje.py` / `sumar_triaje.py`, `elegir_rapida.py` / `sumar_rapida.py`.
+**El triaje ya está hecho** (`datos/entrada/triaje.csv`, 9.212 empresas). Lo que sigue es la pasada rápida:
+`elegir_rapida.py q2 240 8` (quedan 1.807), 8 agentes sonnet con `instrucciones_rapida.md`, `sumar_rapida.py "q2_out*.csv"`, `todo`, `cartera`.
 
 ## Qué queda
 Quedan unas 280 candidatas con rubro detectado en `candidatos_enriquecer.csv`. Después vienen unas
