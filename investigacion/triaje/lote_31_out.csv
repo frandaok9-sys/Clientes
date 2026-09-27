@@ -17,7 +17,7 @@ HEGI JOREGE;;indeterminado;sin señal clara
 HEIT RICARDO ERNESTO;;indeterminado;sin señal clara
 HEPEA;;indeterminado;sin señal clara
 SOCIEDAD DEL ESTADO MUN.P/TRANSP.URBANO;;no_objetivo;organismo público
-SOCIETE GRAND PRIX S.A. COMERCIAL INDUST;;indeterminado;sin señal clara
+SOCIETE GRAND PRIX S.A. COMERCIAL INDUST;;industrial_otro;comercial industrial
 SODHER S.R.L. EN FORMACIÓN;;indeterminado;sin señal clara
 HARINAR S.R.L.;;indeterminado;sin señal clara
 HAUMULLER RAUL;;indeterminado;sin señal clara
@@ -25,11 +25,11 @@ HDS TECHNOLOGY S.R.L.;;industrial_otro;tecnología
 HECTOR A.FARINA S.A.A;;no_objetivo;nombre de persona
 HECTOR ARTURO VERMENGO;;no_objetivo;nombre de persona
 Gusspinelli;;indeterminado;sin señal clara
-H;;indeterminado;nombre muy genérico
-H & H S.R.L.;;indeterminado;nombre muy genérico
+H;;indeterminado;sin señal clara
+H & H S.R.L.;;indeterminado;sin señal clara
 H.G.R. ROSCAL S.R.L.;;indeterminado;sin señal clara
 HACHA DE PIEDRA;;indeterminado;sin señal clara
-HADA;;indeterminado;nombre muy genérico
+HADA;;indeterminado;sin señal clara
 HAMMERLY VICTOR DANIEL;;indeterminado;sin señal clara
 HANG HNOS.S.A.;;indeterminado;sin señal clara
 SPECIALCOMMODITY;;industrial_otro;commodities
@@ -41,7 +41,7 @@ SRHOJ HECTOR;;indeterminado;sin señal clara
 STAFFOLANI ROMAN DARIO;;indeterminado;sin señal clara
 STAR BAGS SA;;indeterminado;sin señal clara
 SONGINI;;indeterminado;sin señal clara
-SOREGAROLI E HIJOS S.R.L.;;indeterminado;sin señal clara
+SOREGAROLI E HIJOS S.R.L.;;no_objetivo;nombres de personas
 SOREYRA OSVALDO;;indeterminado;sin señal clara
 SORIA HOMERO;;indeterminado;sin señal clara
 SORJA S.A.;;indeterminado;sin señal clara
@@ -49,7 +49,7 @@ SOSPETTO GLADYS TERESA;;indeterminado;sin señal clara
 SOUTO LUCIANO ROMAN;;indeterminado;sin señal clara
 SPC IDENTIFICACION GRAFICA S.R.L.;;industrial_otro;impresión gráfica
 SOFIA HNOS;;no_objetivo;nombre de persona
-SOIR;;indeterminado;nombre muy genérico
+SOIR;;indeterminado;sin señal clara
 SOJAR S.A.;;indeterminado;sin señal clara
 SOL CUYANO;;indeterminado;sin señal clara
 SOLA OSCAR ALBERTO;;indeterminado;sin señal clara
@@ -60,14 +60,14 @@ SUC. SOREYRA BARINAGA;;no_objetivo;sucesión
 SUC.DE MANUEL A.VILLACORTA SRL;;no_objetivo;sucesión
 SUCESORES DE ALFREDO WILLINER;;no_objetivo;sucesión
 Amx Argentina Sociedad Anonima;;indeterminado;sin señal clara
-Angel Estrada Y Compañia S.A.;;indeterminado;sin señal clara
+Angel Estrada Y Compañia S.A.;;no_objetivo;nombres de personas
 SUGASTI JUAN ALBERTO;;indeterminado;sin señal clara
-SUMIMAQ SRL;;indeterminado;sin señal clara
-SUNCHALENSE EXPRESO;;indeterminado;sin señal clara
+SUMIMAQ SRL;;industrial_objetivo;maquinaria en nombre
+SUNCHALENSE EXPRESO;;industrial_otro;transporte/logística
 STR EQUIPAMIENTOS SRL;;industrial_otro;equipamientos
 STRAKER;;indeterminado;sin señal clara
 STRALLA OSCAR;;indeterminado;sin señal clara
-STRALLA VIAL S.R.L.;;industrial_otro;transporte/logística
+STRALLA VIAL S.R.L.;;industrial_otro;vial/transporte
 STRONG S.R.L.;;indeterminado;sin señal clara
 STUDIO A S.R.L.;;indeterminado;sin señal clara
 SUAREZ CARLOS RICARDO;;indeterminado;sin señal clara
@@ -80,7 +80,7 @@ Gracias Gabi Srl;;indeterminado;sin señal clara
 STAZZONE SILVINA ROSA;;indeterminado;sin señal clara
 STIEFEL ARTURO Y RAUL;;no_objetivo;nombres de personas
 STORTI ALCIDES JOSE;;indeterminado;sin señal clara
-Green Globe Overseas S.R.L.;;indeterminado;sin señal clara
+Green Globe Overseas S.R.L.;;industrial_otro;importación/overseas
 Grosso Omar;;indeterminado;sin señal clara
 Grupo AGV;;indeterminado;sin señal clara
 Grupo Colucci S.R.L.;;indeterminado;sin señal clara
@@ -89,8 +89,8 @@ Grupo Nisul S.A.;;indeterminado;sin señal clara
 CONDOMINIO MEHRING, PERALTA, IPHAIS;;no_objetivo;consorcio/condominio
 CONF.ETEL;;indeterminado;sin señal clara
 COMPANIA CINEMATOGRÁFICA CENTRO S.A.;;indeterminado;sin señal clara
-COMPANIA COORDINADORA DE CARGA;;industrial_otro;coordinadora de carga
-COMPANIA NAVIERA HORAMAR S.A.;;industrial_otro;naviera/marítima
+COMPANIA COORDINADORA DE CARGA;;industrial_otro;coordinadora carga
+COMPANIA NAVIERA HORAMAR S.A.;;industrial_otro;naviera
 COMPAÑIA MONUMENTAL SA;;indeterminado;sin señal clara
 COMPER;;indeterminado;sin señal clara
 COMPLEJO RAMALLO DE DEPORTE MOTOR;;no_objetivo;deporte motor
@@ -111,9 +111,9 @@ Sabor Selecto Cafe S.A.;;no_objetivo;alimentos/gastronomía
 Saldari Sergia;;indeterminado;sin señal clara
 Gimnasio;;no_objetivo;gimnasio
 Gino Giagioni;;indeterminado;sin señal clara
-Gioria Y Cia Srl;;indeterminado;sin señal clara
+Gioria Y Cia Srl;;no_objetivo;nombres de personas
 SUPER AVENIDA S.A.;;no_objetivo;supermercado
-SUPERMAN;;no_objetivo;marca retail
+SUPERMAN;;indeterminado;sin señal clara
 SUR (BELL VILLE);;indeterminado;sin señal clara
 SURCAN JORGE ALBERTO;;indeterminado;sin señal clara
 SURCAN RAMON;;indeterminado;sin señal clara
@@ -132,8 +132,8 @@ CONTI ANIBAL ERNESTO;;indeterminado;sin señal clara
 CONTI JUAN JOSE;;indeterminado;sin señal clara
 CONTIN ANA MARIA;;indeterminado;sin señal clara
 CONTISSA FABRICIO RODOLFO;;indeterminado;sin señal clara
-COOP DE AGUA POTABLE Y OTROS SERVICIOS P;;industrial_otro;servicios técnicos
-COOP DE COMERCIALIZACION Y TRANSF ARROCE;;indeterminado;sin señal clara
+COOP DE AGUA POTABLE Y OTROS SERVICIOS P;;no_objetivo;nombres de personas
+COOP DE COMERCIALIZACION Y TRANSF ARROCE;;no_objetivo;nombres de personas
 COOP DE TRABAJO 29 DE ABRIL LTDA.;;indeterminado;sin señal clara
 COOP DE TRABAJO POSTA DE SAN MARTIN LIMI;;indeterminado;sin señal clara
 Gifel S.R.L.;;indeterminado;sin señal clara
@@ -142,8 +142,8 @@ Garruchos S. A.;;indeterminado;sin señal clara
 CONS. PROP. ED. GALERIA LA FAVORITA;;indeterminado;sin señal clara
 CONSORCIO COUNTRY LAGO;;no_objetivo;consorcio/condominio
 CONSTAN;;indeterminado;sin señal clara
-CONSTRUCCINES Y TECNOLOGIA S.A.;;indeterminado;sin señal clara
-CONSTRUTORA LA ROSSA SRL;;indeterminado;sin señal clara
+CONSTRUCCINES Y TECNOLOGIA S.A.;;no_objetivo;nombres de personas
+CONSTRUTORA LA ROSSA SRL;;industrial_otro;construcción
 CONARCO ALAMBRES Y SOLDADURAS S.A.;;industrial_objetivo;alambres y soldaduras
 COOP FEDERAL AGRIC GAN DE MARIA SUSANA;;indeterminado;sin señal clara
 COOP PRV SERV PUB GREGORIO PORTILLO;;indeterminado;sin señal clara
@@ -165,9 +165,9 @@ GRANUCCI EMANUEL JULIAN;;indeterminado;sin señal clara
 GRASO;;indeterminado;sin señal clara
 GRAZIANO JOSE MIGUEL POMPEYO;;indeterminado;sin señal clara
 GREEN SHOP S.R.L.;;no_objetivo;comercio minorista
-GREGORIO RAUL Y TAMAGNA DANIEL;;no_objetivo;nombres de personas
+GREGORIO RAUL Y TAMAGNA DANIEL;;no_objetivo;nombre de persona
 GREGORIS SERGIO RUBEN;;indeterminado;sin señal clara
-GRIGNAFINI DANIEL;;no_objetivo;nombre de persona
+GRIGNAFINI DANIEL;;indeterminado;sin señal clara
 GY R;;indeterminado;sin señal clara
 Gamalectric S.A.;;indeterminado;sin señal clara
 Americas Towers Sociedad Anonima;;indeterminado;sin señal clara
@@ -186,23 +186,23 @@ GUZOWSKI CARLO;;indeterminado;sin señal clara
 GW SERVICIOS AGRÌCOLAS S.H.;;industrial_otro;servicios técnicos
 Sebastian Digruttola;;indeterminado;sin señal clara
 Sebatian Bassi;;indeterminado;sin señal clara
-Seeds Energy S.A.;;indeterminado;sin señal clara
+Seeds Energy S.A.;;industrial_otro;energía/industrial
 Segovia Cesar;;indeterminado;sin señal clara
 GERLERO IGNACIO OSCAR;;indeterminado;sin señal clara
 GERMENA;;indeterminado;sin señal clara
 GERONIMO;;indeterminado;sin señal clara
 GIACOBONE ELENA LUJAN ARGENTIN;;indeterminado;sin señal clara
 GPR S.R.L;;indeterminado;sin señal clara
-GRABOWIECKI ESTEBAN DEMETRIO;;no_objetivo;nombre de persona
+GRABOWIECKI ESTEBAN DEMETRIO;;indeterminado;sin señal clara
 GRACI JORGE OMAR E HIJO;;no_objetivo;nombres de personas
-GRAELLS JOSE MODESTO;;no_objetivo;nombre de persona
+GRAELLS JOSE MODESTO;;indeterminado;sin señal clara
 GRAFICA DEL PUENTE S.R.L.;;industrial_otro;impresión gráfica
 GRAND AIRE S.R.L.;;indeterminado;sin señal clara
 Scapin Hnos;;indeterminado;sin señal clara
 Scattemburlo Orlando;;indeterminado;sin señal clara
 GLOBAL THERMIC SOC. RESP. LIMITADA;;industrial_objetivo;thermal industrial
 GLUTAL S.A.;;indeterminado;sin señal clara
-GOICOECHEA HECTOR OMAR;;no_objetivo;nombre de persona
+GOICOECHEA HECTOR OMAR;;indeterminado;sin señal clara
 GOIZUETA;;indeterminado;sin señal clara
 GOMA OESTE S.R.L.;;industrial_otro;goma/plásticos
 GONZALO;;no_objetivo;nombre de persona
@@ -212,16 +212,16 @@ GRUPO R S.A.;;indeterminado;sin señal clara
 GRUPO ROSINI;;indeterminado;sin señal clara
 GRUPO YATAY;;indeterminado;sin señal clara
 GSUTAVO;;indeterminado;sin señal clara
-GUERCETTI JULIETA;;no_objetivo;nombre de persona
+GUERCETTI JULIETA;;indeterminado;sin señal clara
 GISMANO;;indeterminado;sin señal clara
 GIUDICE EDGARDO OSCAR;;indeterminado;sin señal clara
-GLIKSTEIN Y CIA.;;indeterminado;sin señal clara
+GLIKSTEIN Y CIA.;;no_objetivo;nombres de personas
 CORBA JUAN;;indeterminado;sin señal clara
 CORBELLI;;indeterminado;sin señal clara
 CORFIELD ISABEL R.CICCONE DE;;indeterminado;sin señal clara
 CORIA VICTOR HUGO;;indeterminado;sin señal clara
-GASTON GONZALES;;no_objetivo;nombre de persona
-GASTON ZALAZAR;;no_objetivo;nombre de persona
+GASTON GONZALES;;indeterminado;sin señal clara
+GASTON ZALAZAR;;indeterminado;sin señal clara
 GAY MARIELA ELISABET;;indeterminado;sin señal clara
 GDA SRL;;indeterminado;sin señal clara
 Alexander Fleming S A;;indeterminado;sin señal clara
@@ -248,4 +248,4 @@ GIGENA NI;;indeterminado;sin señal clara
 GIGLIONE FELIPE;;indeterminado;sin señal clara
 GIMENEZ;;indeterminado;sin señal clara
 GIMENEZ 2;;indeterminado;sin señal clara
-COOPERATIVA AGRICOLA DE SAN EUGENIO LTDA;;no_objetivo;cooperativa de servicios
+COOPERATIVA AGRICOLA DE SAN EUGENIO LTDA;;no_objetivo;cooperativa
