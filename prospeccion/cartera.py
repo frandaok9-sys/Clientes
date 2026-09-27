@@ -102,10 +102,27 @@ def leer_verificado(prospectos: pd.DataFrame) -> pd.DataFrame:
     return out.drop_duplicates("_k")
 
 
+def leer_rapida(rapida: pd.DataFrame) -> pd.DataFrame:
+    """Pasada rápida de rubro: solo qué es la empresa, con URL. No trae contactos."""
+    r = rapida.fillna("").copy()
+    r["_k"] = _clave(r)
+    con_fuente = r["fuente_enriquecimiento"].str.strip() != ""
+    out = pd.DataFrame({
+        "_k": r["_k"],
+        "rubro_rapida": r["rubro"].where(con_fuente, ""),
+        "web_rapida": r["web"].where(con_fuente, ""),
+        "empleados_rapida": r.get("empleados", pd.Series("", index=r.index)).where(con_fuente, ""),
+        "alerta_rapida": r["alerta"],
+        "fuente_rapida": r["fuente_enriquecimiento"],
+        "fecha_rapida": r.get("fecha_revision", pd.Series("", index=r.index)),
+    })
+    return out.drop_duplicates("_k")
+
+
 def leer_descartadas_en_investigacion(tandas: str | Path, investigadas: set[str]) -> dict[str, str]:
     """Empresas que un agente investigó y no entraron a prospectos: quedan con el motivo (su alerta)."""
     motivos: dict[str, str] = {}
-    for ruta in sorted(Path(tandas).glob("*_out*.csv")):
+    for ruta in sorted(Path(tandas).glob("[tr]*_out*.csv")):
         try:
             d = pd.read_csv(ruta, sep=";", dtype=str).fillna("")
         except Exception:
@@ -120,22 +137,34 @@ def leer_descartadas_en_investigacion(tandas: str | Path, investigadas: set[str]
 
 
 def unificar(entrega: pd.DataFrame, origen: pd.DataFrame, verificado: pd.DataFrame,
-             descartadas: dict[str, str] | None = None) -> pd.DataFrame:
+             descartadas: dict[str, str] | None = None, rapida: pd.DataFrame | None = None) -> pd.DataFrame:
     e = entrega.fillna("").copy()
     e["_k"] = _clave(e)
-    df = e.merge(origen, on="_k", how="left").merge(verificado, on="_k", how="left").fillna("")
+    df = e.merge(origen, on="_k", how="left").merge(verificado, on="_k", how="left")
+    if rapida is None or rapida.empty:
+        rapida = pd.DataFrame(columns=["_k", "rubro_rapida", "web_rapida", "empleados_rapida", "alerta_rapida", "fuente_rapida", "fecha_rapida"])
+    df = df.merge(rapida, on="_k", how="left").fillna("")
     # Homónimos: si varias filas comparten el nombre, lo verificado va solo a la de la misma localidad
-    repetidas = df["_k"].duplicated(keep=False)
-    otra_loc = repetidas & (df["_loc"] != "") & (df["_loc"] != df["localidad"].map(limpieza.clave))
-    df.loc[otra_loc, [c for c in verificado.columns if c not in ("_k", "_loc")]] = ""
+    if "_loc" in df.columns:
+        repetidas = df["_k"].duplicated(keep=False)
+        otra_loc = repetidas & (df["_loc"] != "") & (df["_loc"] != df["localidad"].map(limpieza.clave))
+        df.loc[otra_loc, [c for c in verificado.columns if c not in ("_k", "_loc")]] = ""
     investigada = df["fuente_verificacion"].astype(str) != ""
     df["persona_fisica"] = df["persona_fisica"].map(lambda v: "sí" if v is True else "")
     df["origen"] = df["fuente"].map(lambda s: " + ".join(t for t in str(s).split(" + ") if _ORIGEN.match(t)))
     df["nombre_corto"] = df["nombre_corto"].where(df["nombre_corto"] != "", df["nombre_fantasia"])
     df["rubro_detalle"] = df["rubro_detalle"].where(investigada, "")
     df["rubro_coi"] = df["rubro_coi_verificado"].where(investigada & (df["rubro_coi_verificado"] != ""), df["rubro_coi"])
+    pasada = ~investigada & (df["rubro_rapida"] != "")
+    df["rubro_detalle"] = df["rubro_detalle"].where(~pasada, df["rubro_rapida"])
+    df["web"] = df["web"].where(~(pasada & (df["web_rapida"] != "")), df["web_rapida"])
+    df["empleados_aprox"] = df["empleados_aprox"].where(~(pasada & (df["empleados_rapida"] != "")), df["empleados_rapida"])
+    df["alerta"] = df["alerta"].where(investigada, df["alerta_rapida"])
+    df["fuente_verificacion"] = df["fuente_verificacion"].where(investigada, df["fuente_rapida"])
+    df["fecha_verificacion"] = df["fecha_verificacion"].where(investigada, df["fecha_rapida"])
     df["rubro_estado"] = "sin dato"
     df.loc[df["rubro_coi"] != "", "rubro_estado"] = "por nombre (sin verificar)"
+    df.loc[pasada, "rubro_estado"] = "verificado (pasada rápida)"
     df.loc[investigada & (df["rubro_detalle"] != ""), "rubro_estado"] = "verificado"
     df["categoria"] = df["categoria_inv"].where(investigada & (df["categoria_inv"] != ""), df["categoria"])
     df["puntaje"] = df["puntaje_inv"].where(investigada & (df["puntaje_inv"] != ""), df["puntaje"])
@@ -148,6 +177,7 @@ def unificar(entrega: pd.DataFrame, origen: pd.DataFrame, verificado: pd.DataFra
         sel = (df["_k"] == k) & ~investigada
         df.loc[sel, "estado_investigacion"] = "descartada en investigación"
         df.loc[sel & (df["motivo_descarte"] == ""), "motivo_descarte"] = motivo
+    df.loc[pasada & (df["estado_investigacion"] == "pendiente"), "estado_investigacion"] = "rubro confirmado (falta decisor y canal)"
     df.loc[investigada, "estado_investigacion"] = "investigada"
     hay_tel = (df["telefono_verificado"] != "") | (df["contacto_origen_telefono"] != "")
     df["verificar_no_llame"] = hay_tel.map({True: "sí", False: ""})
@@ -177,7 +207,9 @@ def generar(entrega_csv: Path, prospectos_csv: Path, carteras: Path, tandas: Pat
     prospectos = pd.read_csv(prospectos_csv, sep=";", dtype=str) if Path(prospectos_csv).exists() else pd.DataFrame(columns=["razon_social"])
     verificado = leer_verificado(prospectos) if len(prospectos) else pd.DataFrame(columns=["_k"])
     descartadas = leer_descartadas_en_investigacion(tandas, set(verificado["_k"])) if Path(tandas).exists() else {}
-    cartera = unificar(entrega, leer_origen(carteras, alias), verificado, descartadas)
+    ruta_rapida = Path(prospectos_csv).parent / "20260927-rubro-rapido.csv"
+    rapida = leer_rapida(pd.read_csv(ruta_rapida, sep=";", dtype=str)) if ruta_rapida.exists() else None
+    cartera = unificar(entrega, leer_origen(carteras, alias), verificado, descartadas, rapida)
     salida_csv.parent.mkdir(parents=True, exist_ok=True)
     cartera.to_csv(salida_csv, sep=";", index=False, encoding="utf-8")
     if salida_xlsx:

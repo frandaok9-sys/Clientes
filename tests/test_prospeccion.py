@@ -227,3 +227,14 @@ def test_dedupe_une_fila_sin_localidad_con_la_misma_empresa():
             df[c] = pd.NA
     out, n = limpieza.deduplicar(df)
     assert n == 1 and sorted(out["localidad"].fillna("")) == ["Córdoba", "Rafaela"]
+
+
+def test_cartera_pasada_rapida_marca_rubro_sin_contacto():
+    from prospeccion import cartera
+    entrega = pd.DataFrame([{c: "" for c in cli.COLUMNAS_ENTREGA} | {"razon_social": "Silos Q SA", "localidad": "Arias", "categoria": "C", "puntaje": "1", "fuente": "Cartera RAI"}])
+    rapida = pd.DataFrame([{"razon_social": "Silos Q SA", "localidad": "Arias", "provincia": "", "web": "silosq.com.ar", "rubro": "fabrica silos",
+                            "empleados": "", "senales": "", "alerta": "", "fuente_enriquecimiento": "https://silosq.com.ar", "fecha_revision": "2026-09-27"}])
+    c = cartera.unificar(entrega, pd.DataFrame(columns=["_k"]), pd.DataFrame(columns=["_k"]), {}, cartera.leer_rapida(rapida))
+    f = c.iloc[0]
+    assert f["rubro_estado"] == "verificado (pasada rápida)" and f["rubro_detalle"] == "fabrica silos" and f["web"] == "silosq.com.ar"
+    assert f["estado_investigacion"] == "rubro confirmado (falta decisor y canal)" and f["decisor_nombre"] == "" and f["fuente_verificacion"] == "https://silosq.com.ar"
