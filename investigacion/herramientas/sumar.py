@@ -32,6 +32,7 @@ for _, f in cal.iterrows():
     if not o["web"] and not o["contacto_telefono"] and not o["contacto_email"] and not o["contacto_nombre"] and not o["dato"]:
         descartadas.append((f["razon_social"], "no se encontró nada")); continue
     r = R.get(f["rubro_coi"], GEN)
+    dato = o["dato"].rstrip(". ")
     corto, b = borrador(o, r, cfg)
     email = o["contacto_email"]
     propio = bool(email) and email.split("@")[-1].lower() not in gratuitos
