@@ -142,10 +142,10 @@ FARAGO DE YULIIS S.R.L.;;indeterminado;sin información clara
 FARANA OMAR OSVALDO;;no_objetivo;nombre de persona
 TX SATELITAL S.R.L;;indeterminado;firma sin especificación clara
 FABRI-LUINI S.R.L.;;indeterminado;firma sin especificación clara
-FABRICACIONES ALTAMENTE SOFISTICADAS S.A;;industrial_otro;fabricación industrial
-FABRICACIONES ROSARIO S.A.;;industrial_otro;fabricación industrial
-FABRICANTES DE CLIMA S.A.;;industrial_otro;fabricación industrial
-FABRICAR EL MONCAYO S.A.;;industrial_otro;fabricación industrial
+FABRICACIONES ALTAMENTE SOFISTICADAS S.A;;industrial_otro;fabricación o producción
+FABRICACIONES ROSARIO S.A.;;industrial_otro;fabricación o producción
+FABRICANTES DE CLIMA S.A.;;industrial_otro;fabricación o producción
+FABRICAR EL MONCAYO S.A.;;industrial_otro;fabricación o producción
 FADICAD;;indeterminado;sin información clara
 FADLALA JOSE MARIA;;no_objetivo;nombre de persona
 TTE MARIO;;indeterminado;sin información clara
@@ -176,9 +176,9 @@ FABRE MARCELO ANDRES;;indeterminado;sin información clara
 Estacion Y.P;;no_objetivo;estación de servicios
 Estacion de Colectivo M.Moreno;;indeterminado;sin información clara
 Estacion de carga Santa Fe;;indeterminado;sin información clara
-Estancia La Carreta S.A;;no_objetivo;estancia agropecuaria
-Estancia La Emilia Sa;;no_objetivo;estancia agropecuaria
-Estancias Unidas Del Sud Sociedad Anonima;;no_objetivo;estancia agropecuaria
+Estancia La Carreta S.A;;no_objetivo;estancia o campo agropecuario
+Estancia La Emilia Sa;;no_objetivo;estancia o campo agropecuario
+Estancias Unidas Del Sud Sociedad Anonima;;no_objetivo;estancia o campo agropecuario
 Cavar Sociedad Anonima;;indeterminado;sin información clara
 FELLER S.R.L.;;indeterminado;firma sin especificación clara
 Expreso TIO RICO;;indeterminado;sin información clara
@@ -214,7 +214,7 @@ Telec Srl;;indeterminado;firma sin especificación clara
 Telecom Argentina Sociedad Anonima;;indeterminado;sin información clara
 El Rural Group Srl;;indeterminado;sin información clara
 Elaboracion De Productos Carnicos Epc S.A;;indeterminado;sin información clara
-Central Repuestos S.R.L.;;industrial_otro;repuestos industriales
+Central Repuestos S.R.L.;;industrial_otro;venta de repuestos
 Central Termica Sorrento S A S. A.;;indeterminado;sin información clara
 El Gramillal Agricola Ganadera Inmobiliaria Sociedad En Comandita Por Acciones;;no_objetivo;inmobiliaria o bienes raíces
 El Insumo S.R.L.;;indeterminado;firma sin especificación clara
