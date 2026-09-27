@@ -10,7 +10,7 @@ import yaml
 from rich.console import Console
 from rich.table import Table
 
-from . import clasificacion, fichas, importar, limpieza, mensajes, seguimiento, tablero as tablero_mod
+from . import cartera as cartera_mod, clasificacion, fichas, importar, limpieza, mensajes, seguimiento, tablero as tablero_mod
 
 app = typer.Typer(help="Limpia, califica y prepara la prospección de empresas para COI.", no_args_is_help=True)
 consola = Console()
@@ -284,6 +284,23 @@ def tablero(
 ):
     """Arma un tablero HTML que divide los prospectos: decisor y canal, solo canal, sin canal y a revisar."""
     consola.print(f"[green]Tablero:[/] {tablero_mod.generar(archivo, salida)}")
+
+
+@app.command()
+def cartera(
+    prospectos: Path = typer.Option(RAIZ / "canal/respuestas/20260926-prospectos-AB.csv", "--prospectos"),
+    salida: Path = typer.Option(RAIZ / "datos/salida/cartera_unificada.csv", "--salida", "-o"),
+    config_path: Path = OpcionConfig,
+):
+    """Cartera unificada: una fila por empresa, rubro con su estado y contacto de origen separado del verificado."""
+    config = _config(config_path)
+    df = cartera_mod.generar(RAIZ / "datos/salida/entrega.csv", prospectos, RAIZ / "datos/entrada",
+                             RAIZ / "investigacion/tandas", salida, salida.with_suffix(".xlsx"), config.get("columnas", {}))
+    consola.print(f"[green]Cartera:[/] {salida} ({len(df)} empresas)")
+    consola.print("Estado: " + ", ".join(f"{n} {v}" for v, n in df["estado_investigacion"].value_counts().items()))
+    consola.print("Rubro: " + ", ".join(f"{n} {v}" for v, n in df["rubro_estado"].value_counts().items()))
+    consola.print(f"Decisor verificado: {(df['decisor_nombre'] != '').sum()} | canal verificado: "
+                  f"{((df['email_verificado'] != '') | (df['telefono_verificado'] != '')).sum()}")
 
 
 if __name__ == "__main__":

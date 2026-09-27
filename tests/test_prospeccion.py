@@ -178,3 +178,52 @@ def test_tablero_carriles(tmp_path):
     assert carriles == {"Uno SA": "listas", "Dos SRL": "generico", "Tres SA": "sin_canal", "Cuatro SA": "revisar"}
     pagina = tablero.generar(csv, tmp_path / "t.html").read_text(encoding="utf-8")
     assert "Uno SA" in pagina and "__DATOS__" not in pagina
+
+
+def test_cartera_separa_origen_de_verificado(tmp_path):
+    from prospeccion import cartera
+    entrega = pd.DataFrame([{c: "" for c in cli.COLUMNAS_ENTREGA} | d for d in (
+        {"razon_social": "Metal X S.R.L.", "localidad": "Rosario", "rubro_coi": "Metalúrgicas / metalmecánica a pedido",
+         "categoria": "C", "puntaje": "2", "fuente": "búsqueda web (sesión cloud) + Cartera RAI"},
+        {"razon_social": "Tornería Z SA", "localidad": "Rafaela", "rubro_coi": "Metalúrgicas / metalmecánica a pedido",
+         "categoria": "C", "puntaje": "1", "fuente": "Cartera RAI"},
+        {"razon_social": "Sin Nada SRL", "localidad": "", "categoria": "C - chico", "puntaje": "0", "fuente": "Cartera AG-360 (F. Dabbene)"},
+    )])
+    origen = pd.DataFrame([{"_k": "metal x", "contacto_origen_nombre": "Juan Perez", "contacto_origen_email": "juan@metalx.com.ar",
+                            "contacto_origen_telefono": "", "origen_detalle": "Cartera RAI: Enrique Basualdo", "persona_fisica": False}])
+    prospectos = pd.DataFrame([
+        {"razon_social": "Metal X SRL", "nombre_corto": "Metal X", "rubro": "fabrica tolvas", "rubro_coi": "Montajes industriales y estructuras metálicas",
+         "categoria": "B", "puntaje": "7", "web": "metalx.com.ar", "madurez_digital": "alta", "contacto_nombre": "Ana Paz",
+         "contacto_cargo": "Gerente general (web)", "contacto_email": "ventas@metalx.com.ar", "contacto_telefono": "0341 4000000",
+         "otros_contactos": "", "empleados_aprox": "", "alerta": "", "nota": "", "fuente_enriquecimiento": "https://metalx.com.ar", "fecha_revision": "2026-09-27"},
+        {"razon_social": "Tornería Z SA", "nombre_corto": "", "rubro": "", "rubro_coi": "", "categoria": "C", "puntaje": "1", "web": "",
+         "madurez_digital": "", "contacto_nombre": "Alguien", "contacto_cargo": "", "contacto_email": "x@torneriaz.com", "contacto_telefono": "",
+         "otros_contactos": "", "empleados_aprox": "", "alerta": "", "nota": "", "fuente_enriquecimiento": "", "fecha_revision": ""},
+    ])
+    c = cartera.unificar(entrega, origen, cartera.leer_verificado(prospectos), {"sin nada": "no se encontró nada"})
+    mx = c[c["razon_social"] == "Metal X S.R.L."].iloc[0]
+    # el contacto de la cartera y el verificado conviven en columnas distintas, ninguno pisa al otro
+    assert mx["contacto_origen_nombre"] == "Juan Perez" and mx["contacto_origen_email"] == "juan@metalx.com.ar"
+    assert mx["decisor_nombre"] == "Ana Paz" and mx["email_verificado"] == "ventas@metalx.com.ar"
+    assert mx["rubro_estado"] == "verificado" and mx["rubro_detalle"] == "fabrica tolvas" and mx["rubro_coi"].startswith("Montajes")
+    assert mx["origen"] == "Cartera RAI" and mx["estado_investigacion"] == "investigada" and mx["verificar_no_llame"] == "sí"
+    tz = c[c["razon_social"] == "Tornería Z SA"].iloc[0]
+    # sin URL de fuente, el contacto no cuenta como verificado y el rubro queda como deducido por nombre
+    assert tz["decisor_nombre"] == "" and tz["email_verificado"] == "" and tz["rubro_estado"] == "por nombre (sin verificar)"
+    assert tz["estado_investigacion"] == "pendiente" and "sin fuente" in tz["nota"]
+    sn = c[c["razon_social"] == "Sin Nada SRL"].iloc[0]
+    assert sn["rubro_estado"] == "sin dato" and sn["estado_investigacion"] == "descartada en investigación"
+    assert sn["motivo_descarte"] == "no se encontró nada"
+    assert list(c["razon_social"])[0] == "Metal X S.R.L."  # las investigadas y mejor puntuadas van primero
+    r = cartera.resumen_por_rubro(c)
+    assert r[r["rubro"].str.startswith("Montajes")].iloc[0]["con_decisor"] == 1
+
+
+def test_dedupe_une_fila_sin_localidad_con_la_misma_empresa():
+    df = pd.DataFrame({"razon_social": ["Frio Raf S.A.", "FRIO RAF S.A.", "Frio Raf S.A."],
+                       "localidad": ["Rafaela", None, "Córdoba"], "_confianza": [2, 0, 0]})
+    for c in limpieza.CAMPOS:
+        if c not in df.columns:
+            df[c] = pd.NA
+    out, n = limpieza.deduplicar(df)
+    assert n == 1 and sorted(out["localidad"].fillna("")) == ["Córdoba", "Rafaela"]

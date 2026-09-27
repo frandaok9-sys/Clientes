@@ -207,6 +207,17 @@ def deduplicar(df: pd.DataFrame) -> tuple[pd.DataFrame, int]:
                 else:
                     vistos[v] = i
 
+    # Misma razón social y una de las filas sin localidad: es la misma empresa (la cartera no trae ciudad)
+    con_loc: dict[str, int] = {}
+    for i, k in enumerate(nombre_loc):
+        nombre, loc = k.split("|", 1)
+        if nombre and loc and nombre not in con_loc:
+            con_loc[nombre] = i
+    for i, k in enumerate(nombre_loc):
+        nombre, loc = k.split("|", 1)
+        if nombre and not loc and nombre in con_loc:
+            unir(con_loc[nombre], i)
+
     df["_grupo"] = [raiz(i) for i in range(len(df))]
     fuentes = df.groupby("_grupo")["fuente"].apply(
         lambda s: " + ".join(dict.fromkeys(str(x) for x in s if not vacio(x))) or pd.NA)
