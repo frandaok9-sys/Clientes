@@ -6,9 +6,12 @@ Uso (desde la raíz del repo, con el entorno activado):
 import csv, glob, sys
 import pandas as pd, yaml
 from prospeccion import clasificacion, limpieza, mensajes
+from investigacion.herramientas.comun import borrador
 S = "investigacion/tandas"  # CSV que devuelven los agentes
 DEST = "canal/respuestas/20260926-prospectos-AB.csv"
 cfg = yaml.safe_load(open("config.yaml"))
+
+
 nuevas = pd.concat([pd.read_csv(f, sep=";", dtype=str) for f in sorted(glob.glob(f"{S}/" + (sys.argv[1] if len(sys.argv) > 1 else "nueva_out0*.csv")))], ignore_index=True).fillna("")
 orig = nuevas.copy()
 df = nuevas.rename(columns={"contacto_email": "email", "contacto_telefono": "telefono"})
@@ -29,17 +32,7 @@ for _, f in cal.iterrows():
     if not o["web"] and not o["contacto_telefono"] and not o["contacto_email"] and not o["contacto_nombre"] and not o["dato"]:
         descartadas.append((f["razon_social"], "no se encontró nada")); continue
     r = R.get(f["rubro_coi"], GEN)
-    saludo = mensajes.saludo_nombre(pd.Series({"contacto_nombre": o["contacto_nombre"], "razon_social": o["razon_social"],
-                                               "nombre_fantasia": o["nombre_corto"], "email": o["contacto_email"] or None}), genericos)
-    corto = o["nombre_corto"] or mensajes.nombre_corto(pd.Series({"razon_social": o["razon_social"]}))
-    dato = o["dato"].rstrip(". ")
-    apertura = f"Vi que {dato}." if dato else f"Te escribo porque vi que {corto} {r.get('frase', GEN['frase'])}."
-    b = (f"Hola{' ' + saludo if saludo else ''}, soy {cfg['oferta']['remitente']}, de COI.\n{apertura}\n"
-         f"En empresas así, {r['dolor']}.\nCOI {r['solucion']}.\n{cfg['oferta']['cta']}\n— {cfg['oferta']['baja']}")
-    if len(b.split()) > 90:
-        b = (f"Hola{' ' + saludo if saludo else ''}, soy {cfg['oferta']['remitente']}, de COI.\n{apertura}\n"
-             f"COI {r['solucion']}.\n{cfg['oferta']['cta']}\n— {cfg['oferta']['baja']}")
-    assert len(b.split()) <= 90, f["razon_social"]
+    corto, b = borrador(o, r, cfg)
     email = o["contacto_email"]
     propio = bool(email) and email.split("@")[-1].lower() not in gratuitos
     filas.append({"razon_social": o["razon_social"], "nombre_corto": corto, "localidad": o["localidad"], "rubro": o["rubro"],
