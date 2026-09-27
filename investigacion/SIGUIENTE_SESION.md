@@ -58,6 +58,11 @@ datos que traen URL; nunca pisa lo que ya estaba. Luego `todo`, `cartera`, table
 - **Falta definir:** el remitente de los borradores. Hoy sale «[tu nombre]», en `config.yaml` →
   `oferta.remitente`.
 
+## Estrategia para las 16.700 sin rubro
+Leé `investigacion/ESTRATEGIA_16700.md`: embudo de 5 niveles (personas físicas afuera → triaje por nombre con
+haiku → pasada rápida de rubro con 2 búsquedas → investigación completa solo de las que encajan → rebúsqueda).
+Herramientas: `armar_triaje.py` / `sumar_triaje.py`, `elegir_rapida.py` / `sumar_rapida.py`.
+
 ## Qué queda
 Quedan unas 330 candidatas con rubro detectado en `candidatos_enriquecer.csv`. Después vienen unas
 6.700 sin rubro detectado, que conviene triar por nombre antes de gastar búsquedas.

@@ -18,7 +18,7 @@ manda el brief.
 - Cada fila conserva su `fuente`.
 
 ## Dónde está cada cosa
-- **Para retomar el trabajo:** `investigacion/SIGUIENTE_SESION.md` (estado, ciclo de tandas y tablero).
+- **Para retomar el trabajo:** `investigacion/SIGUIENTE_SESION.md` (estado, ciclo de tandas y tablero) y `investigacion/ESTRATEGIA_16700.md` (embudo para las empresas sin rubro).
 - `config.yaml`: rubros, puntajes, descartes, clientes actuales y competidores (reglas del brief, secciones 3–5).
 - `canal/`: pedidos a la sesión local (con Chrome) y sus respuestas. Protocolo en `canal/PROTOCOLO.md`.
 - `prospeccion/`: limpieza, deduplicación, calificación, borradores y seguimiento.
