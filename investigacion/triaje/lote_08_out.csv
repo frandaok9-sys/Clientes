@@ -4,7 +4,7 @@ Buloneria Mitre S R L;San Miguel De Tucuman;industrial_objetivo;buloneria sin da
 Buloneria Reginato S.R.L.;San Miguel De Tucuman;industrial_objetivo;buloneria sin datos
 Brucellaria Y Strappa Sa;Ramallo;indeterminado;nombre genérico sin clasificar
 Bori Srl;Santiago Del Estero;indeterminado;nombre genérico sin clasificar
-MUSSIN MAQUINARIAS SOCIEDAD DE RESPONSABILIDA LIMITADA;CALCHAQUI;industrial_objetivo;maquinaria sin datos
+MUSSIN MAQUINARIAS SOCIEDAD DE RESPONSABILIDA LIMITADA;CALCHAQUI;industrial_objetivo;maquinarias sin datos
 MULLER NESTOR JOSE, PAULA Y FRANCISCO SOC SIMPLE;GUALEGUAYCHU;indeterminado;nombre genérico sin clasificar
 MOURE SEBASTIAN;CINTRA;indeterminado;nombre genérico sin clasificar
 REMATES RURALES S.A.;LAS VARILLAS;indeterminado;nombre genérico sin clasificar
@@ -34,12 +34,12 @@ Lufergun S.R.L.;Villa Ramallo;indeterminado;nombre genérico sin clasificar
 Productos Don Jorge S.R.L.;Villa Constitucion;industrial_otro;productos sin datos
 Los Vascos Srl;Coronda;indeterminado;nombre genérico sin clasificar
 BAGGINI HECTOR LUIS E HIJOS SRL EN FORMACION;LABORDE;indeterminado;nombre genérico sin clasificar
-CAMPOS E IMPLEMENTOS TRENQUE LAUQUEN S.R.L;TRENQUE LAUQUEN;indeterminado;nombre genérico sin clasificar
-CAMPOTEC S.A.S.;MARCOS JUAREZ;indeterminado;nombre genérico sin clasificar
-CAMPO ALLEMAN SAU;VILLA MARIA;no_objetivo;campo  sin datos
-CAMPO DOÑA ÑATA S.A.S.;JUSTINIANO POSSE;no_objetivo;campo  sin datos
-CAMPO LOS PRIMOS S.A.;ROSARIO;no_objetivo;campo  sin datos
-CAMAGRO S.A.;POZO DEL MOLLE -D;no_objetivo;productor agropecuario sin datos
+CAMPOS E IMPLEMENTOS TRENQUE LAUQUEN S.R.L;TRENQUE LAUQUEN;no_objetivo;campo sin datos
+CAMPOTEC S.A.S.;MARCOS JUAREZ;no_objetivo;campo sin datos
+CAMPO ALLEMAN SAU;VILLA MARIA;no_objetivo;campo sin datos
+CAMPO DOÑA ÑATA S.A.S.;JUSTINIANO POSSE;no_objetivo;campo sin datos
+CAMPO LOS PRIMOS S.A.;ROSARIO;no_objetivo;campo sin datos
+CAMAGRO S.A.;POZO DEL MOLLE -D;indeterminado;nombre genérico sin clasificar
 Los Jaimes S.R.L.;San Pedro;indeterminado;nombre genérico sin clasificar
 Los Ases Ketten Sa;CAPITAL FEDERAL;indeterminado;nombre genérico sin clasificar
 Lombbak S. A. S.;Venado Tuerto;indeterminado;nombre genérico sin clasificar
@@ -48,8 +48,8 @@ ROMALU S.A.;JUSTINIANO POSSE;indeterminado;nombre genérico sin clasificar
 RILLAAR S.R.L;INRIVILLE;indeterminado;nombre genérico sin clasificar
 RILU SAS;BELL VILLE;indeterminado;nombre genérico sin clasificar
 RICOR SA;VILLA MARIA;indeterminado;nombre genérico sin clasificar
-Boglione Delio Bartolo Y Oscar Luis Antonio;Las Varillas;no_objetivo;bar sin datos
-RF MAQUINARIAS SAS;BELL VILLE;industrial_objetivo;maquinaria sin datos
+Boglione Delio Bartolo Y Oscar Luis Antonio;Las Varillas;indeterminado;nombre genérico sin clasificar
+RF MAQUINARIAS SAS;BELL VILLE;industrial_objetivo;maquinarias sin datos
 REVELLI HUGO Y OMAR;POZO DEL MOLLE -D;indeterminado;nombre genérico sin clasificar
 MARINO S.R.L.;LEONES;indeterminado;nombre genérico sin clasificar
 MARIANO Y PEDRO SALVAREZZA SOCIEDAD SECCION IV CAPITULO;BELL VILLE;indeterminado;nombre genérico sin clasificar
@@ -64,10 +64,10 @@ MAHELY S.A.S;PARQUE SIQUIMAN;indeterminado;nombre genérico sin clasificar
 CALAMANTE ENRIQUE ALEJANDROY OSCAR GERARDO S.H.;BELL VILLE;indeterminado;nombre genérico sin clasificar
 CALCATERRA CARLOS F Y CALCATERRA JUAN C SOCIEDAD DE HECHO;CALCHIN OESTE;indeterminado;nombre genérico sin clasificar
 CAEZVE SRL;JUSTINIANO POSSE;indeterminado;nombre genérico sin clasificar
-CAFERO SERVICIOS AGROPECUARIOS S.A.S;CANALS;no_objetivo;cafe sin datos
+CAFERO SERVICIOS AGROPECUARIOS S.A.S;CANALS;industrial_otro;servicios sin datos
 CAGNOLO ALEJANDRO,ARIEL Y MAURICIO S.R.L.;CINTRA;indeterminado;nombre genérico sin clasificar
 CAGNOLO MARTIN;BELL VILLE;indeterminado;nombre genérico sin clasificar
-CABURE AGROPECUARIA S.A.;JESUS MARIA;no_objetivo;productor agropecuario sin datos
+CABURE AGROPECUARIA S.A.;JESUS MARIA;no_objetivo;agropecuaria sin datos
 Bocanera Sociedad Anonima;Tafi Viejo;indeterminado;nombre genérico sin clasificar
 CABAÑA Y SEMILLERO SAN JOSE S.R.L.;JUSTINIANO POSSE;no_objetivo;semillero sin datos
 MAERO JORGE OMAR Y COLOMBO WALTER OMAR;SAN MARCOS SUD;indeterminado;nombre genérico sin clasificar
@@ -76,14 +76,14 @@ MACLURA S.R.L.;CORDOBA;indeterminado;nombre genérico sin clasificar
 MACCHI CRISTIAN RUBEN Y JAVIER ALEJAN;VILLA CAÑAS;indeterminado;nombre genérico sin clasificar
 M.T.R S.A;Ramallo;indeterminado;nombre genérico sin clasificar
 MANALE S.A;CAPITAN SARMIENTO;indeterminado;nombre genérico sin clasificar
-SyC TAMBOS S.A;SAN MARCOS SUD;no_objetivo;tambo sin datos
+SyC TAMBOS S.A;SAN MARCOS SUD;no_objetivo;tambos sin datos
 Syfanic S.R.L.;San Nicolas;indeterminado;nombre genérico sin clasificar
 Sumin S.R.L.;Centenario;indeterminado;nombre genérico sin clasificar
-Super Oroño S.R.L.;Roldan;no_objetivo;super sin datos
+Super Oroño S.R.L.;Roldan;indeterminado;nombre genérico sin clasificar
 Supermercado De Los Filtros S.A.S.;Reconquista;no_objetivo;supermercado sin datos
 Stratta Maria Paula y Stratta Florencia Valeria;LAS VARILLAS;indeterminado;nombre genérico sin clasificar
 BERTINI S. A;ROSARIO;indeterminado;nombre genérico sin clasificar
-Stimturbo S.R.L;San Martin;industrial_objetivo;turbo sin datos
+Stimturbo S.R.L;San Martin;indeterminado;nombre genérico sin clasificar
 Speed Business S. A.;Rosario;indeterminado;nombre genérico sin clasificar
 Somitor S.R.L.;Parana;indeterminado;nombre genérico sin clasificar
 BERTELLO EDUARDO Y BERTELLO GUSTAVO;ORDOÑEZ;indeterminado;nombre genérico sin clasificar
@@ -96,7 +96,7 @@ Golosinas O.E.N.P. S.A.;Bell Ville;indeterminado;nombre genérico sin clasificar
 CONRERO HUGO Y MAURICIO SH;ALTO ALEGRE;indeterminado;nombre genérico sin clasificar
 COMPAÑIA DE INSUMOS Y GRANOS S A;WENCESLAO ESCALANTE;industrial_objetivo;insumos sin datos
 COMPAÑIA DE SERVICIOS DEL SUR S.R.L.;CASILDA;industrial_otro;servicios sin datos
-COMBUSTIBLES DANIELE S.A.;LUQUE;industrial_otro;combustible sin datos
+COMBUSTIBLES DANIELE S.A.;LUQUE;indeterminado;nombre genérico sin clasificar
 Giuliani Hermanos Sociedad Anonima;Rafaela;indeterminado;nombre genérico sin clasificar
 Globalcia S.R.L.;San Nicolas;indeterminado;nombre genérico sin clasificar
 Globbal Mills S.R.L.;San Lorenzo;indeterminado;nombre genérico sin clasificar
@@ -106,15 +106,15 @@ BERNARDI ALBERTO SANTIAGO Y OTRO;ORDOÑEZ;indeterminado;nombre genérico sin cla
 BIAGIOLI DE SAGGIORATO NELLY Y OTROS S.H.;SAN MARCOS SUD;indeterminado;nombre genérico sin clasificar
 Gearvel S A I Y C;CIUDAD AUTONOMO DE BUENOS AIRES;indeterminado;nombre genérico sin clasificar
 BETTUCCI GABRIEL Y OTROS;MORRISON;indeterminado;nombre genérico sin clasificar
-Gravas Del Parana S.A.;Rosario Sud;industrial_otro;grava sin datos
+Gravas Del Parana S.A.;Rosario Sud;indeterminado;nombre genérico sin clasificar
 Pisani Sebastian Martin Y Pisani Oscar;Santo Tome;indeterminado;nombre genérico sin clasificar
 Sermetal Srl;San Pablo;indeterminado;nombre genérico sin clasificar
-Ser Agro Sa;Hughes;no_objetivo;productor agropecuario sin datos
-BERNARDI AGROPECUARIA S.A;BELL VILLE;no_objetivo;productor agropecuario sin datos
+Ser Agro Sa;Hughes;no_objetivo;agronegocio sin datos
+BERNARDI AGROPECUARIA S.A;BELL VILLE;no_objetivo;agropecuaria sin datos
 Sebastian Diaz Cardoso;Colón;indeterminado;nombre genérico sin clasificar
-Scheimberg Vidrios S A;Villa Gobernador Galvez;industrial_otro;vidrio sin datos
+Scheimberg Vidrios S A;Villa Gobernador Galvez;indeterminado;nombre genérico sin clasificar
 Hector Poletto E Hijos S.A.;Suardi;indeterminado;nombre genérico sin clasificar
-BERNAGRO S.R.L.;BELL VILLE;no_objetivo;productor agropecuario sin datos
+BERNAGRO S.R.L.;BELL VILLE;indeterminado;nombre genérico sin clasificar
 HSO S.R.L.;SAIRA;indeterminado;nombre genérico sin clasificar
 BERIAS RUBEN;WENCESLAO ESCALANTE;indeterminado;nombre genérico sin clasificar
 COLTIR SA;JESUS MARIA;indeterminado;nombre genérico sin clasificar
@@ -122,17 +122,17 @@ COLTIVARE TERRA S.A.S;BELL VILLE;indeterminado;nombre genérico sin clasificar
 COLLASO MARCELO;JUSTINIANO POSSE;indeterminado;nombre genérico sin clasificar
 HIJOS DE LUIS MANGARDA;PASCANAS;indeterminado;nombre genérico sin clasificar
 HEREDIA LUCAS;MARCOS JUAREZ;indeterminado;nombre genérico sin clasificar
-Silagro Sa;Adelia Maria;no_objetivo;productor agropecuario sin datos
-H B Maquinarias S A;Rafaela;industrial_objetivo;maquinaria sin datos
+Silagro Sa;Adelia Maria;indeterminado;nombre genérico sin clasificar
+H B Maquinarias S A;Rafaela;industrial_objetivo;maquinarias sin datos
 Guillermo Spialter;Rosario;indeterminado;nombre genérico sin clasificar
 BERHO S.R.L.;BELL VILLE;indeterminado;nombre genérico sin clasificar
 Gustavo Simajovich;Rosario;indeterminado;nombre genérico sin clasificar
 BERARDO GUSTAVO BERARDO FERNANDO Y BERARDO JUAN CARLOS S.H.;PASCANAS;indeterminado;nombre genérico sin clasificar
 Grupo Pasquini S. R. L.;Sargento Cabral;indeterminado;nombre genérico sin clasificar
 Grupo Geme Srl;Rosario Sud;indeterminado;nombre genérico sin clasificar
-Agropecuaria Victoria S.A.;Rosario De La Frontera;no_objetivo;productor agropecuario sin datos
+Agropecuaria Victoria S.A.;Rosario De La Frontera;no_objetivo;agropecuaria sin datos
 Soluciones Agricolas S.A.;San Rafael;indeterminado;nombre genérico sin clasificar
-Soluciones Plasticas Integrales Srl;Rosario Norte;industrial_otro;plastica sin datos
+Soluciones Plasticas Integrales Srl;Rosario Norte;indeterminado;nombre genérico sin clasificar
 BERTOGLIO PEDRO JOSE Y HUGO VICTOR;NOETINGER;indeterminado;nombre genérico sin clasificar
 Albera Daniel;JUSTINIANO POSSE;indeterminado;nombre genérico sin clasificar
 Alam-Co S.A.;Santa Fe;indeterminado;nombre genérico sin clasificar
@@ -140,7 +140,7 @@ Aguirre Angel Marcelino Y Alasia Juan Andres;Rio Cuarto;indeterminado;nombre gen
 Sin Cas De Martini Diego Luis Y Martini Gustavo Alberto;Inriville;indeterminado;nombre genérico sin clasificar
 HAYDUK SRL;GENERAL BALDISSERA;indeterminado;nombre genérico sin clasificar
 GARINO, ALEXIS D.-GARINO, LEANDRO J.-GARINO, RUBEN J. S.H.;CALCHIN OESTE;indeterminado;nombre genérico sin clasificar
-GASSMANN AGROPECUARIA S.A.S.;LEONES;no_objetivo;productor agropecuario sin datos
+GASSMANN AGROPECUARIA S.A.S.;LEONES;no_objetivo;agropecuaria sin datos
 GARELLI LUCIANO;LEONES;indeterminado;nombre genérico sin clasificar
 GARCIA HNOS;VILLA SABOYA;indeterminado;nombre genérico sin clasificar
 GAMO S.A;BALLESTEROS;indeterminado;nombre genérico sin clasificar
@@ -155,14 +155,14 @@ TERRENO HEVILDE BAUTISTA Y TERRENO GABRIEL AGUSTIN;SACANTA;indeterminado;nombre 
 TENAGLIA NORBERTO Y NESTOR S.S.;SAN FRANCISCO DE BELLOCQ;indeterminado;nombre genérico sin clasificar
 TEREPINO S.A.;HERNANDO;indeterminado;nombre genérico sin clasificar
 COOP. DE TRABAJO GRUPO PRO-ACTIVO ASOCIADO LTDA EN FORMACIÓN;BELL VILLE;no_objetivo;coop. de trabajo
-Papelera Suipacha S.R.L.;Arroyo Seco;industrial_otro;papel sin datos
+Papelera Suipacha S.R.L.;Arroyo Seco;industrial_otro;papelera sin datos
 Monthelado S.A.;Rosario Norte;indeterminado;nombre genérico sin clasificar
 TATAGASTA S A;MAIPU;indeterminado;nombre genérico sin clasificar
-Agropecuaria El Algarrobo SRL;SUNCHALES;no_objetivo;productor agropecuario sin datos
-Agropecuaria Imbo S A;Adelia Maria;no_objetivo;productor agropecuario sin datos
-Agropecuaria La Florencia;ALEJO LEDESMA;no_objetivo;productor agropecuario sin datos
-Agropecuaria Nuevo Torino S. A;Pilar;no_objetivo;productor agropecuario sin datos
-Agrocasares S.R.L. S. R. L.;Carlos Casares;no_objetivo;productor agropecuario sin datos
+Agropecuaria El Algarrobo SRL;SUNCHALES;no_objetivo;agropecuaria sin datos
+Agropecuaria Imbo S A;Adelia Maria;no_objetivo;agropecuaria sin datos
+Agropecuaria La Florencia;ALEJO LEDESMA;no_objetivo;agropecuaria sin datos
+Agropecuaria Nuevo Torino S. A;Pilar;no_objetivo;agropecuaria sin datos
+Agrocasares S.R.L. S. R. L.;Carlos Casares;no_objetivo;agronegocio sin datos
 TARTABINI MIGUEL A. Y TARTABINI FEDERICO H. S.H.;SAN MARCOS SUD;indeterminado;nombre genérico sin clasificar
 TAMBO SANTO DOMINGO SOCIEDAD POR ACCIONES SIMPLIFICADA;MONTE BUEY;no_objetivo;tambo sin datos
 TAPPER CARLOS S. Y SANCHEZ NILDA I. S.H.vander20;CHILIBROSTE;indeterminado;nombre genérico sin clasificar
@@ -170,14 +170,14 @@ TABASSO ABEL Y GUSTAVO S.H.;INRIVILLE;indeterminado;nombre genérico sin clasifi
 T R A C Sa;Rosario Sud;indeterminado;nombre genérico sin clasificar
 T.G.19 S.A.S.;LAS VARILLAS;indeterminado;nombre genérico sin clasificar
 GALUJA HNOS S.A.;CORDOBA;indeterminado;nombre genérico sin clasificar
-Papeles San Jose De La Esquina S.A.;San Jose De La Esquina;industrial_otro;papel sin datos
+Papeles San Jose De La Esquina S.A.;San Jose De La Esquina;indeterminado;nombre genérico sin clasificar
 COOP. SUDECOR LITORAL;BELL VILLE;indeterminado;nombre genérico sin clasificar
 CONSORCIO CAMINERO 135;BELL VILLE;no_objetivo;consorcio caminero sin datos
 CONSORCIO CAMINERO DE LEONES NRO 27;LEONES;no_objetivo;consorcio caminero sin datos
 CONSORCIO CAMINERO NRO 116 DE JUSTINIANO POSSE;JUSTINIANO POSSE;no_objetivo;consorcio caminero sin datos
 CONSORCIO CAMINERO Nº 5 DE GENERAL ROCA;GENERAL ROCA;no_objetivo;consorcio caminero sin datos
 Gallard Raul A Y Gallard Roberto L Sociedad De La Seccion Iv Lgs (Art. 21 A 26 Lgs) S. Cap I Secc Iv;Avellaneda;indeterminado;nombre genérico sin clasificar
-Gabriel Barreneche S.A.;Chacabuco;no_objetivo;bar sin datos
+Gabriel Barreneche S.A.;Chacabuco;indeterminado;nombre genérico sin clasificar
 Gabriel Daghero;Monte Cristo;indeterminado;nombre genérico sin clasificar
 GUSTAVO PEVERIN;BAIGORRIA;indeterminado;nombre genérico sin clasificar
 BIANCHI HECTOR NAZARENO Y BIANCHI MARCELO DANIEL;JUSTINIANO POSSE;indeterminado;nombre genérico sin clasificar
@@ -185,40 +185,40 @@ GRUPO DEL SUR SRL.;CRUZ ALTA;indeterminado;nombre genérico sin clasificar
 GRANJA TRES HERMANOD SRL;GENERAL PICO;indeterminado;nombre genérico sin clasificar
 GRAMA RHODES S.A.;IDIAZABAL;indeterminado;nombre genérico sin clasificar
 GRANIX;BARADERO;indeterminado;nombre genérico sin clasificar
-Pampa Maquinarias;Zavalla;industrial_objetivo;maquinaria sin datos
+Pampa Maquinarias;Zavalla;industrial_objetivo;maquinarias sin datos
 GARIGLIO GRISELDA S,TARICCO ANDRES M Y TARICCO ALINA I SH;PASCANAS;indeterminado;nombre genérico sin clasificar
 GIOVANINI PABLO;MARCOS JUAREZ;indeterminado;nombre genérico sin clasificar
 GIOVANINI,MARCELINO,SILVIA Y ABEL S.H.;MARCOS JUAREZ;indeterminado;nombre genérico sin clasificar
 GIRAUDO FRANCISCO JAVIER Y GIRAUDO JUAN FRANCISCO;POZO DEL MOLLE -D;indeterminado;nombre genérico sin clasificar
-GIECO - AMPER - IVECOR CONSORCIO DE COOPERACION;CORDOBA;no_objetivo;consorcio sin datos
+GIECO - AMPER - IVECOR CONSORCIO DE COOPERACION;CORDOBA;indeterminado;nombre genérico sin clasificar
 GEUNA GISELA SOFIA Y DEL RIO JUAN PABLO SH;EL FORTIN;indeterminado;nombre genérico sin clasificar
-GERBAGRO S.A.;COLONIA SAN BARTOLOME;no_objetivo;productor agropecuario sin datos
-GESTION AGROPECUARIA S.R.L.;MARCOS JUAREZ;no_objetivo;productor agropecuario sin datos
+GERBAGRO S.A.;COLONIA SAN BARTOLOME;indeterminado;nombre genérico sin clasificar
+GESTION AGROPECUARIA S.R.L.;MARCOS JUAREZ;no_objetivo;agropecuaria sin datos
 GENGA ENRIQUE ANTONIO, GENGA ANTONIO ROQUE M Y GENGA GERARDO;BELL VILLE;indeterminado;nombre genérico sin clasificar
 GENNARO E HIJOS S.A.;BALLESTEROS;indeterminado;nombre genérico sin clasificar
 GERARDO Y SERGIO CARATTOLI;ISLA VERDE -DPTO.;indeterminado;nombre genérico sin clasificar
-GEAGRO S.R.L;CORDOBA;no_objetivo;productor agropecuario sin datos
+GEAGRO S.R.L;CORDOBA;indeterminado;nombre genérico sin clasificar
 GASTON ELIAS BORGIANI Y ANIBAL GONZALEZ;MONTE BUEY;indeterminado;nombre genérico sin clasificar
 GATTO HERMANOS S.R.L.;MONTE BUEY;indeterminado;nombre genérico sin clasificar
-COOPERATIVA AGROPECUARIA GENERAL BELGRANO LTDA;NOETINGER;no_objetivo;productor agropecuario sin datos
+COOPERATIVA AGROPECUARIA GENERAL BELGRANO LTDA;NOETINGER;no_objetivo;agropecuaria sin datos
 COOPERATIVA DE TRABAJO SUDESTE LIMITADA;BELL VILLE;indeterminado;nombre genérico sin clasificar
 GONZALEZ NESTOR RICARDO;NOETINGER;indeterminado;nombre genérico sin clasificar
 SANCHEZ CRISTIAN DANIEL;VILLA SAN ESTEBAN;indeterminado;nombre genérico sin clasificar
-SAN JORGE AGROPECUARIA S.A.;NOETINGER;no_objetivo;productor agropecuario sin datos
+SAN JORGE AGROPECUARIA S.A.;NOETINGER;no_objetivo;agropecuaria sin datos
 SAN JAVIER SC;CRUZ ALTA;indeterminado;nombre genérico sin clasificar
 SAN JERONIMO S.R.L.;INRIVILLE;indeterminado;nombre genérico sin clasificar
 Jose Cartellone Const Civiles S A;Coquimbito;indeterminado;nombre genérico sin clasificar
 Jose Costantini S A;Fighiera;indeterminado;nombre genérico sin clasificar
 Jorge y Gerardo Mazzieri;MONTE MAIZ;indeterminado;nombre genérico sin clasificar
-BARTOMAR S.A.S.;LUQUE;no_objetivo;bar sin datos
+BARTOMAR S.A.S.;LUQUE;indeterminado;nombre genérico sin clasificar
 Pro De Man Sociedad Anonima;General Cabrera;indeterminado;nombre genérico sin clasificar
 Primo Y Cia S A;San Carlos Centro;indeterminado;nombre genérico sin clasificar
 Prieto Imanol;AREQUITO;indeterminado;nombre genérico sin clasificar
 Procesadora Virasoro S.A.;Pergamino;indeterminado;nombre genérico sin clasificar
 Javier Garcia Millan;Alta Gracia;indeterminado;nombre genérico sin clasificar
-JUSTINO PEREZ AGROPECUARIA S.R.L.;BELL VILLE;no_objetivo;productor agropecuario sin datos
+JUSTINO PEREZ AGROPECUARIA S.R.L.;BELL VILLE;no_objetivo;agropecuaria sin datos
 JWN S.A.S.;VILLA MARIA;indeterminado;nombre genérico sin clasificar
-Pinto Maquinarias S De H De Emma M T Amadei Y Gonzalo Pinto;Zarate;industrial_objetivo;maquinaria sin datos
+Pinto Maquinarias S De H De Emma M T Amadei Y Gonzalo Pinto;Zarate;industrial_objetivo;maquinarias sin datos
 CICCIOLI ANA MARIA Y CICCIOLI CARINA SOLEDAD;ARMSTRONG;indeterminado;nombre genérico sin clasificar
 CINALLI MARIA DE LOS ANGELES Y GONZALEZ DANIELA;ORDOÑEZ;indeterminado;nombre genérico sin clasificar
 CHIAMBA S.R.L.;ORDOÑEZ;indeterminado;nombre genérico sin clasificar
@@ -229,7 +229,7 @@ JOSEVAL SAS;JUSTINIANO POSSE;indeterminado;nombre genérico sin clasificar
 JOSÉ ADAN CERVIGNI E HIJOS.H.;JUSTINIANO POSSE;indeterminado;nombre genérico sin clasificar
 JOSE LUIS BRUNORI E HIJO S.H.;CAMILO ALDAO;indeterminado;nombre genérico sin clasificar
 JORGE LIBRA S.A.;MARCOS JUAREZ;indeterminado;nombre genérico sin clasificar
-JLF Agropecuaria S.A.S;MONTE BUEY;no_objetivo;productor agropecuario sin datos
+JLF Agropecuaria S.A.S;MONTE BUEY;no_objetivo;agropecuaria sin datos
 Procesadora De Boratos Argentinos Sa;Palpala;indeterminado;nombre genérico sin clasificar
 San Cayetano Srl;San Vicente;indeterminado;nombre genérico sin clasificar
 Sahilices Hnos S R L;Villa Constitucion;indeterminado;nombre genérico sin clasificar
@@ -245,7 +245,7 @@ Juan A. Panebianco S.R.L.;Ballesteros;indeterminado;nombre genérico sin clasifi
 Jose Y Pedro Celotti S.A.C.I.F. E I. S. A.;El Trebol;indeterminado;nombre genérico sin clasificar
 Mecaf Argentina Sa;Las Parejas;indeterminado;nombre genérico sin clasificar
 Medig S R L;San Nicolas;indeterminado;nombre genérico sin clasificar
-Porcomagro S R L;Concepcion Del Uruguay;no_objetivo;productor agropecuario sin datos
+Porcomagro S R L;Concepcion Del Uruguay;indeterminado;nombre genérico sin clasificar
 SILVESTRE OMAR ANTONIO, ROBERTO CLAUDIO Y MARCELO DAMIAN S.H;POZO DEL MOLLE -D;indeterminado;nombre genérico sin clasificar
 SIGNORILE FERNANDO Y OSVALDO;PASCANAS;indeterminado;nombre genérico sin clasificar
 SIL Hnos S.A.S.;LAS VARILLAS;indeterminado;nombre genérico sin clasificar

@@ -1,11 +1,11 @@
 # Cómo seguir en una sesión nueva
 
-Estado al 2026-09-27 (tandas t2 a t6 y rebúsqueda r1 hechas; las próximas son t7 y r2). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
+Estado al 2026-09-27 (tandas t2 a t7 y rebúsquedas r1-r2 hechas; las próximas son t8 y r3). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
 
 ## Dónde está todo
 - **Listas originales:** `datos/entrada/` (carteras RAI y AG-360 de F. Dabbene y 3 PDF de zonas).
   El usuario pidió subirlas a git, aunque el repo es público.
-- **Prospectos investigados:** `canal/respuestas/20260926-prospectos-AB.csv`. Tiene 366 empresas o
+- **Prospectos investigados:** `canal/respuestas/20260926-prospectos-AB.csv`. Tiene 396 empresas o
   más, con decisor, canal, gancho (`dato`), `alerta`, `nota` y borrador. Es la fuente del tablero.
 - **Historial de rondas y descartes:** `canal/respuestas/20260926-1200-verificar-AB.md`.
 - **Tandas ya investigadas:** `investigacion/tandas/` (`tN_i.csv` = entrada, `tN_out*.csv` = salida
@@ -21,12 +21,12 @@ Estado al 2026-09-27 (tandas t2 a t6 y rebúsqueda r1 hechas; las próximas son 
 ```bash
 ./instalar.sh && source .venv/bin/activate
 python -m prospeccion todo                      # recalcula datos/salida/candidatos_enriquecer.csv
-PYTHONPATH=. python investigacion/herramientas/elegir_tanda.py t7 96 8
+PYTHONPATH=. python investigacion/herramientas/elegir_tanda.py t8 96 8
 ```
 1. Lanzá 8 agentes en paralelo con este prompt, cambiando `i`:
    «Leé las instrucciones en investigacion/herramientas/instrucciones_agente.md y seguilas al pie
-   de la letra. Entrada (sin encabezado): investigacion/tandas/t7_i.csv. Salida:
-   investigacion/tandas/t7_outi.csv». Usá rutas absolutas del repo.
+   de la letra. Entrada (sin encabezado): investigacion/tandas/t8_i.csv. Salida:
+   investigacion/tandas/t8_outi.csv». Usá rutas absolutas del repo.
 2. Cuando terminen, revisá que cada salida tenga 17 columnas en todas las filas y corré:
    `PYTHONPATH=. python investigacion/herramientas/sumar.py "t6_out*.csv"`
    El script califica con `config.yaml`, arma el borrador y suma al CSV de prospectos. Lista las
@@ -41,11 +41,11 @@ PYTHONPATH=. python investigacion/herramientas/elegir_tanda.py t7 96 8
 
 ## Rebúsqueda (segunda pasada a las investigadas con datos faltantes)
 ```bash
-PYTHONPATH=. python investigacion/herramientas/elegir_rebusca.py r2 96 8
+PYTHONPATH=. python investigacion/herramientas/elegir_rebusca.py r3 96 8
 ```
 Lanzá 8 agentes con: «Leé las instrucciones en investigacion/herramientas/instrucciones_rebusca.md y seguilas al
-pie de la letra. Entrada (con encabezado): investigacion/tandas/r2_i.csv. Salida: investigacion/tandas/r2_outi.csv».
-Después: `PYTHONPATH=. python investigacion/herramientas/completar.py "r2_out*.csv"`. Solo rellena vacíos con
+pie de la letra. Entrada (con encabezado): investigacion/tandas/r3_i.csv. Salida: investigacion/tandas/r3_outi.csv».
+Después: `PYTHONPATH=. python investigacion/herramientas/completar.py "r3_out*.csv"`. Solo rellena vacíos con
 datos que traen URL; nunca pisa lo que ya estaba. Luego `todo`, `cartera`, tablero, commit.
 
 ## Límites y reglas
@@ -64,5 +64,5 @@ haiku → pasada rápida de rubro con 2 búsquedas → investigación completa s
 Herramientas: `armar_triaje.py` / `sumar_triaje.py`, `elegir_rapida.py` / `sumar_rapida.py`.
 
 ## Qué queda
-Quedan unas 330 candidatas con rubro detectado en `candidatos_enriquecer.csv`. Después vienen unas
+Quedan unas 280 candidatas con rubro detectado en `candidatos_enriquecer.csv`. Después vienen unas
 6.700 sin rubro detectado, que conviene triar por nombre antes de gastar búsquedas.

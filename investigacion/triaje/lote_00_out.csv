@@ -1,36 +1,36 @@
 razon_social;localidad;triaje;motivo
 DI MARCO S.A.;BELL VILLE;indeterminado;no hay señales suficientes
-E T M A Establecimiento Tecnico Metalurgico Argentino S A;Rafaela;industrial_objetivo;metalúrgica o metal
-PAREDES CEREALES S.A.;BALLESTEROS;indeterminado;no hay señales suficientes
+E T M A Establecimiento Tecnico Metalurgico Argentino S A;Rafaela;industrial_objetivo;metalúrgica o acero
+PAREDES CEREALES S.A.;BALLESTEROS;industrial_otro;procesamiento de alimentos
 Agricultores Federados Argentinos Soc Coop Ltda LC ACEITERA;LOS CARDOS;no_objetivo;productor agropecuario
-Obatown Company S.A.;Alderetes;industrial_objetivo;metalúrgica o metal
-Oc Bioenergia S.A.S.;General Cabrera;industrial_objetivo;energía o minería
+Obatown Company S.A.;Alderetes;industrial_objetivo;metalúrgica o acero
+Oc Bioenergia S.A.S.;General Cabrera;industrial_objetivo;energía o bioenergia
 Oxinueve S A;9 De Julio;indeterminado;no hay señales suficientes
-BOGETTI MAQUINARIAS S.R.L.;GENERAL PICO;industrial_objetivo;maquinaria o mecanizado
-Agrimaq I Y C Srl;Esperanza;indeterminado;no hay señales suficientes
+BOGETTI MAQUINARIAS S.R.L.;GENERAL PICO;industrial_objetivo;maquinaria
+Agrimaq I Y C Srl;Esperanza;industrial_objetivo;maquinaria agrícola
 ADHOC SA;Rosario;indeterminado;no hay señales suficientes
 Adhoc S.A.;Rosario Norte;indeterminado;no hay señales suficientes
-Cafe Onkel Sa;San Nicolas;no_objetivo;comercio minorista
+Cafe Onkel Sa;San Nicolas;no_objetivo;gastronomía
 PINTUCCI Y GUIZZO SOCIEDAD ANONIMA;ARROYITO;indeterminado;no hay señales suficientes
 Fideera Chivilcoy S.A.;Chivilcoy;industrial_otro;procesamiento de alimentos
 Tecmade S A;Pablo Podesta;indeterminado;no hay señales suficientes
-Tecnoalim S.R.L.;Granadero Baigorria;indeterminado;no hay señales suficientes
+Tecnoalim S.R.L.;Granadero Baigorria;industrial_otro;alimentos o bebidas
 Fideos Don Antonio S A Gral Pico;General Pico;industrial_otro;procesamiento de alimentos
 Fiplasto Sa;Ramallo;industrial_otro;plásticos
-Tedeschi Maquinarias Sa;El Trebol;industrial_objetivo;maquinaria o mecanizado
-Tek Screw S.A.S.;Alvear;indeterminado;no hay señales suficientes
-Aceitera Chabas S A I C;Chabas;industrial_otro;procesamiento de alimentos
+Tedeschi Maquinarias Sa;El Trebol;industrial_objetivo;maquinaria
+Tek Screw S.A.S.;Alvear;industrial_objetivo;tornería o tornillos
+Aceitera Chabas S A I C;Chabas;industrial_otro;aceite o azúcar
 Agreteq Sociedad Anonima;Mi Granja;indeterminado;no hay señales suficientes
-Agrocomercial S R L;Chivilcoy;industrial_otro;importadora o distribuidora
+Agrocomercial S R L;Chivilcoy;indeterminado;no hay señales suficientes
 Tadeo Czerweny Sa;Galvez;indeterminado;no hay señales suficientes
 Adeco Agro Dalmacio Velez Sarfield;Dalmacio Velez Sarfield;indeterminado;no hay señales suficientes
-CRESUD S A COMERCIAL INMOBILIARIA FINANCIERA Y AGROPECUARIA;CAPITAL FEDERAL;industrial_otro;importadora o distribuidora
+CRESUD S A COMERCIAL INMOBILIARIA FINANCIERA Y AGROPECUARIA;CAPITAL FEDERAL;indeterminado;no hay señales suficientes
 Fideos Don Antonio S A;Junin;industrial_otro;procesamiento de alimentos
 Agenor S A;Salta;indeterminado;no hay señales suficientes
 Fontana Jorge Eduardo Y Scicolone Gerardo Oscar;Arrecifes;indeterminado;no hay señales suficientes
 Forestal Eldorado Srl;Eldorado;industrial_otro;madereras
 Fono Tape Sociedad De Responsabilidad Limitada;Rosario Norte;indeterminado;no hay señales suficientes
-Agripuerto Sa;Puerto General San Martin;industrial_otro;servicios portuarios
+Agripuerto Sa;Puerto General San Martin;industrial_otro;procesamiento de alimentos
 Francisco Sellart S A;Arrecifes;indeterminado;no hay señales suficientes
 Agro World Argentina Srl;San Miguel De Tucuman;indeterminado;no hay señales suficientes
 Agroareco S A;Carmen De Areco;indeterminado;no hay señales suficientes
@@ -39,7 +39,7 @@ Fumaganig S.R.L.;San Nicolas;indeterminado;no hay señales suficientes
 Tamecsa S R L;Villa Constitucion;indeterminado;no hay señales suficientes
 GAMA SA;CORDOBA;indeterminado;no hay señales suficientes
 GALISA DX S.A.;DAIREAUX;indeterminado;no hay señales suficientes
-Galea Srl;Rosario Sud;industrial_objetivo;metalúrgica o metal
+Galea Srl;Rosario Sud;industrial_objetivo;metalúrgica o acero
 Gente De La Pampa S A;Catrilo;indeterminado;no hay señales suficientes
 Fragaria S.A.;Villa Cañas;indeterminado;no hay señales suficientes
 Forestadora Tapebicua S.A.U.;Gob. Ing. V. Virasoro;indeterminado;no hay señales suficientes
@@ -47,16 +47,16 @@ Cooperativa Agricola Ganadera Federada De Villa Cañas Ltda;Villa Cañas;no_obje
 Cooperativa Agricola Mixta La Protectora Ltda;General Galarza;no_objetivo;productor agropecuario
 Nilso Torre S.A.;Rosario Sud;indeterminado;no hay señales suficientes
 Nutralmix S.R.L.;9 De Julio;indeterminado;no hay señales suficientes
-Metalfor Sociedad Anonima;Granadero Baigorria;industrial_objetivo;metalúrgica o metal
-Metalmax S.R.L.;Rosario Norte;industrial_objetivo;metalúrgica o metal
-Mm Reductores S.A.S.;Moron;industrial_objetivo;hidráulica o neumática
+Metalfor Sociedad Anonima;Granadero Baigorria;industrial_objetivo;metalúrgica o acero
+Metalmax S.R.L.;Rosario Norte;industrial_objetivo;metalúrgica o acero
+Mm Reductores S.A.S.;Moron;industrial_objetivo;componentes hidráulicos
 Miga-Miga SRL;Villa Gobernandor Galvez;indeterminado;no hay señales suficientes
 Pdj S.A.;Famailla;indeterminado;no hay señales suficientes
 Molino Victoria S A;Maria Juana;industrial_otro;procesamiento de alimentos
 Msd S.A.;Villa Constitucion;indeterminado;no hay señales suficientes
 Morteros Agropartes S.A.;Morteros;indeterminado;no hay señales suficientes
-Servicios Integrales Metalurgicos S A;Rosario Sud;industrial_objetivo;metalúrgica o metal
-Remolques Todd. S.A.;EST. TODD;industrial_objetivo;componentes industriales
+Servicios Integrales Metalurgicos S A;Rosario Sud;industrial_objetivo;metalúrgica o acero
+Remolques Todd. S.A.;EST. TODD;industrial_objetivo;remolques o acoplamientos
 Cooperativa Agricola Ganadera De Monte Buey Ltda.;Monte Buey;no_objetivo;productor agropecuario
 Molca Sa;Cañuelas;indeterminado;no hay señales suficientes
 Pampa Bio S.A.;Catrilo;indeterminado;no hay señales suficientes
@@ -65,10 +65,10 @@ Molinos Fenix Nutricion Sa;Villa Mercedes;industrial_otro;procesamiento de alime
 Molinos Cabodi Hnos S. A.;Rojas;industrial_otro;procesamiento de alimentos
 Bartolome Sartor E Hijos Srl;Avellaneda;no_objetivo;nombre de persona
 NATALINI AGRO S.R.L;ALLEN;indeterminado;no hay señales suficientes
-Molino Bombal S.R.L.;Bombal;industrial_otro;procesamiento de alimentos
+Molino Bombal S.R.L.;Bombal;industrial_objetivo;componentes hidráulicos
 OMAR MARTIN S.A.;MARCOS JUAREZ;indeterminado;no hay señales suficientes
 ISOWEAN S.A.;MONTE BUEY;indeterminado;no hay señales suficientes
-Pavon Arriba Cereales S.A.;Pavon Arriba;indeterminado;no hay señales suficientes
+Pavon Arriba Cereales S.A.;Pavon Arriba;industrial_otro;procesamiento de alimentos
 Giflon S.R.L.;Villa Martelli;indeterminado;no hay señales suficientes
 Nutriterra Sa;Chimbas;indeterminado;no hay señales suficientes
 Gran Ancona S A;Bombal;indeterminado;no hay señales suficientes
@@ -84,18 +84,18 @@ Volonte Hnas S.R.L.;Arequito;indeterminado;no hay señales suficientes
 Bec-Car S.A.;Carcaraña;indeterminado;no hay señales suficientes
 Bayre S.A.;Piñeyro;indeterminado;no hay señales suficientes
 Battaglia S.R.L.;Rosario Norte;indeterminado;no hay señales suficientes
-Metalcar S.R.L.;Villa Constitucion;industrial_objetivo;metalúrgica o metal
+Metalcar S.R.L.;Villa Constitucion;industrial_objetivo;metalúrgica o acero
 Mensol Nicoleña S.A.;San Nicolas;indeterminado;no hay señales suficientes
-Taller Nahuel Sa;Ciudadela;industrial_objetivo;taller o mecanización
-Dico Aceros S R L;Rosario Norte;industrial_objetivo;metalúrgica o metal
+Taller Nahuel Sa;Ciudadela;industrial_objetivo;taller de mecanización
+Dico Aceros S R L;Rosario Norte;industrial_objetivo;metalúrgica o acero
 Transpower S R L;San Martin;indeterminado;no hay señales suficientes
 Ponticelli Hermanos S. A.;Avellaneda;indeterminado;no hay señales suficientes
 Basso S A;Rafaela;indeterminado;no hay señales suficientes
 Prelat Omar Antonio Prelat Nora Beatriz Prelat Omar Enrique Sh;Concordia;no_objetivo;nombre de persona
-Pozzi Maquinarias S.A.;Cañada Rosquin;industrial_objetivo;maquinaria o mecanizado
+Pozzi Maquinarias S.A.;Cañada Rosquin;industrial_objetivo;maquinaria
 Procesadora Avicola Del Medio Sa;Guerrico;industrial_otro;avicultura
 Belter Argentina S. A.;Villa Lynch;indeterminado;no hay señales suficientes
-Metalvos Srl;Villa Ramallo;industrial_objetivo;metalúrgica o metal
+Metalvos Srl;Villa Ramallo;industrial_objetivo;metalúrgica o acero
 Metrive Sa;Salto;indeterminado;no hay señales suficientes
 Picotto Edgardo Pedro Y Picotto Osvaldo Hugo S. Cap I Secc Iv;Rosario Sud;indeterminado;no hay señales suficientes
 Polimater Sociedad Anonima;Villa Ballester;indeterminado;no hay señales suficientes
@@ -107,12 +107,12 @@ BARRA CAMILA;JUSTINIANO POSSE;indeterminado;no hay señales suficientes
 Polyperfil De Hector Anselmo Giesolauro Y Guillermo Andres Giesolauro;Chivilcoy;indeterminado;no hay señales suficientes
 TAIPEY SRL;SANTA LUCIA -DPTO;indeterminado;no hay señales suficientes
 TARABORELLI AGRO;CAPITAL FEDERAL;indeterminado;no hay señales suficientes
-SCREW ARGENTINA S.A.;VILLA GOBERNADOR GALVEZ;indeterminado;no hay señales suficientes
-Productores De Yerba Mate De Santo Pipo Scl;Santo Pipo;industrial_otro;procesamiento de alimentos
+SCREW ARGENTINA S.A.;VILLA GOBERNADOR GALVEZ;industrial_objetivo;tornería o tornillos
+Productores De Yerba Mate De Santo Pipo Scl;Santo Pipo;indeterminado;no hay señales suficientes
 Super S A Soc Uruguayense De Productores De Entre Rios Soc Anon;Concepcion Del Uruguay;indeterminado;no hay señales suficientes
 Sustenpack Srl;Acebal;indeterminado;no hay señales suficientes
-Weg Equipamientos Electricos Sa S. A.;San Francisco;indeterminado;no hay señales suficientes
-Maquinarias Agricolas Ramona Srl;Ramona;industrial_objetivo;maquinaria o mecanizado
+Weg Equipamientos Electricos Sa S. A.;San Francisco;industrial_objetivo;maquinaria
+Maquinarias Agricolas Ramona Srl;Ramona;industrial_objetivo;maquinaria
 Blc S A;Rosario Sud;indeterminado;no hay señales suficientes
 Promaiz S.A.;Alejandro;indeterminado;no hay señales suficientes
 Mas Traccion Srl;Rosario Sud;indeterminado;no hay señales suficientes
@@ -120,9 +120,9 @@ BAIMA S.A.;ARMSTRONG;indeterminado;no hay señales suficientes
 Proteus Sa;Ramallo;indeterminado;no hay señales suficientes
 Bisuglini S R L;Rosario Sud;indeterminado;no hay señales suficientes
 Mb Bordes S. R. L.;Villa Constitucion;indeterminado;no hay señales suficientes
-Bioenergia La Corona S.A.;Concepcion;industrial_objetivo;energía o minería
+Bioenergia La Corona S.A.;Concepcion;industrial_objetivo;energía o bioenergia
 Maringa Maderas Sa;Federación;industrial_otro;madereras
-B T S S A;Ciudadela;industrial_objetivo;componentes industriales
+B T S S A;Ciudadela;industrial_objetivo;componentes y transmisión
 Avicola Santa Barbara Srl;Saforcada;industrial_otro;avicultura
 B Y N Srl;Armstrong;indeterminado;no hay señales suficientes
 Marisa S.A.;Arteaga;indeterminado;no hay señales suficientes
@@ -132,8 +132,8 @@ Provira Sa;Pergamino;indeterminado;no hay señales suficientes
 Porfenc S R L;San Nicolas;indeterminado;no hay señales suficientes
 Mastergom S.R.L.;Perez;indeterminado;no hay señales suficientes
 Bennett Anderson Gonzalez Y Cia S Ai C;Florida;no_objetivo;nombre de persona
-RECTIFICACIONES UNION S.R.L.;BELL VILLE;industrial_objetivo;taller o mecanización
-Complejo Alimenticio San Salvador S.A.;Colombres;indeterminado;no hay señales suficientes
+RECTIFICACIONES UNION S.R.L.;BELL VILLE;industrial_objetivo;taller de mecanización
+Complejo Alimenticio San Salvador S.A.;Colombres;industrial_otro;alimentos o bebidas
 EL ALEVINO S.R.L.;HERNANDO;indeterminado;no hay señales suficientes
 Winros Srl;Rosario Norte;indeterminado;no hay señales suficientes
 EL MEDANO S.R.L;WENCESLAO ESCALANTE;indeterminado;no hay señales suficientes
@@ -141,11 +141,11 @@ EL DESPERTAR S.A;ROSARIO;indeterminado;no hay señales suficientes
 EL HORMIGON S.A.;VILLA MARIA;indeterminado;no hay señales suficientes
 AGROLAM SA;LUQUE;indeterminado;no hay señales suficientes
 Releyco S R L;Leones;indeterminado;no hay señales suficientes
-Brio Comercial de Crami Srl (EX EXP. BRIO);Rosario Norte;industrial_otro;importadora o distribuidora
-Asociacion De Cooperativas Argentinas Coop Ltda Tío Pujio;Tio Pujio;indeterminado;no hay señales suficientes
+Brio Comercial de Crami Srl (EX EXP. BRIO);Rosario Norte;indeterminado;no hay señales suficientes
+Asociacion De Cooperativas Argentinas Coop Ltda Tío Pujio;Tio Pujio;no_objetivo;productor agropecuario
 Asociacion De Coop Argentinas (Puerto Vilelas);Puerto Vilelas;industrial_otro;servicios portuarios
 Maglione Hnos Y Cia S A;Las Junturas;no_objetivo;nombre de persona
-RADIADORES PRATS S. A;MARCOS JUAREZ;industrial_objetivo;metalúrgica o metal
+RADIADORES PRATS S. A;MARCOS JUAREZ;industrial_objetivo;metalúrgica o acero
 EDGARDO OLDANO E HIJOS S.A.;POZO DEL MOLLE -D;no_objetivo;nombre de persona
 E R H S A;CABA;indeterminado;no hay señales suficientes
 Drogueria 20 De Junio Sa;Rosario Sud;indeterminado;no hay señales suficientes
@@ -153,7 +153,7 @@ MR AGRO SRL;CORDOBA;indeterminado;no hay señales suficientes
 RSA SERVICIOS S.A.;RIO TERCERO;indeterminado;no hay señales suficientes
 MARINO ALFREDO MARINO FABIAN Y MARINO SERGIO SOC DE HECHO;ETRURIA;indeterminado;no hay señales suficientes
 Bwa S.A.;San Miguel De Tucuman;indeterminado;no hay señales suficientes
-METALFOR S.A;MARCOS JUAREZ;industrial_objetivo;metalúrgica o metal
+METALFOR S.A;MARCOS JUAREZ;industrial_objetivo;metalúrgica o acero
 MENZIO SRL;IDIAZABAL;indeterminado;no hay señales suficientes
 R G Frenos S A;Rafaela;indeterminado;no hay señales suficientes
 Borgeat Sociedad Anonima;San Fernando;indeterminado;no hay señales suficientes
@@ -177,15 +177,15 @@ Lopez Hnos S R L;Cañada De Gomez;indeterminado;no hay señales suficientes
 Los Talares S.A.;Villa Constitucion;indeterminado;no hay señales suficientes
 S A Ingeniero Carlos Kussmaul;Rosario Norte;indeterminado;no hay señales suficientes
 Las Animas S A;Rojas;indeterminado;no hay señales suficientes
-Las Lecheritas S.A;Cañada Rosquin;industrial_otro;alimentos o lácteos
+Las Lecheritas S.A;Cañada Rosquin;indeterminado;no hay señales suficientes
 Ryr S.R.L.;Ricardone;indeterminado;no hay señales suficientes
-Arruca S A;Rafaela;industrial_objetivo;componentes industriales
-Rizzotto Y Pieragostini S R L;Rafaela;industrial_objetivo;componentes industriales
+Arruca S A;Rafaela;industrial_objetivo;componentes y transmisión
+Rizzotto Y Pieragostini S R L;Rafaela;industrial_objetivo;componentes y transmisión
 Los Alerces Del Este Sa;Rosario Norte;indeterminado;no hay señales suficientes
 Arundel Tassi Srl;Las Parejas;indeterminado;no hay señales suficientes
 Luis Brunelli Y Cia S R L;Rafaela;no_objetivo;nombre de persona
-Asociacion De Cooperativas Argentinas Coop Ltda Cañada de Gomez;Cañada de Gomez;indeterminado;no hay señales suficientes
-Asociacion De Cooperativas Argentinas Coop Ltda Pergamino;PERGAMINO;indeterminado;no hay señales suficientes
+Asociacion De Cooperativas Argentinas Coop Ltda Cañada de Gomez;Cañada de Gomez;no_objetivo;productor agropecuario
+Asociacion De Cooperativas Argentinas Coop Ltda Pergamino;PERGAMINO;no_objetivo;productor agropecuario
 Randon Argentina S A;Alvear;indeterminado;no hay señales suficientes
 RISAAB SOCIEDAD ANONIMA;CA?ADA SECA;indeterminado;no hay señales suficientes
 REPUESTOS MJ S.A.S.;MARCOS JUAREZ;industrial_objetivo;repuestos industriales
@@ -198,37 +198,37 @@ Ardion S.A.;Munro;indeterminado;no hay señales suficientes
 Electrocomp S.A.;Ramos Mejia;indeterminado;no hay señales suficientes
 Egger Argentina S A U;Concordia;indeterminado;no hay señales suficientes
 Ceramica Santiago Sociedad Anonima;Santiago Del Estero;indeterminado;no hay señales suficientes
-Cerealia S.A.;9 De Julio;indeterminado;no hay señales suficientes
-Cia Regional Aceros Forjados Mercedes S A C R A F M S A;Villa Mercedes;industrial_objetivo;metalúrgica o metal
+Cerealia S.A.;9 De Julio;industrial_otro;procesamiento de alimentos
+Cia Regional Aceros Forjados Mercedes S A C R A F M S A;Villa Mercedes;industrial_objetivo;metalúrgica o acero
 Arenera Del Litoral SRL-San Pedro;San Pedro;indeterminado;no hay señales suficientes
 Kine Estetic Srl;Rosario Norte;indeterminado;no hay señales suficientes
 LA LEOPOLDINA S A A I C E I;CAPITAL FEDERAL;indeterminado;no hay señales suficientes
 LA LUCIA S.A.;MONTE BUEY;indeterminado;no hay señales suficientes
 LA QUERENCIA S.R.L.;SATURNINO M. LASPIUR;industrial_otro;plásticos
-LANDUCCI MAQUINARIAS S.R.L.;GENERAL PICO;industrial_objetivo;maquinaria o mecanizado
-LACTEOS 3L S.A;San Martin de las Escobas;industrial_otro;alimentos o lácteos
+LANDUCCI MAQUINARIAS S.R.L.;GENERAL PICO;industrial_objetivo;maquinaria
+LACTEOS 3L S.A;San Martin de las Escobas;industrial_otro;lácteos
 Coop Agricola Ltda La Union De Alfonso;Mariano H. Alfonzo;indeterminado;no hay señales suficientes
-Valvulas Y Bombas Srl;Rosario Sud;industrial_objetivo;hidráulica o neumática
+Valvulas Y Bombas Srl;Rosario Sud;industrial_objetivo;componentes hidráulicos
 LA COMARCA SRL;WENCESLAO ESCALANTE;indeterminado;no hay señales suficientes
-L Y B S.A;GENERAL RAMIREZ;industrial_objetivo;maquinaria o mecanizado
+L Y B S.A;GENERAL RAMIREZ;industrial_objetivo;maquinaria
 CATELLI S.A.;COLONIA BARGE;indeterminado;no hay señales suficientes
 Juan Bautista Gougy S.A.;9 De Julio;indeterminado;no hay señales suficientes
 Juan Carlos Frare Hijo Srl;Gualeguay;indeterminado;no hay señales suficientes
 LOGUI S.A;BELL VILLE;indeterminado;no hay señales suficientes
 Ecomanagement S.A.S.;Marcos Juarez;indeterminado;no hay señales suficientes
-Compañia Argentina De Servicios Portuarios S A;San Nicolas;indeterminado;no hay señales suficientes
+Compañia Argentina De Servicios Portuarios S A;San Nicolas;industrial_otro;servicios portuarios
 ESTANCIA LAS CORZUELAS SAAGCI;MARCOS JUAREZ;no_objetivo;productor agropecuario
 ESTANCIA LA MARGARITA S.A.;BELL VILLE;no_objetivo;productor agropecuario
 Veloteri Perforaciones S.A.;San Justo;indeterminado;no hay señales suficientes
 Echevarne Hnos. S.A.;Pergamino;indeterminado;no hay señales suficientes
 EXPLOTACION AGROPECUARIA LAS 2 MARIAS;HERNANDO;indeterminado;no hay señales suficientes
 Dohm Sociedad Anonima;San Nicolas;indeterminado;no hay señales suficientes
-Alimentos De Argentina S A Alimar;Las Pampitas;industrial_otro;procesamiento de alimentos
+Alimentos De Argentina S A Alimar;Las Pampitas;industrial_otro;alimentos o bebidas
 COF-VM S.A.S;VILLA MARIA;industrial_objetivo;repuestos industriales
 Isilar S R L;Arteaga;indeterminado;no hay señales suficientes
 Caupolican S.R.L.;Arroyo Seco;indeterminado;no hay señales suficientes
 Envases Poliversal S.A.;Rosario Sud;indeterminado;no hay señales suficientes
-Establecimientos Metalurgicos Oncativo S A;Oncativo;industrial_objetivo;metalúrgica o metal
+Establecimientos Metalurgicos Oncativo S A;Oncativo;industrial_objetivo;metalúrgica o acero
 Eramine Sudamerica S.A.;Salta;indeterminado;no hay señales suficientes
 Entre Rios Recicla S.R.L.;Rosario Del Tala;industrial_otro;reciclaje
 JUVENTUD UNIDA MUTUAL SOCIAL Y DEPORTIVA;CAMILO ALDAO;indeterminado;no hay señales suficientes
@@ -242,10 +242,10 @@ Servicios Empresariales Y Logistica S.R.L.;Rosario Norte;industrial_otro;transpo
 J.M Perassi E Hijos Srl;Las Rosas;no_objetivo;nombre de persona
 JAIME ALVADO E HIJOS SH;VENADO TUERTO;no_objetivo;nombre de persona
 John Crane Argentina S A;Garin;indeterminado;no hay señales suficientes
-Jalit Hnos S A;San Vicente;indeterminado;no hay señales suficientes
+Jalit Hnos S A;San Vicente;industrial_objetivo;componentes industriales
 Jav Sociedad Anonima;Alvear;indeterminado;no hay señales suficientes
 SURCAR S.R.L;VILLA MARIA;indeterminado;no hay señales suficientes
 JOSE A CUSATO S.A;FERRE;indeterminado;no hay señales suficientes
 JOSE DEL RE S.a;BELL VILLE;indeterminado;no hay señales suficientes
-Eleczar S.A.;Santa Fe;industrial_objetivo;ingeniería o equipos
+Eleczar S.A.;Santa Fe;industrial_objetivo;ingeniería
 Elvar Beltrando E Hijos S.R.L.;El Trebol;no_objetivo;nombre de persona

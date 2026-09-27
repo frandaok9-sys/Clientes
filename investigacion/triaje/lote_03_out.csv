@@ -1,16 +1,16 @@
 razon_social;localidad;triaje;motivo
-Lc Agro S. A.;San Jorge;indeterminado;nombre sin indicadores claros
+Lc Agro S. A.;San Jorge;industrial_otro;agro
 Laromet S A;Rosario Sud;indeterminado;nombre sin indicadores claros
-S.A San Miguel A G I C I Y F;Famailla;indeterminado;nombre sin indicadores claros
+S.A San Miguel A G I C I Y F;Famailla;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 CARIGNANO ALFREDO;LOS SURGENTES;no_objetivo;nombre de persona
 La Ferreteria San Nicolas Srl;San Nicolas;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 La Campiña De San Pedro Srl;San Pedro;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Kaizen De Cisilino E Hijo S.R.L;Rosario Sud;indeterminado;nombre sin indicadores claros
+Kaizen De Cisilino E Hijo S.R.L;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Laf S A;Perez;indeterminado;nombre sin indicadores claros
 Libertad S A;Barrio Poeta Lugones;indeterminado;nombre sin indicadores claros
 Lasso S.A.;Los Boulevares;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Latin Lemon S.A.;Bella Vista;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Liliana S R L;Rosario Norte;indeterminado;nombre sin indicadores claros
+Liliana S R L;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Limp Ar Rosario S.A.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Leyseb S.R.L.;Banda Del Rio Sali;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Com Nac S A;Villa Constitucion;indeterminado;nombre sin indicadores claros
@@ -20,34 +20,34 @@ Vicente Trapani S.A.;Los Nogales;industrial_otro;empresa S.A./S.R.L. sin rubro e
 Vicente Zacchino Sociedad Anonima;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Vetrotools;Rosario Norte;indeterminado;nombre sin indicadores claros
 Juan Navarro S.A.;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Kinsa Sa;Sunchales;indeterminado;nombre sin indicadores claros
+Kinsa Sa;Sunchales;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 ROTHEX S.A.;MACIA;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Regina International Sociedad Anonima;Trujui (Moreno);industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Rehau Sa;Buenos Aires;indeterminado;nombre sin indicadores claros
+Rehau Sa;Buenos Aires;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 M.R.G. Equipamientos S.R.L.;Carcaraña;industrial_otro;equipamientos
 C.M.C.E. SRL;PASO DE LOS LIBRES;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 MAGRA DARDO FABIÁN;MARCOS JUAREZ;no_objetivo;nombre de persona
 Asociacion De Coop Argentinas (Totoras);Totoras;indeterminado;nombre sin indicadores claros
-Refractarios Argentinos Saicm;San Nicolas;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Roda Transformecanica Servicios S.R.L.;San Miguel De Tucuman;industrial_otro;servicios
+Refractarios Argentinos Saicm;San Nicolas;industrial_objetivo;refractario en el nombre
+Roda Transformecanica Servicios S.R.L.;San Miguel De Tucuman;industrial_objetivo;transformecanica en el nombre
 Roberto Chelala S.R.L.;La Banda;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Roberto Nant S.R.L.;Alvear;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Rodolfo Alberto Donnet Sociedad Anonima;Puerto General San Martin;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Autoelevadores Silcar S R L;Rosario Sud;indeterminado;nombre sin indicadores claros
+Autoelevadores Silcar S R L;Rosario Sud;industrial_objetivo;autoelevador en el nombre
 Atanor Sociedad En Comandita Por Acciones;Villa Adelina (San Isidro);industrial_otro;empresa S.A./S.R.L. sin rubro específico
 RODRIGUEZ JUAN JOSE;RIO SEGUNDO;no_objetivo;nombre de persona
 RIPOLL BENJAMIN;JUSTINIANO POSSE;no_objetivo;nombre de persona
-Rodriguez C. Fernando E. Y Cardozo R. Daniel A. S. Cap I Secc Iv;Marcos Juarez;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+Rodriguez C. Fernando E. Y Cardozo R. Daniel A. S. Cap I Secc Iv;Marcos Juarez;indeterminado;nombre sin indicadores claros
 Asamach S.R.L.;San Lorenzo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Ascanelli S.A.;Rio Tercero;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Rossuar S. A.;Bell Ville;indeterminado;nombre sin indicadores claros
 Roman Y Marinoni S A;Rosario Sud;indeterminado;nombre sin indicadores claros
 Roberto Pierantoni Srl.;Carcaraña;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Roberto Amsler S A C;Roldan;indeterminado;nombre sin indicadores claros
-Rinaudo E Hijos S R L;Granadero Baigorria;indeterminado;nombre sin indicadores claros
+Rinaudo E Hijos S R L;Granadero Baigorria;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Los Tilianes S. A.;Volcan;indeterminado;nombre sin indicadores claros
 Luciani Hnos. Y Ruani S.A.;San Jose De La Esquina;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-M A M Sa;Neuquen;indeterminado;nombre sin indicadores claros
+M A M Sa;Neuquen;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Luparini Repuestos S.R.L.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Rodeo Drive S.A.;Granadero Baigorria;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Los Flamencos S.A.;Salta;industrial_otro;empresa S.A./S.R.L. sin rubro específico
@@ -57,8 +57,8 @@ Compañs Maquinarias Sociedad Anonima;Villa Cañas;industrial_objetivo;maquinari
 Concretho S.R.L.;Roldan;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Vs Oncativo S.A.;Oncativo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Vulcamet S. A.;Luis Palacios;industrial_objetivo;vulcamet en el nombre
-Vigano Luis Alberto Y De Gennaro Maximiliano Jose Soc De Hecho;Carcaraña;indeterminado;nombre sin indicadores claros
-Drogueria Kellerhoff S A;Rosario Norte;indeterminado;nombre sin indicadores claros
+Vigano Luis Alberto Y De Gennaro Maximiliano Jose Soc De Hecho;Carcaraña;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+Drogueria Kellerhoff S A;Rosario Norte;no_objetivo;drogueria
 Asociación de Cooperativas Arg Zavalla;Zavalla;indeterminado;nombre sin indicadores claros
 Avitec S. A. S.;Rosario Sud;indeterminado;nombre sin indicadores claros
 Conecar S.A.;Carcaraña;industrial_otro;empresa S.A./S.R.L. sin rubro específico
@@ -67,37 +67,37 @@ Conformados Metalicos S.R.L.;Venado Tuerto;industrial_objetivo;conformados metal
 Conbra S A;Bragado;indeterminado;nombre sin indicadores claros
 E P S A;VILLA GOBERNADOR GALVEZ;no_objetivo;nombre de persona
 Coop Ltda De Servicios Publicos Y Sociales De Perez -Coopeser-;Perez;industrial_otro;servicios
-Coop Agr Ganadera Ltda De Ascension;Ascension;indeterminado;nombre sin indicadores claros
+Coop Agr Ganadera Ltda De Ascension;Ascension;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Coop Agric Agricultores Unidos Ltda;Carcaraña;industrial_otro;agricultor
-Wood S R L;Carcaraña;indeterminado;nombre sin indicadores claros
-Work S R L;Villa Gobernador Galvez;indeterminado;nombre sin indicadores claros
+Wood S R L;Carcaraña;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+Work S R L;Villa Gobernador Galvez;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Concept Design S.A.;Casilda;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Ventroni Y Cia S.R.L.;Villa Eloisa;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Verdu S A;Moron;indeterminado;nombre sin indicadores claros
-Versalli, Liliana Noemi, Petelin, Virginia Analia Y Petelin, Agustin Leandro S. Cap I Secc Iv;Chajari;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Complejo Azucarero Concepcion S.A;Banda Del Rio Sali;indeterminado;nombre sin indicadores claros
+Versalli, Liliana Noemi, Petelin, Virginia Analia Y Petelin, Agustin Leandro S. Cap I Secc Iv;Chajari;indeterminado;nombre sin indicadores claros
+Complejo Azucarero Concepcion S.A;Banda Del Rio Sali;industrial_otro;azucar
 Compañia De Cereales Salto S.R.L.;Salto;industrial_otro;cereales
 Refineria Del Norte S A;San Miguel De Tucuman;industrial_objetivo;refineria en el nombre
 Rba Transporte S.R.L.;Alderetes;industrial_otro;transporte
 Retenes Sav S A;Rosario Sud;indeterminado;nombre sin indicadores claros
-Reisender Electronic Technology S.A;Parana;indeterminado;nombre sin indicadores claros
-Asociacion De Cooperativas Argentinas Coop Ltda SL;San Lorenzo;indeterminado;nombre sin indicadores claros
+Reisender Electronic Technology S.A;Parana;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+Asociacion De Cooperativas Argentinas Coop Ltda SL;San Lorenzo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Asociacion Argentina De Los Adventistas Del Septimo Diaalimentos Granix;Florida;indeterminado;nombre sin indicadores claros
 Ramon Tuma Sociedad Anonima;San Ramon De La Nueva Oran;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Reciclados Palpala S.R.L.;Palpala;industrial_otro;recicl
 Suefa S.A.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Super S A Soc Uruguayense De Productores De Entre Rios SA (Molino Super);Concepcion Del Uruguay;industrial_otro;molino
-Worms Argentina S.A;Arroyo Seco;indeterminado;nombre sin indicadores claros
+Worms Argentina S.A;Arroyo Seco;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 4H S.A.;San Miguel De Tucuman;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Yesecco S.R.L.;Sauce Viejo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 A S A S.A.;Alvear;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Pinar Sociedad Anonima;Villa Gobernador Galvez;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Process S.R.L.;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-MAXION MONTICH SA;CORDOBA;no_objetivo;nombre de persona
+MAXION MONTICH SA;CORDOBA;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Dindel Sociedad Anonima;Rio Cuarto;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Dinfes Srl;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Disal S A;San Luis;indeterminado;nombre sin indicadores claros
-AGRO MOABEM S.A.S.;MARCOS JUAREZ;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+AGRO MOABEM S.A.S.;MARCOS JUAREZ;industrial_otro;agro
 Terminal Puerto Rosario S.A.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Terminales Y Servicios S.A.;San Nicolás;industrial_otro;servicios
 Strada S A;Villa Gobernador Galvez;indeterminado;nombre sin indicadores claros
@@ -108,7 +108,7 @@ Buyatti S A I C A Pto. San Martin;Reconquista;indeterminado;nombre sin indicador
 Brochar S.R.L.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Briket S A;Rosario Sud;indeterminado;nombre sin indicadores claros
 MASSIMINO RAUL A Y MONCHIETTI;Cañada Rosquin;no_objetivo;nombre de persona
-Bunker Sa;Rosario Sud;indeterminado;nombre sin indicadores claros
+Bunker Sa;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 R. F. TRANSPORTE S.A;RECONQUISTA;industrial_otro;transporte
 Quickfood S A;Munro;indeterminado;nombre sin indicadores claros
 Quickfood S A Arroyo Seco;Arroyo Seco;indeterminado;nombre sin indicadores claros
@@ -121,11 +121,11 @@ Mcn S.R.L.;San Francisco;industrial_otro;empresa S.A./S.R.L. sin rubro específi
 Meatex S. A. (Ex Mattievich);San Martin;indeterminado;nombre sin indicadores claros
 Berger S. A.;Eduardo Castex;indeterminado;nombre sin indicadores claros
 Berandebi S A;Rafaela;indeterminado;nombre sin indicadores claros
-Berardo S R L;Rosario Sud;indeterminado;nombre sin indicadores claros
+Berardo S R L;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Mauri S A;Bigand;indeterminado;nombre sin indicadores claros
-Medelinox S.A;El Trebol;indeterminado;nombre sin indicadores claros
-Mayper S.A;San Jorge;indeterminado;nombre sin indicadores claros
-Mario Calandri E Hijos Sa;Pergamino;indeterminado;nombre sin indicadores claros
+Medelinox S.A;El Trebol;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+Mayper S.A;San Jorge;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+Mario Calandri E Hijos Sa;Pergamino;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Azutra S.A.;San Miguel De Tucuman;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Axel Sociedad Anonima;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 REICHERT GUSTAVO ANGEL;JUSTINIANO POSSE;no_objetivo;nombre de persona
@@ -136,14 +136,14 @@ Menini S A;Rosario Norte;indeterminado;nombre sin indicadores claros
 Bombas Pivas S. A.;Gualeguaychu;industrial_objetivo;ombas en el nombre
 Bolivar Maquinarias Sociedad Simple De Rey Marcelo S. Y Luengo Carlos A.;Bolivar;industrial_objetivo;maquinaria en el nombre
 Martelletti Hnos Molino Argentino Srl;Chivilcoy;industrial_otro;molino
-Martin Coppa Sa;Capitan Bermudez;indeterminado;nombre sin indicadores claros
-Martinelli Y Asociados S R L;Rosario Sud;indeterminado;nombre sin indicadores claros
+Martin Coppa Sa;Capitan Bermudez;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+Martinelli Y Asociados S R L;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Mapsa S.R.L.;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Maquinagro Sa;El Colorado;indeterminado;nombre sin indicadores claros
+Maquinagro Sa;El Colorado;industrial_objetivo;maquina en el nombre
 Bio Trinidad Sociedad Anonima;Villa La Trinidad;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Yacimientos Mineros De Agua De Dionisio;San Fernando Del Valle De Catamarca;indeterminado;nombre sin indicadores claros
-MATERIAL FERROVIARIO SA;BUENOS AIRESCERVIO AV 4449 P1;no_objetivo;nombre de persona
-C Y S Agro S R L;General Deheza;indeterminado;nombre sin indicadores claros
+Yacimientos Mineros De Agua De Dionisio;San Fernando Del Valle De Catamarca;industrial_objetivo;yacimientos mineros en el nombre
+MATERIAL FERROVIARIO SA;BUENOS AIRESCERVIO AV 4449 P1;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+C Y S Agro S R L;General Deheza;industrial_otro;agro
 C & M Servicios Agropecuarios S.R.L.;Galvez;industrial_otro;servicios
 BALANGIONE SRL;SAN FRANCISCO -DP;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Prottec Poliuretanos Srl;Perez;industrial_otro;empresa S.A./S.R.L. sin rubro específico
@@ -153,7 +153,7 @@ Unifrutti S.A.;Lules;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Tarco S A;Rosario Norte;indeterminado;nombre sin indicadores claros
 Diego Zamora E Hijo S.R.L.;Tafi Viejo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Di Benedetto Hnos. S. A.;Rosario Norte;indeterminado;nombre sin indicadores claros
-Cooperativa Agropecuaria Union De Justiniano Posse Ltda;Justiniano Posse;indeterminado;nombre sin indicadores claros
+Cooperativa Agropecuaria Union De Justiniano Posse Ltda;Justiniano Posse;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Cooperativa Agropecuaria Coronel Bogado Limitada;Coronel Bogado;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Protegras Srl;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Proteisol S. A.;General Lagos;indeterminado;nombre sin indicadores claros
@@ -163,7 +163,7 @@ Te Schuchardt S.R.L.;General Alvear;industrial_otro;empresa S.A./S.R.L. sin rubr
 Terragene S.A.;Alvear;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Tork S.A.;San Lorenzo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Tricer Srl;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Distribuir Rubber S R L;Rio Cuarto;indeterminado;nombre sin indicadores claros
+Distribuir Rubber S R L;Rio Cuarto;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Diferoil S.A.;Alvear;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Provincias Unidas S R L;Rosario Norte;no_objetivo;provincia
 Provser - Telemec Ute;San Nicolas;industrial_otro;telemec
@@ -173,7 +173,7 @@ Sidersa Sa San Luis;San Luis;industrial_otro;sider
 Silushome S.A.;La Plata Noroeste Calle 50;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Regional Trade S A;Santa Fe;indeterminado;nombre sin indicadores claros
 Vazquez Hnos S.R.L.;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Puerto Rivadavia S R L;Fray Luis Beltran;indeterminado;nombre sin indicadores claros
+Puerto Rivadavia S R L;Fray Luis Beltran;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Puerto San Martin Cereales S.A.;Puerto General San Martin;industrial_otro;cereales
 Proyecto Crops S.A.S.;Sinsacate;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Maxion Montich S.A.;Jose Ignacio Diaz;industrial_otro;empresa S.A./S.R.L. sin rubro específico
@@ -182,17 +182,17 @@ Massalin Particulares Srl;Merlo;industrial_otro;empresa S.A./S.R.L. sin rubro es
 Master Gears S.A.;San Francisco;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Provife S.R.L.;Fuentes;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Pernod Ricard Argentina Sociedad De Responsabilidad Limitada;Bella Vista;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Pinturas Celta S. R. L.;Perez;indeterminado;nombre sin indicadores claros
+Pinturas Celta S. R. L.;Perez;industrial_otro;pinturas
 Pietrobon Neumaticos Y Servicios S.R.L.;Casilda;industrial_objetivo;neumatic en el nombre
 Pilotes Carcaraña Sa.;Carcaraña;industrial_objetivo;pilotes en el nombre
-Pinas S R L Remedios de Escalada;Remedios De Escalada;indeterminado;nombre sin indicadores claros
+Pinas S R L Remedios de Escalada;Remedios De Escalada;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Ph Equipamientos Y Servicios Srl;CABA;industrial_otro;servicios
 Pei Sas;Neuquen;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Patiño Simon Y Patiño Cesar S. H.;Alvear;indeterminado;nombre sin indicadores claros
 Prelast S.R.L.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Plegados Esperanza S A;Esperanza;indeterminado;nombre sin indicadores claros
 Plantium S.A.;Villa Constitucion;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Plastilux S R L;Granadero Baigorria;indeterminado;nombre sin indicadores claros
+Plastilux S R L;Granadero Baigorria;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Pisi S.R.L.;Villa Constitucion;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Pinas Srl;Firmat;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Pablo Marcelo Cubino Y Jose Luis Badalamenti S.H.;Pergamino;indeterminado;nombre sin indicadores claros
@@ -203,9 +203,9 @@ Productos Quimicos Rosario Srl;Rosario Sud;industrial_otro;empresa S.A./S.R.L. s
 Productora Del Noroeste S.A.;San Pedro De Jujuy;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Portela Hector Ovidio Portela Oscar Ruben;Villaguay;indeterminado;nombre sin indicadores claros
 Pontarelli Alejandro Y Lisandro;Esperanza;indeterminado;nombre sin indicadores claros
-Pog Innovaciones S.R.L.;Puerto Iguazu;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Poleas Patullo Srl;Loma Hermosa;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Puerto Femos S R L;Rosario Norte;indeterminado;nombre sin indicadores claros
+Pog Innovaciones S.R.L.;Puerto Iguazu;industrial_otro;innovaciones
+Poleas Patullo Srl;Loma Hermosa;industrial_objetivo;poleas en el nombre
+Puerto Femos S R L;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Metalbel De Zenoble Gustavo D Y Montelpare Raul;Fray Luis Beltran;indeterminado;nombre sin indicadores claros
 Mercofrio S.A.;Rafaela;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Proar Imagen Promocional Srl (Uniformes);Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
@@ -214,38 +214,38 @@ Bauing Srl;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específi
 Bat S.R.L.;San Jorge;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Baterplac Srl;Salta;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Severino Coego Sofama S A;Teodelina;indeterminado;nombre sin indicadores claros
-Nibbler S R L;Rosario Sud;indeterminado;nombre sin indicadores claros
+Nibbler S R L;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Selta S.A.;Esperanza;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Serrat S.R.L.;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Sertex Srl;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Respat S.R.L.;Capitan Bermudez;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Miguel Angel Enrici E Hijos Srl;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Movimientos Y Elevacion De Cargas Sa;San Nicolas;indeterminado;nombre sin indicadores claros
-Maropor S R L;Rosario Sud;indeterminado;nombre sin indicadores claros
-Cooperativa Agricola Ganadera De El Trebol Ltda;El Trebol;indeterminado;nombre sin indicadores claros
+Movimientos Y Elevacion De Cargas Sa;San Nicolas;industrial_objetivo;elevacion de carga en el nombre
+Maropor S R L;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
+Cooperativa Agricola Ganadera De El Trebol Ltda;El Trebol;industrial_otro;agricola
 Dhsh Srl;Capitan Bermudez;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Sl Natural S.R.L.;San Lorenzo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Socom S R L;San Lorenzo;indeterminado;nombre sin indicadores claros
+Socom S R L;San Lorenzo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Medicina Para Empresas S.A.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Metalbo S.R.L.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Milicic Sa;Rosario Sud;indeterminado;nombre sin indicadores claros
+Milicic Sa;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Papelera Del Noa Sa;Rio blanco;industrial_otro;papel
 Dergam Srl;San Salvador De Jujuy;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Desdelsur S A;General Mosconi;indeterminado;nombre sin indicadores claros
-Cooperativa Agropecuaria De Bigand Ltda;Bigand;indeterminado;nombre sin indicadores claros
+Cooperativa Agropecuaria De Bigand Ltda;Bigand;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Cooperativa Agropecuaria El Progreso Limitada;Lucas Gonzalez;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Cooperativa Agricola Ganadera Los Molinos Ltda;Los Molinos;industrial_otro;molino
-Cooperativa Agricola Lucienville Limitada;Basavilbaso;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Cooperativa Agricola Ganadera Carreras Limitada;Carreras;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Pb Leiner Argentina Sa;Sauce Viejo;indeterminado;nombre sin indicadores claros
+Cooperativa Agricola Lucienville Limitada;Basavilbaso;industrial_otro;agricola
+Cooperativa Agricola Ganadera Carreras Limitada;Carreras;industrial_otro;agricola
+Pb Leiner Argentina Sa;Sauce Viejo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Petit Fours S.A.;Carcaraña;industrial_otro;empresa S.A./S.R.L. sin rubro específico
-Petramol San Nicolas Sa;Ramallo;indeterminado;nombre sin indicadores claros
+Petramol San Nicolas Sa;Ramallo;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Performa S.A.;Rosario Norte;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Mfruit S.R.L.;San Pedro;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Metalnor S.R.L.;Salta;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Omar Guzman;Cevil Pozo;indeterminado;nombre sin indicadores claros
 Optilogic S.R.L.;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Internacional De Productos S A;Garin;indeterminado;nombre sin indicadores claros
-Jit Sa;Rosario Sud;indeterminado;nombre sin indicadores claros
+Jit Sa;Rosario Sud;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 SOYMA S.R.L.;BOMBAL;industrial_otro;empresa S.A./S.R.L. sin rubro específico
 Green Grass S.A.;LA RIOJA;industrial_otro;empresa S.A./S.R.L. sin rubro específico
