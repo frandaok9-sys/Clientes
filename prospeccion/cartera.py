@@ -144,7 +144,8 @@ def unificar(entrega: pd.DataFrame, origen: pd.DataFrame, verificado: pd.DataFra
     if rapida is None or rapida.empty:
         rapida = pd.DataFrame(columns=["_k", "rubro_rapida", "web_rapida", "empleados_rapida", "alerta_rapida", "fuente_rapida", "fecha_rapida"])
     df = df.merge(rapida, on="_k", how="left").fillna("")
-    for col in ("nombre_corto", "rubro_detalle", "rubro_coi_verificado", "categoria_inv", "puntaje_inv", "web_inv", "madurez_inv",
+    for col in ("contacto_origen_nombre", "contacto_origen_email", "contacto_origen_telefono", "origen_detalle", "persona_fisica",
+                "nombre_corto", "rubro_detalle", "rubro_coi_verificado", "categoria_inv", "puntaje_inv", "web_inv", "madurez_inv",
                 "decisor_nombre", "decisor_cargo", "email_verificado", "telefono_verificado", "otros_contactos", "empleados_inv",
                 "alerta", "nota", "fuente_verificacion", "fecha_verificacion"):
         if col not in df.columns:
