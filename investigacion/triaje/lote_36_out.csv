@@ -11,7 +11,7 @@ afa m;;indeterminado;información insuficiente
 afa me;;indeterminado;información insuficiente
 agricultores;;indeterminado;información insuficiente
 aldo fabricio;;indeterminado;información insuficiente
-alfredo stutz;;indeterminado;información insuficiente
+alfredo stutz;;no_objetivo;nombre de persona
 alma de acero;;industrial_objetivo;acero
 alto chata;;indeterminado;información insuficiente
 DE IESO HORACIO AGUSTIN;;no_objetivo;nombre de persona
@@ -21,7 +21,7 @@ DE MARCHI DARIO RAMON;;no_objetivo;nombre de persona
 DE PALMA ALEJO;;no_objetivo;nombre de persona
 DE SWEET SA;;no_objetivo;nombre de persona
 AEC;;indeterminado;sigla sin contexto
-Zarate Roberto;;indeterminado;información insuficiente
+Zarate Roberto;;no_objetivo;nombre de persona
 chamilalard;;indeterminado;información insuficiente
 chata verde;;indeterminado;información insuficiente
 chavia;;indeterminado;información insuficiente
@@ -32,20 +32,20 @@ chico teñido de blanco;;indeterminado;información insuficiente
 cia;;indeterminado;sigla sin contexto
 carbonero;;indeterminado;información insuficiente
 carlinbi;;indeterminado;información insuficiente
-carlos yossen;;indeterminado;información insuficiente
+carlos yossen;;no_objetivo;nombre de persona
 carro caballos;;indeterminado;información insuficiente
-cavallo maria teresa;;indeterminado;información insuficiente
+cavallo maria teresa;;no_objetivo;nombre de persona
 cearini;;indeterminado;información insuficiente
 celmac;;indeterminado;información insuficiente
 cerrito;;indeterminado;información insuficiente
 buloneria la florida;;industrial_objetivo;buloneria
 buloneria re;;industrial_objetivo;buloneria
-but sa;;indeterminado;empresa genérica sin contexto
+but sa;;indeterminado;información insuficiente
 cable rollo;;indeterminado;información insuficiente
 cafe;;no_objetivo;cafe
 camio blan;;indeterminado;información insuficiente
-cano angel;;indeterminado;información insuficiente
-capello roberto;;indeterminado;información insuficiente
+cano angel;;no_objetivo;nombre de persona
+capello roberto;;no_objetivo;nombre de persona
 balcanes;;indeterminado;información insuficiente
 bec c;;indeterminado;información insuficiente
 becar;;indeterminado;información insuficiente
@@ -58,16 +58,16 @@ del campo;;no_objetivo;campo
 delava;;indeterminado;información insuficiente
 desitec;;indeterminado;información insuficiente
 dibene;;indeterminado;información insuficiente
-diego perezon;;indeterminado;información insuficiente
+diego perezon;;no_objetivo;nombre de persona
 disco asa 35;;indeterminado;información insuficiente
 dobi;;indeterminado;información insuficiente
 dobladora c;;indeterminado;información insuficiente
-daniel alfredo sosa;;indeterminado;información insuficiente
-daniel mollar;;indeterminado;información insuficiente
-dario duva;;indeterminado;información insuficiente
-dario piasco;;indeterminado;información insuficiente
+daniel alfredo sosa;;no_objetivo;nombre de persona
+daniel mollar;;no_objetivo;nombre de persona
+dario duva;;no_objetivo;nombre de persona
+dario piasco;;no_objetivo;nombre de persona
 david pivas;;indeterminado;información insuficiente
-de lava;;indeterminado;información insuficiente
+de lava;;no_objetivo;nombre de persona
 degreco;;indeterminado;información insuficiente
 deisa;;indeterminado;información insuficiente
 coop agricola;;indeterminado;información insuficiente
@@ -79,10 +79,10 @@ correntino;;indeterminado;información insuficiente
 cvo;;indeterminado;sigla sin contexto
 dalmiro menegazzo;;indeterminado;información insuficiente
 cin flex;;indeterminado;información insuficiente
-claudia vera;;indeterminado;información insuficiente
+claudia vera;;no_objetivo;nombre de persona
 cnc;;indeterminado;sigla sin contexto
 comisionista poncio;;indeterminado;información insuficiente
-complejo san salv;;indeterminado;empresa genérica sin contexto
+complejo san salv;;indeterminado;información insuficiente
 cono;;indeterminado;información insuficiente
 contablepastor9gmail.com;;no_objetivo;contable
 coop;;indeterminado;información insuficiente
@@ -95,7 +95,7 @@ giardino;;indeterminado;información insuficiente
 giliuani;;indeterminado;información insuficiente
 gimbernat;;indeterminado;información insuficiente
 fantasia;;indeterminado;información insuficiente
-fernandez ramon;;indeterminado;información insuficiente
+fernandez ramon;;no_objetivo;nombre de persona
 ferrecio,;;indeterminado;información insuficiente
 ferretr;;indeterminado;información insuficiente
 fiedrich;;indeterminado;información insuficiente
@@ -112,21 +112,21 @@ facundo zapalla;;indeterminado;información insuficiente
 fani marcato;;indeterminado;información insuficiente
 ds;;indeterminado;sigla sin contexto
 eas;;indeterminado;sigla sin contexto
-echevester juan manuel;;indeterminado;información insuficiente
+echevester juan manuel;;no_objetivo;nombre de persona
 edgardo;;indeterminado;información insuficiente
 egee;;indeterminado;información insuficiente
 el inventor;;indeterminado;información insuficiente
 el rasta;;indeterminado;información insuficiente
 el surtidor;;indeterminado;información insuficiente
-horacio martinez;;indeterminado;información insuficiente
+horacio martinez;;no_objetivo;nombre de persona
 ilar contaduria;;indeterminado;información insuficiente
 inbet;;indeterminado;información insuficiente
 indegon;;indeterminado;información insuficiente
 inglob;;industrial_otro;ing
 ip;;indeterminado;sigla sin contexto
-ipaco srl;;indeterminado;empresa genérica sin contexto
+ipaco srl;;indeterminado;información insuficiente
 jacob;;indeterminado;información insuficiente
-herrero gustavo;;indeterminado;información insuficiente
+herrero gustavo;;no_objetivo;nombre de persona
 hidrotecnica;;industrial_otro;tecnica
 hielosur;;indeterminado;información insuficiente
 hiipodromo rosario;;indeterminado;información insuficiente
@@ -140,11 +140,11 @@ grupo lequio;;indeterminado;información insuficiente
 grupo roma;;indeterminado;información insuficiente
 guarnieri;;indeterminado;información insuficiente
 gustavo;;indeterminado;información insuficiente
-gustavo soldani;;indeterminado;información insuficiente
+gustavo soldani;;no_objetivo;nombre de persona
 hernacez Oscar;;indeterminado;información insuficiente
 gimenez lorenzo;;indeterminado;información insuficiente
 gomplasitc;;indeterminado;información insuficiente
-gonzalo sawczuck;;indeterminado;empresa genérica sin contexto
+gonzalo sawczuck;;indeterminado;información insuficiente
 gorr german juan;;indeterminado;información insuficiente
 gorras;;indeterminado;información insuficiente
 gr;;indeterminado;sigla sin contexto
@@ -168,7 +168,7 @@ panes argentinos;;no_objetivo;panes
 paola quiroz;;indeterminado;información insuficiente
 mecina;;indeterminado;información insuficiente
 platsur;;indeterminado;información insuficiente
-miguel luna;;indeterminado;información insuficiente
+miguel luna;;no_objetivo;nombre de persona
 molino juan se;;indeterminado;información insuficiente
 morsa;;indeterminado;información insuficiente
 motoagua;;indeterminado;información insuficiente
@@ -177,7 +177,7 @@ mv rodamiento;;indeterminado;información insuficiente
 lunceville;;indeterminado;información insuficiente
 ma h;;indeterminado;información insuficiente
 magali biguera;;indeterminado;información insuficiente
-manuel garcia;;indeterminado;información insuficiente
+manuel garcia;;no_objetivo;nombre de persona
 march;;indeterminado;información insuficiente
 martin gimenez;;indeterminado;información insuficiente
 martin lavadero;;indeterminado;información insuficiente
@@ -188,24 +188,24 @@ vanospa;;indeterminado;información insuficiente
 vargas;;indeterminado;información insuficiente
 variador flaco;;indeterminado;información insuficiente
 vasque gustav;;indeterminado;información insuficiente
-vasquez gustavo;;indeterminado;información insuficiente
+vasquez gustavo;;no_objetivo;nombre de persona
 vecckio;;indeterminado;información insuficiente
 tacaño;;indeterminado;información insuficiente
 tintura bomba;;indeterminado;información insuficiente
 tomaso;;indeterminado;información insuficiente
 tornillería gallar;;indeterminado;información insuficiente
-trascul Susana;;indeterminado;información insuficiente
+trascul Susana;;no_objetivo;nombre de persona
 trasmin;;indeterminado;información insuficiente
 tte jonatan tognoni;;indeterminado;información insuficiente
-turchem hector;;indeterminado;información insuficiente
-señor campera blanca;;no_objetivo;nombre de persona
-señor toro;;no_objetivo;nombre de persona
-señora de lentes;;no_objetivo;nombre de persona
+turchem hector;;no_objetivo;nombre de persona
+señor campera blanca;;indeterminado;información insuficiente
+señor toro;;indeterminado;información insuficiente
+señora de lentes;;indeterminado;información insuficiente
 sg;;indeterminado;sigla sin contexto
 silvia;;indeterminado;información insuficiente
 simetal;;industrial_objetivo;metal
 producores;;indeterminado;información insuficiente
-tac sa;;indeterminado;empresa genérica sin contexto
+tac sa;;indeterminado;información insuficiente
 sen;;indeterminado;sigla sin contexto
 sergio lazzari;;indeterminado;información insuficiente
 servicios marritimos e industr;;indeterminado;información insuficiente
