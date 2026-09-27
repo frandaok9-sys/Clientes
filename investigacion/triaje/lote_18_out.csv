@@ -7,7 +7,7 @@ Vescap S.R.L;Barrio Yofre;indeterminado;no se puede determinar
 Vetvel Sa;Rosario Norte;indeterminado;no se puede determinar
 Via Del Sur S.R.L.;Rosario Sud;indeterminado;no se puede determinar
 Via Sero S R L;Serodino;indeterminado;no se puede determinar
-AGROFY SA;ROSARIO;indeterminado;no se puede determinar
+AGROFY SA;ROSARIO;industrial_otro;agro b2b
 AGROGANADERA LOS TEROS S.R.L.;WENCESLAO ESCALANTE;no_objetivo;ganadería sin industria
 AGROPECUARIA DON LUIS S.R.L;MARCOS JUAREZ;no_objetivo;agropecuaria sin industria
 AGROPECUARIA GRECAR S.R.L.;SAN EDUARDO;no_objetivo;agropecuaria sin industria
@@ -36,20 +36,20 @@ Corbo Hnos S De H De Corbo Ricardo Raul Y Corbo Manuel Osvaldo;Santo Tome;indete
 Corporacion Economica Pampeana S A;General Pico;indeterminado;no se puede determinar
 Correa Juan Carlos;Neuquén;no_objetivo;nombre de persona
 DON DOMINGO S.R.L.;MARCOS JUAREZ;no_objetivo;nombre de persona
-Coragro Srl;Santa Rosa;indeterminado;no se puede determinar
-DODARO SERGIO OSCAR;LAS FLORES;indeterminado;no se puede determinar
+Coragro Srl;Santa Rosa;industrial_otro;agro b2b
+DODARO SERGIO OSCAR;LAS FLORES;no_objetivo;nombre de persona
 DODDI Gaston;BELL VILLE;indeterminado;no se puede determinar
 DOFFO FABIAN;JUSTINIANO POSSE;no_objetivo;nombre de persona
 Veronica S A C I A F E I;Boulogne;indeterminado;no se puede determinar
 DMT TECHNOLOGIES;BELL VILLE;indeterminado;no se puede determinar
-DN SOLUCIONES AGROPECUARIAS S.A.S;LAS VARILLAS;no_objetivo;agropecuaria sin industria
+DN SOLUCIONES AGROPECUARIAS S.A.S;LAS VARILLAS;industrial_otro;soluciones b2b
 Vientos del Camino SA Pampa del Infierno;Pampa del Infierno;indeterminado;no se puede determinar
 AGOSTINI GABRIEL ALEJANDRO Y AGOSTINI DAVID DANIEL C;EL ARAÑADO;indeterminado;no se puede determinar
 AGRICOLA EL RINCON SRL;ACEBAL;indeterminado;no se puede determinar
 AGRICOLA TRUCKS S.A;LAS VARILLAS;indeterminado;no se puede determinar
-AGRO DELVIC SA;VILLA DEL ROSARIO;indeterminado;no se puede determinar
-AGRO GPV S.R.L;LUQUE;indeterminado;no se puede determinar
-Vial Agro S A;Tres Arroyos;indeterminado;no se puede determinar
+AGRO DELVIC SA;VILLA DEL ROSARIO;industrial_otro;agro b2b
+AGRO GPV S.R.L;LUQUE;industrial_otro;agro b2b
+Vial Agro S A;Tres Arroyos;industrial_otro;agro b2b
 Vicente Murillo E Hijos Y Cia S C;Santa Fe;industrial_otro;ice b2b
 Victom S.A.;Rosario Norte;indeterminado;no se puede determinar
 Victor Eduardo Esteva;Nueva Francia;no_objetivo;nombre de persona
@@ -99,10 +99,10 @@ DAM. S.A.S.;CORDOBA;indeterminado;no se puede determinar
 Cyntia Daisi Yerdé;Benegas;indeterminado;no se puede determinar
 leonardi RAUL;MORRISON;indeterminado;no se puede determinar
 Fama Importadora Y Exportadora S. A.;Chajari;industrial_otro;import/export
-Cooperativa Exportadora Citricola De Corrientes Limitada;Mocoreta;no_objetivo;cooperativa en nombre
+Cooperativa Exportadora Citricola De Corrientes Limitada;Mocoreta;industrial_otro;import/export
 cravero fernando;JUSTINIANO POSSE;indeterminado;no se puede determinar
 cristian inriville;inriville;indeterminado;no se puede determinar
-avellino sergio;San Miguel De Tucuman;indeterminado;no se puede determinar
+avellino sergio;San Miguel De Tucuman;no_objetivo;nombre de persona
 D' Ejaca Srl;Rosario Norte;indeterminado;no se puede determinar
 Cristofaro Enrique Y Dante S H;Rosario Sud;no_objetivo;nombre de persona
 Cristofaro Hermanos Srl;Rosario Sud;no_objetivo;nombre de persona
@@ -131,7 +131,7 @@ DEMARO ALEJANDRO;CHACABUCO;indeterminado;no se puede determinar
 DEMETER ANDREA;VILLA CARLOS PAZ;indeterminado;no se puede determinar
 DEALBERA HNOS;LAS VARILLAS;no_objetivo;nombre de persona
 A.L. Servicios Integrales Sociedad Anonima;Granadero Baigorria;industrial_otro;servicios b2b
-A.N. Agro Srl;Casilda;indeterminado;no se puede determinar
+A.N. Agro Srl;Casilda;industrial_otro;agro b2b
 ABUD DAVID;MARCOS JUAREZ;indeterminado;no se puede determinar
 ACCASTELLO RAUL ANGEL Y ROBERTO MIGUEL Y GASTALDI DE ACCASTE;NOETINGER;indeterminado;no se puede determinar
 ACEROS VCA S.A.S.;POTRERO DE GARAY;industrial_objetivo;aceros en nombre
@@ -170,7 +170,7 @@ Don Sixto S.A.;Rueda;no_objetivo;nombre de persona
 Don Vega S.R.L.;NONOGASTA;no_objetivo;nombre de persona
 Corsal Sa;Corrientes;indeterminado;no se puede determinar
 Dos Anclas S A;San Luis;indeterminado;no se puede determinar
-Don Brandino Logistica S.R.L.;Chañar Ladeado;no_objetivo;nombre de persona
+Don Brandino Logistica S.R.L.;Chañar Ladeado;industrial_otro;logística
 Don Chicho S R L;San Rafael;no_objetivo;nombre de persona
 Don Enrique S. C. A.;Campo Ramon;no_objetivo;nombre de persona
 Don Gino S.R.L.;Alvarez;no_objetivo;nombre de persona
@@ -234,7 +234,7 @@ Dylan Naim Melgarejo;Capitán Bermúdez;indeterminado;no se puede determinar
 Dyosfer S.A.;Victoria;indeterminado;no se puede determinar
 E.G.A.R. Srl;Villa Gobernador Galvez;indeterminado;no se puede determinar
 Dos Mil S.A.;Apostoles;indeterminado;no se puede determinar
-Don Antonio Combustibles S.R.L.;Machagai;no_objetivo;nombre de persona
+Don Antonio Combustibles S.R.L.;Machagai;industrial_otro;combustibles
 Don Bernardo S.A.;Victoria;no_objetivo;nombre de persona
 Diluta Argentina S. A. S.;Salta;indeterminado;no se puede determinar
 Diobras S. R. L.;Roldan;indeterminado;no se puede determinar

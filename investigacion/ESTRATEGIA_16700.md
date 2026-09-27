@@ -21,12 +21,12 @@ De las 16.308 sin rubro y pendientes:
 |---|---|---|---|---|---|
 | 0 | Excluir personas físicas y entidades no empresa (reglas locales) | Python | 0 | 16.308 → 9.215 | 0 |
 | 1 | Ordenar por señal: dominio propio > teléfono > localidad | Python | 0 | 9.215 | 0 |
-| 2 | **Triaje por nombre**: 4 clases, sin buscar en la web | haiku, lotes de 250 | ~80 tokens | 9.215 | ~0,8 M tokens, 0 búsquedas |
-| 3 | **Pasada rápida de rubro**: existe, qué hace, tamaño, descarte. 2 búsquedas máx. | sonnet, 30 por agente | ~2.500 tokens, 2 búsquedas | industrial_objetivo + industrial_otro (est. 2.500–3.500) | ~8 M tokens, ~6.000 búsquedas (4 sesiones) |
+| 2 | **Triaje por nombre**: 4 clases, sin buscar en la web | haiku, lotes de 250 | ~260 tokens (medido) | 9.215 | ~2,4 M tokens, 0 búsquedas |
+| 3 | **Pasada rápida de rubro**: existe, qué hace, tamaño, descarte. 2 búsquedas máx. | sonnet, 30 por agente | ~7.000 tokens medido con 12 por agente (la mitad es sobrecarga fija: con 30 por agente baja a ~4.000), 1,7 búsquedas | industrial_objetivo + industrial_otro (est. 2.500–3.500) | ~12 M tokens, ~5.000 búsquedas (4 sesiones) |
 | 4 | **Investigación completa** (decisor, canal, gancho, borrador) | sonnet, 12 por agente | ~9.000 tokens, 3,5 búsquedas | las que pasan el nivel 3 con rubro prioritario y tamaño PyME (est. 700–1.000) | ~9 M tokens, ~3.500 búsquedas (3 sesiones) |
 | 5 | **Rebúsqueda** de decisor o canal faltante | sonnet | ~9.500 tokens, 4 búsquedas | ~40 % de las investigadas | ~4 M tokens, ~1.500 búsquedas |
 
-**Total estimado: ~22 M tokens y ~11.000 búsquedas (8 sesiones)**, contra ~150 M tokens por fuerza bruta.
+**Total estimado: ~28 M tokens y ~10.000 búsquedas (8 sesiones)**, contra ~150 M tokens por fuerza bruta.
 El triaje por nombre es la palanca: decide en qué 3.000 empresas gastar búsquedas.
 
 ## Reglas que no cambian con el embudo
@@ -63,6 +63,14 @@ python -m prospeccion todo                                               # el ru
 # Nivel 4 y 5: igual que antes (elegir_tanda / sumar, elegir_rebusca / completar)
 python -m prospeccion cartera && python -m prospeccion tablero -o <scratchpad>/tablero.html
 ```
+
+## Medido en la primera corrida (2026-09-27)
+- Triaje haiku: 5.000 nombres en 20 lotes, ~65k tokens por lote. Distribución: 6 % industrial_objetivo,
+  27 % industrial_otro, 47 % indeterminado, 20 % no_objetivo. Varía bastante entre lotes (haiku es inconsistente
+  con los «indeterminado»), pero para ordenar la cola alcanza.
+- Pasada rápida q1 (48 empresas, sonnet, 12 por agente): 47 con rubro confirmado con URL, 14 con alerta
+  (2 descartes por grupo grande), 7 B y 39 C al calificar. Costo ~84k tokens por agente de 12.
+- Los agentes sonnet respetan las fuentes pero meten «;» en las notas: los scripts de suma los reparan.
 
 ## Qué mirar para decidir si el embudo funciona
 - Después del triaje: cuántas quedaron `industrial_objetivo` + `industrial_otro`. Si son más de 4.000, subir el
