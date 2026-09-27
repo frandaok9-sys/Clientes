@@ -144,6 +144,11 @@ def unificar(entrega: pd.DataFrame, origen: pd.DataFrame, verificado: pd.DataFra
     if rapida is None or rapida.empty:
         rapida = pd.DataFrame(columns=["_k", "rubro_rapida", "web_rapida", "empleados_rapida", "alerta_rapida", "fuente_rapida", "fecha_rapida"])
     df = df.merge(rapida, on="_k", how="left").fillna("")
+    for col in ("nombre_corto", "rubro_detalle", "rubro_coi_verificado", "categoria_inv", "puntaje_inv", "web_inv", "madurez_inv",
+                "decisor_nombre", "decisor_cargo", "email_verificado", "telefono_verificado", "otros_contactos", "empleados_inv",
+                "alerta", "nota", "fuente_verificacion", "fecha_verificacion"):
+        if col not in df.columns:
+            df[col] = ""
     # Homónimos: si varias filas comparten el nombre, lo verificado va solo a la de la misma localidad
     if "_loc" in df.columns:
         repetidas = df["_k"].duplicated(keep=False)
