@@ -17,7 +17,7 @@ Franklin Boglich S. A.;Santa Teresa;no_objetivo;nombre de personas
 Franlu Sa;Quilmes;no_objetivo;nombre de personas
 CORLETTA GUSTAVO;LEONES;no_objetivo;nombre de personas
 CORLETTA,OSCAR V. Y CORLETTA,HERNAN O S.H;MARCOS JUAREZ;indeterminado;nombre genérico
-CORNUDELLIA RAUL;MARCOS JUAREZ;indeterminado;nombre genérico
+CORNUDELLIA RAUL;MARCOS JUAREZ;no_objetivo;nombre de personas
 Francesca S. A. S.;Salta;no_objetivo;nombre de personas
 Francioni German;BELL VILLE;no_objetivo;nombre de personas
 Francisco Jaime Mena S R L;San Miguel De Tucuman;no_objetivo;nombre de personas
@@ -36,15 +36,15 @@ GAIDO LEANDRO;JUSTINIANO POSSE;no_objetivo;nombre de personas
 GAITE ANDREA MIRIAM;LEONES;no_objetivo;nombre de personas
 GALASSO MARIA ANTONIA;MARCOS JUAREZ;no_objetivo;nombre de personas
 Frecon S.R.L.;Rosario Sud;indeterminado;nombre genérico
-G N C Sigma Srl;San Salvador De Jujuy;indeterminado;iniciales genéricas
-G Y V SRL;CORDOBA;indeterminado;iniciales genéricas
-G.B.C. S.R.L.;Rosario Norte;indeterminado;iniciales genéricas
-G.N.C. Cruz Alta S.R.L.;Cruz Alta;indeterminado;iniciales genéricas
-G.N.P. S.R.L.;Ituzaingo;indeterminado;iniciales genéricas
+G N C Sigma Srl;San Salvador De Jujuy;indeterminado;nombre genérico
+G Y V SRL;CORDOBA;indeterminado;nombre genérico
+G.B.C. S.R.L.;Rosario Norte;indeterminado;nombre genérico
+G.N.C. Cruz Alta S.R.L.;Cruz Alta;indeterminado;nombre genérico
+G.N.P. S.R.L.;Ituzaingo;indeterminado;nombre genérico
 GACHON EMANUEL;LA RIOJA;indeterminado;nombre genérico
 GACINOL S.R.L.;BERROTARAN;indeterminado;nombre genérico
 COOPERATIVA HORIZONTE;CORDOBA;no_objetivo;cooperativa
-COPERATIVA SALTEÑA DE TAMBEROS LTDA;SALTA;no_objetivo;cooperativa tamberos
+COPERATIVA SALTEÑA DE TAMBEROS LTDA;SALTA;no_objetivo;ganadería/tamberos
 COPIOLI GUSTAVO;MARCOS JUAREZ;indeterminado;nombre genérico
 COPMACO LTDA;CORDOBA;indeterminado;nombre genérico
 COPPOLA JORGE;BELL VILLE;indeterminado;nombre genérico
@@ -56,7 +56,7 @@ Ainel S R L;Rosario Sud;indeterminado;nombre genérico
 Air Liquide Argentina S A;Munro;industrial_otro;gases industriales
 Air S.R.L.;Rosario Norte;indeterminado;nombre genérico
 Aislantes Tecnopor S.R.L.;San Miguel De Tucuman;industrial_objetivo;insumos industriales
-Al Vino Vino Sa;Rosario Norte;indeterminado;nombre genérico
+Al Vino Vino Sa;Rosario Norte;no_objetivo;bebidas
 Alan Brogno;Ayacucho;no_objetivo;nombre de personas
 Sinfines Fas Sa;Venado Tuerto;industrial_objetivo;tornillos sin fin
 SisCop Srl;Rosario Norte;indeterminado;nombre genérico
@@ -90,7 +90,7 @@ Geo S.R.L.;Rosario Norte;no_objetivo;nombre genérico
 Seagro Sociedad Colectiva;Rosario Norte;no_objetivo;agropecuaria
 Gastronomia Del Valle S. R. L.;San Miguel De Tucuman;no_objetivo;gastronomía
 Gastronomia Moderna Srl;Santiago Del Estero;no_objetivo;gastronomía
-CONASA SA;BERROTARAN;no_objetivo;nombre genérico
+CONASA SA;BERROTARAN;indeterminado;nombre genérico
 Giribone Daniel A Y Carasa Ada Josefina;Rosario Sud;no_objetivo;nombre de personas
 Gitanes S R L;Rosario Sud;no_objetivo;nombre genérico
 Giuggia Oscar J Y Juan C Y Miguel A;Coronel Bogado;no_objetivo;nombre de personas
@@ -100,11 +100,11 @@ Gimenez, Hernan G. Y Riberi, Tomas A. J. - S.H.;Granadero Baigorria;indeterminad
 Ginza Sa;Rosario Sud;indeterminado;nombre genérico
 Giorgi S.A.;Fuentes;no_objetivo;nombre de personas
 Giovagnoli S R L;Rosario Sud;no_objetivo;nombre genérico
-COOP SERV PUBLICOS Y SOC LUQUE;LUQUE;no_objetivo;cooperativa servicios
+COOP SERV PUBLICOS Y SOC LUQUE;LUQUE;indeterminado;nombre genérico
 Salvador Morasso Y Gustavo Morasso Sh;Villa Gobernador Galvez;no_objetivo;nombre de personas
 CONTRERAS JOSE LUIS;DESPEÑADEROS;indeterminado;nombre genérico
 CONTRERAS JULIANA;JUSTINIANO POSSE;indeterminado;nombre genérico
-COOP AGR DE MONTE MAIZ LTDA.;MONTE MAIZ;no_objetivo;cooperativa agrícola
+COOP AGR DE MONTE MAIZ LTDA.;MONTE MAIZ;indeterminado;nombre genérico
 CONTEPLUS S.A.S;CORDOBA;indeterminado;nombre genérico
 Gases Sudamericanos Sa;Alvear;industrial_objetivo;gases industriales
 Gasparri Jose Antonio-Gasparri Marcelo Antonio Ariel-Gasparri Patricia Lujan;Coronel Bogado;no_objetivo;nombre de personas
@@ -116,7 +116,7 @@ Garcia Fuentes Maria Paula Y Romito Matias Nicolas;Acebal;no_objetivo;nombre de 
 Gerardo Enrique Junkers;San Cristobal;no_objetivo;nombre de personas
 Garcia Oscar F Goldberg Raquel De Y Otro;Rosario Norte;no_objetivo;nombre de personas
 Garcia Rodrigo Y Beltramino Pedro;Perez;no_objetivo;nombre de personas
-Garden Life S A;Tortuguitas;no_objetivo;jardinería
+Garden Life S A;Tortuguitas;indeterminado;nombre genérico
 Garmet S. R. L.;Galvez;no_objetivo;nombre genérico
 Garra S.R.L.;Rosario Norte;no_objetivo;nombre genérico
 Ghems Srl;Rosario Sud;no_objetivo;nombre genérico
@@ -127,17 +127,17 @@ Giayco de Domingo Rapanaro;Avellaneda;no_objetivo;nombre de personas
 Geogas S.R.L.;San Miguel De Tucuman;no_objetivo;nombre genérico
 Geppel Y Pinasco S A;Rosario Sud;no_objetivo;nombre de personas
 Garcia Juan Pablo;Rosario;no_objetivo;nombre de personas
-Amsler Agricola Ganadera Soc En Com Por Acciones;Roldan;no_objetivo;agropecuaria
-Amsler Hector (H) Y Amsler Erika Sh;Roldan;no_objetivo;nombre de personas
+Amsler Agricola Ganadera Soc En Com Por Acciones;Roldan;no_objetivo;ganadería
+Amsler Hector (H) Y Amsler Erika Sh;Roldan;indeterminado;nombre genérico
 STRUMIA ARIEL JOSE;PIQUILLIN;indeterminado;nombre genérico
 SUAREZ NICOLAS;LAS VARILLAS;indeterminado;nombre genérico
 Graizzaro Jose Gabriel Y Schalpeter Mario R;Parana;no_objetivo;nombre de personas
 Gramegna Lucio;BELL VILLE;no_objetivo;nombre de personas
 Gramet S. R. L.;Santa Fe;no_objetivo;nombre genérico
-Grandes Campos Del Norte S A;Rosario Sud;no_objetivo;agropecuaria
-Graneros Y Elevadores Argentinos De Colon Sociedad Cooperativa Limitada;Colon;no_objetivo;almacenaje agrícola
+Grandes Campos Del Norte S A;Rosario Sud;no_objetivo;campos
+Graneros Y Elevadores Argentinos De Colon Sociedad Cooperativa Limitada;Colon;no_objetivo;cooperativa
 DANIEL GASTON;JUSTINIANO POSSE;indeterminado;nombre genérico
-Granos Del Plata Srl;Ortiz Basualdo;no_objetivo;agropecuaria
+Granos Del Plata Srl;Ortiz Basualdo;no_objetivo;granos/agropecuaria
 Grasselli Nelso E., Diego A., Luciana S. Soc. Cap. I Seccion Iv;Bombal;no_objetivo;nombre de personas
 Saby Hermanos S R L;Rio Cuarto;indeterminado;nombre genérico
 Goy Aurelio Ramon Y Goy Rufino S. De H.;Presidencia Roque Saenz Peña;no_objetivo;nombre de personas
@@ -147,11 +147,11 @@ Gragirena, Lisandro Diego, CREDIFIN;Campana;indeterminado;nombre genérico
 Glycopharma S.A.;Nogoya;no_objetivo;farmacéutica
 Gnc De La Costa S.R.L.;San Nicolas;indeterminado;nombre genérico
 Gobernador Pedro Ferre S.A.;Corrientes;no_objetivo;entidad pública
-Godoy Poviña SA Resistencia;Reconquista;no_objetivo;nombre de personas
+Godoy Poviña SA Resistencia;Reconquista;indeterminado;nombre genérico
 Gomeria Donatti S. R. L.;Arroyo Seco;no_objetivo;retail neumáticos
 Gomez Jose Alfredo;Villa Carlos Paz;no_objetivo;nombre de personas
 Gomez Juan Jose;Villa Gobernador Gálvez;no_objetivo;nombre de personas
-Gon-Zat Sion S.R.L.;San Nicolas;no_objetivo;nombre genérico
+Gon-Zat Sion S.R.L.;San Nicolas;indeterminado;nombre genérico
 Gonzalez Cesar Gabriel;San Salvador De Jujuy;no_objetivo;nombre de personas
 Saccoccia Maquinarias S.A.;Junin;industrial_objetivo;maquinaria
 Sadepan Latinoamericana S. A.;Concepción del Uruguayy;indeterminado;nombre genérico
@@ -166,18 +166,18 @@ Andres Parra Y Cia Scc;Presidencia Roque Saenz Peña;indeterminado;nombre genér
 Andres Pisoni E Hijos Sociedad De Heho;Rosario Norte;indeterminado;nombre genérico
 Angel Eduardo Pocai;CURUZU CUATIA;no_objetivo;nombre de personas
 Amscor S.R.L.;Rosario Norte;indeterminado;nombre genérico
-SUD AVIACION S.A.;NOETINGER;no_objetivo;aviación
-Amuyen Rectificaciones S.A;General Pico;no_objetivo;mecanizado
+SUD AVIACION S.A.;NOETINGER;no_objetivo;aviación comercial
+Amuyen Rectificaciones S.A;General Pico;industrial_objetivo;mecanizado rectificaciones
 Ancagro Sociedad De Responsabilidad Limitada;Monte Buey;no_objetivo;agropecuaria
 Ancat S A;Olavarria;indeterminado;nombre genérico
 Andalucia Srl;Rosario Norte;indeterminado;nombre genérico
 Andes S A;Rosario Norte;indeterminado;nombre genérico
-Andiresto S.R.L.;Junin;indeterminado;nombre genérico
-Andpel Sa;Rosario Norte;indeterminado;nombre genérico
-Amismet Sociedad Anonima;Rio Cuarto;indeterminado;nombre genérico
-Amorelli S. R. L.;Rosario Sud;indeterminado;nombre genérico
-Amro S R L;Rosario Norte;indeterminado;nombre genérico
-Ams Sabores S.R.L.;San Salvador De Jujuy;indeterminado;nombre genérico
+Andiresto S.R.L.;Junin;no_objetivo;nombre genérico
+Andpel Sa;Rosario Norte;no_objetivo;nombre genérico
+Amismet Sociedad Anonima;Rio Cuarto;no_objetivo;nombre genérico
+Amorelli S. R. L.;Rosario Sud;no_objetivo;nombre genérico
+Amro S R L;Rosario Norte;no_objetivo;nombre genérico
+Ams Sabores S.R.L.;San Salvador De Jujuy;no_objetivo;alimentos
 Angel Fernando Gomez Srl;Pigue;no_objetivo;nombre de personas
 GROVANINI DANTE;SAIRA;indeterminado;nombre genérico
 GRUPO CAPELLO SRL;RIO CUARTO;indeterminado;nombre genérico
@@ -189,12 +189,12 @@ Santini Argentina S.R.L.;Parana;indeterminado;nombre genérico
 Santos Costa Sociedad Anonima;Villa Constitucion;indeterminado;nombre genérico
 Sap S.R.L.;Cipolletti;indeterminado;nombre genérico
 Saquino Pablo Antonio - Saquino Andrea Natalia S.H;Rosario Sud;no_objetivo;nombre de personas
-Sarsfield S.R.L.;Santa Fe;indeterminado;nombre genérico
-Sasa Rosario S.R.L.;Rosario Sud;indeterminado;nombre genérico
+Sarsfield S.R.L.;Santa Fe;no_objetivo;nombre genérico
+Sasa Rosario S.R.L.;Rosario Sud;no_objetivo;nombre genérico
 Salvador Jose Puigpinos S A;Gobernador Crespo;no_objetivo;nombre de personas
-Santa Rosa Arenas S R L;Rosario Norte;indeterminado;nombre genérico
-Santana Textil Chaco Sa;Puerto Tirol;no_objetivo;textil comercio
-Santia Hermanos S.H. De Santia Martin Santia Juan Y Santia Diego;Villa Ramallo;indeterminado;nombre genérico
+Santa Rosa Arenas S R L;Rosario Norte;no_objetivo;nombre genérico
+Santana Textil Chaco Sa;Puerto Tirol;no_objetivo;textil
+Santia Hermanos S.H. De Santia Martin Santia Juan Y Santia Diego;Villa Ramallo;no_objetivo;nombre de personas
 Santiago Aldo Malaspina;Jose Leon Suarez;no_objetivo;nombre de personas
 Santiago Nahuel Franz;Bahía Blanca;no_objetivo;nombre de personas
 Santillan Luciano Ezequiel;COLONIA CAROYA;no_objetivo;nombre de personas
@@ -203,11 +203,11 @@ Ambiental Planet S.R.L.;Rosario Norte;industrial_otro;servicios ambientales
 Americano Sa;Granadero Baigorria;indeterminado;nombre genérico
 Sanitas S.A.;Rosario Sud;no_objetivo;nombre genérico
 Santa Barbara S A;Ciudad De Cordoba Sur;indeterminado;nombre genérico
-Santa Celina S A I C F I Agric Y Ganadera;Lincoln;indeterminado;nombre genérico
+Santa Celina S A I C F I Agric Y Ganadera;Lincoln;no_objetivo;ganadería
 Santa Magdalena S.A.;Montes De Oca;no_objetivo;nombre genérico
-Sebastian Celaya Y Andres Lopez S.H.;Rosario;no_objetivo;nombre de personas
-Sebastian Jorge Borda;Benavidez;no_objetivo;nombre de personas
-Sauve S A;Olivos;no_objetivo;nombre genérico
+Sebastian Celaya Y Andres Lopez S.H.;Rosario;indeterminado;nombre genérico
+Sebastian Jorge Borda;Benavidez;indeterminado;nombre genérico
+Sauve S A;Olivos;indeterminado;nombre genérico
 Savoy Oscar Rene Savoy Oscar Y Savoy Claudio Sh;Baradero;no_objetivo;nombre de personas
 Saytec San Nicolas S.A.;San Nicolas;no_objetivo;nombre genérico
 Scamol Sa;Sastre;no_objetivo;nombre genérico
@@ -235,17 +235,17 @@ GULLINI NELSON E INES;INRIVILLE;no_objetivo;nombre de personas
 Allanmar International Company S.R.L.;Rosario Sud;indeterminado;nombre genérico
 Almacenes Petroleros S.R.L.;Comodoro Rivadavia;industrial_otro;distribuidora combustibles
 Almarez S A;Rosario Norte;indeterminado;nombre genérico
-Alojar Multiservicios Srl;San Fernando Del Valle De Catamarca;no_objetivo;servicios múltiples
+Alojar Multiservicios Srl;San Fernando Del Valle De Catamarca;no_objetivo;servicios técnicos
 Alpha Fighiera S.R.L.;Fighiera;indeterminado;nombre genérico
 Alt S.A;Alta Gracia;indeterminado;nombre genérico
 Alta Cordoba S.R.L;Ciudad De Cordoba Norte;indeterminado;nombre genérico
 San Juan cora sa;Paso de los libres;no_objetivo;nombre genérico
 San Valentin S.R.L.;Santiago Del Estero;no_objetivo;nombre genérico
-Sanatorio Americano Sa;Rosario Norte;no_objetivo;hospital
-Sanatorio Britanico S A;Rosario Norte;no_objetivo;hospital
+Sanatorio Americano Sa;Rosario Norte;no_objetivo;hospital/sanatorio
+Sanatorio Britanico S A;Rosario Norte;no_objetivo;hospital/sanatorio
 Santa Fe Clima Srl;Santa Fe;industrial_otro;hvac/instalaciones
-Sanchez Y Sanchez Srl (COMBUSTIBLE);Rosario Sud;indeterminado;nombre genérico
+Sanchez Y Sanchez Srl (COMBUSTIBLE);Rosario Sud;industrial_otro;distribuidora combustibles
 Sanda Sociedad Anonima;San Miguel De Tucuman;no_objetivo;nombre genérico
 Salvador Palao S A;Rosario Norte;no_objetivo;nombre de personas
-Samco Servicio Para La Atencion Medica De La Comunidad De Carcarana;Carcaraña;indeterminado;nombre genérico
+Samco Servicio Para La Atencion Medica De La Comunidad De Carcarana;Carcaraña;no_objetivo;servicios médicos
 Sampaolesi Plastic S.R.L.;Cañada De Gomez;industrial_otro;materiales plásticos
