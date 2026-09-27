@@ -22,7 +22,10 @@ for f in glob.glob("canal/pedidos/*.csv") + ["canal/respuestas/20260926-prospect
 for f in glob.glob(str(T / "t*_[0-9]*.csv")):
     if "_out" not in f:
         hechas |= set(pd.read_csv(f, sep=";", dtype=str, header=None)[0].map(nombre_normalizado))
-c = c[~c["razon_social"].map(nombre_normalizado).isin(hechas) & ~c["fuente"].str.contains("búsqueda web")]
+# También por dominio: la misma empresa puede figurar en la cartera con dos nombres distintos
+webs = set(pd.read_csv("canal/respuestas/20260926-prospectos-AB.csv", sep=";", dtype=str)["web"].dropna()) - {""}
+c = c[~c["razon_social"].map(nombre_normalizado).isin(hechas) & ~c["fuente"].str.contains("búsqueda web")
+      & ~c["dominio_email"].fillna("").isin(webs)]
 c = c[c["rubro_coi"] != ""].assign(p=c["prioridad_enriquecimiento"].astype(int)).sort_values("p", ascending=False)
 print(f"quedan {len(c)} candidatas con rubro detectado")
 sel = c.head(cantidad).rename(columns={"dominio_email": "dominio_conocido", "rubro_coi": "rubro_supuesto"})[
