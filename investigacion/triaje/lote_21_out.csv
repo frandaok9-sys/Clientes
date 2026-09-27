@@ -1,6 +1,6 @@
 razon_social;localidad;triaje;motivo
 San Eduardo Agricola Ganadera Soc Civil;Rosario Norte;no_objetivo;productor agropecuario
-San Javier Servicios Srl;Gobernador Crespo;industrial_otro;empresa sin rubro claro
+San Javier Servicios Srl;Gobernador Crespo;no_objetivo;nombre de persona
 San Jose Agricola Ganadera S A;Rosario Norte;no_objetivo;productor agropecuario
 Salgas Sociedad Anonima;Jose Leon Suarez;industrial_otro;empresa sin rubro claro
 Salta Cotton Sa;Martinez;industrial_otro;industria textil
@@ -8,8 +8,8 @@ Salta Plast Polietilenos Srl;Salta;industrial_otro;industria de plástico
 Salvador Bertolami S R L;Buenos Aires;indeterminado;nombre insuficiente
 Sanatorio Doctor Maiorano Soc Anonima S. A.;Arroyo Seco;no_objetivo;sanatorio
 Alto Verde S A;San Ramon De La Nueva Oran;indeterminado;nombre insuficiente
-Altos De Bermudez S.A;Lincoln;indeterminado;nombre insuficiente
-Aluap Group S.R.L.;Tafi Viejo;industrial_otro;empresa sin rubro claro
+Altos De Bermudez S.A;Lincoln;no_objetivo;nombre de persona
+Aluap Group S.R.L.;Tafi Viejo;no_objetivo;nombre de persona
 Alubry San Luis S A;San Luis;indeterminado;nombre insuficiente
 Aluwind S.A.;Barrio Remedios De Escalada *;industrial_otro;empresa sin rubro claro
 Alvarez Carton Sociedad Anonima;Alvarez;industrial_otro;industria de cartón
@@ -17,8 +17,8 @@ Amarillo Alberto Aníbal;Villaguay;indeterminado;nombre insuficiente
 Ambiental Contenedores Srl;Rosario Norte;industrial_otro;contenedores
 Gallo Sergio Daniel;CORRAL DE BUSTOS;indeterminado;nombre insuficiente
 Galuppo Hnos S A;Rafaela;no_objetivo;nombre de persona/familia
-Galvez Cereales S. A.;Galvez;indeterminado;nombre insuficiente
-Ganadera Milenium S A;Maximo Paz;indeterminado;nombre insuficiente
+Galvez Cereales S. A.;Galvez;no_objetivo;productor agropecuario
+Ganadera Milenium S A;Maximo Paz;no_objetivo;productor agropecuario
 GUIZZARDI CARLOS ANTONIO;ELENA;indeterminado;nombre insuficiente
 Garay Juan H Y Garay Oscar F;Colon;no_objetivo;nombre de persona
 Garay Sociedad De Responsabilidad Limitada;Recreo;industrial_otro;empresa sin rubro claro
@@ -35,22 +35,22 @@ GUEVARA LUCAS;LABORDE;no_objetivo;nombre de persona
 GUIDO SEBASTIAN SERGIO;MONTE BUEY;indeterminado;nombre insuficiente
 Ganaman S. A.;Pergamino;indeterminado;nombre insuficiente
 Adolfo Sartori S A;Leandro N. Alem;indeterminado;nombre insuficiente
-TRES EME S.A.;RIO TERCERO;industrial_otro;empresa sin rubro claro
+TRES EME S.A.;RIO TERCERO;no_objetivo;nombre de persona
 Ad.Da Srl;Obera;industrial_otro;empresa sin rubro claro
 TRANSPORTE MAYER;Rosario Norte;industrial_otro;transporte
 TRANSPORTE MJ;Rosario;industrial_otro;transporte
 Agro Jv S. R. L.;Avellaneda;indeterminado;nombre insuficiente
 Agro La Punta De Moreno Srl;San Luis;industrial_otro;empresa sin rubro claro
-Agro Red Srl;Rosario Norte;industrial_otro;empresa sin rubro claro
+Agro Red Srl;Rosario Norte;no_objetivo;nombre de persona
 Agro Region S. R. L.;Avellaneda;indeterminado;nombre insuficiente
-Agro Rulemanes Srl;Apostoles;industrial_otro;empresa sin rubro claro
+Agro Rulemanes Srl;Apostoles;no_objetivo;nombre de persona
 Agro Taborra S. A.;Cañada De Gomez;indeterminado;nombre insuficiente
-FIBRAL BANDA SRL;LA BANDA;industrial_otro;empresa sin rubro claro
+FIBRAL BANDA SRL;LA BANDA;no_objetivo;nombre de persona
 Fluotech S. R. L.;Rosario Sud;indeterminado;nombre insuficiente
 FIDEICOMISO DEMETER;MARCOS JUAREZ;no_objetivo;nombre de persona
-FIDEICOMISO DON JUSTO Y LA PARAGUAYA;CORRAL DE BUSTOS;no_objetivo;nombre de persona
-FIDEICOMISO HOME I;CORDOBA;indeterminado;nombre insuficiente
-FIDEICOMISO OPERA PARK;CORDOBA;indeterminado;nombre insuficiente
+FIDEICOMISO DON JUSTO Y LA PARAGUAYA;CORRAL DE BUSTOS;industrial_otro;empresa sin rubro claro
+FIDEICOMISO HOME I;CORDOBA;no_objetivo;nombre de persona
+FIDEICOMISO OPERA PARK;CORDOBA;no_objetivo;nombre de persona
 FERRETERIA DE DIEGO SRL;RIO PRIMERO;industrial_otro;ferretería
 FERREYRA RAUL AMADO;ARROYITO;indeterminado;nombre insuficiente
 FERREYRA SANTIAGO;LAS VARILLAS;no_objetivo;nombre de persona
@@ -58,20 +58,20 @@ FERRO CESAR;LAS VARILLAS;no_objetivo;nombre de persona
 FERRONATO GERARDO;JUSTINIANO POSSE;no_objetivo;nombre de persona
 FERRERO LISANDRO;BELL VILLE;no_objetivo;nombre de persona
 FERRERO MIGUEL ANGEL;LEONES;indeterminado;nombre insuficiente
-FERRETERA CENTRAL JT S.R.L.;RIO CUARTO;industrial_otro;empresa sin rubro claro
+FERRETERA CENTRAL JT S.R.L.;RIO CUARTO;no_objetivo;nombre de persona
 FICHETTI NESTOR;LUQUE;no_objetivo;nombre de persona
 Aeropuerto Internacional De Rosario;Barrio Fisherton;no_objetivo;aeropuerto
-Ag. Gan. S.R.L.;Villa Angela;industrial_otro;empresa sin rubro claro
-Agidea S.R.L;Pergamino;no_objetivo;nombre de persona
-Carlos A Mazzieri Y Cia. S.A.;Colon;industrial_otro;empresa sin rubro claro
+Ag. Gan. S.R.L.;Villa Angela;no_objetivo;nombre de persona
+Agidea S.R.L;Pergamino;industrial_otro;empresa sin rubro claro
+Carlos A Mazzieri Y Cia. S.A.;Colon;no_objetivo;nombre de persona
 Carlos C Gadea E Hijos Sociedad Anonima;Santa Rosa;industrial_otro;empresa sin rubro claro
 Carlos O Breton E Hijos S.R.L.;Rosario Sud;industrial_otro;empresa sin rubro claro
 Carlos Palma;Tandil;no_objetivo;nombre de persona
-Carmetal Plegados Srl;Carcaraña;industrial_otro;empresa sin rubro claro
+Carmetal Plegados Srl;Carcaraña;no_objetivo;nombre de persona
 Carolina S.A.;Rosario Norte;industrial_otro;empresa sin rubro claro
 Carbosur S R L;Alvear;indeterminado;nombre insuficiente
 Cardarelli Cesar Nicolas Y Cardarelli Cesar Damian Soc De Hecho;San Lorenzo;no_objetivo;sociedad de hecho
-Cardinal Scale S.A.S.;Rosario Sud;industrial_otro;empresa sin rubro claro
+Cardinal Scale S.A.S.;Rosario Sud;indeterminado;nombre insuficiente
 Adolfo Cutipa;Russell;no_objetivo;nombre de persona
 Carla Fernandez;Las flores;no_objetivo;nombre de persona
 Carletti Hermanos Srl;San Luis;no_objetivo;nombre de persona/familia
@@ -80,52 +80,52 @@ FERNANDEZ GERMAN;MORRISON;no_objetivo;nombre de persona
 FERNANDEZ GONZALO;ROSARIO;no_objetivo;nombre de persona
 FERNANDEZ RENE OMAR;MARCOS JUAREZ;indeterminado;nombre insuficiente
 FERNANDEZ GABRIEL OSCAR;RIO SEGUNDO;indeterminado;nombre insuficiente
-Adam Jan S.R.L.;Rosario Sud;industrial_otro;empresa sin rubro claro
+Adam Jan S.R.L.;Rosario Sud;no_objetivo;nombre de persona
 Adeco Agropecuaria S.A.;Martinez;no_objetivo;productor agropecuario
 Ader S.A.;Concepcion Del Uruguay;industrial_otro;empresa sin rubro claro
 Administradora De La Costa Sociedad Del Estado;Granadero Baigorria;no_objetivo;estado
-Adolfo Bulgheroni Srl;Rosario Sud;industrial_otro;empresa sin rubro claro
-Cardon Del Valle S.R.L.;Cafayate;industrial_otro;empresa sin rubro claro
+Adolfo Bulgheroni Srl;Rosario Sud;no_objetivo;nombre de persona
+Cardon Del Valle S.R.L.;Cafayate;no_objetivo;nombre de persona
 FILSUR S.R.L.;Comodoro Rivadavia;industrial_otro;empresa sin rubro claro
 FINCA LAS MARGARITAS S.R.L.;CORDOBA;no_objetivo;productor agropecuario
 FINELLI MARIA SOLEDAD;BELL VILLE;indeterminado;nombre insuficiente
 FINK CARLOS;MARCOS JUAREZ;no_objetivo;nombre de persona
 FIORENZA JUAN EDUARDO;RAFAELA;indeterminado;nombre insuficiente
-FIDEICOMISO PATAGONIA VILLAGE;CORDOBA;indeterminado;nombre insuficiente
-FIDEICOMISO SANTINO VII;CORDOBA;indeterminado;nombre insuficiente
-FIDEICOMISO TORRES DE ARGUELLO;CORDOBA;indeterminado;nombre insuficiente
+FIDEICOMISO PATAGONIA VILLAGE;CORDOBA;no_objetivo;nombre de persona
+FIDEICOMISO SANTINO VII;CORDOBA;industrial_otro;empresa sin rubro claro
+FIDEICOMISO TORRES DE ARGUELLO;CORDOBA;no_objetivo;nombre de persona
 FILIPPINI FEDERICO ANDRES;ALTA GRACIA;indeterminado;nombre insuficiente
 FILIPUZZI MARCELO OMAR Y SERGIO ARIEL;LEONES;no_objetivo;nombre de persona
 TOLEDO LUIS CARLOS;MARCOS JUAREZ;indeterminado;nombre insuficiente
-TOA GROUP S.A.S.;ALMAFUERTE;industrial_otro;empresa sin rubro claro
+TOA GROUP S.A.S.;ALMAFUERTE;indeterminado;nombre insuficiente
 FERRETERIA CENTRO SOCIEDAD POR ACCI;LOS CONDORES;industrial_otro;ferretería
 TINGAZU S.A.;MORTEROS;industrial_otro;empresa sin rubro claro
 TERES JOSE MARIA;MARCOS JUAREZ;indeterminado;nombre insuficiente
-TERRACUY SA;MENDOZA;no_objetivo;nombre de persona
+TERRACUY SA;MENDOZA;industrial_otro;empresa sin rubro claro
 TESIO OSCAR ALBERTO;PORTEÑA;indeterminado;nombre insuficiente
 TENAX S.A.;Ciudad de Buenos Aires;industrial_otro;empresa sin rubro claro
-TEKNIX ARGENTINA SRL;CORDOBA;industrial_otro;empresa sin rubro claro
-TEKVACO S.A.S.;LAS CABRAS;industrial_otro;empresa sin rubro claro
+TEKNIX ARGENTINA SRL;CORDOBA;no_objetivo;nombre de persona
+TEKVACO S.A.S.;LAS CABRAS;no_objetivo;nombre de persona
 TECNUS SRL;CORDOBA;industrial_otro;empresa sin rubro claro
 TECTUM S.R.L.;CORDOBA;industrial_otro;empresa sin rubro claro
 TEJAMAX S A;RIO PRIMERO;indeterminado;nombre insuficiente
 Campo Fertil S. A.;Pilar;no_objetivo;productor agropecuario
-Campos Del Rio Parana S.A.;Rosario Sud;industrial_otro;empresa sin rubro claro
+Campos Del Rio Parana S.A.;Rosario Sud;no_objetivo;nombre de persona
 TOBALDI Juan Carlos;LEONES;indeterminado;nombre insuficiente
 FERRETERIA COLAZO S.A.S.;CORDOBA;industrial_otro;ferretería
 Carton Gris S R L;Rosario Sud;industrial_otro;industria de cartón
 Cartongal Sa;Villa Gobernador Galvez;industrial_otro;industria de cartón
-Casa Maini Srl;Serodino;industrial_otro;empresa sin rubro claro
+Casa Maini Srl;Serodino;no_objetivo;nombre de persona
 Casa Oliva S. R. L.;Villa Constitucion;indeterminado;nombre insuficiente
-Casa Tempesta S.R.L.;Bigand;industrial_otro;empresa sin rubro claro
+Casa Tempesta S.R.L.;Bigand;no_objetivo;nombre de persona
 FERNER CLAUDIA MARISA;RIO TERCERO;indeterminado;nombre insuficiente
 Agricultores Federados Argentinos Soc Coop Ltda FIRMAT;Rosario Norte;industrial_otro;empresa sin rubro claro
 Agricultores Federados Argentinos Soc Coop Ltda MARCOS JUAREZ;Rosario Norte;industrial_otro;empresa sin rubro claro
 Agricultores Federados Argentinos Soc Coop Ltda TORTUGAS;Rosario Norte;industrial_otro;empresa sin rubro claro
-Agro Charata Sh De Frias Carlos Benjamin Y Nunez Marcelo Alejandro;Charata;industrial_otro;empresa sin rubro claro
-Agro Encuentro S.A.;Rosario Norte;industrial_otro;empresa sin rubro claro
+Agro Charata Sh De Frias Carlos Benjamin Y Nunez Marcelo Alejandro;Charata;no_objetivo;nombre de persona
+Agro Encuentro S.A.;Rosario Norte;no_objetivo;nombre de persona
 FISSORE LEANDRO;JUSTINIANO POSSE;no_objetivo;nombre de persona
-Agricola Magdalena S.R.L;Colazo;indeterminado;nombre insuficiente
+Agricola Magdalena S.R.L;Colazo;no_objetivo;nombre de persona
 Agricola San Nicolas Srl;Firmat;industrial_otro;empresa sin rubro claro
 Agricultores Federados Arg. (San Martin de las Escobas)M.Harinero;San Martin de las Escobas;indeterminado;nombre insuficiente
 Agricultores Federados Argentinos Las Rosas;Las Rosas;indeterminado;nombre insuficiente
@@ -134,8 +134,8 @@ TOSSI DAMIAN;CORRAL DE BUSTOS;no_objetivo;nombre de persona
 TORRES SERGIO;MORRISON;no_objetivo;nombre de persona
 TORRETTA JOSE ANTONIO;GENERAL CABRERA;indeterminado;nombre insuficiente
 FLEITAS LEONOR;CAPITAL FEDERAL;no_objetivo;nombre de persona
-FLORES MAURICIO Y FLORES RAFAEL SH;ITALO;no_objetivo;nombre de persona
-FISSORE ALDO ANTONIO YJORGE AGUSTIN SOC. DE HECHO;SAN MARCOS SUD;indeterminado;nombre insuficiente
+FLORES MAURICIO Y FLORES RAFAEL SH;ITALO;industrial_otro;empresa sin rubro claro
+FISSORE ALDO ANTONIO YJORGE AGUSTIN SOC. DE HECHO;SAN MARCOS SUD;industrial_otro;empresa sin rubro claro
 FISSORE JUAN;LUQUE;no_objetivo;nombre de persona
 Agro G (Agropecuaria Del Guayquiraro) S.A.;La Paz;no_objetivo;productor agropecuario
 Cei Leandro Gustavo Y Cei Pablo Guillermo;Rosario Norte;no_objetivo;nombre de persona
@@ -147,10 +147,10 @@ Essen Aluminio Sociedad Anonima;Venado Tuerto;industrial_otro;aluminio/industria
 Establecimiento Agricola Alvear S A;Luis Palacios;indeterminado;nombre insuficiente
 Catelli Daniel Y Catelli Luis;Rosario Sud;no_objetivo;nombre de persona
 Caños Y Premoldeados Facar S.R.L.;Perez;industrial_otro;empresa sin rubro claro
-Cclv Materiales S.A.;Rosario Norte;industrial_otro;empresa sin rubro claro
-Cdc Calchaqui S.A.;Casilda;industrial_otro;empresa sin rubro claro
-Cdh Protesis E Implantes S.R.L.;Rosario Sud;industrial_otro;empresa sin rubro claro
-Aerofumigaciones Don Alejandro S R L;Coronel Bogado;indeterminado;nombre insuficiente
+Cclv Materiales S.A.;Rosario Norte;no_objetivo;nombre de persona
+Cdc Calchaqui S.A.;Casilda;no_objetivo;nombre de persona
+Cdh Protesis E Implantes S.R.L.;Rosario Sud;no_objetivo;nombre de persona
+Aerofumigaciones Don Alejandro S R L;Coronel Bogado;industrial_otro;fumigación agrícola
 Ceagro S A;Paso De Los Libres;indeterminado;nombre insuficiente
 Estancia San Francisco S A;Rosario Norte;no_objetivo;productor agropecuario
 Estancia San Michele Soc En Comandita Por Acciones S. C. A.;Goya;no_objetivo;productor agropecuario
@@ -163,15 +163,15 @@ Estación de Cargas Centro 27;Rosario Sud;industrial_otro;logística
 Estancia Cristina S A;El Calafate;no_objetivo;productor agropecuario
 Estancia El Dulce S A;General Alvear;no_objetivo;productor agropecuario
 Estancia Grande Srl;Colonia Yerua;no_objetivo;productor agropecuario
-Cdsa S.A;Tablada;no_objetivo;nombre de persona
+Cdsa S.A;Tablada;industrial_otro;empresa sin rubro claro
 Tank S.A.;Rosario Sud;industrial_otro;empresa sin rubro claro
 Tanoni Hnos S A;Bombal;no_objetivo;nombre de persona/familia
 Taormina Srl;Lules;industrial_otro;empresa sin rubro claro
-Tazioli Y Cia S R L;Alvear;industrial_otro;empresa sin rubro claro
+Tazioli Y Cia S R L;Alvear;no_objetivo;nombre de persona
 Taborro Omar E. Y Taborro Ramiro S.H.;Marcos Juarez;industrial_otro;empresa sin rubro claro
 Talaserv S.R.L.;San Pedro;industrial_otro;empresa sin rubro claro
 Tallei Emilio Y Tallei Juan Manuel;Los Molinos;no_objetivo;nombre de persona
-Taller Cima S.R.L.;Rosario Sud;industrial_otro;empresa sin rubro claro
+Taller Cima S.R.L.;Rosario Sud;no_objetivo;nombre de persona
 Taller El Titi de Norberto Della Santina;Marcos Juarez;indeterminado;nombre insuficiente
 Taller Metalurgico Vulcan S R L;Rosario Sud;industrial_objetivo;metalurgico
 Taller Protegido Villa Gobernador Galvez;Villa Gobernador Galvez;indeterminado;nombre insuficiente
@@ -180,8 +180,8 @@ Cedent Srl;Rosario Norte;industrial_otro;empresa sin rubro claro
 Establecimiento Metalurgico Fortuna Srl;Rosario Norte;industrial_objetivo;metalurgico
 Establecimiento Metalurgico Metalgas S. R. L.;Rosario Sud;industrial_objetivo;metalurgico
 Establecimiento Yerbatero Bonafe Srl;Bell Ville;no_objetivo;productor agropecuario
-Estacion 20 De Julio Sa;San Nicolas;indeterminado;nombre insuficiente
-Estacion Cafferata S.R.L.;Rosario Sud;industrial_otro;empresa sin rubro claro
+Estacion 20 De Julio Sa;San Nicolas;industrial_otro;empresa sin rubro claro
+Estacion Cafferata S.R.L.;Rosario Sud;no_objetivo;nombre de persona
 Establecimiento Agropecuario Doble A S A;Rosario Sud;no_objetivo;productor agropecuario
 Establecimiento Agropecuario Don Raul Sa;Rufino;no_objetivo;productor agropecuario
 Establecimiento Agropecuario Jose Maria S.A.;Corrientes;no_objetivo;productor agropecuario
@@ -192,37 +192,37 @@ Establecimiento Lala Regina Srl;Roldan;industrial_otro;empresa sin rubro claro
 Establecimiento Los Dos Pinos S.A.;Rosario Norte;industrial_otro;empresa sin rubro claro
 Expreso Santa Rosa S A;Rafaela;industrial_otro;transporte
 Esterilización y Servicios SRL;Rosario;industrial_otro;empresa sin rubro claro
-Estudio G.C.G. S.R.L.;Barrio Centro Norte;industrial_otro;empresa sin rubro claro
-Eugenio Baraldi E Hijos Srl;Rosario Norte;industrial_otro;empresa sin rubro claro
+Estudio G.C.G. S.R.L.;Barrio Centro Norte;no_objetivo;nombre de persona
+Eugenio Baraldi E Hijos Srl;Rosario Norte;no_objetivo;nombre de persona
 Eugenio Defago S A C;Tostado;indeterminado;nombre insuficiente
 Euro S A;Villa Gobernador Galvez;indeterminado;nombre insuficiente
 Euromotors;Granadero Baigorria;no_objetivo;nombre de persona
 Expreso 3 C Srl;Esperanza;industrial_otro;transporte
 FAVIERE DANIEL HECTOR;PUERTO SAN MARTIN;indeterminado;nombre insuficiente
-FED AND VEL SA;CORDOBA;indeterminado;nombre insuficiente
+FED AND VEL SA;CORDOBA;no_objetivo;nombre de persona
 FASOLIS SEBASTIAN;BALNEARIA;no_objetivo;nombre de persona
 FAGGIANO JUAN MANUEL;JUSTINIANO POSSE;indeterminado;nombre insuficiente
 Estancia La Emprendedora S.R.L.;Soldini;no_objetivo;productor agropecuario
-FAM MA AUTOMOTIVE SA;CORDOBA;indeterminado;nombre insuficiente
+FAM MA AUTOMOTIVE SA;CORDOBA;no_objetivo;nombre de persona
 FABRI S A;PUERTO MADRYN;indeterminado;nombre insuficiente
 FABRICIO JUAN;JUSTINIANO POSSE;no_objetivo;nombre de persona
 TULIAN ALBERTO;JUSTINIANO POSSE;no_objetivo;nombre de persona
-TYE CORPORATION SRL;CAPITAL FEDERAL;industrial_otro;empresa sin rubro claro
+TYE CORPORATION SRL;CAPITAL FEDERAL;no_objetivo;nombre de persona
 TRUGLIO Martin;BELL VILLE;no_objetivo;nombre de persona
 TSCHANZ HNOS S.A;EL TREBOL;no_objetivo;nombre de persona/familia
 Agnese Eduardo Angel Y Caporossi Alicia;Villa Constitucion;no_objetivo;nombre de persona
-Agostinelli, Walter Ruben, Agostinelli, Jorge Ernesto Y Agostinelli, Daniel Soc. De Hecho;Totoras;no_objetivo;nombre de persona
-Agricola El Ñandu S.A.;Viale;industrial_otro;empresa sin rubro claro
+Agostinelli, Walter Ruben, Agostinelli, Jorge Ernesto Y Agostinelli, Daniel Soc. De Hecho;Totoras;industrial_otro;empresa sin rubro claro
+Agricola El Ñandu S.A.;Viale;no_objetivo;nombre de persona
 TROBBIANI NESTOR DANIEL Y OTRO S H;PIQUILLIN;no_objetivo;nombre de persona
 TRUCCONE CARLOS GABRIEL,TRUCCONE DANIEL AGUSTIN Y TRUCCONE E;POZO DEL MOLLE -D;no_objetivo;nombre de persona
 FALCO FEDERICO;LAS VARAS;no_objetivo;nombre de persona
 Estancia Los Cueros S.R.L.;San Nicolas;no_objetivo;productor agropecuario
-Estacion Vision Srl;Salta;industrial_otro;empresa sin rubro claro
+Estacion Vision Srl;Salta;no_objetivo;nombre de persona
 Estacion de Servicio Ruta 34 S.R.L.;Metan;no_objetivo;estación de servicio
 Estaciones De Servicios Edargus S R L;Rosario Sud;indeterminado;nombre insuficiente
-Estación El Surtidor S.R.L.;Rosario Norte;industrial_otro;empresa sin rubro claro
+Estación El Surtidor S.R.L.;Rosario Norte;no_objetivo;nombre de persona
 Estación de Carga González;Rosaro;industrial_otro;logística
-Estacion Central S.R.L.;San Miguel De Tucuman;industrial_otro;empresa sin rubro claro
+Estacion Central S.R.L.;San Miguel De Tucuman;no_objetivo;nombre de persona
 Estacion De Cargas Galvez S. R. L.;Rosario Sud;industrial_otro;logística
 Estacion De Servicio Autopista S.R.L.;Fighiera;no_objetivo;estación de servicio
 Estacion De Servicio Bombal Srl;Bombal;no_objetivo;estación de servicio
@@ -231,11 +231,11 @@ Estacion De Servicio General Mosconi S R L;Rosario Norte;no_objetivo;estación d
 Expreso Obera S R L;Obera;industrial_otro;transporte
 Estacion Rio De Janeiro S. R. L.;Rosario Sud;indeterminado;nombre insuficiente
 F R I A R S. A.;Reconquista;indeterminado;nombre insuficiente
-F.A - AGRO S.A;EL TREBOL;indeterminado;nombre insuficiente
+F.A - AGRO S.A;EL TREBOL;industrial_otro;empresa sin rubro claro
 Exur S.R.L.;Barrio Residencial San Roque;industrial_otro;empresa sin rubro claro
 Ezequiel Rodriguez;Pilar;no_objetivo;nombre de persona
 F 458 S.A.;Coronel Moldes;industrial_otro;empresa sin rubro claro
-F A S Sa;Goya;indeterminado;nombre insuficiente
+F A S Sa;Goya;no_objetivo;nombre de persona
 Expreso Ara Vera Srl;Goya;industrial_otro;transporte
 Expreso Avellaneda S. R. L.;Rosario Sud;industrial_otro;transporte
 Expreso Cargo S A;Ferreyra;industrial_otro;transporte
