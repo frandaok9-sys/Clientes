@@ -1,6 +1,6 @@
 # Cómo seguir en una sesión nueva
 
-Estado al 2026-09-28 (tandas t2 a t8, rebúsquedas r1-r3 y pasadas rápidas q1-q2 hechas; las próximas son t9, q3 y r4). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
+Estado al 2026-09-28 (tandas t2 a t9, rebúsquedas r1-r3 y pasadas rápidas q1-q2 hechas; las próximas son q3, r4 y t10). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
 
 ## Dónde está todo
 - **Listas originales:** `datos/entrada/` (carteras RAI y AG-360 de F. Dabbene y 3 PDF de zonas).
@@ -32,12 +32,12 @@ Estado al 2026-09-28 (tandas t2 a t8, rebúsquedas r1-r3 y pasadas rápidas q1-q
 ```bash
 ./instalar.sh && source .venv/bin/activate
 python -m prospeccion todo                      # recalcula datos/salida/candidatos_enriquecer.csv
-PYTHONPATH=. python investigacion/herramientas/elegir_tanda.py t8 96 8
+PYTHONPATH=. python investigacion/herramientas/elegir_tanda.py t10 96 8
 ```
 1. Lanzá 8 agentes en paralelo con este prompt, cambiando `i`:
    «Leé las instrucciones en investigacion/herramientas/instrucciones_agente.md y seguilas al pie
-   de la letra. Entrada (sin encabezado): investigacion/tandas/t8_i.csv. Salida:
-   investigacion/tandas/t8_outi.csv». Usá rutas absolutas del repo.
+   de la letra. Entrada (sin encabezado): investigacion/tandas/t10_i.csv. Salida:
+   investigacion/tandas/t10_outi.csv». Usá rutas absolutas del repo.
 2. Cuando terminen, revisá que cada salida tenga 17 columnas en todas las filas y corré:
    `PYTHONPATH=. python investigacion/herramientas/sumar.py "t6_out*.csv"`
    El script califica con `config.yaml`, arma el borrador y suma al CSV de prospectos. Lista las
@@ -82,6 +82,8 @@ Después de sumar, revisá las alertas que las reglas no descartaron (grupo gran
 anotá las decisiones en `datos/revisiones.csv`.
 
 ## Qué queda
-Quedan 174 candidatas con rubro detectado en `candidatos_enriquecer.csv` (tanda t9). Antes de lanzar una tanda,
+Quedan 126 candidatas con rubro detectado en `candidatos_enriquecer.csv` (tanda t10), casi todas nombres de la
+cartera RAI sin localidad: en la t9 dos de cada tres no se pudieron identificar. Rinden más la pasada rápida q3 y
+la rebúsqueda r4. Antes de lanzar una tanda,
 mirá la lista: la cola trae grandes y entes públicos que las reglas no toman; anotalos en `datos/revisiones.csv` y
 volvé a correr `todo` y `elegir_tanda.py`. Las 1.567 del triaje sin rubro siguen por la pasada rápida (q3, q4...).
