@@ -282,8 +282,8 @@ def tablero(
     archivo: Path = typer.Argument(RAIZ / "canal/respuestas/20260926-prospectos-AB.csv", help="CSV de prospectos"),
     salida: Path = typer.Option(RAIZ / "datos/salida/tablero.html", "--salida", "-o"),
 ):
-    """Arma un tablero HTML que divide los prospectos: decisor y canal, solo canal, sin canal y a revisar."""
-    consola.print(f"[green]Tablero:[/] {tablero_mod.generar(archivo, salida)}")
+    """Arma el tablero HTML de trabajo: lista por prioridad, ficha con acciones y estado de cada contacto."""
+    consola.print(f"[green]Tablero:[/] {tablero_mod.generar(archivo, salida, entrega_csv=RAIZ / 'datos/salida/entrega.csv')}")
 
 
 @app.command()

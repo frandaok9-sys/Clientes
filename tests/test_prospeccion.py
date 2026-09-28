@@ -238,3 +238,18 @@ def test_cartera_pasada_rapida_marca_rubro_sin_contacto():
     f = c.iloc[0]
     assert f["rubro_estado"] == "verificado (pasada rápida)" and f["rubro_detalle"] == "fabrica silos" and f["web"] == "silosq.com.ar"
     assert f["estado_investigacion"] == "rubro confirmado (falta decisor y canal)" and f["decisor_nombre"] == "" and f["fuente_verificacion"] == "https://silosq.com.ar"
+
+
+def test_tablero_datos():
+    from prospeccion import tablero
+    assert tablero.telefono_e164("+54 9 264 660-1007 (WhatsApp publicado en la web)") == "+5492646601007"
+    assert tablero.telefono_e164("(0341) 430-1202 / 435-5033") == "+543414301202"
+    assert tablero.telefono_e164("4921-0223") == ""  # sin característica no se puede armar el enlace
+    assert tablero.id_empresa("Metal X S.R.L.", "Villa Gob. Gálvez") == "metal-x~villa-gob-galvez"
+    p = pd.DataFrame([{"razon_social": "Metal X SRL", "localidad": "Rosario", "categoria": "B", "puntaje": "7",
+                       "contacto_nombre": "Ana", "contacto_email": "ventas@metalx.com.ar", "contacto_telefono": "", "alerta": ""},
+                      {"razon_social": "Obras Y SA", "localidad": "Rosario", "categoria": "A", "puntaje": "10",
+                       "contacto_nombre": "", "contacto_email": "", "contacto_telefono": "", "alerta": "revisar tamaño"}])
+    d = tablero.datos(p)
+    assert [x["categoria"] for x in d] == ["A", "B"] and d[1]["carril"] == "listas" and d[0]["carril"] == "revisar"
+    assert d[1]["id"] == "metal-x~rosario"

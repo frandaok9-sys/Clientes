@@ -1,22 +1,39 @@
-"""Tablero visual de prospectos: divide las empresas por qué tan listas están para contactar."""
+"""Tablero de trabajo de prospectos: una lista ordenada por prioridad, detalle con acciones y estado por empresa.
+
+La página guarda el estado de cada contacto (pendiente, interesado, demo, baja...) en la base del artefacto
+publicado, compartida entre quienes lo abren. No envía nada: copia textos y arma el enlace de WhatsApp.
+"""
 
 from __future__ import annotations
 
 import html
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
 
-CARRILES = [
-    ("listas", "Decisor y canal", "Hay una persona con cargo y un email o teléfono publicado. Se contactan primero."),
-    ("generico", "Solo canal de la empresa", "Hay email o teléfono, pero no un decisor confirmado. Pedí por el dueño o el gerente."),
-    ("sin_canal", "Sin canal publicado", "No publican email ni teléfono. Llamá al conmutador o buscá el dato en la próxima ronda."),
-    ("revisar", "Revisar antes", "Hay una alerta de tamaño, rubro o situación. Decidí si se contactan."),
+from .limpieza import clave, nombre_normalizado, normalizar_telefono, vacio
+
+# Estados que se registran desde el tablero. Las claves coinciden con seguimiento.RESULTADOS.
+ESTADOS = [
+    ("pendiente", "Pendiente", "abierta"),
+    ("sin_respuesta", "Contactado, sin respuesta", "curso"),
+    ("volver_a_llamar", "Volver a llamar", "curso"),
+    ("interesado", "Interesado", "curso"),
+    ("demo_agendada", "Demo agendada", "ganada"),
+    ("no_interesado", "No interesado", "cerrada"),
+    ("numero_erroneo", "Número erróneo", "cerrada"),
+    ("figura_no_llame", "Figura en No Llame", "cerrada"),
+    ("baja", "Pidió la baja", "cerrada"),
 ]
+
+_ORDEN_CAT = {"A": 0, "B": 1, "C": 2}
+_ORDEN_CARRIL = {"listas": 0, "generico": 1, "revisar": 2, "sin_canal": 3}
 
 
 def carril(f: pd.Series) -> str:
+    """listas: decisor y canal | generico: solo canal | revisar: hay alerta | sin_canal: nada publicado."""
     if f.get("alerta"):
         return "revisar"
     canal = bool(f.get("contacto_email") or f.get("contacto_telefono"))
@@ -25,26 +42,54 @@ def carril(f: pd.Series) -> str:
     return "listas" if f.get("contacto_nombre") else "generico"
 
 
-def datos(df: pd.DataFrame) -> list[dict]:
-    df = df.fillna("")
+def id_empresa(razon_social: str, localidad: str) -> str:
+    """Identificador estable para la base del artefacto: solo letras, dígitos, «-» y «~»."""
+    n = nombre_normalizado(razon_social).replace(" ", "-") or "sin-nombre"
+    loc = re.sub(r"[^a-z0-9]+", "-", clave(localidad)).strip("-")
+    return f"{n}~{loc}" if loc else n
+
+
+def telefono_e164(texto: str) -> str:
+    """Primer número del campo, en E.164, sin las aclaraciones entre paréntesis. Vacío si no es válido."""
+    if vacio(texto):
+        return ""
+    limpio = re.sub(r"\([^)]*[A-Za-z][^)]*\)", " ", str(texto))
+    primero = re.split(r"\s*(?:/|\||\by\b|;)\s*", limpio)[0]
+    return normalizar_telefono(primero, "AR") or ""
+
+
+def datos(df: pd.DataFrame, entrega: pd.DataFrame | None = None) -> list[dict]:
+    df = df.fillna("").copy()
+    for col in ("localidad", "categoria", "puntaje", "contacto_nombre", "contacto_email", "contacto_telefono", "alerta"):
+        if col not in df.columns:
+            df[col] = ""
     df["carril"] = df.apply(carril, axis=1)
-    campos = ["razon_social", "nombre_corto", "localidad", "categoria", "rubro_coi", "plan_sugerido", "web",
-              "madurez_digital", "contacto_nombre", "contacto_cargo", "contacto_email", "contacto_telefono",
-              "otros_contactos", "empleados_aprox", "dato", "alerta", "nota", "borrador", "carril"]
-    if "puntaje" in df:
-        df["_p"] = pd.to_numeric(df["puntaje"], errors="coerce").fillna(0)
-    else:
-        df["_p"] = 0
-    df = df.sort_values(["categoria", "_p", "razon_social"], ascending=[True, False, True])
+    df["id"] = [id_empresa(r, l) for r, l in zip(df["razon_social"], df["localidad"])]
+    df["tel_e164"] = df["contacto_telefono"].map(telefono_e164)
+    df["provincia"] = ""
+    if entrega is not None and len(entrega):
+        e = entrega.fillna("")
+        mapa = dict(zip(e["razon_social"].map(nombre_normalizado), e.get("provincia", "")))
+        df["provincia"] = df["razon_social"].map(nombre_normalizado).map(mapa).fillna("")
+    df["_p"] = pd.to_numeric(df.get("puntaje", 0), errors="coerce").fillna(0)
+    df["_c"] = df["categoria"].map(_ORDEN_CAT).fillna(3)
+    df["_r"] = df["carril"].map(_ORDEN_CARRIL).fillna(4)
+    df = df.sort_values(["_c", "_r", "_p", "razon_social"], ascending=[True, True, False, True])
+    campos = ["id", "razon_social", "nombre_corto", "localidad", "provincia", "categoria", "puntaje", "rubro",
+              "rubro_coi", "plan_sugerido", "web", "madurez_digital", "contacto_nombre", "contacto_cargo",
+              "contacto_email", "contacto_telefono", "tel_e164", "otros_contactos", "empleados_aprox", "senales",
+              "dato", "alerta", "nota", "borrador", "fuente_enriquecimiento", "fecha_revision", "carril"]
     return [{c: str(f.get(c, "")) for c in campos} for _, f in df.iterrows()]
 
 
-def generar(csv: Path, salida: Path, titulo: str = "Prospectos COI") -> Path:
+def generar(csv: Path, salida: Path, titulo: str = "Prospectos COI", entrega_csv: Path | None = None) -> Path:
     df = pd.read_csv(csv, sep=";", dtype=str)
+    entrega = pd.read_csv(entrega_csv, sep=";", dtype=str) if entrega_csv and Path(entrega_csv).exists() else None
     plantilla = (Path(__file__).parent / "tablero.html").read_text(encoding="utf-8")
+    seguro = lambda o: json.dumps(o, ensure_ascii=False).replace("</", "<\\/")  # noqa: E731
     pagina = (plantilla.replace("__TITULO__", html.escape(titulo))
-              .replace("__CARRILES__", json.dumps(CARRILES, ensure_ascii=False))
-              .replace("__DATOS__", json.dumps(datos(df), ensure_ascii=False).replace("</", "<\\/")))
+              .replace("__ESTADOS__", seguro([{"clave": c, "etiqueta": e, "grupo": g} for c, e, g in ESTADOS]))
+              .replace("__DATOS__", seguro(datos(df, entrega))))
     salida.parent.mkdir(parents=True, exist_ok=True)
     salida.write_text(pagina, encoding="utf-8")
     return salida
