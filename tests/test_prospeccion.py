@@ -253,3 +253,21 @@ def test_tablero_datos():
     d = tablero.datos(p)
     assert [x["categoria"] for x in d] == ["A", "B"] and d[1]["carril"] == "listas" and d[0]["carril"] == "revisar"
     assert d[1]["id"] == "metal-x~rosario"
+
+
+def test_importar_estados_del_tablero(tmp_path):
+    df, _ = _procesar()
+    bajas = tmp_path / "bajas.csv"
+    with seguimiento.conectar(tmp_path / "t.db") as con:
+        seguimiento.guardar_empresas(cli.entrega(df), con)
+        filas = [{"razon_social": "Montajes del Sur SRL", "localidad": "San Juan", "estado": "baja", "canal": "email",
+                  "quien": "Fran", "fecha": "2026-09-28T10:00:00Z", "nota": "pidió no recibir más"},
+                 {"razon_social": "Tornería Precisión SA", "localidad": "Rosario", "estado": "demo_agendada", "canal": "whatsapp",
+                  "quien": "", "fecha": "2026-09-28T11:00:00Z", "nota": ""},
+                 {"razon_social": "Tornería Precisión SA", "localidad": "Rosario", "estado": "pendiente", "canal": "", "quien": "", "fecha": "", "nota": ""},
+                 {"razon_social": "No Existe SA", "localidad": "", "estado": "interesado", "canal": "", "quien": "", "fecha": "", "nota": ""}]
+        assert seguimiento.importar_estados(con, filas, bajas) == (2, 4)  # cuit, email, teléfono y dominio de Montajes
+        assert seguimiento.importar_estados(con, filas, bajas) == (0, 0)  # repetir no duplica
+        estados = dict(con.execute("SELECT razon_social, estado FROM empresas").fetchall())
+        assert estados["Montajes del Sur SRL"] == "baja" and estados["Tornería Precisión SA"] == "demo"
+    assert "30-71234567-1" in seguimiento.leer_bajas(bajas)

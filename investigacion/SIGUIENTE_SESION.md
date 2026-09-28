@@ -19,7 +19,14 @@ Estado al 2026-09-28 (tandas t2 a t8, rebúsquedas r1-r3 y pasadas rápidas q1-q
   verificar) separado del **verificado** (con URL y fecha), y el rubro con su estado: `verificado` (lo
   describió la investigación), `por nombre (sin verificar)` (palabras del nombre) o `sin dato`. Nada se deduce.
 - **Tablero publicado:** https://claude.ai/artifact/GWHPMBCqFmjVfFoLL8h3u5. Para actualizarlo desde
-  otra sesión, publicá pasando esa URL como `url` en la herramienta Artifact.
+  otra sesión, publicá pasando esa URL como `url` en la herramienta Artifact (leelo primero con `read`).
+  Desde 2026-09-28 es una lista de trabajo con estado por empresa, guardado en la base del artefacto
+  (capacidades `db` y `downloads`, colección `contactos`, un documento por empresa con `estado`, `quien`, `fecha`,
+  `nota`, `canal` e `historial`). **Antes de cada `todo`**, traé esos estados al repo: leé la colección con la
+  herramienta ArtifactData (`list` sobre `contactos`), escribí `datos/salida/estados_tablero.csv`
+  (`razon_social;localidad;categoria;estado;canal;quien;fecha;nota`) y corré `python -m prospeccion importar-estados`.
+  Las bajas y los «No Llame» quedan en `datos/bajas.csv` y `todo` los descarta para siempre. El usuario también
+  puede bajar ese CSV desde el botón «Exportar estados» de la página.
 
 ## Ciclo de una tanda (unas 96 empresas, 8 agentes de 12)
 ```bash

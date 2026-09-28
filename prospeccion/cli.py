@@ -278,6 +278,22 @@ def exportar(
 
 
 @app.command()
+def importar_estados(
+    archivo: Path = typer.Argument(RAIZ / "datos/salida/estados_tablero.csv", help="CSV exportado del tablero"),
+    config_path: Path = OpcionConfig,
+):
+    """Pasa al seguimiento los estados marcados en el tablero. Las bajas y los «No Llame» quedan en datos/bajas.csv para siempre."""
+    config = _config(config_path)
+    filas = pd.read_csv(archivo, sep=";", dtype=str, encoding="utf-8-sig").fillna("").to_dict("records")
+    with seguimiento.conectar(_db(config)) as con:
+        if not con.execute("SELECT name FROM sqlite_master WHERE name = 'empresas'").fetchone():
+            consola.print("[red]Primero corré 'todo' o 'procesar' para tener la lista de empresas.[/]")
+            raise typer.Exit(1)
+        nuevos, bajas = seguimiento.importar_estados(con, filas, _ruta(config, "bajas", "datos/bajas.csv"))
+    consola.print(f"Estados nuevos en el seguimiento: {nuevos} | bajas nuevas en datos/bajas.csv: {bajas}")
+
+
+@app.command()
 def tablero(
     archivo: Path = typer.Argument(RAIZ / "canal/respuestas/20260926-prospectos-AB.csv", help="CSV de prospectos"),
     salida: Path = typer.Option(RAIZ / "datos/salida/tablero.html", "--salida", "-o"),

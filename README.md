@@ -44,7 +44,8 @@ python -m prospeccion procesar datos/entrada/*.csv datos/entrada/*.xlsx --verifi
 #   datos/salida/entrega.csv  -> formato de la sección 8 (UTF-8, separador ;)
 #   datos/salida/resumen.md   -> filas, duplicados, A/B/C, descartes por motivo y top 3 rubros
 #   datos/salida/trabajo.xlsx -> Entrega | Borradores | Teléfono (chequear No Llame)
-python -m prospeccion tablero      # datos/salida/tablero.html: prospectos por carril (decisor y canal, solo canal, sin canal, revisar)
+python -m prospeccion tablero      # datos/salida/tablero.html: lista de trabajo por prioridad, ficha con acciones y estado por empresa
+python -m prospeccion importar-estados datos/salida/estados_tablero.csv   # estados marcados en el tablero -> seguimiento y bajas
 python -m prospeccion cola
 python -m prospeccion registrar 3 demo_agendada --nota "jueves 10h"
 python -m prospeccion registrar 5 baja          # queda en datos/bajas.csv para siempre
@@ -53,6 +54,16 @@ python -m prospeccion exportar
 ```
 Resultados posibles: `sin_respuesta`, `buzon`, `interesado`, `no_interesado`, `volver_a_llamar`,
 `demo_agendada`, `numero_erroneo`, `figura_no_llame`, `baja`.
+
+## Tablero de trabajo
+`tablero` arma una página con los prospectos investigados en una sola lista, ordenada por categoría (A, B, C) y
+por qué tan lista está cada empresa para contactar (decisor y canal, solo canal, con alerta, sin canal). La ficha
+de cada empresa trae el gancho, el decisor, el email y el teléfono con botón de copiar, el mensaje de primer
+contacto con «[tu nombre]» reemplazado por quien firma, el enlace a WhatsApp con el mensaje cargado, y un
+registro de qué pasó (pendiente, sin respuesta, volver a llamar, interesado, demo agendada, no interesado,
+número erróneo, figura en No Llame, pidió la baja). Publicada como artefacto, guarda esos estados en su base
+compartida; «Exportar estados (CSV)» los baja, y `importar-estados` los pasa al seguimiento y las bajas a
+`datos/bajas.csv`. La página no envía nada: copia textos y abre WhatsApp.
 
 ## Personalizar
 - `config.yaml`: rubros (palabras, dolor, solución, plan), puntajes, señales, descartes, clientes actuales, remitente.

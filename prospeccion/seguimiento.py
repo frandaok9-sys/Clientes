@@ -121,3 +121,50 @@ def cola(con: sqlite3.Connection, limite: int = 50) -> pd.DataFrame:
 def resumen(con: sqlite3.Connection) -> pd.DataFrame:
     return pd.read_sql_query(
         "SELECT categoria, estado, COUNT(*) AS empresas FROM empresas GROUP BY categoria, estado", con)
+
+
+# --- Estados registrados en el tablero publicado ----------------------------------------------
+
+def importar_estados(con: sqlite3.Connection, filas, ruta_bajas: str | Path | None = None) -> tuple[int, int]:
+    """Pasa al seguimiento los estados que se marcaron en el tablero (CSV exportado o base del artefacto).
+
+    Cada fila trae razon_social, localidad, estado, canal, quien, fecha y nota. Se une a la empresa por
+    nombre normalizado y localidad (o solo por nombre si no hay otra igual). Un estado ya cargado con la
+    misma fecha no se repite. «baja» y «figura_no_llame» van a datos/bajas.csv para siempre.
+    Devuelve (interacciones nuevas, bajas nuevas).
+    """
+    from .limpieza import nombre_normalizado
+    empresas = con.execute("SELECT id, razon_social, localidad, cuit, contacto_email, contacto_telefono, dominio_email FROM empresas").fetchall()
+    por_clave: dict[str, list] = {}
+    for e in empresas:
+        por_clave.setdefault(f"{nombre_normalizado(e[1])}|{clave(e[2])}", []).append(e)
+        por_clave.setdefault(nombre_normalizado(e[1]), []).append(e)
+    nuevos = bajas = 0
+    for f in filas:
+        estado = clave(f.get("estado"))
+        if estado not in RESULTADOS:
+            continue
+        candidatas = por_clave.get(f"{nombre_normalizado(f.get('razon_social'))}|{clave(f.get('localidad'))}") \
+            or por_clave.get(nombre_normalizado(f.get("razon_social"))) or []
+        if len({c[0] for c in candidatas}) != 1:
+            continue  # sin empresa o con homónimas: no se adivina
+        e = candidatas[0]
+        fecha = str(f.get("fecha") or datetime.now().isoformat(timespec="seconds"))[:19]
+        nota = " · ".join(x for x in (str(f.get("quien") or "").strip(), str(f.get("nota") or "").strip()) if x)
+        ya = con.execute("SELECT 1 FROM interacciones WHERE empresa_id = ? AND resultado = ? AND fecha = ?",
+                         (e[0], estado, fecha)).fetchone()
+        if ya:
+            continue
+        con.execute("INSERT INTO interacciones (empresa_id, fecha, canal, resultado, nota, proximo_paso) VALUES (?,?,?,?,?,?)",
+                    (e[0], fecha, str(f.get("canal") or "tablero"), estado, nota, ""))
+        con.execute("UPDATE empresas SET estado = ? WHERE id = ?", (_TRANSICION[estado], e[0]))
+        nuevos += 1
+        if ruta_bajas and estado == "baja":
+            existentes = leer_bajas(ruta_bajas)
+            for tipo, valor in zip(("cuit", "email", "telefono", "dominio"), e[3:7]):
+                if valor and clave(valor) not in existentes:
+                    agregar_baja(ruta_bajas, tipo, valor, nota or "baja desde el tablero"); bajas += 1
+        if ruta_bajas and estado == "figura_no_llame" and e[5] and clave(e[5]) not in leer_bajas(ruta_bajas):
+            agregar_baja(ruta_bajas, "telefono", e[5], "Registro No Llame"); bajas += 1
+    con.commit()
+    return nuevos, bajas
