@@ -1,6 +1,6 @@
 # Cómo seguir en una sesión nueva
 
-Estado al 2026-09-28 (tandas t2 a t7, rebúsquedas r1-r2 y pasadas rápidas q1-q2 hechas; las próximas son t8, r3 y q3). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
+Estado al 2026-09-28 (tandas t2 a t8, rebúsquedas r1-r2 y pasadas rápidas q1-q2 hechas; las próximas son r3, t9 y q3). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
 
 ## Dónde está todo
 - **Listas originales:** `datos/entrada/` (carteras RAI y AG-360 de F. Dabbene y 3 PDF de zonas).
@@ -9,7 +9,7 @@ Estado al 2026-09-28 (tandas t2 a t7, rebúsquedas r1-r2 y pasadas rápidas q1-q
   más, con decisor, canal, gancho (`dato`), `alerta`, `nota` y borrador. Es la fuente del tablero.
 - **Historial de rondas y descartes:** `canal/respuestas/20260926-1200-verificar-AB.md`.
 - **Revisión manual:** `datos/revisiones.csv` (`razon_social;decision;motivo`, decisión `mantener` o `descartar`).
-  Manda sobre las reglas automáticas y se sube a git. Usalo para los descartes que las reglas no toman (grupo
+  Manda sobre las reglas automáticas y se sube a git; la aplican `todo`/`procesar` y `sumar.py`. Usalo para los descartes que las reglas no toman (grupo
   grande, UTE, gomerías) y para revertir falsos descartes (p. ej. «tienda online» o una localidad que coincide
   con una marca grande).
 - **Tandas ya investigadas:** `investigacion/tandas/` (`tN_i.csv` = entrada, `tN_out*.csv` = salida
@@ -73,5 +73,6 @@ Después de sumar, revisá las alertas que las reglas no descartaron (grupo gran
 anotá las decisiones en `datos/revisiones.csv`.
 
 ## Qué queda
-Quedan unas 280 candidatas con rubro detectado en `candidatos_enriquecer.csv`. Después vienen unas
-6.700 sin rubro detectado, que conviene triar por nombre antes de gastar búsquedas.
+Quedan 174 candidatas con rubro detectado en `candidatos_enriquecer.csv` (tanda t9). Antes de lanzar una tanda,
+mirá la lista: la cola trae grandes y entes públicos que las reglas no toman; anotalos en `datos/revisiones.csv` y
+volvé a correr `todo` y `elegir_tanda.py`. Las 1.567 del triaje sin rubro siguen por la pasada rápida (q3, q4...).

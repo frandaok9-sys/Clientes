@@ -10,6 +10,7 @@ from investigacion.herramientas.comun import borrador
 S = "investigacion/tandas"  # CSV que devuelven los agentes
 DEST = "canal/respuestas/20260926-prospectos-AB.csv"
 cfg = yaml.safe_load(open("config.yaml"))
+revisiones = clasificacion.leer_revisiones("datos/revisiones.csv")  # decisiones humanas: mandan sobre las reglas
 
 
 nuevas = pd.concat([pd.read_csv(f, sep=";", dtype=str) for f in sorted(glob.glob(f"{S}/" + (sys.argv[1] if len(sys.argv) > 1 else "nueva_out0*.csv")))], ignore_index=True).fillna("")
@@ -17,7 +18,7 @@ orig = nuevas.copy()
 df = nuevas.rename(columns={"contacto_email": "email", "contacto_telefono": "telefono"})
 df = limpieza.mapear_columnas(df, cfg["columnas"])
 df = limpieza.limpiar(df, "AR")
-cal = clasificacion.calificar(df, cfg, set(), verificar_mx=False)
+cal = clasificacion.calificar(df, cfg, set(), verificar_mx=False, revisiones=revisiones)
 gratuitos = set(cfg["correo_gratuito"]); genericos = cfg["emails_genericos"]
 R = {r["nombre"]: r for r in cfg["rubros"]}; GEN = cfg["industrial_generico"]
 viejas = pd.read_csv(DEST, sep=";", dtype=str).fillna("")
