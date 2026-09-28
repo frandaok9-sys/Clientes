@@ -1,6 +1,6 @@
 # Cómo seguir en una sesión nueva
 
-Estado al 2026-09-28 (tandas t2 a t8, rebúsquedas r1-r2 y pasadas rápidas q1-q2 hechas; las próximas son r3, t9 y q3). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
+Estado al 2026-09-28 (tandas t2 a t8, rebúsquedas r1-r3 y pasadas rápidas q1-q2 hechas; las próximas son t9, q3 y r4). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
 
 ## Dónde está todo
 - **Listas originales:** `datos/entrada/` (carteras RAI y AG-360 de F. Dabbene y 3 PDF de zonas).
@@ -45,12 +45,14 @@ PYTHONPATH=. python investigacion/herramientas/elegir_tanda.py t8 96 8
 
 ## Rebúsqueda (segunda pasada a las investigadas con datos faltantes)
 ```bash
-PYTHONPATH=. python investigacion/herramientas/elegir_rebusca.py r3 96 8
+PYTHONPATH=. python investigacion/herramientas/elegir_rebusca.py r4 96 8
 ```
 Lanzá 8 agentes con: «Leé las instrucciones en investigacion/herramientas/instrucciones_rebusca.md y seguilas al
-pie de la letra. Entrada (con encabezado): investigacion/tandas/r3_i.csv. Salida: investigacion/tandas/r3_outi.csv».
-Después: `PYTHONPATH=. python investigacion/herramientas/completar.py "r3_out*.csv"`. Solo rellena vacíos con
-datos que traen URL; nunca pisa lo que ya estaba. Luego `todo`, `cartera`, tablero, commit.
+pie de la letra. Entrada (con encabezado): investigacion/tandas/r4_i.csv. Salida: investigacion/tandas/r4_outi.csv».
+Después: `PYTHONPATH=. python investigacion/herramientas/completar.py "r4_out*.csv"`. Solo rellena vacíos con
+datos que traen URL; nunca pisa lo que ya estaba. **Corrélo una sola vez por tanda:** una segunda corrida vuelve a
+pegar las notas de rebúsqueda. Luego `todo`, `cartera`, tablero, commit. Quedan 194 investigadas con algún dato
+faltante; las 7 que ya pasaron por r3 sin resultado no se repiten.
 
 ## Límites y reglas
 - **Red:** WebFetch está bloqueado para las webs de empresas y solo funciona WebSearch.
