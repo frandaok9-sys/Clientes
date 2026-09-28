@@ -72,6 +72,9 @@ python -m prospeccion cartera && python -m prospeccion tablero -o <scratchpad>/t
 - Pasada rápida q1 (48 empresas, sonnet, 12 por agente): 47 con rubro confirmado con URL, 14 con alerta
   (2 descartes por grupo grande), 7 B y 39 C al calificar. Costo ~84k tokens por agente de 12.
 - Los agentes sonnet respetan las fuentes pero meten «;» en las notas: los scripts de suma los reparan.
+- Pasada rápida q2 (240 empresas, sonnet, 30 por agente, 2026-09-28): 210 con rubro confirmado con URL (87 %),
+  109 con alerta, 39 descartadas por reglas y 11 a mano; 8 B y 182 C con rubro confirmado. Ningún agente usó fuentes
+  prohibidas ni metió «;». El criterio de «más del 40 % confirma» se cumple con margen: el triaje sirve.
 
 ## Qué mirar para decidir si el embudo funciona
 - Después del triaje: cuántas quedaron `industrial_objetivo` + `industrial_otro`. Si son más de 4.000, subir el

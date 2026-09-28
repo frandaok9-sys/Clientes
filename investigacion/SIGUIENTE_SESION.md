@@ -1,6 +1,6 @@
 # Cómo seguir en una sesión nueva
 
-Estado al 2026-09-27 (tandas t2 a t7 y rebúsquedas r1-r2 hechas; las próximas son t8 y r3). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
+Estado al 2026-09-28 (tandas t2 a t7, rebúsquedas r1-r2 y pasadas rápidas q1-q2 hechas; las próximas son t8, r3 y q3). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
 
 ## Dónde está todo
 - **Listas originales:** `datos/entrada/` (carteras RAI y AG-360 de F. Dabbene y 3 PDF de zonas).
@@ -8,6 +8,10 @@ Estado al 2026-09-27 (tandas t2 a t7 y rebúsquedas r1-r2 hechas; las próximas 
 - **Prospectos investigados:** `canal/respuestas/20260926-prospectos-AB.csv`. Tiene 396 empresas o
   más, con decisor, canal, gancho (`dato`), `alerta`, `nota` y borrador. Es la fuente del tablero.
 - **Historial de rondas y descartes:** `canal/respuestas/20260926-1200-verificar-AB.md`.
+- **Revisión manual:** `datos/revisiones.csv` (`razon_social;decision;motivo`, decisión `mantener` o `descartar`).
+  Manda sobre las reglas automáticas y se sube a git. Usalo para los descartes que las reglas no toman (grupo
+  grande, UTE, gomerías) y para revertir falsos descartes (p. ej. «tienda online» o una localidad que coincide
+  con una marca grande).
 - **Tandas ya investigadas:** `investigacion/tandas/` (`tN_i.csv` = entrada, `tN_out*.csv` = salida
   de los agentes). `elegir_tanda.py` las lee para no repetir empresas.
 - **Cartera unificada:** `datos/salida/cartera_unificada.csv` y `.xlsx` (`python -m prospeccion cartera`).
@@ -62,8 +66,11 @@ datos que traen URL; nunca pisa lo que ya estaba. Luego `todo`, `cartera`, table
 Leé `investigacion/ESTRATEGIA_16700.md`: embudo de 5 niveles (personas físicas afuera → triaje por nombre con
 haiku → pasada rápida de rubro con 2 búsquedas → investigación completa solo de las que encajan → rebúsqueda).
 Herramientas: `armar_triaje.py` / `sumar_triaje.py`, `elegir_rapida.py` / `sumar_rapida.py`.
-**El triaje ya está hecho** (`datos/entrada/triaje.csv`, 9.212 empresas). Lo que sigue es la pasada rápida:
-`elegir_rapida.py q2 240 8` (quedan 1.807), 8 agentes sonnet con `instrucciones_rapida.md`, `sumar_rapida.py "q2_out*.csv"`, `todo`, `cartera`.
+**El triaje ya está hecho** (`datos/entrada/triaje.csv` se regenera con `sumar_triaje.py` desde `investigacion/triaje/`,
+9.211 empresas). Pasadas rápidas hechas: q1 (48) y q2 (240). Lo que sigue: `elegir_rapida.py q3 240 8`
+(quedan 1.567), 8 agentes sonnet con `instrucciones_rapida.md`, `sumar_rapida.py "q3_out*.csv"`, `todo`, `cartera`.
+Después de sumar, revisá las alertas que las reglas no descartaron (grupo grande, UTE, «posible minorista») y
+anotá las decisiones en `datos/revisiones.csv`.
 
 ## Qué queda
 Quedan unas 280 candidatas con rubro detectado en `candidatos_enriquecer.csv`. Después vienen unas
