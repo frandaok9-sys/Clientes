@@ -23,7 +23,8 @@ manda el brief.
 - `canal/`: pedidos a la sesión local (con Chrome) y sus respuestas. Protocolo en `canal/PROTOCOLO.md`.
 - `prospeccion/`: limpieza, deduplicación, calificación, borradores y seguimiento.
 - `plantillas/`: borradores en voseo (brief, sección 9).
-- `datos/entrada/`: listas reales (no se suben a git). `datos/salida/`: resultados.
+- `datos/entrada/`: listas reales. Las tres carteras están en git a pedido del usuario (`git add -f`); cualquier
+  archivo nuevo ahí sigue ignorado, igual que `datos/salida/` (resultados) y `datos/bajas.csv`.
 
 ## Uso
 ```bash

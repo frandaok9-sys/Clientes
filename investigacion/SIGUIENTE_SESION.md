@@ -1,6 +1,107 @@
 # Cómo seguir en una sesión nueva
 
-Estado al 2026-09-28 (tandas t2 a t9, rebúsquedas r1-r3 y pasadas rápidas q1-q2 hechas; las próximas son q3, r4 y t10). Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
+Estado al 2026-09-28 por la noche: tandas t2 a t9, rebúsquedas r1-r3 y pasadas rápidas q1-q2 hechas; el
+tablero tiene 475 empresas; `todo` y `cartera` corridos sobre las carteras completas (17.660 empresas: 5 A,
+213 B, 500 descartadas). **La rama con el estado actual es `claude/exciting-shannon-5osp3h`** (las ramas
+`claude/adoring-faraday-ko05j5` y `claude/customer-classification-prospecting-uxgdbb` quedaron atrás).
+Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
+
+**Desde el 28-09 el trabajo sigue en la sesión local** (Claude Code en la computadora del usuario, con
+Claude in Chrome). La sección siguiente es para esa sesión; el resto del documento describe el ciclo tal
+como se corría en la nube y sigue valiendo, con las diferencias que se marcan.
+
+## Para la sesión local (Windows, Claude in Chrome)
+
+### Qué cambia respecto de la nube
+- **Podés abrir las páginas.** En la nube la red bloqueaba las webs de empresas y LinkedIn, y todo salió de
+  resúmenes de buscador («según buscador» en las notas). Acá abrí la web real, su página de contacto y la
+  página pública de LinkedIn de la empresa. Los archivos `investigacion/herramientas/instrucciones_*.md`
+  dicen «solo WebSearch, WebFetch bloqueado» por ese proxy: **acá WebFetch y Chrome están permitidos**; el
+  resto de esas instrucciones (fuentes válidas, columnas, tope de búsquedas, nada de ZoomInfo/RocketReach/
+  ContactOut, no inventar) se mantiene igual.
+- **Chrome lo maneja la conversación principal**, no los subagentes. Repartí las tandas entre subagentes con
+  WebSearch y WebFetch, y usá Chrome vos para lo que WebFetch no pueda leer (LinkedIn, páginas con JavaScript).
+- **Solo lectura:** no iniciar sesión en sitios nuevos, no pasar captchas, no escribir en formularios, no
+  contactar a nadie, no seguir ni conectar en LinkedIn (reglas de `canal/PROTOCOLO.md`).
+- **Ritmo prudente** en webs y LinkedIn: de a una pestaña, sin abrir decenas a la vez.
+
+### Puesta en marcha
+```powershell
+git fetch origin
+git checkout claude/exciting-shannon-5osp3h
+git pull
+python -m venv .venv
+.venv\Scripts\activate            # en Linux/Mac: source .venv/bin/activate
+pip install -r requirements.txt
+python -m pytest -q                 # 18 tests
+$env:PYTHONPATH = "."               # en cmd: set PYTHONPATH=.   | en Linux/Mac: export PYTHONPATH=.
+python investigacion/herramientas/sumar_triaje.py     # regenera datos/entrada/triaje.csv (no está en git)
+python -m prospeccion todo
+python -m prospeccion cartera
+```
+`todo` tarda uno o dos minutos (chequea los registros MX de unos 2.000 dominios). Deja `datos/salida/entrega.csv`,
+`trabajo.xlsx`, `resumen.md`, `candidatos_enriquecer.csv` y `cartera_unificada.csv/.xlsx`; nada de eso se sube a git.
+
+### Antes de cada `todo`: traer los estados del tablero
+El tablero publicado (https://claude.ai/artifact/GWHPMBCqFmjVfFoLL8h3u5) guarda en su base qué pasó con cada
+contacto. Para que el seguimiento y las bajas lo reflejen:
+1. En la página, botón **«Exportar estados (CSV)»** y guardalo como `datos/salida/estados_tablero.csv`
+   (columnas `razon_social;localidad;categoria;estado;canal;quien;fecha;nota`). Si la sesión tiene la
+   herramienta ArtifactData, también podés leer la colección `contactos` de ese artefacto y escribir el CSV vos.
+2. `python -m prospeccion importar-estados` (después de un `todo`, porque necesita la lista de empresas).
+   Las bajas y los «No Llame» quedan en `datos/bajas.csv` para siempre. Al 28-09 a la noche la base estaba vacía.
+
+### Qué hacer, en orden de rendimiento
+1. **Revisar las 119 «a revisar» del tablero** (alerta cargada por los agentes: grupo grande, posible minorista,
+   homónimo, dato viejo). Abrí la web y decidí. Lo que se descarte o se rescate va a `datos/revisiones.csv`
+   (`razon_social;decision;motivo`, decisión `mantener` o `descartar`), que manda sobre las reglas. Después `todo`.
+2. **Rebúsqueda r4:** 194 investigadas sin decisor o sin canal (7 ya pasaron por r3 sin resultado y el selector
+   las saltea). Acá rinde mucho más que en la nube porque podés abrir «Contacto» y LinkedIn.
+   ```powershell
+   python investigacion/herramientas/elegir_rebusca.py r4 96 8      # investigacion/tandas/r4_1.csv ... r4_8.csv
+   ```
+   Un subagente por archivo: «Leé `investigacion/herramientas/instrucciones_rebusca.md` y seguilas al pie de la
+   letra; además podés abrir las webs con WebFetch. Entrada (con encabezado): `investigacion/tandas/r4_i.csv`.
+   Salida: `investigacion/tandas/r4_outi.csv`». Lo que los subagentes no pudieron leer, abrilo vos con Chrome y
+   completá la fila. Después, **una sola vez por tanda**:
+   ```powershell
+   python investigacion/herramientas/completar.py "r4_out*.csv"     # solo rellena vacíos con datos que traen URL
+   ```
+3. **Pasada rápida q3** (nivel 3 del embudo): quedan 1.567 del triaje sin rubro confirmado.
+   ```powershell
+   python investigacion/herramientas/elegir_rapida.py q3 240 8      # q3_1.csv ... q3_8.csv
+   ```
+   Subagentes con `instrucciones_rapida.md` (2 búsquedas o una visita a la web por empresa; acá abrir la
+   web cuenta como la búsqueda que confirma). Luego `sumar_rapida.py "q3_out*.csv"`, `todo`, y anotá en
+   `datos/revisiones.csv` las alertas que las reglas no toman. Repetir con q4, q5... hasta agotar.
+4. **Tanda t10** (investigación completa): 126 candidatas con rubro detectado, casi todas de la cartera RAI sin
+   localidad. En la nube dos de cada tres no se pudieron identificar; con Chrome se puede probar mejor
+   (`elegir_tanda.py t10 96 8`, `instrucciones_agente.md`, `sumar.py "t10_out*.csv"`). Antes de lanzarla mirá la
+   lista y sacá grandes y entes públicos en `datos/revisiones.csv`.
+5. **NotebookLM** (`investigacion/pedido-notebooklm.md`): sigue pendiente desde el 25-09. Hace falta darle a la
+   extensión de Chrome permiso sobre `notebooklm.google.com`. La respuesta va en `investigacion/notebooklm.md`.
+
+### Cierre de cada ronda
+```powershell
+python -m prospeccion todo
+python -m prospeccion cartera
+python -m prospeccion tablero -o datos/salida/tablero.html
+```
+- **Publicar el tablero:** si la sesión tiene la herramienta Artifact, leé primero el artefacto publicado
+  (`read` con la URL de arriba) y republicá `datos/salida/tablero.html` pasando esa misma `url`, para no perder
+  los estados guardados. Si no la tiene, pedile a una sesión en la nube que lo publique: abrir el HTML como
+  archivo local funciona para mirar, pero ahí los estados no se guardan.
+- Anotá la ronda en `canal/respuestas/20260926-1200-verificar-AB.md` (es el historial), y hacé commit y push a
+  `claude/exciting-shannon-5osp3h`. Entran a git las salidas de los agentes (`investigacion/tandas/`), el CSV de
+  prospectos, `datos/revisiones.csv` y las notas; **no** entran `datos/salida/`, `datos/bajas.csv` ni
+  `datos/entrada/triaje.csv` (ignorados).
+
+### Reglas que no cambian
+Nunca inventar ni deducir emails, teléfonos ni nombres: sin URL, vacío. Del Boletín Oficial solo nombre y cargo.
+Nada de ZoomInfo, RocketReach, ContactOut, Lusha ni Apollo. Todo teléfono lleva `verificar_no_llame = sí`. Todo
+borrador identifica a COI y termina con la línea de baja; una baja no se borra nunca. No se envía nada desde acá.
+**Falta definir** el remitente de los borradores: hoy sale «[tu nombre]» (`config.yaml` → `oferta.remitente`).
+
 
 ## Dónde está todo
 - **Listas originales:** `datos/entrada/` (carteras RAI y AG-360 de F. Dabbene y 3 PDF de zonas).

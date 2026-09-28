@@ -2,7 +2,11 @@
 
 La sesión **cloud** trabaja sin navegador. La sesión **local** corre en la computadora del
 usuario y tiene Claude in Chrome (NotebookLM, webs de empresas, LinkedIn). Se comunican solo
-por archivos de este repo, en la rama `claude/customer-classification-prospecting-uxgdbb`.
+por archivos de este repo, en la rama `claude/exciting-shannon-5osp3h` (la que tiene el estado
+actual; `claude/customer-classification-prospecting-uxgdbb` quedó atrás).
+
+> Desde el 28-09 la sesión local es la que sigue el trabajo: las instrucciones están en
+> `investigacion/SIGUIENTE_SESION.md`. Este canal queda para pedidos puntuales entre sesiones.
 
 ## Quién escribe qué
 | Carpeta / archivo | Escribe | Lee |
