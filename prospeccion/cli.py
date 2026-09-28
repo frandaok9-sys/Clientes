@@ -10,7 +10,7 @@ import yaml
 from rich.console import Console
 from rich.table import Table
 
-from . import clasificacion, fichas, importar, limpieza, mensajes, seguimiento
+from . import cartera as cartera_mod, clasificacion, fichas, importar, limpieza, mensajes, seguimiento, tablero as tablero_mod
 
 app = typer.Typer(help="Limpia, califica y prepara la prospección de empresas para COI.", no_args_is_help=True)
 consola = Console()
@@ -22,7 +22,7 @@ COLUMNAS_ENTREGA = [
     "usa_google_workspace", "empleados_aprox", "usuarios_probables", "señales", "puntaje", "categoria",
     "motivo_descarte", "plan_sugerido", "contacto_nombre", "contacto_cargo", "contacto_email", "email_estado",
     "contacto_telefono", "verificar_no_llame", "angulo_primer_contacto", "fuente", "fecha_revision",
-    "requiere_dominio", "fuente_enriquecimiento",
+    "requiere_dominio", "madurez_digital", "fuente_enriquecimiento",
 ]
 
 
@@ -85,6 +85,11 @@ def texto_resumen(total: int, sin_datos: int, duplicados: int, df: pd.DataFrame)
         detalle = descartes[descartes.str.startswith(motivo)].str.extract(r"\((.*)\)$")[0].dropna().value_counts()
         ejemplos = f" (p. ej. {', '.join(detalle.index[:5])})" if len(detalle) else ""
         lineas.append(f"  - {motivo}: {n}{ejemplos}")
+    if "madurez_digital" in df:
+        activas = df[df["categoria"] != "Descartada"]
+        md = activas["madurez_digital"].value_counts()
+        lineas.append(f"- Madurez digital (sin descartadas): alta {md.get('alta', 0)} | media {md.get('media', 0)} | "
+                      f"baja {md.get('baja', 0)} (baja = la fuente no trae web ni correo propio; se prospectan por teléfono)")
     top = df.loc[df["categoria"] == "A", "rubro_coi"].value_counts().head(3)
     lineas.append("- Rubros con más A: " + (", ".join(f"{r} ({n})" for r, n in top.items()) or "ninguno"))
     return "\n".join(lineas)
@@ -182,6 +187,13 @@ def procesar(
         proximas[~proximas["razon_social"].isin(investigadas)][
             ["razon_social", "localidad", "provincia", "dominio_email", "rubro_coi", "triaje", "puntaje", "fuente"]
         ].to_excel(xw, sheet_name="Próximas a investigar", index=False)
+        # Poco digitalizadas: sin web o sin correo propio. No se descartan: el ángulo es dejar papel y planillas
+        poco = final[(final["categoria"] != "Descartada") & (final["madurez_digital"] != "alta")
+                     & (final["rubro_coi"].notna() | final["categoria"].isin(["A", "B"]))]
+        poco.sort_values(["madurez_digital", "puntaje"], ascending=[True, False])[
+            ["madurez_digital", "categoria", "puntaje", "razon_social", "rubro_coi", "localidad", "provincia", "web",
+             "email", "telefono", "verificar_no_llame", "contacto_nombre", "fuente"]
+        ].to_excel(xw, sheet_name="Poco digitalizadas", index=False)
         borradores[borradores["contacto_telefono"].notna()][
             ["categoria", "razon_social", "contacto_nombre", "contacto_telefono", "verificar_no_llame",
              "enlace_whatsapp", "guion_llamada"]].to_excel(xw, sheet_name="Telefono (chequear No Llame)", index=False)
@@ -263,6 +275,48 @@ def exportar(
         empresas.to_excel(xw, sheet_name="Empresas", index=False)
         historial.to_excel(xw, sheet_name="Contactos", index=False)
     consola.print(f"[green]Exportado:[/] {archivo}")
+
+
+@app.command()
+def importar_estados(
+    archivo: Path = typer.Argument(RAIZ / "datos/salida/estados_tablero.csv", help="CSV exportado del tablero"),
+    config_path: Path = OpcionConfig,
+):
+    """Pasa al seguimiento los estados marcados en el tablero. Las bajas y los «No Llame» quedan en datos/bajas.csv para siempre."""
+    config = _config(config_path)
+    filas = pd.read_csv(archivo, sep=";", dtype=str, encoding="utf-8-sig").fillna("").to_dict("records")
+    with seguimiento.conectar(_db(config)) as con:
+        if not con.execute("SELECT name FROM sqlite_master WHERE name = 'empresas'").fetchone():
+            consola.print("[red]Primero corré 'todo' o 'procesar' para tener la lista de empresas.[/]")
+            raise typer.Exit(1)
+        nuevos, bajas = seguimiento.importar_estados(con, filas, _ruta(config, "bajas", "datos/bajas.csv"))
+    consola.print(f"Estados nuevos en el seguimiento: {nuevos} | bajas nuevas en datos/bajas.csv: {bajas}")
+
+
+@app.command()
+def tablero(
+    archivo: Path = typer.Argument(RAIZ / "canal/respuestas/20260926-prospectos-AB.csv", help="CSV de prospectos"),
+    salida: Path = typer.Option(RAIZ / "datos/salida/tablero.html", "--salida", "-o"),
+):
+    """Arma el tablero HTML de trabajo: lista por prioridad, ficha con acciones y estado de cada contacto."""
+    consola.print(f"[green]Tablero:[/] {tablero_mod.generar(archivo, salida, entrega_csv=RAIZ / 'datos/salida/entrega.csv')}")
+
+
+@app.command()
+def cartera(
+    prospectos: Path = typer.Option(RAIZ / "canal/respuestas/20260926-prospectos-AB.csv", "--prospectos"),
+    salida: Path = typer.Option(RAIZ / "datos/salida/cartera_unificada.csv", "--salida", "-o"),
+    config_path: Path = OpcionConfig,
+):
+    """Cartera unificada: una fila por empresa, rubro con su estado y contacto de origen separado del verificado."""
+    config = _config(config_path)
+    df = cartera_mod.generar(RAIZ / "datos/salida/entrega.csv", prospectos, RAIZ / "datos/entrada",
+                             RAIZ / "investigacion/tandas", salida, salida.with_suffix(".xlsx"), config.get("columnas", {}))
+    consola.print(f"[green]Cartera:[/] {salida} ({len(df)} empresas)")
+    consola.print("Estado: " + ", ".join(f"{n} {v}" for v, n in df["estado_investigacion"].value_counts().items()))
+    consola.print("Rubro: " + ", ".join(f"{n} {v}" for v, n in df["rubro_estado"].value_counts().items()))
+    consola.print(f"Decisor verificado: {(df['decisor_nombre'] != '').sum()} | canal verificado: "
+                  f"{((df['email_verificado'] != '') | (df['telefono_verificado'] != '')).sum()}")
 
 
 if __name__ == "__main__":

@@ -49,6 +49,18 @@ def dominio_email(fila: pd.Series, gratuitos: set[str]) -> tuple[str | None, boo
     return None, False
 
 
+def madurez_digital(fila: pd.Series, gratuitos: set[str]) -> str:
+    """alta: web y correo de dominio propio | media: solo una de las dos | baja: ninguna.
+
+    Sin web ni dominio no es descarte: suele ser una empresa que todavía se maneja con papel,
+    planillas y WhatsApp, y se prospecta por teléfono.
+    """
+    web = not vacio(fila.get("web"))
+    email = fila.get("email")
+    correo_propio = not vacio(email) and str(email).split("@")[-1] not in gratuitos
+    return {2: "alta", 1: "media", 0: "baja"}[web + correo_propio]
+
+
 def usa_google_workspace(dominio: str, cache: dict) -> str:
     """'sí' / 'no' / 'sin verificar' según los registros MX del dominio."""
     if dominio in cache:
@@ -259,9 +271,13 @@ def calificar(df: pd.DataFrame, config: dict, bajas: set[str] | None = None,
             for dom, res in zip(dominios, ex.map(lambda d: usa_google_workspace(d, {}), dominios)):
                 cache[dom] = res
     extra = pd.DataFrame([calificar_fila(f, config, bajas or set(), cache, revisiones) for _, f in df.iterrows()])
+    # Una lista ya calificada (p. ej. prospectos del canal) trae estas columnas: se recalculan
+    df = df.drop(columns=[c for c in extra.columns if c in df.columns])
     df = pd.concat([df.reset_index(drop=True), extra], axis=1)
     genericos = set(config.get("emails_genericos", []))
     df["email_estado"] = df.apply(lambda f: estado_email(f, genericos), axis=1)
+    gratuitos = set(config.get("correo_gratuito", []))
+    df["madurez_digital"] = df.apply(lambda f: madurez_digital(f, gratuitos), axis=1)
     df["verificar_no_llame"] = df["telefono"].apply(lambda t: "sí" if not vacio(t) else pd.NA)
     df["fecha_revision"] = date.today().isoformat()
     df["prioridad_enriquecimiento"] = df.apply(prioridad_enriquecimiento, axis=1)
