@@ -50,3 +50,4 @@ Buscar la página de empresa (`/search/results/companies/?keywords=`) y su pesta
 - Innovatech Industrias S.A.S. (ar.linkedin.com/company/innovatech-arg): empleados; si son menos de 10, queda como C - chico.
 - Tanger Ingenieria S.A. (Rafaela): empleados (un directorio dice 1-10).
 - Rodamientos Brasil: empleados.
+- HIDROCARBUROS ARGENTINOS S.A. (HASA, hasa-arg.com): empleados; los agregadores dicen 500 o más, así que si se confirma queda descartada (t10).

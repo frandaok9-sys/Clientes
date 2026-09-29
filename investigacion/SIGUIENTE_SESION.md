@@ -10,6 +10,22 @@ Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
 Claude in Chrome). La sección siguiente es para esa sesión; el resto del documento describe el ciclo tal
 como se corría en la nube y sigue valiendo, con las diferencias que se marcan.
 
+## Estado al 2026-09-29 (sesión local)
+La duodécima ronda está hecha (ver el historial en `canal/respuestas/20260926-1200-verificar-AB.md`): se
+verificaron las 23 A/B, se resolvieron 53 alertas y corrieron q3, r4 y t10. El tablero tiene 475 empresas y
+238 listas; la entrega, 7 A y 206 B. La cloud se quedó sin tokens: el trabajo sigue solo en la sesión local.
+- **Nuevo:** `elegir_ab.py` elige las A/B de la entrega sin investigación completa (las que confirma la pasada
+  rápida). `elegir_tanda.py` las salteaba. `sumar_revision.py` aplica las salidas de `instrucciones_revision.md`,
+  que resuelven alertas del tablero.
+- **Decisiones del usuario (29-09):** las constructoras (obra civil, vial, pública y de edificios) entran como
+  prospecto, y también los fabricantes que venden a cadenas (Crivel).
+- **Ritmo pedido por el usuario:** 3 agentes a la vez; WebFetch de a una página y como máximo 3 por sitio;
+  LinkedIn solo desde la sesión principal, con 10-15 s entre páginas y unas 30 páginas por día.
+- **Próximo:**
+  1. LinkedIn con `investigacion/pendientes_linkedin.md` (39 B sin decisor o sin canal y 5 tamaños por confirmar).
+  2. Más pasadas rápidas (q4 y siguientes, quedan unas 1.476).
+  3. Cada vez que una pasada deje B nuevas, `elegir_ab.py` y su tanda t.
+
 ## Para la sesión local (Windows, Claude in Chrome)
 
 ### Qué cambia respecto de la nube
