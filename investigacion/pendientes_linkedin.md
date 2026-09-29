@@ -1,6 +1,6 @@
 # Pendientes para LinkedIn (sesión principal, con pausas de 10-15 s y como máximo ~30 páginas por día)
 
-Actualizado el 29-09 a la noche. A/B a las que les falta decisor o canal, o que tienen una alerta que LinkedIn puede
+Actualizado el 29-09 a la noche (después de la ronda 15). A/B a las que les falta decisor o canal, o que tienen una alerta que LinkedIn puede
 resolver (tamaño, decisor vigente, identidad). Unas 2 páginas por empresa: búsqueda + pestaña «Personas».
 
 Buscar la página de empresa (`/search/results/companies/?keywords=`) y su pestaña «Personas» filtrada por
@@ -10,8 +10,10 @@ Buscar la página de empresa (`/search/results/companies/?keywords=`) y su pesta
 |---|---|---|---|---|---|
 | B | V M C Refrigeracion Sa | Rafaela | - | Unos 200 empleados según la entrevista DAT (Oferta Exportable indica 3 | vmc.com.ar |
 | B | Crosetto Ingenieria S.A. | Reconquista | - | Revisar tamaño: más de 80 centros logísticos automatizados construidos | crosetto.com.ar |
-| B | Innovatech Industrias S.A.S. |  | - | Empresa chica (S.A.S. de 2017, sede en Belgrano 4189 CABA): revisar si | innovatech-arg.com.ar |
+| B | Accesorios Industriales S.R.L. | San Lorenzo | - | Decisor en duda: el BO Santa Fe del 08-10-2015 nombra socio gerente a  | accesoriosindustrialessrl.com |
 | B | Flowtex Hdd Sa |  | canal | Tamaño sin confirmar: obras de gran porte en energía, revisar antes de | flowtexhdd.com.ar |
+| B | Montajes Industriales Srl | Los Laureles | canal | Sin web, sin teléfono y sin fuente posterior a 2008: confirmar que sig |  |
+| B | Metalurgica Bauducco S.R.L. | San Vicente | canal | Sin señales fechadas de actividad posterior a la constitución de 2012  |  |
 | B | Metalurgica Miranda Srl | Arteaga | canal | Revisar: en 2026 aparece en el BO Santa Fe una Miranda Servicios Metal |  |
 | B | MONTAJES VAZQUEZ S.R.L. |  | canal | Revisar: el BO 2025 la muestra como sociedad con directorio (president |  |
 | B | L & L Construcciones S.R.L. | Rosario Sud | canal | Revisar: decisor de edicto de 2007 (dato viejo). posible homónimo |  |
@@ -19,14 +21,10 @@ Buscar la página de empresa (`/search/results/companies/?keywords=`) y su pesta
 | B | J L Electromecanica S.R.L. | La Rioja | canal |  |  |
 | B | S & G Metalurgica Y Construccion S. R. L. | Reconquista | canal |  |  |
 | B | Talleres Montreal S.R.L. | San Lorenzo | canal |  | talleresmontreal.com.ar |
-| B | Metalurgica Bauducco S.R.L. | San Vicente | canal |  |  |
-| B | Montajes Industriales Srl | Los Laureles | canal |  |  |
 | B | Sg Montajes S.R.L. | Puerto General San Martin | canal |  |  |
 | B | Montajes Inteco S.R.L. | Capitan Bermudez | canal |  |  |
 | B | Metalurgica Serintar S. R. L. | Villa Constitucion | canal |  |  |
-| B | Tft Servicios De Ingenieria S R L | San Rafael | canal |  | tftingenieria.com |
 | B | Mem Ingenieria S.A. | Monte Vera | canal |  | memingenieria.com.ar |
-| B | Mangialardi Hermanos Vial Constructora S.R.L. | Rosario Norte | canal |  | mangialardi.com.ar |
 | B | Aranami Industrial S.A. | Fighiera | canal |  | aranamindustrial.com |
 | B | Avanz Ingenieria S.R.L. | Rosario Sud | canal |  | avanzingenieria.com |
 | B | Talleres Gan Mar S R L | Frontera | decisor |  | ganmar.com.ar |

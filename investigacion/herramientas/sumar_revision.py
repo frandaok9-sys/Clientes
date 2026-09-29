@@ -66,6 +66,8 @@ for _, s in salidas.iterrows():
                          ("empleados", "empleados_aprox")]:
         if s[col_s]:
             p.at[i, col_p] = s[col_s]
+    if p.at[i, "contacto_telefono"]:
+        p.at[i, "verificar_no_llame"] = "sí"  # Registro «No Llame» (Ley 26.951)
     sumar(i, "nota", s["nota"])
 
 if fuera:
