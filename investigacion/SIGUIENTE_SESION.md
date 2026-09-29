@@ -21,10 +21,13 @@ verificaron las 23 A/B, se resolvieron 53 alertas y corrieron q3, r4 y t10. El t
   prospecto, y también los fabricantes que venden a cadenas (Crivel).
 - **Ritmo pedido por el usuario:** 3 agentes a la vez; WebFetch de a una página y como máximo 3 por sitio;
   LinkedIn solo desde la sesión principal, con 10-15 s entre páginas y unas 30 páginas por día.
+- **Pasadas rápidas q4 a q10 hechas (29-09).** El rendimiento de B cayó de ~12 % (q4-q5) a ~2,5 % (q7-q10).
+  **El usuario decidió frenarlas** y dejar contactables las B que ya hay. Quedan unas 1.176
+  «industrial_otro» y 4.523 «indeterminado» sin pasar; no se retoman sin que el usuario lo pida.
 - **Próximo:**
-  1. LinkedIn con `investigacion/pendientes_linkedin.md` (39 B sin decisor o sin canal y 5 tamaños por confirmar).
-  2. Más pasadas rápidas (q4 y siguientes, quedan unas 1.476).
-  3. Cada vez que una pasada deje B nuevas, `elegir_ab.py` y su tanda t.
+  1. LinkedIn con `investigacion/pendientes_linkedin.md`: B sin decisor o sin canal y tamaños por confirmar.
+     Como máximo unas 30 páginas por día.
+  2. Resolver las B con alerta que siguen en duda y mantener el tablero publicado al día.
 
 ## Para la sesión local (Windows, Claude in Chrome)
 
