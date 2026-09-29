@@ -9,7 +9,7 @@ from prospeccion import clasificacion, limpieza, mensajes
 from investigacion.herramientas.comun import borrador
 S = "investigacion/tandas"  # CSV que devuelven los agentes
 DEST = "canal/respuestas/20260926-prospectos-AB.csv"
-cfg = yaml.safe_load(open("config.yaml"))
+cfg = yaml.safe_load(open("config.yaml", encoding="utf-8"))
 revisiones = clasificacion.leer_revisiones("datos/revisiones.csv")  # decisiones humanas: mandan sobre las reglas
 
 

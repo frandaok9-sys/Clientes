@@ -11,9 +11,13 @@ Claude in Chrome). La sección siguiente es para esa sesión; el resto del docum
 como se corría en la nube y sigue valiendo, con las diferencias que se marcan.
 
 ## Estado al 2026-09-29 (sesión local)
-La duodécima ronda está hecha (ver el historial en `canal/respuestas/20260926-1200-verificar-AB.md`): se
-verificaron las 23 A/B, se resolvieron 53 alertas y corrieron q3, r4 y t10. El tablero tiene 475 empresas y
-238 listas; la entrega, 7 A y 206 B. La cloud se quedó sin tokens: el trabajo sigue solo en la sesión local.
+Las rondas 12 a 14 están hechas (ver el historial en `canal/respuestas/20260926-1200-verificar-AB.md`). El
+tablero tiene 496 empresas y 261 listas (172 de las 231 A/B); la entrega, 8 A y 224 B. La cloud se quedó sin
+tokens: el trabajo sigue solo en la sesión local.
+- **Todas las A/B con alerta pasaron por una revisión web** (alerta1 y alerta2) y todas las A/B sin decisor o sin
+  canal por una rebúsqueda (r1 a r5). Lo que falta ya no sale de webs: queda para LinkedIn.
+- **Codificación:** los scripts que leen `config.yaml` tienen que abrirlo con `encoding="utf-8"`; en Windows,
+  sin eso, los borradores salen con las tildes rotas.
 - **Nuevo:** `elegir_ab.py` elige las A/B de la entrega sin investigación completa (las que confirma la pasada
   rápida). `elegir_tanda.py` las salteaba. `sumar_revision.py` aplica las salidas de `instrucciones_revision.md`,
   que resuelven alertas del tablero.

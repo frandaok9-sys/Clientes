@@ -17,7 +17,7 @@ from prospeccion.limpieza import nombre_normalizado
 tam = int(sys.argv[1]) if len(sys.argv) > 1 else 250
 T = Path("investigacion/triaje")
 T.mkdir(parents=True, exist_ok=True)
-gratuitos = set(yaml.safe_load(open("config.yaml"))["correo_gratuito"])
+gratuitos = set(yaml.safe_load(open("config.yaml", encoding="utf-8"))["correo_gratuito"])
 c = pd.read_csv("datos/salida/cartera_unificada.csv", sep=";", dtype=str).fillna("")
 ya = set()
 ruta_triaje = Path("datos/entrada/triaje.csv")

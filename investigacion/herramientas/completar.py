@@ -15,7 +15,7 @@ from prospeccion.limpieza import nombre_normalizado
 S = "investigacion/tandas"
 DEST = "canal/respuestas/20260926-prospectos-AB.csv"
 CAMPOS = ["contacto_nombre", "contacto_cargo", "contacto_email", "contacto_telefono", "otros_contactos"]
-cfg = yaml.safe_load(open("config.yaml"))
+cfg = yaml.safe_load(open("config.yaml", encoding="utf-8"))
 R = {r["nombre"]: r for r in cfg["rubros"]}
 GEN = cfg["industrial_generico"]
 gratuitos = set(cfg["correo_gratuito"])
