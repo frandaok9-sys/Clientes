@@ -11,8 +11,8 @@ Claude in Chrome). La sección siguiente es para esa sesión; el resto del docum
 como se corría en la nube y sigue valiendo, con las diferencias que se marcan.
 
 ## Estado al 2026-09-29 (sesión local)
-Las rondas 12 a 15 están hechas (ver el historial en `canal/respuestas/20260926-1200-verificar-AB.md`). El
-tablero tiene 496 empresas y 263 listas (174 de las 231 A/B); la entrega, 8 A y 224 B. La cloud se quedó sin
+Las rondas 12 a 16 están hechas (ver el historial en `canal/respuestas/20260926-1200-verificar-AB.md`). El
+tablero tiene 495 empresas y 276 listas (185 de las 228 A/B); la entrega, 11 A y 218 B. La cloud se quedó sin
 tokens: el trabajo sigue solo en la sesión local.
 - **Todas las A/B con alerta pasaron por una revisión web** (alerta1 y alerta2) y todas las A/B sin decisor o sin
   canal por una rebúsqueda (r1 a r5). Lo que falta ya no sale de webs: queda para LinkedIn.
@@ -20,7 +20,10 @@ tokens: el trabajo sigue solo en la sesión local.
   sin eso, los borradores salen con las tildes rotas.
 - **Antes de republicar el tablero**, correr `investigacion/herramientas/control_calidad.py`. Revisa emails que
   rebotarían, teléfonos sin «No Llame», borradores sin COI o sin baja, y decisores con dato viejo.
-- Rondas 12 a 15 hechas. El tablero tiene 263 empresas listas (174 de las 231 A/B).
+- Rondas 12 a 16 hechas. El tablero tiene 276 empresas listas (185 de las 228 A/B).
+- **LinkedIn, una página por empresa:** sacar el slug con WebSearch (`site:linkedin.com/company "<nombre>"`) y
+  abrir solo `/company/<slug>/people/?keywords=gerente OR presidente OR director OR socio OR dueño`. La cabecera
+  ya trae el tamaño. `pendientes_linkedin.md` excluye las empresas con nota «revisada en LinkedIn».
 - **Nuevo:** `elegir_ab.py` elige las A/B de la entrega sin investigación completa (las que confirma la pasada
   rápida). `elegir_tanda.py` las salteaba. `sumar_revision.py` aplica las salidas de `instrucciones_revision.md`,
   que resuelven alertas del tablero.
