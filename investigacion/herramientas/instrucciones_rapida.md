@@ -4,6 +4,8 @@ Herramienta: solo WebSearch. WebFetch a webs de empresas está bloqueado: no lo 
 empresa** (la primera: `"razon_social" localidad`; la segunda solo si la primera no alcanzó). No contactes a nadie.
 Acá NO se busca decisor ni contacto: solo confirmar qué es la empresa. Lo demás se investiga después, solo para las que valgan la pena.
 
+> **Sesión local (desde el 29-09):** también podés usar WebFetch para abrir la web propia cuando el buscador no alcance (cuenta como una de las búsquedas). Ritmo para no quedar bloqueados por scraping: de a una página, como máximo 3 por sitio, sin ráfagas; si un sitio da error, límite o captcha, no insistas. **No abras LinkedIn con WebFetch**: si solo LinkedIn tendría el dato, anotalo en `nota` y lo mira la sesión principal con pausas.
+
 La entrada tiene: razon_social;localidad;provincia;dominio_conocido
 
 ## Qué averiguar por empresa (en este orden, y cortá en cuanto lo tengas)

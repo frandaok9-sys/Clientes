@@ -1,6 +1,10 @@
 # Rebúsqueda: completar decisor o canal de empresas ya investigadas (COI, CRM-ERP para PyMEs industriales)
 
-Herramienta: solo WebSearch. WebFetch a webs de empresas está bloqueado por el proxy: no lo uses.
+Herramientas: WebSearch y, en la sesión local (desde el 29-09), también WebFetch para abrir la web propia de la
+empresa (página «Contacto», «Nosotros», «Equipo»). Ritmo, para no quedar bloqueados por scraping: de a una página,
+como máximo 3 páginas por sitio, nada de ráfagas; si un sitio da error, límite o captcha, no insistas. **No abras
+LinkedIn con WebFetch**: si solo LinkedIn tendría el dato, anotalo en `nota` («mirar en LinkedIn: ...») y lo mira
+la sesión principal con pausas.
 Estas empresas ya fueron investigadas una vez y quedaron sin decisor, sin canal o sin ambos. Tu trabajo es
 buscar **solo lo que falta** (columna `falta`), con otras búsquedas distintas a las obvias. Máximo 5 búsquedas por
 empresa. No contactes a nadie.

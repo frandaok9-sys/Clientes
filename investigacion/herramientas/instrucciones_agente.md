@@ -3,6 +3,8 @@
 Herramienta: solo WebSearch. WebFetch a webs de empresas está bloqueado por el proxy: no lo uses.
 Máximo 5 búsquedas por empresa (si en 2 búsquedas ya ves que es grande, multinacional o no existe, cortá y cargá la alerta). No contactes a nadie.
 
+> **Sesión local (desde el 29-09):** también podés usar WebFetch para abrir la web propia cuando el buscador no alcance (cuenta como una de las búsquedas). Ritmo para no quedar bloqueados por scraping: de a una página, como máximo 3 por sitio, sin ráfagas; si un sitio da error, límite o captcha, no insistas. **No abras LinkedIn con WebFetch**: si solo LinkedIn tendría el dato, anotalo en `nota` y lo mira la sesión principal con pausas.
+
 La entrada tiene: razon_social;localidad;provincia;dominio_conocido;rubro_supuesto
 
 ## Qué averiguar por empresa
