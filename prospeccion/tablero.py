@@ -12,6 +12,7 @@ import re
 from pathlib import Path
 
 import pandas as pd
+import phonenumbers
 
 from .limpieza import clave, nombre_normalizado, normalizar_telefono, vacio
 
@@ -58,6 +59,38 @@ def telefono_e164(texto: str) -> str:
     return normalizar_telefono(primero, "AR") or ""
 
 
+_ETIQUETA_WA = re.compile(r"whats|wsp|wpp|celular|\bcel\b|m[oó]vil", re.IGNORECASE)
+
+
+def whatsapp_e164(texto: str) -> str:
+    """Número para el enlace de WhatsApp: el primero marcado como WhatsApp o celular, o si no el primer celular.
+
+    Un fijo común no tiene WhatsApp, así que un número sin marca solo sirve si es celular (en la Argentina, con
+    el 9 después del 54). Un número que la fuente marca como WhatsApp se usa tal como vino, aunque parezca fijo:
+    puede ser un fijo con WhatsApp Business y no se le agregan dígitos.
+    """
+    if vacio(texto):
+        return ""
+    celulares = []
+    for tramo in re.split(r"\s*(?:/|\||\by\b|;)\s*", str(texto)):
+        marcado = bool(_ETIQUETA_WA.search(tramo))
+        limpio = re.sub(r"\([^)]*[A-Za-z][^)]*\)", " ", tramo)
+        limpio = re.sub(r"[A-Za-zÁÉÍÓÚáéíóúñÑ:]+", " ", limpio).strip()
+        try:
+            num = phonenumbers.parse(limpio, "AR")
+        except phonenumbers.NumberParseException:
+            continue
+        if not phonenumbers.is_valid_number(num):
+            continue
+        if not marcado and phonenumbers.number_type(num) != phonenumbers.PhoneNumberType.MOBILE:
+            continue
+        e164 = phonenumbers.format_number(num, phonenumbers.PhoneNumberFormat.E164)
+        if marcado:
+            return e164
+        celulares.append(e164)
+    return celulares[0] if celulares else ""
+
+
 def datos(df: pd.DataFrame, entrega: pd.DataFrame | None = None) -> list[dict]:
     df = df.fillna("").copy()
     for col in ("localidad", "categoria", "puntaje", "contacto_nombre", "contacto_email", "contacto_telefono", "alerta"):
@@ -66,6 +99,7 @@ def datos(df: pd.DataFrame, entrega: pd.DataFrame | None = None) -> list[dict]:
     df["carril"] = df.apply(carril, axis=1)
     df["id"] = [id_empresa(r, l) for r, l in zip(df["razon_social"], df["localidad"])]
     df["tel_e164"] = df["contacto_telefono"].map(telefono_e164)
+    df["wa_e164"] = df["contacto_telefono"].map(whatsapp_e164)
     df["provincia"] = ""
     if entrega is not None and len(entrega):
         e = entrega.fillna("")
@@ -77,7 +111,7 @@ def datos(df: pd.DataFrame, entrega: pd.DataFrame | None = None) -> list[dict]:
     df = df.sort_values(["_c", "_r", "_p", "razon_social"], ascending=[True, True, False, True])
     campos = ["id", "razon_social", "nombre_corto", "localidad", "provincia", "categoria", "puntaje", "rubro",
               "rubro_coi", "plan_sugerido", "web", "madurez_digital", "contacto_nombre", "contacto_cargo",
-              "contacto_email", "contacto_telefono", "tel_e164", "otros_contactos", "empleados_aprox", "senales",
+              "contacto_email", "contacto_telefono", "tel_e164", "wa_e164", "otros_contactos", "empleados_aprox", "senales",
               "dato", "alerta", "nota", "borrador", "fuente_enriquecimiento", "fecha_revision", "carril"]
     return [{c: str(f.get(c, "")) for c in campos} for _, f in df.iterrows()]
 

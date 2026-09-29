@@ -245,6 +245,11 @@ def test_tablero_datos():
     assert tablero.telefono_e164("+54 9 264 660-1007 (WhatsApp publicado en la web)") == "+5492646601007"
     assert tablero.telefono_e164("(0341) 430-1202 / 435-5033") == "+543414301202"
     assert tablero.telefono_e164("4921-0223") == ""  # sin característica no se puede armar el enlace
+    # WhatsApp: un fijo sin marca no tiene enlace; un celular sí; lo marcado como WhatsApp se usa tal como vino
+    assert tablero.whatsapp_e164("+54 3492 506017") == ""
+    assert tablero.whatsapp_e164("(0341) 430-1202 / +54 9 341 555-1234") == "+5493415551234"
+    assert tablero.whatsapp_e164("03472 58-9309 / WhatsApp 3472-448554") == "+543472448554"
+    assert tablero.whatsapp_e164("+54 9 264 660-1007 (WhatsApp publicado en la web)") == "+5492646601007"
     assert tablero.id_empresa("Metal X S.R.L.", "Villa Gob. Gálvez") == "metal-x~villa-gob-galvez"
     p = pd.DataFrame([{"razon_social": "Metal X SRL", "localidad": "Rosario", "categoria": "B", "puntaje": "7",
                        "contacto_nombre": "Ana", "contacto_email": "ventas@metalx.com.ar", "contacto_telefono": "", "alerta": ""},

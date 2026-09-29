@@ -244,7 +244,7 @@ function renderDetalle() {
   const est = estadoDe(e.id);
   const lugar = [e.localidad, e.provincia].filter(Boolean).join(", ");
   const fuentes = e.fuente_enriquecimiento.split(" | ").map(s => s.trim()).filter(Boolean);
-  const wa = e.tel_e164 ? `https://wa.me/${e.tel_e164.replace("+", "")}?text=${encodeURIComponent(textoBorrador(e))}` : "";
+  const wa = e.wa_e164 ? `https://wa.me/${e.wa_e164.replace("+", "")}?text=${encodeURIComponent(textoBorrador(e))}` : "";
   const sinNombre = !($("#mi-nombre").value || "").trim();
   box.innerHTML = `
     <button type="button" class="btn chico volver" id="volver">← Volver a la lista</button>
@@ -269,6 +269,7 @@ function renderDetalle() {
         <button type="button" class="btn primario" data-copiar-borrador="1">Copiar mensaje</button>
         ${wa ? `<a class="btn" href="${wa}" target="_blank" rel="noopener">Abrir WhatsApp con el mensaje</a>` : ""}
       </div>
+      ${!wa && e.contacto_telefono ? `<div class="nota">Los teléfonos publicados son fijos: no hay WhatsApp. Mandá el mensaje por email o usalo de guion para llamar.</div>` : ""}
     </div>
     <div class="registrar">
       <h3 class="eyebrow">Qué pasó</h3>
