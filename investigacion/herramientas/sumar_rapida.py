@@ -21,7 +21,7 @@ sin_url = nuevas["fuente_enriquecimiento"].str.strip() == ""
 nuevas.loc[sin_url, ["web", "rubro", "empleados", "senales"]] = ""
 nuevas.loc[sin_url & (nuevas["alerta"] == ""), "alerta"] = "sin fuente: no se pudo confirmar"
 nuevas["senales"] = [" | ".join(x for x in (s, a) if x) for s, a in zip(nuevas["senales"], nuevas["alerta"])]
-nuevas["fuente"] = "pasada rápida de rubro (sesión cloud)"
+nuevas["fuente"] = "pasada rápida de rubro"
 nuevas["fecha_revision"] = pd.Timestamp.today().strftime("%Y-%m-%d")
 try:
     viejas = pd.read_csv(DEST, sep=";", dtype=str).fillna("")
