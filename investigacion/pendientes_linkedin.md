@@ -1,7 +1,7 @@
 # Pendientes para LinkedIn (sesión principal, con pausas de 10-15 s y como máximo ~30 páginas por día)
 
-Actualizado el 29-09 después de sincronizar las categorías del tablero con la entrega. A/B a las que les falta
-decisor o canal, o que tienen una alerta que LinkedIn puede resolver (tamaño, decisor vigente).
+Actualizado el 29-09 al cierre. A/B a las que les falta decisor o canal, o que tienen una alerta que LinkedIn puede
+resolver (tamaño, decisor vigente, identidad). Unas 2 páginas por empresa: búsqueda + pestaña «Personas».
 
 Buscar la página de empresa (`/search/results/companies/?keywords=`) y su pestaña «Personas» filtrada por
 `gerente OR presidente OR director OR socio OR dueño`. No abrir perfiles personales salvo que haga falta confirmar un cargo.
@@ -75,6 +75,8 @@ Buscar la página de empresa (`/search/results/companies/?keywords=`) y su pesta
 | B | Perfabri S.R.L. | Venado Tuerto | decisor | Rubro real distinto al supuesto: presta servicios de acondicionamiento | lostanosagro.com |
 | B | Thomsen S.R.L. | Rosario | decisor |  | thomsensrl.com |
 | B | Wae Srl |  | decisor | Rubro más cercano a distribución de válvulas y servicios industriales  | waegroup.com.ar |
+| B | Mercofrio S.A. | Rafaela | decisor | Surgió de VMC Refrigeración S.A. para dar posventa a sus equipos (INTI | mercofrio.com.ar |
+| B | Pei Sas | Neuquen | decisor | La web ubica la empresa en Cipolletti (Río Negro) y la entrada dice Ne | peisas.com.ar |
 | B | Tecno Car S.R.L. | Puerto General San Martin | decisor y canal |  | tecnocarsrl.com |
 | B | Tecno Rail Service S.R.L. |  | decisor y canal |  | tecnorailservice.com |
 | B | Planex Proyectos Industriales Srl | Colon | decisor y canal |  | planexpi.com.ar |
