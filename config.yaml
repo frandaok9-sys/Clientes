@@ -142,7 +142,7 @@ email_compartido_max: 3
 # Firma de los borradores
 oferta:
   remitente: "[tu nombre]"   # (sin definir) completar antes de enviar
-  cta: "¿Te muestro una demo con tus propios datos? Son 20 minutos."
+  cta: "¿Te lo muestro en 20 minutos con tus datos? ¿Martes o jueves a la mañana?"
   baja: "Si no te interesa, respondé BAJA y no te escribimos más."
 
 # Qué dato concreto se menciona en el borrador A según la señal detectada
