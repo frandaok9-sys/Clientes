@@ -40,7 +40,13 @@ def saludo_nombre(fila: pd.Series, genericos) -> str:
         es_generico = any(local.startswith(g) for g in genericos)
         if not es_generico and not any(p in local for p in partes):
             return ""
-    return partes[0].capitalize() if partes else ""
+    if not partes:
+        return ""
+    # Devuelve la palabra original (con acentos), no la normalizada
+    for palabra in str(nombre).replace(".", " ").split():
+        if clave(palabra) == partes[0]:
+            return palabra.capitalize()
+    return partes[0].capitalize()
 
 
 def _entorno(dir_plantillas: str | Path) -> Environment:
@@ -59,7 +65,7 @@ def _contexto(fila: pd.Series, config: dict) -> dict:
     hechos = [h for h in str(fila.get("_hechos") or "").split(",") if h]
     frases = config.get("hechos", {})
     ctx["dato"] = " y ".join(frases[h] for h in hechos[:2] if h in frases)
-    ctx["asunto"] = "margen real y cobranzas en un solo lugar"
+    ctx["asunto"] = "margen real de cada proyecto, en 20 minutos"
     ctx.update(config.get("oferta", {}))
     return ctx
 
