@@ -65,7 +65,7 @@ def _contexto(fila: pd.Series, config: dict) -> dict:
     hechos = [h for h in str(fila.get("_hechos") or "").split(",") if h]
     frases = config.get("hechos", {})
     ctx["dato"] = " y ".join(frases[h] for h in hechos[:2] if h in frases)
-    ctx["asunto"] = "margen real de cada proyecto, en 20 minutos"
+    ctx["asunto"] = fila.get("_asunto") or config.get("industrial_generico", {}).get("asunto", "toda tu empresa en tiempo real")
     ctx.update(config.get("oferta", {}))
     return ctx
 

@@ -214,6 +214,7 @@ def calificar_fila(fila: pd.Series, config: dict, bajas: set[str], mx_cache: dic
         "motivo_descarte": motivo or pd.NA,
         "_dolor": rubro.get("dolor") if rubro else None,
         "_solucion": rubro.get("solucion") if rubro else None,
+        "_asunto": rubro.get("asunto") if rubro else None,
         "_hechos": ",".join(hechos),
         "_frase": rubro.get("frase") if rubro else None,
     }

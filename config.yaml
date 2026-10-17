@@ -30,48 +30,56 @@ rubros:
     palabras: [montaje, montajes, estructuras metalicas, estructura metalica, naves industriales, galpones]
     dolor: el costo real de cada proyecto suele aparecer recién al cerrarlo
     solucion: junta presupuestos, gastos por proyecto y cobranzas en pesos y dólares, y te muestra el margen mientras el proyecto avanza
+    asunto: el margen de cada proyecto mientras avanza
     plan: Industrial
   - nombre: Metalúrgicas / metalmecánica a pedido
     frase: trabaja en metalurgia a pedido
     palabras: [metalurgica, metalurgicas, metalurgia, metalmecanica, torneria, caldereria, fabricacion a medida, mecanizado, mecanizados, herreria industrial, matriceria, matriceria, fundicion, soldadura, talleres industriales, talleres metalurgicos, galvanizado, metal, metales, metalica, metalicas, fabricacion de maquinaria, fabricacion de maquinas, fabricacion y reparacion, maquinas y equipos, equipos industriales, engranajes, acoplados, polipastos, mecanizado semipesado, fundicion de]
     dolor: cada presupuesto a medida se arma distinto y el margen real por trabajo no se ve
     solucion: arma los presupuestos por costo más ganancia y te muestra cuánto dejó cada trabajo
+    asunto: cuánto te deja cada trabajo a pedido
     plan: Emprendedor / Industrial
   - nombre: Minería y energía (proveedores y contratistas)
     frase: trabaja para minería y energía
     palabras: [mineria, minera, minero, petrolera, petroleo, oil, gas y petroleo, renovables, energia, electrica, eolico, solar, litio, vaca muerta]
     dolor: entre el trabajo en campo, la facturación en dólares y las certificaciones se pierde el control del proyecto
     solucion: lleva la cuenta corriente en pesos y dólares por separado y factura por anticipo y certificación de avance
+    asunto: pesos, dólares y certificaciones bajo control
     plan: Industrial
   - nombre: Instalaciones (eléctricas, termomecánicas, gas, incendio)
     frase: hace instalaciones industriales
     palabras: [instalaciones, instalacion electrica, termomecanica, termomecanicas, gas, incendio, climatizacion, sanitarias]
     dolor: las oportunidades y los gastos de cada obra quedan repartidos entre planillas y WhatsApp
     solucion: sigue cada oportunidad hasta el cierre e imputa los gastos a cada obra
+    asunto: cada obra con sus gastos, sin planillas
     plan: Industrial
   - nombre: Servicios técnicos y mantenimiento industrial
     frase: da servicios técnicos y de mantenimiento industrial
     palabras: [mantenimiento industrial, mantenimiento, service, servicio tecnico, servicios tecnicos, reparacion industrial, servicios industriales, automatizacion, talleres]
     dolor: coordinar visitas y saber qué tiene cada técnico o vendedor en su cartera cuesta más de lo que debería
     solucion: arma las hojas de ruta con mapa y le da a cada uno su cartera y sus tareas, también desde el celular
+    asunto: visitas y cartera de cada técnico, ordenadas
     plan: Industrial
   - nombre: Agroindustria (proveedores de servicios/insumos)
     frase: trabaja con el agro
     palabras: [agroindustria, agroindustrial, agroindustriales, empaque, frio, frigorifico, riego, maquinaria agricola, agroinsumos, agro insumos, insumos agropecuarios, agroservicios, agro servicios, silos, acopio, semillas, fertilizantes]
     dolor: con ventas en el campo y cobranzas con cheques, cuesta saber qué se vendió y qué se cobró
     solucion: junta ventas, cuentas corrientes y control de cheques en un solo lugar
+    asunto: qué se vendió y qué se cobró, en un solo lugar
     plan: Emprendedor / Industrial
   - nombre: Pisos y revestimientos industriales
     frase: hace pisos y revestimientos industriales
     palabras: [pisos industriales, piso industrial, revestimientos, recubrimientos, impermeabilizacion, epoxi, hormigon alisado]
     dolor: cotizar cada proyecto y cobrar anticipo más avance se vuelve un lío de planillas
     solucion: cotiza por proyecto y factura por anticipo y certificación de avance
+    asunto: anticipo y avance de cada obra, sin planillas
     plan: Industrial
   - nombre: Distribuidoras de insumos industriales
     frase: distribuye insumos industriales
     palabras: [distribuidora, distribuidor, representante, representaciones, insumos industriales, suministros industriales, ferreteria industrial, rodamientos, transmisiones, bulonera, hidraulica, neumatica, electromecanica, suministros]
     dolor: con un catálogo técnico grande, el seguimiento de cada cotización y la cuenta corriente por moneda se desordenan
     solucion: une pipeline, catálogo de productos y cuenta corriente en pesos y dólares
+    asunto: cotizaciones y cuenta corriente por moneda, ordenadas
     plan: Emprendedor
 
 # Rubros informados que NO son industriales aunque el nombre lo sugiera (anulan la detección por nombre)
@@ -83,6 +91,7 @@ industrial_generico:
   palabras: [industrial, industriales, industria, industrias, ind, s.a.i.c, saic, s.a.i.c.i, s.a.i.c.f, fabrica, planta, manufactura, ingenieria, ing, obras, construccion, construcciones, constructora, autopartes, plasticos, quimica, maquinaria, maquinas, tecnica, tecno]
   dolor: la información de ventas y administración queda repartida entre planillas, mails y WhatsApp
   solucion: pone ventas, administración y números de la dirección en un solo sistema
+  asunto: toda tu empresa en tiempo real
   plan: Emprendedor
 
 # Puntaje (brief, sección 5)
@@ -141,7 +150,7 @@ email_compartido_max: 3
 
 # Firma de los borradores
 oferta:
-  remitente: "[tu nombre]"   # (sin definir) completar antes de enviar
+  remitente: "Francisco Dabbene"
   cta: "¿Te lo muestro en 20 minutos con tus datos? ¿Martes o jueves a la mañana?"
   baja: "Si no te interesa, respondé BAJA y no te escribimos más."
 
