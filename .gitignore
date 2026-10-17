@@ -10,3 +10,4 @@ datos/bajas.csv
 !datos/salida/.gitkeep
 *.db
 datos/revisiones.csv
+datos/mx_cache.json

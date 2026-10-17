@@ -70,6 +70,26 @@ def entrega(df: pd.DataFrame) -> pd.DataFrame:
     return out[COLUMNAS_ENTREGA]
 
 
+def exportar_mailing(final: pd.DataFrame, salida: Path) -> None:
+    """CSV para importar en la herramienta de envío (Brevo u otra): solo A y B con email.
+
+    mailing.csv lleva los emails genéricos o verificados; mailing_revisar.csv, los personales
+    sin verificar, que no se envían hasta confirmarlos (brief, sección 6).
+    """
+    ab = final[final["categoria"].isin(["A", "B"]) & final["email"].notna() & final["borrador"].notna()]
+    out = pd.DataFrame({
+        "EMAIL": ab["email"],
+        "EMPRESA": ab.apply(mensajes.nombre_corto, axis=1),
+        "CATEGORIA": ab["categoria"],
+        "ASUNTO": ab["email_asunto"],
+        "CUERPO": ab["borrador"],
+        "ESTADO_EMAIL": ab["email_estado"],
+    })
+    usable = out["ESTADO_EMAIL"].isin(["generico", "verificado"])
+    out[usable].to_csv(salida / "mailing.csv", sep=";", index=False, encoding="utf-8")
+    out[~usable].to_csv(salida / "mailing_revisar.csv", sep=";", index=False, encoding="utf-8")
+
+
 def texto_resumen(total: int, sin_datos: int, duplicados: int, df: pd.DataFrame) -> str:
     cats = df["categoria"].value_counts()
     lineas = [
@@ -136,7 +156,8 @@ def procesar(
     limpio, duplicados = limpieza.deduplicar(limpio)
     bajas = seguimiento.leer_bajas(_ruta(config, "bajas", "datos/bajas.csv"))
     revisiones = clasificacion.leer_revisiones(_ruta(config, "revisiones", "datos/revisiones.csv"))
-    calificado = clasificacion.calificar(limpio, config, bajas, verificar_mx, revisiones)
+    calificado = clasificacion.calificar(limpio, config, bajas, verificar_mx, revisiones,
+                                         _ruta(config, "cache_mx", "datos/mx_cache.json"))
     final = mensajes.generar(calificado, RAIZ / "plantillas", config)
 
     salida.mkdir(parents=True, exist_ok=True)
@@ -165,6 +186,7 @@ def procesar(
                 "prioridad_enriquecimiento", "fuente"]].to_csv(salida / "candidatos_enriquecer.csv", sep=";", index=False)
     (salida / "resumen.md").write_text(f"# Resumen de la revisión\n\n{resumen_md}\n", encoding="utf-8")
 
+    exportar_mailing(final, salida)
     excel = salida / "trabajo.xlsx"
     borradores = final[final["categoria"].isin(["A", "B"])].rename(
         columns={"email": "contacto_email", "telefono": "contacto_telefono"})

@@ -124,8 +124,9 @@ def calificar_fila(fila: pd.Series, config: dict, bajas: set[str], mx_cache: dic
 
     dominio, propio = dominio_email(fila, set(config.get("correo_gratuito", [])))
     workspace = "sin verificar"
-    if dominio and propio and mx_cache is not None:
-        workspace = usa_google_workspace(dominio, mx_cache)
+    if dominio and propio and mx_cache:
+        # Solo se lee lo ya resuelto (en vivo en `calificar` o guardado): acá no se consulta el DNS
+        workspace = mx_cache.get(dominio, "sin verificar")
     elif dominio and not propio:
         workspace = "no"
 
@@ -246,18 +247,52 @@ def leer_revisiones(ruta) -> dict:
     return {nombre_normalizado(f.razon_social): (clave(f.decision), f.motivo) for f in r.itertuples()}
 
 
+def _dns_funciona() -> bool:
+    try:
+        import dns.resolver
+        dns.resolver.resolve("google.com", "MX", lifetime=5)
+        return True
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def _leer_cache_mx(ruta) -> dict:
+    import json
+    from pathlib import Path
+    try:
+        return json.loads(Path(ruta).read_text(encoding="utf-8")) if ruta and Path(ruta).exists() else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _guardar_cache_mx(ruta, cache: dict) -> None:
+    import json
+    from pathlib import Path
+    if ruta:
+        definitivos = {d: r for d, r in cache.items() if r in ("sí", "no")}
+        Path(ruta).write_text(json.dumps(definitivos, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
+
+
 def calificar(df: pd.DataFrame, config: dict, bajas: set[str] | None = None,
-              verificar_mx: bool = False, revisiones: dict | None = None) -> pd.DataFrame:
+              verificar_mx: bool = False, revisiones: dict | None = None,
+              ruta_cache_mx=None) -> pd.DataFrame:
     df = df.copy()
-    cache = {} if verificar_mx else None
-    if verificar_mx:
+    # Los resultados MX definitivos se guardan en disco: si otro día el DNS no responde, se reutilizan
+    guardado = _leer_cache_mx(ruta_cache_mx)
+    cache = dict(guardado) if (verificar_mx or guardado) else None
+    if verificar_mx and _dns_funciona():
         from concurrent.futures import ThreadPoolExecutor
 
         gratuitos = set(config.get("correo_gratuito", []))
         dominios = {d for d, propio in (dominio_email(f, gratuitos) for _, f in df.iterrows()) if d and propio}
         with ThreadPoolExecutor(max_workers=32) as ex:
+            cache = cache if cache is not None else {}
             for dom, res in zip(dominios, ex.map(lambda d: usa_google_workspace(d, {}), dominios)):
-                cache[dom] = res
+                if res != "sin verificar" or dom not in cache:
+                    cache[dom] = res
+        _guardar_cache_mx(ruta_cache_mx, cache)
+    elif verificar_mx:
+        print("Aviso: el DNS no responde; se usan los resultados MX guardados")
     extra = pd.DataFrame([calificar_fila(f, config, bajas or set(), cache, revisiones) for _, f in df.iterrows()])
     df = pd.concat([df.reset_index(drop=True), extra], axis=1)
     genericos = set(config.get("emails_genericos", []))
