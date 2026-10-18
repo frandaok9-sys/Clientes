@@ -19,7 +19,9 @@ def nombre_corto(fila: pd.Series) -> str:
         return "tu empresa"
     texto = re.sub(r"[\s,]*\b(s\.?\s?a\.?\s?i\.?\s?c\.?\w*|s\.?\s?r\.?\s?l\.?|s\.?\s?a\.?\s?s\.?|s\.?\s?a\.?|sociedad an[oó]nima|sociedad de responsabilidad limitada)\s*$",
                    "", str(base).strip(), flags=re.IGNORECASE).strip(" .,")
-    return texto.title() if texto.isupper() else texto
+    texto = texto.title() if texto.isupper() else texto
+    # «Tecnicas Avanzadas De Ingenieria» → «Tecnicas Avanzadas de Ingenieria»: conectores en minúscula salvo al inicio
+    return re.sub(r"(?<=\s)(De|Del|Y|E|La|Las|Los|El|En|Para|Por)(?=\s)", lambda m: m.group(1).lower(), texto)
 
 
 def saludo_nombre(fila: pd.Series, genericos) -> str:
@@ -87,16 +89,18 @@ def generar(df: pd.DataFrame, dir_plantillas: str | Path, config: dict) -> pd.Da
     filas = []
     for _, fila in df.iterrows():
         if fila["categoria"] not in ("A", "B"):
-            filas.append({"angulo_primer_contacto": pd.NA, "borrador": pd.NA, "email_asunto": pd.NA,
+            filas.append({"angulo_primer_contacto": pd.NA, "borrador": pd.NA, "email_asunto": pd.NA, "email_cuerpo": pd.NA,
                           "enlace_whatsapp": pd.NA, "guion_llamada": pd.NA})
             continue
         ctx = _contexto(fila, config)
         texto = wa.render(**ctx).strip()
-        asunto = em.render(**ctx).strip().split("\n", 1)[0].removeprefix("Asunto:").strip()
+        cabecera, cuerpo = em.render(**ctx).strip().split("\n", 1)
+        asunto = cabecera.removeprefix("Asunto:").strip()
         filas.append({
             "angulo_primer_contacto": angulo(ctx),
             "borrador": texto,
             "email_asunto": asunto,
+            "email_cuerpo": cuerpo.strip(),
             "enlace_whatsapp": enlace_whatsapp(fila["telefono"], texto) if not vacio(fila["telefono"]) else pd.NA,
             "guion_llamada": ll.render(**ctx).strip() if not vacio(fila["telefono"]) else pd.NA,
         })

@@ -1,2 +1,13 @@
 Asunto: {{ empresa }}: {{ asunto }}
-{% include "whatsapp.j2" %}
+Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %},
+
+{% if categoria == "A" and dato %}Vi que {{ empresa }} {{ dato }}.{% else %}Vi que {{ empresa }} {{ frase_rubro }}.{% endif %} En empresas así, {{ dolor }}.
+
+COI {{ solucion }}.
+
+{{ cta }}
+
+Saludos,
+{{ remitente.split()[0] }}, de COI
+
+{{ baja }}

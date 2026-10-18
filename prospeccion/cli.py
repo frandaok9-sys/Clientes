@@ -76,13 +76,13 @@ def exportar_mailing(final: pd.DataFrame, salida: Path) -> None:
     mailing.csv lleva los emails genéricos o verificados; mailing_revisar.csv, los personales
     sin verificar, que no se envían hasta confirmarlos (brief, sección 6).
     """
-    ab = final[final["categoria"].isin(["A", "B"]) & final["email"].notna() & final["borrador"].notna()]
+    ab = final[final["categoria"].isin(["A", "B"]) & final["email"].notna() & final["email_cuerpo"].notna()]
     out = pd.DataFrame({
         "EMAIL": ab["email"],
         "EMPRESA": ab.apply(mensajes.nombre_corto, axis=1),
         "CATEGORIA": ab["categoria"],
         "ASUNTO": ab["email_asunto"],
-        "CUERPO": ab["borrador"],
+        "CUERPO": ab["email_cuerpo"],
         "ESTADO_EMAIL": ab["email_estado"],
     })
     usable = out["ESTADO_EMAIL"].isin(["generico", "verificado"])
@@ -203,7 +203,7 @@ def procesar(
             ranking.to_excel(xw, sheet_name="Ranking investigadas", index=False)
         tabla_entrega.to_excel(xw, sheet_name="Entrega", index=False)
         borradores[["categoria", "puntaje", "razon_social", "nombre_fantasia", "contacto_nombre", "contacto_email",
-                    "email_estado", "email_asunto", "borrador"]].to_excel(xw, sheet_name="Borradores", index=False)
+                    "email_estado", "email_asunto", "email_cuerpo", "borrador"]].to_excel(xw, sheet_name="Borradores", index=False)
         investigadas = set(ranking["razon_social"]) if not ranking.empty else set()
         proximas = candidatos[(candidatos["triaje"] == "industrial_objetivo") | candidatos["rubro_coi"].notna()]
         proximas[~proximas["razon_social"].isin(investigadas)][
