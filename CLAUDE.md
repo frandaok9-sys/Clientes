@@ -12,7 +12,8 @@ manda el brief.
   un email deducido va marcado `deducido` y no se usa sin verificar.
 - No se envían mensajes ni se hacen llamadas desde acá: solo lista + borradores.
 - Todo teléfono lleva `verificar_no_llame = sí` (Registro «No Llame», Ley 26.951).
-- Todo borrador identifica a COI y termina con la línea de baja. Las bajas
+- Todo borrador identifica a COI. El de WhatsApp termina con la línea de baja; el email no la lleva
+  (decisión del usuario, 17-10-2026: cierra con la PD del sistema). Las bajas
   (`datos/bajas.csv`) se respetan para siempre y nunca se borran.
 - No dar precios, no nombrar clientes de COI, no prometer integración AFIP/ARCA ni WhatsApp integrado.
 - Cada fila conserva su `fuente`.

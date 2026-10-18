@@ -71,9 +71,11 @@ def test_borradores():
         assert len(texto.split()) <= 95, texto
         assert "$" not in texto
         cuerpo = fila["email_cuerpo"]
-        assert "COI" in cuerpo and cuerpo.endswith("respondé BAJA y no te escribo más.")
-        assert cuerpo.count("hojas de ruta") == 1  # no se repite con la solución del rubro
-        assert len(cuerpo.split()) <= 120, cuerpo  # más largo que el WhatsApp: el usuario sumó herramientas (17-10)
+        # El email identifica a COI de entrada y cierra con la PD del sistema (sin línea de baja, decisión del usuario 17-10)
+        assert cuerpo.split("\n\n")[1].startswith("Te escribo desde COI")
+        assert cuerpo.startswith("Hola") and cuerpo.split("\n\n")[-1].startswith("PD: si ya tenés un sistema")
+        assert cuerpo.count("hojas de ruta") == 1
+        assert len(cuerpo.split()) <= 145, cuerpo
         assert "\n\n" in cuerpo  # el email va en párrafos
     assert pd.isna(_fila(df, "Kiosco")["borrador"])
 
