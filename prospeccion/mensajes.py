@@ -17,9 +17,11 @@ def nombre_corto(fila: pd.Series) -> str:
     base = fila.get("nombre_fantasia") if not vacio(fila.get("nombre_fantasia")) else fila.get("razon_social")
     if vacio(base):
         return "tu empresa"
-    texto = re.sub(r"[\s,]*\b(s\.?\s?a\.?\s?i\.?\s?c\.?\w*|s\.?\s?r\.?\s?l\.?|s\.?\s?a\.?\s?s\.?|s\.?\s?a\.?|sociedad an[oó]nima|sociedad de responsabilidad limitada)\s*$",
+    texto = re.sub(r"[\s,]*\b(s\.?\s?a\.?\s?i\.?\s?c\.?\w*|s\.?\s?r\.?\s?l\.?|s\.?\s?a\.?\s?s\.?|s\.?\s?a\.?|soc\.?\s+resp\.?\s+ltda\.?|sociedad an[oó]nima|sociedad de responsabilidad limitada)\s*$",
                    "", str(base).strip(), flags=re.IGNORECASE).strip(" .,")
     texto = texto.title() if texto.isupper() else texto
+    # Siglas sin vocales vuelven a mayúscula: «Metalurgicas Mg» → «Metalurgicas MG»
+    texto = re.sub(r"\b([B-DF-HJ-NP-TV-Z][b-df-hj-np-tv-z]{1,2})\b", lambda m: m.group(1).upper(), texto)
     # «Tecnicas Avanzadas De Ingenieria» → «Tecnicas Avanzadas de Ingenieria»: conectores en minúscula salvo al inicio
     return re.sub(r"(?<=\s)(De|Del|Y|E|La|Las|Los|El|En|Para|Por)(?=\s)", lambda m: m.group(1).lower(), texto)
 

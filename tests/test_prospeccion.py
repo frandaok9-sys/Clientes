@@ -283,3 +283,15 @@ def test_importar_estados_del_tablero(tmp_path):
         estados = dict(con.execute("SELECT razon_social, estado FROM empresas").fetchall())
         assert estados["Montajes del Sur SRL"] == "baja" and estados["Tornería Precisión SA"] == "demo"
     assert "30-71234567-1" in seguimiento.leer_bajas(bajas)
+
+
+def test_nombre_corto_para_el_saludo():
+    from prospeccion.mensajes import nombre_corto
+    casos = {
+        "INDUSTRIAS COMOFRA SOC RESP LTDA": "Industrias Comofra",
+        "INDUSTRIAS METALURGICAS MG": "Industrias Metalurgicas MG",
+        "TECNICAS AVANZADAS DE INGENIERIA SA": "Tecnicas Avanzadas de Ingenieria",
+        "La Incursion Insumos Industriales S.R.L.": "La Incursion Insumos Industriales",
+    }
+    for razon, esperado in casos.items():
+        assert nombre_corto(pd.Series({"razon_social": razon, "nombre_fantasia": None})) == esperado
