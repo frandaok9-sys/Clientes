@@ -26,9 +26,9 @@ usuario las manda a mano desde Zoho el lunes en horario laboral, espaciadas, y a
 exportar estados del tablero a `datos/salida/estados_tablero.csv`, `todo --reiniciar` y después `importar-estados`.
 
 ## Tanda 3 de emails: lista para revisar (18-10)
-`datos/salida/tanda03_email.csv`: 15 B más (Androetto a Rodamientos Brasil). Se sacó a Apex Metalúrgica
-(apex.com.ar, «soluciones para la industria petrolera»): falta que el usuario confirme que no tiene relación con
-Apex NOA, cliente de COI. En 9 empresas la frase de rubro pasó a «es una empresa industrial» porque el rubro salía
+`datos/salida/tanda03_email.csv`: 15 B más (Androetto a Rodamientos Brasil). Apex Metalúrgica S.A. (Santa Rosa,
+La Pampa; administracion@apex.com.ar) quedó afuera de esta tanda; el usuario confirmó (18-10) que **no tiene
+relación con Apex NOA** y pidió sumarla **primera en la tanda 4**. En 9 empresas la frase de rubro pasó a «es una empresa industrial» porque el rubro salía
 solo de palabras clave. No enviar sin el OK del usuario.
 
 **Desde el 28-09 el trabajo sigue en la sesión local** (Claude Code en la computadora del usuario, con
