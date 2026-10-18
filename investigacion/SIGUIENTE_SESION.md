@@ -18,6 +18,13 @@ la hora real en la nota) y en el seguimiento.
 los mails sigan en la Bandeja de salida con su hora. Ojo: CLAUDE.md dice «No se envían mensajes desde acá»; el
 usuario lo autorizó para esta tanda.
 
+## Tanda 2 de emails: la manda el usuario (lunes 19-10)
+`datos/salida/tanda02_email.csv` tiene 15 B listas (Aceros Coco a Industrias Erca). En Profarmer, Kogut e Ingeniería
+Mega la frase se cambió a «es una empresa industrial» (el rubro «montajes» salía solo de una palabra de su web). El
+usuario las manda a mano desde Zoho el lunes en horario laboral, espaciadas, y avisa para registrarlas en el tablero
+(`contactos`) y con `importar-estados`. No enviarlas desde acá. Para regenerar mails con contactos ya registrados:
+exportar estados del tablero a `datos/salida/estados_tablero.csv`, `todo --reiniciar` y después `importar-estados`.
+
 **Desde el 28-09 el trabajo sigue en la sesión local** (Claude Code en la computadora del usuario, con
 Claude in Chrome). La sección siguiente es para esa sesión; el resto del documento describe el ciclo tal
 como se corría en la nube y sigue valiendo, con las diferencias que se marcan.
