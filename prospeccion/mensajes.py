@@ -26,6 +26,17 @@ def nombre_corto(fila: pd.Series) -> str:
     return re.sub(r"(?<=\s)(De|Del|Y|E|La|Las|Los|El|En|Para|Por)(?=\s)", lambda m: m.group(1).lower(), texto)
 
 
+def decisor_dudoso(cargo) -> bool:
+    """El dato del decisor no alcanza para saludarlo por nombre: sin confirmar o anterior a 2020."""
+    if vacio(cargo):
+        return False
+    texto = clave(cargo)
+    if any(m in texto for m in ("sin confirmar", "verificar", "sin precisar")):
+        return True
+    anios = [int(a) for a in re.findall(r"\b(19\d{2}|20\d{2})\b", str(cargo))]
+    return bool(anios) and max(anios) < 2020
+
+
 def saludo_nombre(fila: pd.Series, genericos) -> str:
     """Primer nombre del contacto solo si el saludo le llega a esa persona.
 
@@ -36,6 +47,8 @@ def saludo_nombre(fila: pd.Series, genericos) -> str:
     if vacio(nombre):
         return ""
     if nombre_normalizado(nombre) in (nombre_normalizado(fila.get("razon_social")), nombre_normalizado(fila.get("nombre_fantasia"))):
+        return ""
+    if decisor_dudoso(fila.get("contacto_cargo")):
         return ""
     partes = [p for p in clave(nombre).replace(".", " ").split() if len(p) > 2]
     email = fila.get("email")

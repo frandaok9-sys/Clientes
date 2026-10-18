@@ -295,3 +295,13 @@ def test_nombre_corto_para_el_saludo():
     }
     for razon, esperado in casos.items():
         assert nombre_corto(pd.Series({"razon_social": razon, "nombre_fantasia": None})) == esperado
+
+
+def test_decisor_dudoso_no_se_saluda_por_nombre():
+    from prospeccion.mensajes import decisor_dudoso
+    assert decisor_dudoso("Socio gerente de Nor Trading Minería S.R.L. (BO Jujuy 2024) sociedad vinculada sin confirmar")
+    assert decisor_dudoso("Socio mayoritario / titular (BO Santa Fe 2007, Motor Maq S.R.L.)")
+    assert decisor_dudoso("Socio gerente (indicadores.ar sobre BO Santa Fe, año sin precisar)")
+    assert decisor_dudoso("Gerente (búsqueda web, verificar)")
+    assert not decisor_dudoso("Presidente (ABC Color 2025)")
+    assert not decisor_dudoso("Socio gerente (LinkedIn)")
