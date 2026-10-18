@@ -19,11 +19,13 @@ los mails sigan en la Bandeja de salida con su hora. Ojo: CLAUDE.md dice «No se
 usuario lo autorizó para esta tanda.
 
 ## Tanda 2 de emails: lunes 19-10
-Estado 18-10 al mediodía: Aceros Coco (09:00) y Profarmer (09:20) quedaron **programados en Zoho para el lunes**
-(cargados en el tablero). Motores Atlas quedó armado en Zoho con el diálogo de programación abierto (09:40): el
-control de permisos bloqueó el clic de «Programar y enviar». Las otras 12 (Ing Company a Industrias Erca) faltan.
-Para que la hora quede bien en Zoho hay que escribirla en los campos de hora y minuto con doble clic y teclado; las
-flechas mueven de a 5 minutos. Detalle original de la tanda:
+Estado 18-10, 14:05: Aceros Coco, Profarmer y Motores Atlas los mandó Francisco a las 13:45. Las otras 12 (Ing
+Company a Industrias Erca) quedaron **programadas en Zoho para el lunes 19-10 de 10:00 a 13:40**, cada 20 min, y
+siguen en la Bandeja de salida 17 min después (esta vez no salieron antes). Todas cargadas en el tablero. Para
+que Zoho respete la hora: en «Fecha y hora personalizadas», doble clic en hora y minuto y escribir el número (las
+flechas mueven de a 5). La **tanda 3** quedó sin programar: Androetto armado en Zoho para el martes 20-10 09:00,
+pero el control de permisos bloqueó «Programar y enviar».
+Detalle original de la tanda:
 `datos/salida/tanda02_email.csv` tiene 15 B listas (Aceros Coco a Industrias Erca). En Profarmer, Kogut e Ingeniería
 Mega la frase se cambió a «es una empresa industrial» (el rubro «montajes» salía solo de una palabra de su web). El
 usuario las manda a mano desde Zoho el lunes en horario laboral, espaciadas, y avisa para registrarlas en el tablero
