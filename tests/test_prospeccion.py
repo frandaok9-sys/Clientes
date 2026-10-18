@@ -293,6 +293,9 @@ def test_nombre_corto_para_el_saludo():
         "TECNICAS AVANZADAS DE INGENIERIA SA": "Tecnicas Avanzadas de Ingenieria",
         "La Incursion Insumos Industriales S.R.L.": "La Incursion Insumos Industriales",
         "Maizco Sociedad Anonima Industrial y Comercial": "Maizco",
+        "Metalurgica Crivel S.C": "Metalurgica Crivel",
+        "Agrefert.Ar": "Agrefert",
+        "AGREFERT.AR S.A.": "Agrefert",
     }
     for razon, esperado in casos.items():
         assert nombre_corto(pd.Series({"razon_social": razon, "nombre_fantasia": None})) == esperado
