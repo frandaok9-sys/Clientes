@@ -6,6 +6,18 @@ tablero tiene 475 empresas; `todo` y `cartera` corridos sobre las carteras compl
 `claude/adoring-faraday-ko05j5` y `claude/customer-classification-prospecting-uxgdbb` quedaron atrás).
 Leé también `CLAUDE.md` y `contexto/prospeccion-masiva-contexto.md`.
 
+## Pendiente al 18-10: 7 emails de la tanda 1
+El 18-10 a la madrugada, a pedido del usuario, se mandaron desde Zoho (francisco.dabbene@coiargentina.com,
+«Enviar más tarde», uno cada 20 min) 8 de los 15 emails de `datos/salida/tanda01_email.csv`: Frio Raf (enviado
+01:52) y Oiltech, Orlandi, Técnicas Avanzadas, Tecno Ref, Nortrading, Tecnored y Gan Mar (programados 02:15 a
+04:15). Están registrados en el tablero (colección `contactos`, «sin_respuesta», canal email) y en el seguimiento.
+**Faltan 7** (el control de permisos bloqueó la carga en Zoho a partir de AFG): AFG Ingeniería, Industrias
+Comofra, Chiaza, Motor Maq, Frasinelli, N B Construcciones e Industrias Metalúrgicas MG. El usuario pidió
+reintentarlos en otra sesión: mismo texto y asunto de la tanda, de a uno con 20 min de separación, verificar en
+la bandeja de salida y registrar en el tablero (ArtifactData, `contactos`) y con `importar-estados`. Si el
+permiso vuelve a bloquear, parar y avisarle. Chiaza, Motor Maq y Frasinelli saludan con «Hola,» sin nombre.
+Ojo: CLAUDE.md dice «No se envían mensajes desde acá»; el usuario lo autorizó para esta tanda.
+
 **Desde el 28-09 el trabajo sigue en la sesión local** (Claude Code en la computadora del usuario, con
 Claude in Chrome). La sección siguiente es para esa sesión; el resto del documento describe el ciclo tal
 como se corría en la nube y sigue valiendo, con las diferencias que se marcan.
