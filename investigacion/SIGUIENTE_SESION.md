@@ -40,6 +40,13 @@ La Pampa; administracion@apex.com.ar) quedó afuera de esta tanda; el usuario co
 relación con Apex NOA** y pidió sumarla **primera en la tanda 4**. En 9 empresas la frase de rubro pasó a «es una empresa industrial» porque el rubro salía
 solo de palabras clave. No enviar sin el OK del usuario.
 
+## Cola de envíos (18-10, 16:45): `datos/salida/cola_envios.csv`
+Tandas 3 y 4 (29 mails). Rosario Agro está en la Bandeja de salida con el brochure de RC (mar 20-10 09:40). Los
+otros 28 (Case más los 27 restantes) están en **Borradores de Zoho, sin adjunto y sin programar**: el usuario les
+agrega el brochure de RC (decisión suya, aunque RC es cliente; el clasificador bloquea que Claude lo adjunte) y
+los manda. Antes de cargar se revisó que ninguno estuviera en Enviados, Salida o repetido. Cuando el usuario avise,
+registrar en el tablero con la hora real.
+
 **Desde el 28-09 el trabajo sigue en la sesión local** (Claude Code en la computadora del usuario, con
 Claude in Chrome). La sección siguiente es para esa sesión; el resto del documento describe el ciclo tal
 como se corría en la nube y sigue valiendo, con las diferencias que se marcan.
