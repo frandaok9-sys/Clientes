@@ -18,13 +18,15 @@ la hora real en la nota) y en el seguimiento.
 los mails sigan en la Bandeja de salida con su hora. Ojo: CLAUDE.md dice «No se envían mensajes desde acá»; el
 usuario lo autorizó para esta tanda.
 
-## Tanda 2 de emails: lunes 19-10
-Estado 18-10, 14:05: Aceros Coco, Profarmer y Motores Atlas los mandó Francisco a las 13:45. Las otras 12 (Ing
-Company a Industrias Erca) quedaron **programadas en Zoho para el lunes 19-10 de 10:00 a 13:40**, cada 20 min, y
-siguen en la Bandeja de salida 17 min después (esta vez no salieron antes). Todas cargadas en el tablero. Para
-que Zoho respete la hora: en «Fecha y hora personalizadas», doble clic en hora y minuto y escribir el número (las
-flechas mueven de a 5). La **tanda 3** quedó sin programar: Androetto armado en Zoho para el martes 20-10 09:00,
-pero el control de permisos bloqueó «Programar y enviar».
+## Tanda 2 de emails (18-10): salió toda, con problemas
+Aceros Coco, Profarmer y Motores Atlas los mandó Francisco a las 13:45. Las otras 12 estaban programadas para el
+lunes 19-10 y seguían en la Bandeja de salida a las 14:05, pero **a las 14:06 Zoho las mandó todas juntas, junto
+con Androetto (tanda 3), y 6 salieron DUPLICADAS** (Erca, Androetto, Ingeniería Mega, Maizco, Lory y Kogut). El de
+**Ing Company rebotó**: el dominio `ingmecanizadosrl.com.ar` no existe; falta un email válido. Todo cargado en el
+tablero con la hora real.
+**Conclusión: no usar «Enviar más tarde» de Zoho con esta cuenta**: falló tres veces (02:12, 02:39 y 14:06). La
+tanda 3 sigue sin enviar salvo Androetto. Antes de seguir, el usuario decide cómo enviar (a mano y en el momento,
+u otra herramienta).
 Detalle original de la tanda:
 `datos/salida/tanda02_email.csv` tiene 15 B listas (Aceros Coco a Industrias Erca). En Profarmer, Kogut e Ingeniería
 Mega la frase se cambió a «es una empresa industrial» (el rubro «montajes» salía solo de una palabra de su web). El
