@@ -63,10 +63,12 @@ def _contexto(fila: pd.Series, config: dict) -> dict:
     ctx["frase_rubro"] = fila.get("_frase") or config.get("industrial_generico", {}).get("frase", "es una empresa industrial")
     ctx["rubro_texto"] = (ctx.get("rubro_coi") or ctx.get("rubro") or "la industria").split(" (")[0].lower()
     ctx["dolor"] = fila.get("_dolor") or config.get("industrial_generico", {}).get("dolor", "")
-    ctx["solucion"] = fila.get("_solucion") or config.get("industrial_generico", {}).get("solucion", "")
+    ctx["solucion_generica"] = config.get("industrial_generico", {}).get("solucion", "")
+    ctx["solucion"] = fila.get("_solucion") or ctx["solucion_generica"]
     hechos = [h for h in str(fila.get("_hechos") or "").split(",") if h]
     frases = config.get("hechos", {})
     ctx["dato"] = " y ".join(frases[h] for h in hechos[:2] if h in frases)
+    ctx["dato1"] = next((frases[h] for h in hechos if h in frases), "")  # el email lleva un solo dato
     ctx["asunto"] = fila.get("_asunto") or config.get("industrial_generico", {}).get("asunto", "toda tu empresa en tiempo real")
     ctx.update(config.get("oferta", {}))
     return ctx

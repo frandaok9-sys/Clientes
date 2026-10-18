@@ -71,7 +71,8 @@ def test_borradores():
         assert len(texto.split()) <= 95, texto
         assert "$" not in texto
         cuerpo = fila["email_cuerpo"]
-        assert "COI" in cuerpo and cuerpo.endswith("respondé BAJA y no te escribimos más.")
+        assert "COI" in cuerpo and cuerpo.endswith("respondé BAJA y no te escribo más.")
+        assert cuerpo.count("hojas de ruta") == 1  # no se repite con la solución del rubro
         assert len(cuerpo.split()) <= 95, cuerpo
         assert "\n\n" in cuerpo  # el email va en párrafos
     assert pd.isna(_fila(df, "Kiosco")["borrador"])

@@ -1,13 +1,15 @@
-Asunto: {{ empresa }}: {{ asunto }}
+Asunto: {{ empresa }}: ¿qué herramientas tienen tus vendedores?
 Hola{% if primer_nombre %} {{ primer_nombre }}{% endif %},
 
-{% if categoria == "A" and dato %}Vi que {{ empresa }} {{ dato }}.{% else %}Vi que {{ empresa }} {{ frase_rubro }}.{% endif %} En empresas así, {{ dolor }}.
+{% if categoria == "A" and dato1 %}Vi que {{ empresa }} {{ dato1 }}.{% else %}Vi que {{ empresa }} {{ frase_rubro }}.{% endif %} ¿Con qué herramientas salen a competir tus vendedores?
 
-COI {{ solucion }}.
+Con el prospectador y las hojas de ruta de COI organizan visitas, ahorran combustible y suman prospectos que no están en su cartera.
+
+Además: presupuestos con tu logo, pesos y dólares por separado y un asistente de IA que conoce tus números.
 
 {{ cta }}
 
 Saludos,
 {{ remitente.split()[0] }}, de COI
 
-{{ baja }}
+{{ baja_email }}

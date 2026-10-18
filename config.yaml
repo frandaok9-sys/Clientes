@@ -153,6 +153,8 @@ oferta:
   remitente: "Francisco Dabbene"
   cta: "¿Te lo muestro en 20 minutos con tus datos? ¿Martes o jueves a la mañana?"
   baja: "Si no te interesa, respondé BAJA y no te escribimos más."
+  # En el email va como posdata más suave; sigue siendo el aviso de baja que pide la Disposición 4/2009
+  baja_email: "PD: si no es para vos, respondé BAJA y no te escribo más."
 
 # Qué dato concreto se menciona en el borrador A según la señal detectada
 hechos:
