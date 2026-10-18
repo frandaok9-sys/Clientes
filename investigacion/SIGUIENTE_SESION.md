@@ -11,8 +11,8 @@ El 18-10 a la madrugada, a pedido del usuario, se mandaron desde Zoho (francisco
 emails de `datos/salida/tanda01_email.csv`. Frio Raf salió a las 01:52. Oiltech, Orlandi, Técnicas Avanzadas,
 Tecno Ref, Nortrading, Tecnored y Gan Mar estaban programados de 02:15 a 04:15, pero **Zoho los mandó los 7
 juntos a las 02:12**. AFG, Comofra, Chiaza, Motor Maq, Frasinelli, N B Construcciones e Industrias Metalúrgicas MG
-(otra sesión, por un bloqueo de permisos en esta) quedaron programados de 04:35 a 06:35: revisar en Enviados si
-salieron espaciados o también juntos. Los 15 están en el tablero (`contactos`, «sin_respuesta», canal email, con
+(otra sesión, por un bloqueo de permisos en esta) quedaron programados de 04:35 a 06:35 y
+**también salieron juntos, a las 02:39**. Los 15 están en el tablero (`contactos`, «sin_respuesta», canal email, con
 la hora real en la nota) y en el seguimiento.
 **Para la próxima tanda:** no confiar en el «Enviar más tarde» para espaciar; después de programar, revisar que
 los mails sigan en la Bandeja de salida con su hora. Ojo: CLAUDE.md dice «No se envían mensajes desde acá»; el
@@ -24,6 +24,12 @@ Mega la frase se cambió a «es una empresa industrial» (el rubro «montajes» 
 usuario las manda a mano desde Zoho el lunes en horario laboral, espaciadas, y avisa para registrarlas en el tablero
 (`contactos`) y con `importar-estados`. No enviarlas desde acá. Para regenerar mails con contactos ya registrados:
 exportar estados del tablero a `datos/salida/estados_tablero.csv`, `todo --reiniciar` y después `importar-estados`.
+
+## Tanda 3 de emails: lista para revisar (18-10)
+`datos/salida/tanda03_email.csv`: 15 B más (Androetto a Rodamientos Brasil). Se sacó a Apex Metalúrgica
+(apex.com.ar, «soluciones para la industria petrolera»): falta que el usuario confirme que no tiene relación con
+Apex NOA, cliente de COI. En 9 empresas la frase de rubro pasó a «es una empresa industrial» porque el rubro salía
+solo de palabras clave. No enviar sin el OK del usuario.
 
 **Desde el 28-09 el trabajo sigue en la sesión local** (Claude Code en la computadora del usuario, con
 Claude in Chrome). La sección siguiente es para esa sesión; el resto del documento describe el ciclo tal
